@@ -10,4 +10,6 @@ public final class Constants {
 	public static final String APPLICATION_TITLE = "CCA Editor";
 	public static final String IMAGES_ICON_JPG = "./images/icon.jpg";
 	public static final String IMAGES_LOADING_SCREEN_JPG = "./images/loading-screen.jpg";
+	
+	public static final String MAIN_FRAME_NAME = "Main Frame Panel";
 }
