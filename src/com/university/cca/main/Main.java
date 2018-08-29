@@ -1,7 +1,11 @@
 package com.university.cca.main;
 
+import javax.swing.JFrame;
+import javax.swing.JMenuBar;
+
 import com.university.cca.frames.MainFrame;
 import com.university.cca.loading.LoadingScreen;
+import com.university.cca.menu.MainMenuBar;
 
 /**
  * Main Class of CCA Editor application. 
@@ -12,8 +16,13 @@ import com.university.cca.loading.LoadingScreen;
 public class Main {
 	public static void main(String... args) {
 		createLoadingScreen();
-		createMainFrame();
-		// TODO Next Step: Create MenuBar and Menu
+		
+		JFrame jMainFrame = new JFrame();
+		createMainFrame(jMainFrame);
+		
+		// TODO Menu Bar - Work in progress
+		JMenuBar jMainMenuBar = new JMenuBar();
+		createMainMenu(jMainMenuBar, jMainFrame);
 	}
 	
 	public static void createLoadingScreen() {
@@ -21,8 +30,13 @@ public class Main {
 		loadingScreen.createImage();
 	}
 	
-	public static void createMainFrame() {
+	public static void createMainFrame(JFrame frame) {
 		MainFrame mainFrame = new MainFrame();
-		mainFrame.createMainFrame();
+		mainFrame.createMainFrame(frame);
+	}
+	
+	public static void createMainMenu(JMenuBar jMainMenuBar, JFrame jMainFrame) {
+		MainMenuBar mainMenuBar = new MainMenuBar();
+		mainMenuBar.createMainMenuBar(jMainMenuBar, jMainFrame);
 	}
 }
