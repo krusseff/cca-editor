@@ -8,6 +8,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 import com.university.cca.constants.Constants;
+import com.university.cca.util.CCAUtils;
 
 /**
  * Main Frame of CCA Editor application
@@ -17,11 +18,11 @@ import com.university.cca.constants.Constants;
  */
 public class MainFrame {
 	
-	public void createMainFrame() {
-		JFrame mainFrame = new JFrame();
-		mainFrame.setResizable(true);
+	public void createMainFrame(JFrame mainFrame) {
+		mainFrame.setResizable(true); // TODO Decide true or false
 		mainFrame.setVisible(true);
 		mainFrame.setLayout(null);
+		mainFrame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
 		mainFrame.setTitle(Constants.APPLICATION_TITLE);
 		mainFrame.setName(Constants.MAIN_FRAME_NAME);
 		mainFrame.setIconImage(createMainFrameIconImage());
@@ -36,7 +37,8 @@ public class MainFrame {
 	}
 	
 	private void makeFrameHalfSize(JFrame jFrame) {
-	    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		CCAUtils ccaUtils = new CCAUtils();
+	    Dimension screenSize = ccaUtils.getScreenSize();
 	    jFrame.setSize(screenSize.width / 2, screenSize.height / 2);
 	}
 	
