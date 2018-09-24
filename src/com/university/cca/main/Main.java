@@ -1,11 +1,17 @@
 package com.university.cca.main;
 
 import javax.swing.JFrame;
+import javax.swing.JMenu;
 import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
 
+import com.university.cca.constants.Constants;
 import com.university.cca.frames.MainFrame;
 import com.university.cca.loading.LoadingScreen;
+import com.university.cca.menu.MainMenu;
 import com.university.cca.menu.MainMenuBar;
+import com.university.cca.panels.MainPanel;
 
 /**
  * Main Class of CCA Editor application. 
@@ -20,9 +26,22 @@ public class Main {
 		JFrame jMainFrame = new JFrame();
 		createMainFrame(jMainFrame);
 		
-		// TODO Menu Bar - Work in progress
 		JMenuBar jMainMenuBar = new JMenuBar();
-		createMainMenu(jMainMenuBar, jMainFrame);
+		createMainMenuBar(jMainMenuBar, jMainFrame);
+
+		// TODO Main Menu - Work in progress
+		JMenu file = new JMenu(Constants.FILE);
+		JMenu edit = new JMenu(Constants.EDIT);
+		JMenu view = new JMenu(Constants.VIEW);
+		JMenu help = new JMenu(Constants.HELP);
+		JMenu about = new JMenu(Constants.ABOUT);
+		createMainMenu(jMainMenuBar, file, edit, view, help, about);
+		
+		JPanel jMainPanel = new JPanel();
+		createMainPanel(jMainFrame, jMainPanel);
+		
+		JMenuItem aboutCCA = new JMenuItem(Constants.ABOUT_CCA);
+		JMenuItem aboutCCAEditor = new JMenuItem(Constants.ABOUT_CCA_EDITOR);
 	}
 	
 	public static void createLoadingScreen() {
@@ -35,8 +54,19 @@ public class Main {
 		mainFrame.createMainFrame(frame);
 	}
 	
-	public static void createMainMenu(JMenuBar jMainMenuBar, JFrame jMainFrame) {
+	public static void createMainMenuBar(JMenuBar jMainMenuBar, JFrame jMainFrame) {
 		MainMenuBar mainMenuBar = new MainMenuBar();
 		mainMenuBar.createMainMenuBar(jMainMenuBar, jMainFrame);
+	}
+	
+	public static void createMainMenu(JMenuBar jMainMenuBar, JMenu file, JMenu edit,
+									  JMenu view, JMenu help, JMenu about) {
+		MainMenu mainMenu = new MainMenu();
+		mainMenu.createMainMenu(file, edit, view, help, about, jMainMenuBar);
+	}
+	
+	public static void createMainPanel(JFrame jMainFrame, JPanel jMainPanel) {
+		MainPanel mainPanel = new MainPanel();
+		mainPanel.createMainPanel(jMainFrame, jMainPanel);
 	}
 }

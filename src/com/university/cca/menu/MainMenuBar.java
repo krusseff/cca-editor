@@ -1,7 +1,5 @@
 package com.university.cca.menu;
 
-import java.awt.Dimension;
-
 import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 
@@ -17,12 +15,8 @@ public class MainMenuBar {
 		mainMenuBar.setVisible(true);
 		mainMenuBar.setLayout(null);
 		mainMenuBar.setBounds(1, 1, mainFrame.getWidth(), 20);
-
-		// mainMenuBar.setLocation(1, 1);
-		// mainMenuBar.setMaximumSize(new Dimension(mainFrame.getWidth() - 50, 20));
 		
 		// put the menu bar on the frame
-		// mainFrame.add(mainMenuBar);
 		mainFrame.setJMenuBar(mainMenuBar);
 	}
 }

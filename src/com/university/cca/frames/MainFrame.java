@@ -8,6 +8,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 import com.university.cca.constants.Constants;
+import com.university.cca.util.CCAUtils;
 
 /**
  * Main Frame of CCA Editor application
@@ -36,7 +37,8 @@ public class MainFrame {
 	}
 	
 	private void makeFrameHalfSize(JFrame jFrame) {
-	    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		CCAUtils ccaUtils = new CCAUtils();
+	    Dimension screenSize = ccaUtils.getScreenSize();
 	    jFrame.setSize(screenSize.width / 2, screenSize.height / 2);
 	}
 	
