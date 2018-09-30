@@ -27,4 +27,8 @@ public final class Constants {
 	public static final String FAQ = "FAQ";
 	public static final String ABOUT_CCA = "About CCA";
 	public static final String ABOUT_CCA_EDITOR = "About CCA Editor";
+	
+	private Constants() {
+		// private constructor to hide the implicit public one
+	}
 }

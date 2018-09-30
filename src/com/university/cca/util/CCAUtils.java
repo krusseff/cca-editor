@@ -17,8 +17,7 @@ import com.university.cca.constants.Constants;
 public class CCAUtils {
 	
 	public Dimension getScreenSize() {
-		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		return screenSize;
+		return Toolkit.getDefaultToolkit().getScreenSize();
 	}
 	
 	public void setMenuItemFontSize(JMenuItem jMenuItemElement) {

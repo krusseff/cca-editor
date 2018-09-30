@@ -1,3 +1,8 @@
 com.university.cca.constants
+com.university.cca.frames
 com.university.cca.loading
 com.university.cca.main
+com.university.cca.menu
+com.university.cca.menu.items
+com.university.cca.panels
+com.university.cca.util

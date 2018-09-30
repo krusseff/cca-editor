@@ -10,9 +10,6 @@ import javax.swing.ImageIcon;
 import java.awt.IllegalComponentStateException;
 import java.awt.FlowLayout;
 
-import java.lang.Thread;
-import java.lang.Runnable;
-
 /**
  * @author Konstantin Rusev
  * @version 1.0
@@ -70,7 +67,7 @@ public class LoadingScreen {
 			}
 		}
 		catch(IllegalComponentStateException | InterruptedException ex) {
-			System.out.println(ex.getMessage());
+			System.err.println(ex.getMessage());
 		}
 	}
 }

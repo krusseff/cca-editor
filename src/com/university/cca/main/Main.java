@@ -80,8 +80,7 @@ public class Main {
 	}
 	
 	public static ImageIcon getAboutIconImage() {
-		ImageIcon aboutIcon = new ImageIcon(Constants.ABOUT_ICON_PATH);
-		return aboutIcon;
+		return new ImageIcon(Constants.ABOUT_ICON_PATH);
 	}
 	
 	public static void createAboutCCAMenuItem(JMenu aboutMenu, JMenuItem aboutCCAMenuItem) {
@@ -95,8 +94,7 @@ public class Main {
 	}
 	
 	public static ImageIcon getFAQIconImage() {
-		ImageIcon faqIcon = new ImageIcon(Constants.HELP_ICON_PATH);
-		return faqIcon;
+		return new ImageIcon(Constants.HELP_ICON_PATH);
 	}
 	
 	public static void createFAQMenuItem(JMenu helpMenu, JMenuItem faqMenuItem) {
