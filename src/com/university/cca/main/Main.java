@@ -1,5 +1,6 @@
 package com.university.cca.main;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -11,6 +12,8 @@ import com.university.cca.frames.MainFrame;
 import com.university.cca.loading.LoadingScreen;
 import com.university.cca.menu.MainMenu;
 import com.university.cca.menu.MainMenuBar;
+import com.university.cca.menu.items.AboutMenuItems;
+import com.university.cca.menu.items.HelpMenuItems;
 import com.university.cca.panels.MainPanel;
 
 /**
@@ -20,6 +23,7 @@ import com.university.cca.panels.MainPanel;
  * @version 1.0
  */
 public class Main {
+	
 	public static void main(String... args) {
 		createLoadingScreen();
 		
@@ -40,8 +44,13 @@ public class Main {
 		JPanel jMainPanel = new JPanel();
 		createMainPanel(jMainFrame, jMainPanel);
 		
-		JMenuItem aboutCCA = new JMenuItem(Constants.ABOUT_CCA);
-		JMenuItem aboutCCAEditor = new JMenuItem(Constants.ABOUT_CCA_EDITOR);
+		JMenuItem aboutCCA = new JMenuItem(Constants.ABOUT_CCA, getAboutIconImage());
+		JMenuItem aboutCCAEditor = new JMenuItem(Constants.ABOUT_CCA_EDITOR, getAboutIconImage());
+		createAboutCCAMenuItem(about, aboutCCA);
+		createAboutCCAEditorMenuItem(about, aboutCCAEditor);
+
+		JMenuItem faq = new JMenuItem(Constants.FAQ, getFAQIconImage());
+		createFAQMenuItem(help, faq);
 	}
 	
 	public static void createLoadingScreen() {
@@ -68,5 +77,30 @@ public class Main {
 	public static void createMainPanel(JFrame jMainFrame, JPanel jMainPanel) {
 		MainPanel mainPanel = new MainPanel();
 		mainPanel.createMainPanel(jMainFrame, jMainPanel);
+	}
+	
+	public static ImageIcon getAboutIconImage() {
+		ImageIcon aboutIcon = new ImageIcon(Constants.ABOUT_ICON_PATH);
+		return aboutIcon;
+	}
+	
+	public static void createAboutCCAMenuItem(JMenu aboutMenu, JMenuItem aboutCCAMenuItem) {
+		AboutMenuItems aboutMenuItems = new AboutMenuItems();
+		aboutMenuItems.addAboutCCAMenuItem(aboutMenu, aboutCCAMenuItem);
+	}
+	
+	public static void createAboutCCAEditorMenuItem(JMenu aboutMenu, JMenuItem aboutCCAEditorMenuItem) {
+		AboutMenuItems aboutMenuItems = new AboutMenuItems();
+		aboutMenuItems.addAboutCCAEditorMenuItem(aboutMenu, aboutCCAEditorMenuItem);
+	}
+	
+	public static ImageIcon getFAQIconImage() {
+		ImageIcon faqIcon = new ImageIcon(Constants.HELP_ICON_PATH);
+		return faqIcon;
+	}
+	
+	public static void createFAQMenuItem(JMenu helpMenu, JMenuItem faqMenuItem) {
+		HelpMenuItems helpMenuItems = new HelpMenuItems();
+		helpMenuItems.addFAQMenuItem(helpMenu, faqMenuItem);
 	}
 }

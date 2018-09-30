@@ -8,8 +8,11 @@ package com.university.cca.constants;
  */
 public final class Constants {
 	public static final String APPLICATION_TITLE = "CCA Editor";
+	
 	public static final String IMAGES_ICON_JPG = "./images/icon.jpg";
 	public static final String IMAGES_LOADING_SCREEN_JPG = "./images/loading-screen.jpg";
+	public static final String ABOUT_ICON_PATH = "./images/about_icon.png";
+	public static final String HELP_ICON_PATH = "./images/help_icon.png";
 	
 	public static final String FONT_ARIAL = "Arial";
 	
@@ -21,6 +24,7 @@ public final class Constants {
 	public static final String HELP = "Help";
 	public static final String ABOUT = "About";
 	
+	public static final String FAQ = "FAQ";
 	public static final String ABOUT_CCA = "About CCA";
 	public static final String ABOUT_CCA_EDITOR = "About CCA Editor";
 }
