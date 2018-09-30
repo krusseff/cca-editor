@@ -13,6 +13,10 @@ These instructions will get you a copy of the project up and running on your loc
 
 ## Java Doc
 
-You can view full Java documentation for all classes and interfaces for this application.
+You can view full Java [documentation](doc/index.html) for all classes and interfaces for this application.
 
 `./<project_folder>/doc/index.html`
+
+You can update Java documentation from Eclipse: `Project -> Generate javadoc...`
+
+Reference: [here](https://stackoverflow.com/questions/4468669/how-to-generate-javadoc-html-files-in-eclipse)

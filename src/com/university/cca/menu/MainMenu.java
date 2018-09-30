@@ -77,7 +77,7 @@ public class MainMenu {
 	}
 	
 	public void setMenuElementVisibility(JMenu jMenuElement, boolean isVisible) {
-		jMenuElement.setVisible(true);
+		jMenuElement.setVisible(isVisible);
 	}
 	
 	public void setMenuElementLayout(JMenu jMenuElement, LayoutManager layoutManager) {

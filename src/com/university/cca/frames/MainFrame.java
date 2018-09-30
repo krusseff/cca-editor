@@ -32,8 +32,7 @@ public class MainFrame {
 	
 	private Image createMainFrameIconImage() {
 		ImageIcon img = new ImageIcon(Constants.IMAGES_ICON_JPG);
-		Image mainFrameIconImage = img.getImage();
-		return mainFrameIconImage;
+		return img.getImage();
 	}
 	
 	private void makeFrameHalfSize(JFrame jFrame) {
