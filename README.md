@@ -10,6 +10,9 @@ These instructions will get you a copy of the project up and running on your loc
 
 * Java 8
 * Java Swing/AWT
+* Maven
+* JUnit
+* Eclipse
 
 ## Java Doc
 
