@@ -5,12 +5,7 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JPanel;
 
-import com.university.cca.buttons.BusStationButton;
-import com.university.cca.buttons.HospitalButton;
-import com.university.cca.buttons.HotelButton;
-import com.university.cca.buttons.PortButton;
 import com.university.cca.constants.Constants;
 import com.university.cca.frames.AppMainFrame;
 import com.university.cca.loading.LoadingScreen;
@@ -18,7 +13,6 @@ import com.university.cca.menu.MainMenu;
 import com.university.cca.menu.MainMenuBar;
 import com.university.cca.menu.items.AboutMenuItems;
 import com.university.cca.menu.items.HelpMenuItems;
-import com.university.cca.panels.AppMainPanel;
 
 /**
  * Main Class of CCA Editor application. 

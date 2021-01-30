@@ -1,6 +1,6 @@
 # A Calculus of Context-Aware Systems Editor
 
-A new generation editor for modeling Context-Aware Systems (Development Environment)
+A new generation editor for modelling Context-Aware Systems (Development Environment)
 
 ## Getting Started
 
@@ -13,6 +13,8 @@ These instructions will get you a copy of the project up and running on your loc
 * Maven
 * JUnit
 * Eclipse
+* CCA paradigm
+* ccaPL language
 
 ## Java Doc
 
