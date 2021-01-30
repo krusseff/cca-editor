@@ -14,6 +14,11 @@ public final class Constants {
 	public static final String ABOUT_ICON_PATH = "./images/about_icon.png";
 	public static final String HELP_ICON_PATH = "./images/help_icon.png";
 	
+	public static final String HOSPITAL_ICON_PATH = "./images/hospital.png";
+	public static final String PORT_ICON_PATH = "./images/port.png";
+	public static final String HOTEL_ICON_PATH = "./images/hotel.png";
+	public static final String BUS_STATION_ICON_PATH = "./images/bus_station.png";
+	
 	public static final String FONT_ARIAL = "Arial";
 	
 	public static final String MAIN_FRAME_NAME = "Main Frame Panel";
