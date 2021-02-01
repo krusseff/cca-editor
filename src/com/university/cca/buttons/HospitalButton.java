@@ -6,15 +6,20 @@ import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 
 import com.university.cca.constants.Constants;
+import com.university.cca.dialogs.CreateAmbientDialog;
 
 public class HospitalButton extends JButton implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
-	private int numClicks = 0;
 	
-    public HospitalButton() {
+	private JFrame parentFrame;
+	
+    public HospitalButton(JFrame parentFrame) {
+    	this.parentFrame = parentFrame;
+    	
     	ImageIcon icon = new ImageIcon(Constants.HOSPITAL_ICON_PATH);
 
         this.setText("Hospital");
@@ -26,6 +31,17 @@ public class HospitalButton extends JButton implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		System.out.println("Hospital Button Clicked " + (numClicks++) + " times");
+		System.out.println("Create Hospital Button Clicked.");
+		
+		new CreateAmbientDialog(
+			parentFrame, 
+			"Create Hospital", 
+			"Please, enter a valid hospital information"
+		);
+	}
+
+	// Getters and Setters
+	public JFrame getParentFrame() {
+		return parentFrame;
 	}
 }

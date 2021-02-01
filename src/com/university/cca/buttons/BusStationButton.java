@@ -6,15 +6,20 @@ import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 
 import com.university.cca.constants.Constants;
+import com.university.cca.dialogs.CreateAmbientDialog;
 
 public class BusStationButton extends JButton implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
-	private int numClicks = 0;
 	
-    public BusStationButton() {
+	private JFrame parentFrame;
+	
+    public BusStationButton(JFrame parentFrame) {
+    	this.parentFrame = parentFrame;
+    	
     	ImageIcon icon = new ImageIcon(Constants.BUS_STATION_ICON_PATH);
 
         this.setText("Bus Station");
@@ -26,6 +31,17 @@ public class BusStationButton extends JButton implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		System.out.println("Bus Station Button Clicked " + (numClicks++) + " times");
+		System.out.println("Bus Station Button Clicked");
+		
+		new CreateAmbientDialog(
+			parentFrame, 
+			"Create Bus Station", 
+			"Please, enter a valid bus station information"
+		);
+	}
+	
+	// Getters and Setters
+	public JFrame getParentFrame() {
+		return parentFrame;
 	}
 }

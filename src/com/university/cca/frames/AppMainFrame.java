@@ -1,7 +1,7 @@
 package com.university.cca.frames;
 
 import java.awt.Dimension;
-import java.awt.GridLayout;
+import java.awt.FlowLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
 
@@ -23,18 +23,16 @@ public class AppMainFrame extends JFrame {
 	private static final long serialVersionUID = 1L;
 
 	public AppMainFrame() {
-		// TODO: Ако нещо не се дисплейва може да е от layout-a
-		// GridLayout(редове, колони)
-		this.setLayout(new GridLayout(3, 1));
-
 		this.setTitle(Constants.APPLICATION_TITLE);
 		this.setName(Constants.MAIN_FRAME_NAME);
 		this.setIconImage(createMainFrameIconImage());
 
-		this.setResizable(true); // TODO Decide true or false
-		// makeFrameHalfSize();
-		// makeFrameCenterPosition();
-		this.setSize(500, 500); // TODO
+		// TODO: Ако нещо не се дисплейва може да е от layout-a
+		this.setLayout(new FlowLayout());
+		this.setResizable(true);
+		makeFrameHalfSize();
+		makeFrameCenterPosition();
+		// this.setSize(500, 500); // TODO
 		
 		// Add content to the frame
 		AppMainPanel mainPanel = new AppMainPanel(this);

@@ -11,18 +11,18 @@ import javax.swing.JFrame;
 import com.university.cca.constants.Constants;
 import com.university.cca.dialogs.CreateAmbientDialog;
 
-public class HotelButton extends JButton implements ActionListener {
+public class RestaurantButton extends JButton implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
-
+	
 	private JFrame parentFrame;
 	
-    public HotelButton(JFrame parentFrame) {
+    public RestaurantButton(JFrame parentFrame) {
     	this.parentFrame = parentFrame;
     	
-    	ImageIcon icon = new ImageIcon(Constants.HOTEL_ICON_PATH);
+    	ImageIcon icon = new ImageIcon(Constants.RESTAURANT_ICON_PATH);
 
-        this.setText("Hotel");
+        this.setText("Restaurant");
         this.setIcon(icon);
         this.setPreferredSize(new Dimension(190, 80));
         
@@ -31,12 +31,12 @@ public class HotelButton extends JButton implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		System.out.println("Hotel Button Clicked");
+		System.out.println("Restaurant Button Clicked");
 		
 		new CreateAmbientDialog(
 			parentFrame, 
-			"Create Hotel", 
-			"Please, enter a valid hotel information"
+			"Create Restaurant", 
+			"Please, enter a valid restaurant information"
 		);
 	}
 	
