@@ -1,7 +1,7 @@
 package com.university.cca.frames;
 
+import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
 
@@ -28,7 +28,8 @@ public class AppMainFrame extends JFrame {
 		this.setIconImage(createMainFrameIconImage());
 
 		// TODO: Ако нещо не се дисплейва може да е от layout-a
-		this.setLayout(new FlowLayout());
+		// this.setLayout(new FlowLayout());
+		this.setLayout(new BorderLayout());
 		this.setResizable(true);
 		makeFrameHalfSize();
 		makeFrameCenterPosition();

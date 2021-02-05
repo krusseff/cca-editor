@@ -1,28 +1,37 @@
 package com.university.caa.entities;
 
+/**
+ * Model class that holds an information for a specific ambient object
+ * 
+ * @author Konstantin Rusev
+ * @version 1.0
+ */
 public class Ambient {
 	
 	private String name;
 	private String location;
 	private boolean isStaticAmbient;
-	private Ambient parentAmbient;
+	private String parentAmbient;
 	
 	public Ambient() {
 		// To be able to create an object without information for it
 	}
 
-	public Ambient(String name, String location, boolean isStaticAmbient, Ambient parentAmbient) {
+	public Ambient(String name, String location, boolean isStaticAmbient, String parentAmbient) {
 		this.name = name;
 		this.location = location;
 		this.isStaticAmbient = isStaticAmbient;
 		this.parentAmbient = parentAmbient;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + (isStaticAmbient ? 1231 : 1237);
+		result = prime * result + ((location == null) ? 0 : location.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((parentAmbient == null) ? 0 : parentAmbient.hashCode());
 		return result;
 	}
 
@@ -35,10 +44,22 @@ public class Ambient {
 		if (getClass() != obj.getClass())
 			return false;
 		Ambient other = (Ambient) obj;
+		if (isStaticAmbient != other.isStaticAmbient)
+			return false;
+		if (location == null) {
+			if (other.location != null)
+				return false;
+		} else if (!location.equals(other.location))
+			return false;
 		if (name == null) {
 			if (other.name != null)
 				return false;
 		} else if (!name.equals(other.name))
+			return false;
+		if (parentAmbient == null) {
+			if (other.parentAmbient != null)
+				return false;
+		} else if (!parentAmbient.equals(other.parentAmbient))
 			return false;
 		return true;
 	}
@@ -73,12 +94,12 @@ public class Ambient {
 	public void setStaticAmbient(boolean isStaticAmbient) {
 		this.isStaticAmbient = isStaticAmbient;
 	}
-	
-	public Ambient getParentAmbient() {
+
+	public String getParentAmbient() {
 		return parentAmbient;
 	}
-	
-	public void setParentAmbient(Ambient parentAmbient) {
+
+	public void setParentAmbient(String parentAmbient) {
 		this.parentAmbient = parentAmbient;
 	}
 }

@@ -5,6 +5,7 @@ import java.awt.GridLayout;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 import com.university.cca.buttons.BusStationButton;
 import com.university.cca.buttons.CoffeeButton;
@@ -42,7 +43,10 @@ public class AppMainPanel extends JPanel {
 		
 		addContentToPanel();
 		
-		parentFrame.add(this);
+		// make scrollable panel
+		JScrollPane scrollPanel = new JScrollPane(this);
+		
+		parentFrame.add(scrollPanel);
 		this.setVisible(true);
 	}
 	
