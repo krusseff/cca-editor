@@ -15,6 +15,7 @@ import javax.swing.JTextField;
 
 import com.university.caa.entities.Ambient;
 import com.university.cca.buttons.CancelDialogButton;
+import com.university.cca.files.csv.AmbientCSVWriter;
 import com.university.cca.util.CreateAmbientUtil;
 
 public class CreateAmbientDialog extends JDialog {
@@ -73,7 +74,6 @@ public class CreateAmbientDialog extends JDialog {
         dialogPanel.add(createAmbientButton);
         dialogPanel.add(new CancelDialogButton(this));
         
-        // TODO: CreateAmbientDialog cr = this;
         createAmbientButton.addActionListener(new ActionListener() {
 			
 			@Override
@@ -89,27 +89,22 @@ public class CreateAmbientDialog extends JDialog {
 					Ambient ambient = CreateAmbientUtil.constructAmbient(name, location, isStatic, parentAmbient);
 					System.out.println("New ambient: " + ambient);
 					
-					// TODO: Implement writing to files here
-					// 1. File with ambient names only
-					// 2. CCA file
+					// TODO: 1. CSV file
+					// TODO: Maybe add ambient type: hospital, hotel and etc.
+					AmbientCSVWriter.writeAmbientToCsv(ambient);
+					
+					// TODO: 2. CCA file
+					// code here
+					
+					CreateAmbientUtil.createSuccessDialog(getCurrentDialog());
+					getCurrentDialog().dispose();
 				} else {
-					// TODO Dialog with an error
-					CreateAmbientUtil.showErrorDialog();
+					CreateAmbientUtil.createErrorDialog(getCurrentDialog());
 				}
-	
-				// TODO: cr.dispose();
 			}
 		});
         
         this.getContentPane().add(dialogPanel);
-	}
-	
-	private JLabel createLabel(String labelName) {
-		return new JLabel(labelName, JLabel.CENTER);
-	}
-	
-	private JTextField createTextField() {
-		return new JTextField(TEXT_FIELD_SIZE);
 	}
 	
 	private JComboBox<String> createComboBox() {
@@ -121,11 +116,35 @@ public class CreateAmbientDialog extends JDialog {
 		return new JComboBox<>(parentAmbients);
 	}
 	
+	/**
+	 * @return set up and return the labels of the create ambient dialog.
+	 */
+	private JLabel createLabel(String labelName) {
+		return new JLabel(labelName, JLabel.CENTER);
+	}
+	
+	/**
+	 * @return set up and return the input fields of the create ambient dialog.
+	 */
+	private JTextField createTextField() {
+		return new JTextField(TEXT_FIELD_SIZE);
+	}
+	
+	/**
+	 * @return set up and return the layout of the create ambient dialog.
+	 */
 	private GridLayout getGridLayout() {
 		GridLayout layout = new GridLayout(GRID_ROWS, GRID_COLS);
         layout.setHgap(10);
         layout.setVgap(10);
         
         return layout;
+	}
+	
+	/**
+	 * @return an object of the current instance.
+	 */
+	public CreateAmbientDialog getCurrentDialog() {
+		return this;
 	}
 }
