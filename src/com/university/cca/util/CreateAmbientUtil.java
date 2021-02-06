@@ -2,9 +2,11 @@ package com.university.cca.util;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 
 import com.university.caa.entities.Ambient;
 import com.university.cca.constants.Constants;
+import com.university.cca.dialogs.CreateAmbientDialog;
 
 /**
  * Utility methods related to the create ambient functionality
@@ -18,6 +20,9 @@ public class CreateAmbientUtil {
 		// Prevent creating an object of type CreateAmbientUtil
 	}
 	
+	/**
+	 * Method that creates and returns create ambient button.
+	 */
 	public static JButton createAmbientButton() {
 		JButton createAmbientButton = new JButton();
 		
@@ -28,10 +33,33 @@ public class CreateAmbientUtil {
     	return createAmbientButton;
 	}
 	
-	public static void showErrorDialog() {
-		// TODO
+	/**
+	 * Method that shows a success dialog if an ambient is created successfully.
+	 */
+	public static void createSuccessDialog(CreateAmbientDialog parentDialog) {
+		JOptionPane.showMessageDialog(
+			parentDialog,
+			"The ambient is created successfully!", 
+			"Successful Operation",
+            JOptionPane.INFORMATION_MESSAGE
+		);
 	}
 	
+	/**
+	 * Method that shows an error dialog if the fields of an ambient are invalid.
+	 */
+	public static void createErrorDialog(CreateAmbientDialog parentDialog) {
+		JOptionPane.showMessageDialog(
+			parentDialog,
+			"Please, enter valid values for the input fields!", 
+			"Validation Error",
+            JOptionPane.ERROR_MESSAGE
+		);
+	}
+	
+	/**
+	 * Method that validates the fields of the newly created ambient object.
+	 */
 	public static boolean isValidAmbient(String name, 
 										 String location, 
 										 Object parentAmbient) {
@@ -43,6 +71,9 @@ public class CreateAmbientUtil {
 		return isValidName && isValidLocation && isValidParent;
 	}
 	
+	/**
+	 * Method that creates and returns an ambient object.
+	 */
 	public static Ambient constructAmbient(String name, 
 										   String location, 
 										   boolean isStatic, 
