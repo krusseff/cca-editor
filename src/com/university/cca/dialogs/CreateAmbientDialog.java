@@ -93,8 +93,7 @@ public class CreateAmbientDialog extends JDialog {
 					
 					AmbientCSVWriter.writeAmbientToCsv(ambient);
 					
-					// TODO: 2. CCA file
-					// code here
+					// TODO: Writing to CCA file here
 					
 					CreateAmbientUtil.createSuccessDialog(getCurrentDialog());
 					getCurrentDialog().dispose();
