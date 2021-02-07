@@ -5,8 +5,6 @@ import java.io.IOException;
 import java.io.Writer;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
 
 import com.opencsv.CSVWriter;
 import com.opencsv.bean.StatefulBeanToCsv;
@@ -32,18 +30,12 @@ public class AmbientCSVWriter {
 	 * Method, which main responsibility is to write ambients to the csv file.
 	 */
 	public static void writeAmbientToCsv(Ambient ambient) {
-		CsvAmbientBean ambientBean = AmbientCsvUtil.convertToCsvAmbientBean(ambient);
-		List<CsvAmbientBean> ambientBeans = new ArrayList<>();
-		ambientBeans.add(ambientBean);
-		
 		String filePath = Constants.AMBIENTS_CSV_FILE_PATH;
-		
 		AmbientCsvUtil.createFileIfDoesNotExist(filePath);
-		
 		Path path = Paths.get(filePath);
 
 		try {
-			writeCsvFromBean(path, ambientBeans);
+			writeCsvFromBean(path, AmbientCsvUtil.convertToCsvAmbientBean(ambient));
 		} catch (CsvDataTypeMismatchException | CsvRequiredFieldEmptyException | IOException e) {
 			System.err.println("Unable to write the data to the CSV file: " + e.getMessage());
 			System.err.println("Exiting the program...");
@@ -54,14 +46,15 @@ public class AmbientCSVWriter {
 	/**
 	 * Method, which main responsibility is to write to the csv file.
 	 */
-	private static <T> void writeCsvFromBean(Path path, List<T> items) throws IOException, CsvDataTypeMismatchException, CsvRequiredFieldEmptyException {
-	    Writer writer  = new FileWriter(path.toString());
+	private static <T> void writeCsvFromBean(Path path, T item) throws IOException, CsvDataTypeMismatchException, CsvRequiredFieldEmptyException {
+	    boolean isAppendingAllowed = true;
+		Writer writer = new FileWriter(path.toString(), isAppendingAllowed);
 
 	    StatefulBeanToCsv<T> sbc = new StatefulBeanToCsvBuilder<T>(writer)
 	       .withSeparator(CSVWriter.DEFAULT_SEPARATOR)
 	       .build();
 
-	    sbc.write(items);
+	    sbc.write(item);
 	    writer.close();
 	}
 }
