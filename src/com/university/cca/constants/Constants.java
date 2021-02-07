@@ -31,6 +31,9 @@ public final class Constants {
 	public static final String RESTAURANT_ICON_PATH = "./images/restaurant.png";
 	public static final String COFFEE_ICON_PATH = "./images/coffee.png";
 	public static final String PARKING_ICON_PATH = "./images/parking.png";
+	public static final String CITY_ICON_PATH = "./images/city.png";
+	public static final String COUNTRY_ICON_PATH = "./images/country.png";
+	public static final String CONTINENT_ICON_PATH = "./images/continent.png";
 	
 	public static final String FONT_ARIAL = "Arial";
 	

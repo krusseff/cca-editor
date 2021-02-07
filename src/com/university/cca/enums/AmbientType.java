@@ -18,5 +18,8 @@ public enum AmbientType {
 	RESTAURANT,
 	SCHOOL,
 	SHOP,
-	UNIVERSITY
+	UNIVERSITY,
+	CITY,
+	COUNTRY,
+	CONTINENT
 }

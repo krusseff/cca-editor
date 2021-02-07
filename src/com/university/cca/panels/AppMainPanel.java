@@ -8,7 +8,10 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import com.university.cca.buttons.BusStationButton;
+import com.university.cca.buttons.CityButton;
 import com.university.cca.buttons.CoffeeButton;
+import com.university.cca.buttons.ContinentButton;
+import com.university.cca.buttons.CountryButton;
 import com.university.cca.buttons.HospitalButton;
 import com.university.cca.buttons.HotelButton;
 import com.university.cca.buttons.MuseumButton;
@@ -63,6 +66,9 @@ public class AppMainPanel extends JPanel {
 		this.add(new RestaurantButton(parentFrame));
 		this.add(new CoffeeButton(parentFrame));
 		this.add(new ParkingButton(parentFrame));
+		this.add(new CityButton(parentFrame));
+		this.add(new CountryButton(parentFrame));
+		this.add(new ContinentButton(parentFrame));
 	}
 	
 	private void setMainPanelSize() {
