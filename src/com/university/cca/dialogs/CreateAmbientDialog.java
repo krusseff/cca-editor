@@ -65,22 +65,21 @@ public class CreateAmbientDialog extends JDialog {
         dialogPanel.add(createLabel("Static Ambient:"));
         dialogPanel.add(staticCheckBox);
         
-        // fourth row of the dialog
+        // fifth row of the dialog
         parentAmbientsComboBox = createComboBox();
         parentAmbientsComboBox.setSelectedIndex(-1); // set default empty value
         dialogPanel.add(createLabel("Parent Ambient Name:"));
         dialogPanel.add(parentAmbientsComboBox);
         
-        // fifth row of the dialog with the buttons      
+        // sixth row of the dialog with the buttons      
         JButton createAmbientButton = CreateAmbientUtil.createAmbientButton();
         dialogPanel.add(createAmbientButton);
         dialogPanel.add(new CancelDialogButton(this));
         
         createAmbientButton.addActionListener(new ActionListener() {
-			
-			@Override
+
+        	@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("Create Ambient Button Clicked");
 				
 				String name = ambientNameTextField.getText();
 				String location = ambientLocationTextField.getText();
@@ -89,7 +88,6 @@ public class CreateAmbientDialog extends JDialog {
 				
 				if (CreateAmbientUtil.isValidAmbient(name, location, parentAmbient)) {
 					Ambient ambient = CreateAmbientUtil.constructAmbient(name, location, isStatic, parentAmbient, ambientType);
-					System.out.println("New ambient: " + ambient);
 					
 					AmbientCSVWriter.writeAmbientToCsv(ambient);
 					

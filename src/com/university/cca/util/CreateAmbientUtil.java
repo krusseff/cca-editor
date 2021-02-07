@@ -82,7 +82,10 @@ public class CreateAmbientUtil {
 										   AmbientType ambientType) {
 		
 		String parent = String.valueOf(parentAmbient);
+		Ambient ambient = new Ambient(name, location, isStatic, parent, ambientType);
 		
-		return new Ambient(name, location, isStatic, parent, ambientType);
+		System.out.println("Ambient: " + ambient);
+		
+		return ambient;
 	}
 }

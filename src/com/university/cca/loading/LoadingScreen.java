@@ -19,7 +19,7 @@ public class LoadingScreen {
 	private JFrame imageFrame;
 	
 	public LoadingScreen() { 
-		
+		// Default constructor to be able to create objects of type LoadingScreen
 	}
 	
 	@SuppressWarnings("deprecation")
@@ -31,12 +31,12 @@ public class LoadingScreen {
 					imageFrame.setUndecorated(true);
 					imageFrame.setVisible(true);
 					imageFrame.setBounds(390, 230, 600, 300);
-					imageFrame.setLayout(null); // TODO: new FlowLayout()
+					imageFrame.setLayout(null);
 						
 					JPanel imagePanel = new JPanel();
 					imagePanel.setVisible(true);
 					imagePanel.setBounds(0, 0, 600, 300);
-					imagePanel.setLayout(null); // TODO: new FlowLayout()
+					imagePanel.setLayout(null);
 					
 					imageFrame.add(imagePanel);
 					
@@ -61,13 +61,13 @@ public class LoadingScreen {
 			synchronized(t) {
 				t.wait(2000);
 				t.start();
-				Thread.sleep(7000);
+				Thread.sleep(3000);
 				t.stop();
 				imageFrame.setVisible(false);
 			}
 		}
 		catch(IllegalComponentStateException | InterruptedException ex) {
-			System.err.println(ex.getMessage());
+			System.err.println("Loading screen error occurred: " + ex.getMessage());
 		}
 	}
 }

@@ -36,15 +36,15 @@ public class AppMainFrame extends JFrame {
 		// this.setSize(500, 500); // TODO
 		
 		// Add content to the frame
-		AppMainPanel mainPanel = new AppMainPanel(this);
+		new AppMainPanel(this);
 
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
 	}
 	
 	private Image createMainFrameIconImage() {
-		ImageIcon img = new ImageIcon(Constants.IMAGES_ICON_JPG);
-		return img.getImage();
+		ImageIcon image = new ImageIcon(Constants.IMAGES_ICON_JPG);
+		return image.getImage();
 	}
 	
 	private void makeFrameHalfSize() {
