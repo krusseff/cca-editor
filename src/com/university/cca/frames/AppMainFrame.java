@@ -1,7 +1,7 @@
 package com.university.cca.frames;
 
+import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
 
@@ -23,29 +23,28 @@ public class AppMainFrame extends JFrame {
 	private static final long serialVersionUID = 1L;
 
 	public AppMainFrame() {
-		// TODO: Ако нещо не се дисплейва може да е от layout-a
-		// GridLayout(редове, колони)
-		this.setLayout(new GridLayout(3, 1));
-
 		this.setTitle(Constants.APPLICATION_TITLE);
 		this.setName(Constants.MAIN_FRAME_NAME);
 		this.setIconImage(createMainFrameIconImage());
 
-		this.setResizable(true); // TODO Decide true or false
-		// makeFrameHalfSize();
-		// makeFrameCenterPosition();
-		this.setSize(500, 500); // TODO
+		// TODO: Ако нещо не се дисплейва може да е от layout-a
+		// this.setLayout(new FlowLayout());
+		this.setLayout(new BorderLayout());
+		this.setResizable(true);
+		makeFrameHalfSize();
+		makeFrameCenterPosition();
+		// this.setSize(500, 500); // TODO
 		
 		// Add content to the frame
-		AppMainPanel mainPanel = new AppMainPanel(this);
+		new AppMainPanel(this);
 
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
 	}
 	
 	private Image createMainFrameIconImage() {
-		ImageIcon img = new ImageIcon(Constants.IMAGES_ICON_JPG);
-		return img.getImage();
+		ImageIcon image = new ImageIcon(Constants.IMAGES_ICON_JPG);
+		return image.getImage();
 	}
 	
 	private void makeFrameHalfSize() {

@@ -12,18 +12,18 @@ import com.university.cca.constants.Constants;
 import com.university.cca.dialogs.CreateAmbientDialog;
 import com.university.cca.enums.AmbientType;
 
-public class HospitalButton extends JButton implements ActionListener {
+public class CountryButton extends JButton implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
 	
 	private JFrame parentFrame;
 	
-    public HospitalButton(JFrame parentFrame) {
+    public CountryButton(JFrame parentFrame) {
     	this.parentFrame = parentFrame;
     	
-    	ImageIcon icon = new ImageIcon(Constants.HOSPITAL_ICON_PATH);
+    	ImageIcon icon = new ImageIcon(Constants.COUNTRY_ICON_PATH);
 
-        this.setText("Hospital");
+        this.setText("Country");
         this.setIcon(icon);
         this.setPreferredSize(new Dimension(190, 80));
         
@@ -32,16 +32,16 @@ public class HospitalButton extends JButton implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		System.out.println("Create Hospital Button Clicked.");
+		System.out.println("Country Button Clicked");
 		
 		new CreateAmbientDialog(
 			parentFrame, 
-			"Create Hospital", 
-			"Please, enter a valid hospital information",
-			AmbientType.HOSPITAL
+			"Create Country", 
+			"Please, enter a valid country information",
+			AmbientType.COUNTRY
 		);
 	}
-
+	
 	// Getters and Setters
 	public JFrame getParentFrame() {
 		return parentFrame;
