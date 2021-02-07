@@ -16,6 +16,7 @@ import javax.swing.JTextField;
 import com.university.caa.entities.Ambient;
 import com.university.cca.buttons.CancelDialogButton;
 import com.university.cca.enums.AmbientType;
+import com.university.cca.files.csv.AmbientCSVReader;
 import com.university.cca.files.csv.AmbientCSVWriter;
 import com.university.cca.util.CreateAmbientUtil;
 
@@ -106,13 +107,13 @@ public class CreateAmbientDialog extends JDialog {
         this.getContentPane().add(dialogPanel);
 	}
 	
+	/**
+	 * @return set up and return the combo box with all ambient names that are already created.
+	 */
 	private JComboBox<String> createComboBox() {
+		String[] parentAmbientNames = AmbientCSVReader.getAmbientNames();
 		
-		// TODO: Value should be read from file with all existing ambients
-		// CSV format or each parent name in new line
-		String[] parentAmbients = {"Hotel 1", "Hospital 1", "Bus Station 1", "Port 1"};  
-		
-		return new JComboBox<>(parentAmbients);
+		return new JComboBox<>(parentAmbientNames);
 	}
 	
 	/**
