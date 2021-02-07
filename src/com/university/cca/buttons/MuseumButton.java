@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 
 import com.university.cca.constants.Constants;
 import com.university.cca.dialogs.CreateAmbientDialog;
+import com.university.cca.enums.AmbientType;
 
 public class MuseumButton extends JButton implements ActionListener {
 
@@ -36,7 +37,8 @@ public class MuseumButton extends JButton implements ActionListener {
 		new CreateAmbientDialog(
 			parentFrame, 
 			"Create Museum", 
-			"Please, enter a valid museum information"
+			"Please, enter a valid museum information",
+			AmbientType.MUSEUM
 		);
 	}
 	

@@ -15,6 +15,7 @@ import javax.swing.JTextField;
 
 import com.university.caa.entities.Ambient;
 import com.university.cca.buttons.CancelDialogButton;
+import com.university.cca.enums.AmbientType;
 import com.university.cca.files.csv.AmbientCSVWriter;
 import com.university.cca.util.CreateAmbientUtil;
 
@@ -30,17 +31,17 @@ public class CreateAmbientDialog extends JDialog {
 	private JCheckBox staticCheckBox;
 	private JComboBox<String> parentAmbientsComboBox;
 	
-	public CreateAmbientDialog(JFrame parent, String title, String message) {
+	public CreateAmbientDialog(JFrame parent, String title, String message, AmbientType ambientType) {
         super(parent, title, true);
         
-        addDialogContent(message);
+        addDialogContent(message, ambientType);
         
         this.pack();
         this.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
         this.setVisible(true);
 	}
 	
-	private void addDialogContent(String mainDialogMessage) {
+	private void addDialogContent(String mainDialogMessage, AmbientType ambientType) {
         JPanel dialogPanel = new JPanel();
         dialogPanel.setLayout(getGridLayout());
 
@@ -86,11 +87,9 @@ public class CreateAmbientDialog extends JDialog {
 				Object parentAmbient = parentAmbientsComboBox.getSelectedItem();
 				
 				if (CreateAmbientUtil.isValidAmbient(name, location, parentAmbient)) {
-					Ambient ambient = CreateAmbientUtil.constructAmbient(name, location, isStatic, parentAmbient);
+					Ambient ambient = CreateAmbientUtil.constructAmbient(name, location, isStatic, parentAmbient, ambientType);
 					System.out.println("New ambient: " + ambient);
 					
-					// TODO: 1. CSV file
-					// TODO: Maybe add ambient type: hospital, hotel and etc.
 					AmbientCSVWriter.writeAmbientToCsv(ambient);
 					
 					// TODO: 2. CCA file

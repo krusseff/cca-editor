@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 
 import com.university.cca.constants.Constants;
 import com.university.cca.dialogs.CreateAmbientDialog;
+import com.university.cca.enums.AmbientType;
 
 public class HarbourButton extends JButton implements ActionListener {
 
@@ -36,7 +37,8 @@ public class HarbourButton extends JButton implements ActionListener {
 		new CreateAmbientDialog(
 			parentFrame, 
 			"Create Harbour", 
-			"Please, enter a valid harbour information"
+			"Please, enter a valid harbour information",
+			AmbientType.HARBOUR
 		);
 	}
 	

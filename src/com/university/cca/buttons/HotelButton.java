@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 
 import com.university.cca.constants.Constants;
 import com.university.cca.dialogs.CreateAmbientDialog;
+import com.university.cca.enums.AmbientType;
 
 public class HotelButton extends JButton implements ActionListener {
 
@@ -36,7 +37,8 @@ public class HotelButton extends JButton implements ActionListener {
 		new CreateAmbientDialog(
 			parentFrame, 
 			"Create Hotel", 
-			"Please, enter a valid hotel information"
+			"Please, enter a valid hotel information",
+			AmbientType.HOTEL
 		);
 	}
 	

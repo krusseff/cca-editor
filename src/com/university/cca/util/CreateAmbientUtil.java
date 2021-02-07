@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
 import com.university.caa.entities.Ambient;
 import com.university.cca.constants.Constants;
 import com.university.cca.dialogs.CreateAmbientDialog;
+import com.university.cca.enums.AmbientType;
 
 /**
  * Utility methods related to the create ambient functionality
@@ -77,10 +78,11 @@ public class CreateAmbientUtil {
 	public static Ambient constructAmbient(String name, 
 										   String location, 
 										   boolean isStatic, 
-										   Object parentAmbient) {
+										   Object parentAmbient,
+										   AmbientType ambientType) {
 		
 		String parent = String.valueOf(parentAmbient);
 		
-		return new Ambient(name, location, isStatic, parent);
+		return new Ambient(name, location, isStatic, parent, ambientType);
 	}
 }

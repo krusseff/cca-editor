@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 
 import com.university.cca.constants.Constants;
 import com.university.cca.dialogs.CreateAmbientDialog;
+import com.university.cca.enums.AmbientType;
 
 public class SchoolButton extends JButton implements ActionListener {
 
@@ -36,7 +37,8 @@ public class SchoolButton extends JButton implements ActionListener {
 		new CreateAmbientDialog(
 			parentFrame, 
 			"Create School", 
-			"Please, enter a valid school information"
+			"Please, enter a valid school information",
+			AmbientType.SCHOOL
 		);
 	}
 	
