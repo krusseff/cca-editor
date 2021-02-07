@@ -14,7 +14,7 @@ import com.university.caa.entities.Ambient;
 public class AmbientCsvUtil {
 	
 	private AmbientCsvUtil() {
-		// Prevent creating an object of type CreateAmbientUtil
+		// Prevent creating an object of type AmbientCsvUtil
 	}
 	
 	/**

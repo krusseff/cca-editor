@@ -23,7 +23,7 @@ import com.university.cca.constants.Constants;
 public class AmbientCSVWriter {
 	
 	private AmbientCSVWriter() {
-		// Prevent creating an object of type CreateAmbientUtil
+		// Prevent creating an object of type AmbientCSVWriter
 	}
 	
 	/**

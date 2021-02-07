@@ -22,7 +22,7 @@ import com.university.cca.constants.Constants;
 public class AmbientCSVReader {
 
 	private AmbientCSVReader() {
-		// Prevent creating an object of type CreateAmbientUtil
+		// Prevent creating an object of type AmbientCSVReader
 	}
 	
 	/**
