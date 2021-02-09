@@ -11,8 +11,8 @@ import com.opencsv.bean.StatefulBeanToCsv;
 import com.opencsv.bean.StatefulBeanToCsvBuilder;
 import com.opencsv.exceptions.CsvDataTypeMismatchException;
 import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
-import com.university.caa.entities.Ambient;
 import com.university.cca.constants.Constants;
+import com.university.cca.entities.Ambient;
 
 /**
  * Utility methods related to the writting an ambient information to the CSV file.

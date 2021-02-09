@@ -3,7 +3,7 @@ package com.university.cca.files.csv;
 import java.io.File;
 import java.io.IOException;
 
-import com.university.caa.entities.Ambient;
+import com.university.cca.entities.Ambient;
 
 /**
  * Utility methods related to the functionality that reads and writes from/to CSV file.

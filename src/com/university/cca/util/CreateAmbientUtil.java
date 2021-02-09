@@ -4,9 +4,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
-import com.university.caa.entities.Ambient;
 import com.university.cca.constants.Constants;
 import com.university.cca.dialogs.CreateAmbientDialog;
+import com.university.cca.entities.Ambient;
 import com.university.cca.enums.AmbientType;
 
 /**

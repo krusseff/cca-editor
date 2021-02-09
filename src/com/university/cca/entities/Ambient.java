@@ -1,4 +1,4 @@
-package com.university.caa.entities;
+package com.university.cca.entities;
 
 import com.university.cca.enums.AmbientType;
 
