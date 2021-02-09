@@ -1,9 +1,11 @@
 package com.university.cca.panels;
 
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridLayout;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
@@ -22,38 +24,43 @@ import com.university.cca.buttons.RestaurantButton;
 import com.university.cca.buttons.SchoolButton;
 import com.university.cca.buttons.ShopButton;
 import com.university.cca.buttons.UniversityButton;
+import com.university.cca.constants.Constants;
 import com.university.cca.util.CCAUtils;
 
 /**
- * Main Panel of CCA Editor application
+ * Panel with all of the buttons that create ambients
  * 
  * @author Konstantin Rusev
  * @version 1.0
  */
-public class AppMainPanel extends JPanel {
+public class AmbientButtonsPanel extends JPanel {
 	
 	private static final long serialVersionUID = 1L;
 	private static final int GRID_ROWS = 0;
-	private static final int GRID_COLS = 3;
+	private static final int GRID_COLS = 1;
 	
 	private JFrame parentFrame;
 
-	public AppMainPanel(JFrame parentFrame) {
+	public AmbientButtonsPanel(JFrame parentFrame) {
 		this.parentFrame = parentFrame;
 		
 		this.setLayout(getGridLayout());
-		setMainPanelSize();
+		this.setBackground(Constants.LIGHT_GREY);
+		setPanelSize();
 		
 		addContentToPanel();
 		
-		// make scrollable panel
 		JScrollPane scrollPanel = new JScrollPane(this);
 		
 		parentFrame.add(scrollPanel);
 		this.setVisible(true);
 	}
 	
+	/**
+	 * Method that adds content to the panel with all of the ambient buttons
+	 */
 	private void addContentToPanel() {
+		this.add(createHeaderLabel());
 		this.add(new HospitalButton(parentFrame));
 		this.add(new HarbourButton(parentFrame));
 		this.add(new HotelButton(parentFrame));
@@ -71,12 +78,30 @@ public class AppMainPanel extends JPanel {
 		this.add(new ContinentButton(parentFrame));
 	}
 	
-	private void setMainPanelSize() {
+	/**
+	 * Create a header label of the panel with all of the ambient buttons
+	 */
+	private JLabel createHeaderLabel() {
+		JLabel label = new JLabel("Ambients Library", JLabel.CENTER);
+		label.setFont(new Font(Constants.FONT_ARIAL, Font.BOLD + Font.ITALIC, Constants.FONT_SIZE_FOURTEEN));
+		label.setBackground(Constants.LIGHT_GREY);
+		label.setOpaque(true);
+		
+		return label;
+	}
+	
+	/**
+	 * Set the size of the panel with all of the ambient buttons
+	 */
+	private void setPanelSize() {
 		CCAUtils ccaUtils = new CCAUtils();
 	    Dimension screenSize = ccaUtils.getScreenSize();
 	    this.setBounds(1, 20, screenSize.width / 2, ((screenSize.height / 2) - 30));
 	}
 	
+	/**
+	 * Set the Grid Layout of the panel with all of the ambient buttons
+	 */
 	private GridLayout getGridLayout() {
 		GridLayout layout = new GridLayout(GRID_ROWS, GRID_COLS);
         layout.setHgap(10);

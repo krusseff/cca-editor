@@ -1,5 +1,7 @@
 package com.university.cca.constants;
 
+import java.awt.Color;
+
 /**
  * All constants for CCA Editor application
  * 
@@ -36,6 +38,8 @@ public final class Constants {
 	public static final String CONTINENT_ICON_PATH = "./images/continent.png";
 	
 	public static final String FONT_ARIAL = "Arial";
+	public static final int FONT_SIZE_FOURTEEN = 14;
+	public static final Color LIGHT_GREY = new Color(222, 222, 222);
 	
 	public static final String MAIN_FRAME_NAME = "Main Frame Panel";
 	
