@@ -47,6 +47,8 @@ public class AmbientCsvUtil {
 		ambient.setStaticAmbient(ambientBean.isStaticAmbient());
 		ambient.setParentAmbient(ambientBean.getParentAmbient());
 		ambient.setAmbientType(ambientBean.getAmbientType());
+		ambient.setLatitude(ambientBean.getLatitude());
+		ambient.setLongitude(ambientBean.getLongitude());
 		
 		return ambient;
 	}
@@ -61,6 +63,8 @@ public class AmbientCsvUtil {
 		ambientBean.setStaticAmbient(ambient.isStaticAmbient());
 		ambientBean.setParentAmbient(ambient.getParentAmbient());
 		ambientBean.setAmbientType(ambient.getAmbientType());
+		ambientBean.setLatitude(ambient.getLatitude());
+		ambientBean.setLongitude(ambient.getLongitude());
 		
 		return ambientBean;
 	}

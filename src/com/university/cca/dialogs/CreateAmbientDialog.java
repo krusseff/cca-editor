@@ -29,6 +29,8 @@ public class CreateAmbientDialog extends JDialog {
 
 	private JTextField ambientNameTextField;
 	private JTextField ambientLocationTextField;
+	private JTextField ambientGpsLatitudeTextField;
+	private JTextField ambientGpsLongitudeTextField;
 	private JCheckBox staticCheckBox;
 	private JComboBox<String> parentAmbientsComboBox;
 	
@@ -59,19 +61,31 @@ public class CreateAmbientDialog extends JDialog {
         ambientLocationTextField = createTextField();
         dialogPanel.add(createLabel("Ambient Location:"));
         dialogPanel.add(ambientLocationTextField);
-
+        
         // fourth row of the dialog
+        ambientGpsLatitudeTextField = createTextField();
+        ambientGpsLatitudeTextField.setToolTipText("Example: 42.135652");
+        dialogPanel.add(createLabel("Ambient GPS Latitude:"));
+        dialogPanel.add(ambientGpsLatitudeTextField);
+        
+        // fifth row of the dialog
+        ambientGpsLongitudeTextField = createTextField();
+        ambientGpsLongitudeTextField.setToolTipText("Example: 24.753942");
+        dialogPanel.add(createLabel("Ambient GPS Longitude:"));
+        dialogPanel.add(ambientGpsLongitudeTextField);
+
+        // sixth row of the dialog
         staticCheckBox = new JCheckBox("", true);
         dialogPanel.add(createLabel("Static Ambient:"));
         dialogPanel.add(staticCheckBox);
         
-        // fifth row of the dialog
+        // seventh row of the dialog
         parentAmbientsComboBox = createComboBox();
         parentAmbientsComboBox.setSelectedIndex(-1); // set default empty value
         dialogPanel.add(createLabel("Parent Ambient Name:"));
         dialogPanel.add(parentAmbientsComboBox);
         
-        // sixth row of the dialog with the buttons      
+        // eight row of the dialog with the buttons      
         JButton createAmbientButton = CreateAmbientUtil.createAmbientButton();
         dialogPanel.add(createAmbientButton);
         dialogPanel.add(new CancelDialogButton(this));
@@ -81,13 +95,15 @@ public class CreateAmbientDialog extends JDialog {
         	@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				String name = ambientNameTextField.getText();
-				String location = ambientLocationTextField.getText();
+				String name = ambientNameTextField.getText().trim();
+				String location = ambientLocationTextField.getText().trim();
+				String latitude = ambientGpsLatitudeTextField.getText().trim();
+				String longitude = ambientGpsLongitudeTextField.getText().trim();
 				boolean isStatic = staticCheckBox.isSelected();
 				Object parentAmbient = parentAmbientsComboBox.getSelectedItem();
 				
-				if (CreateAmbientUtil.isValidAmbient(name, location, parentAmbient)) {
-					Ambient ambient = CreateAmbientUtil.constructAmbient(name, location, isStatic, parentAmbient, ambientType);
+				if (CreateAmbientUtil.isValidAmbient(name, location, latitude, longitude, parentAmbient)) {
+					Ambient ambient = CreateAmbientUtil.constructAmbient(name, location, latitude, longitude, isStatic, parentAmbient, ambientType);
 					
 					AmbientCSVWriter.writeAmbientToCsv(ambient);
 					

@@ -1,5 +1,7 @@
 package com.university.cca.util;
 
+import java.util.regex.Pattern;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
@@ -16,6 +18,9 @@ import com.university.cca.enums.AmbientType;
  * @version 1.0
  */
 public class CreateAmbientUtil {
+	
+    private static final String LATITUDE_REGEX ="^(\\+|-)?(?:90(?:(?:\\.0{1,6})?)|(?:[0-9]|[1-8][0-9])(?:(?:\\.[0-9]{1,6})?))$";
+    private static final String LONGITUDE_REGEX ="^(\\+|-)?(?:180(?:(?:\\.0{1,6})?)|(?:[0-9]|[1-9][0-9]|1[0-7][0-9])(?:(?:\\.[0-9]{1,6})?))$";
 	
 	private CreateAmbientUtil() {
 		// Prevent creating an object of type CreateAmbientUtil
@@ -59,33 +64,54 @@ public class CreateAmbientUtil {
 	}
 	
 	/**
-	 * Method that validates the fields of the newly created ambient object.
-	 */
-	public static boolean isValidAmbient(String name, 
-										 String location, 
-										 Object parentAmbient) {
-		
-		boolean isValidName = (name != null && !name.isEmpty());
-		boolean isValidLocation = (location != null && !location.isEmpty());
-		boolean isValidParent = (parentAmbient != null);
-		
-		return isValidName && isValidLocation && isValidParent;
-	}
-	
-	/**
 	 * Method that creates and returns an ambient object.
 	 */
 	public static Ambient constructAmbient(String name, 
 										   String location, 
+										   String latitude, 
+										   String longitude,
 										   boolean isStatic, 
 										   Object parentAmbient,
 										   AmbientType ambientType) {
 		
 		String parent = String.valueOf(parentAmbient);
-		Ambient ambient = new Ambient(name, location, isStatic, parent, ambientType);
+		Ambient ambient = new Ambient(name, location, latitude, longitude, isStatic, parent, ambientType);
 		
 		System.out.println("Ambient: " + ambient);
 		
 		return ambient;
+	}
+	
+	/**
+	 * Method that validates the fields of the newly created ambient object.
+	 */
+	public static boolean isValidAmbient(String name, 
+										 String location, 
+										 String latitude, 
+										 String longitude,
+										 Object parentAmbient) {
+		
+		boolean isValidName = (name != null && !name.isEmpty());
+		boolean isValidLocation = (location != null && !location.isEmpty());
+		boolean isValidLatitude = isValidCoordinate(latitude, LATITUDE_REGEX);
+		boolean isValidLongitude = isValidCoordinate(longitude, LONGITUDE_REGEX);
+		boolean isValidParent = (parentAmbient != null);
+		
+		return isValidName && isValidLocation && 
+			   isValidLatitude && isValidLongitude && 
+			   isValidParent;
+	}
+	
+	/**
+	 * Method that validates the coordinates of the newly created ambient object.
+	 */
+	private static boolean isValidCoordinate(String coordinate, 
+											 String coordinateRegEx) {
+		
+		Pattern coordinatePattern = Pattern.compile(coordinateRegEx);
+		
+	    return coordinate != null && 
+	    	   !coordinate.isEmpty() && 
+	    	   coordinatePattern.matcher(coordinate).matches();
 	}
 }
