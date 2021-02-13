@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 
 import com.university.cca.constants.Constants;
 import com.university.cca.panels.AmbientButtonsPanel;
+import com.university.cca.panels.AppMainPanel;
 import com.university.cca.util.CCAUtils;
 
 /**
@@ -45,6 +46,7 @@ public class AppMainFrame extends JFrame {
 	 */
 	private void addContentToFrame() {
 		new AmbientButtonsPanel(this);
+		new AppMainPanel(this);
 	}
 	
 	/**

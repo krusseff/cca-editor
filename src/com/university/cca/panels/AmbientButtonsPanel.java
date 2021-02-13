@@ -1,8 +1,6 @@
 package com.university.cca.panels;
 
-import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.GridLayout;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -25,7 +23,7 @@ import com.university.cca.buttons.SchoolButton;
 import com.university.cca.buttons.ShopButton;
 import com.university.cca.buttons.UniversityButton;
 import com.university.cca.constants.Constants;
-import com.university.cca.util.CCAUtils;
+import com.university.cca.util.PanelsUtil;
 
 /**
  * Panel with all of the buttons that create ambients
@@ -44,9 +42,9 @@ public class AmbientButtonsPanel extends JPanel {
 	public AmbientButtonsPanel(JFrame parentFrame) {
 		this.parentFrame = parentFrame;
 		
-		this.setLayout(getGridLayout());
+		this.setLayout(PanelsUtil.getGridLayout(GRID_ROWS, GRID_COLS));
 		this.setBackground(Constants.LIGHT_GREY);
-		setPanelSize();
+		PanelsUtil.setPanelSize(this);
 		
 		addContentToPanel();
 		
@@ -88,25 +86,5 @@ public class AmbientButtonsPanel extends JPanel {
 		label.setOpaque(true);
 		
 		return label;
-	}
-	
-	/**
-	 * Set the size of the panel with all of the ambient buttons
-	 */
-	private void setPanelSize() {
-		CCAUtils ccaUtils = new CCAUtils();
-	    Dimension screenSize = ccaUtils.getScreenSize();
-	    this.setBounds(1, 20, screenSize.width / 2, ((screenSize.height / 2) - 30));
-	}
-	
-	/**
-	 * Set the Grid Layout of the panel with all of the ambient buttons
-	 */
-	private GridLayout getGridLayout() {
-		GridLayout layout = new GridLayout(GRID_ROWS, GRID_COLS);
-        layout.setHgap(10);
-        layout.setVgap(10);
-        
-        return layout;
 	}
 }
