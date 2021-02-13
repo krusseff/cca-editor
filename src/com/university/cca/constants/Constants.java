@@ -13,6 +13,7 @@ public final class Constants {
 	
 	public static final String AMBIENTS_CSV_FILE_PATH = "./files/csv/ambients.csv";
 	public static final String AMBIENTS_CCA_FILE_PATH = "./files/cca/ambients.cca";
+	public static final String MESSAGES_CSV_FILE_PATH = "./files/csv/messages.csv";
 	
 	public static final String IMAGES_ICON_JPG = "./images/icon.jpg";
 	public static final String IMAGES_LOADING_SCREEN_JPG = "./images/loading-screen.jpg";
@@ -20,6 +21,7 @@ public final class Constants {
 	public static final String HELP_ICON_PATH = "./images/help_icon.png";
 	public static final String SUCCESS_ICON_PATH = "./images/check.png";
 	public static final String CANCEL_ICON_PATH = "./images/cancel.png";
+	public static final String MESSAGE_ICON_PATH = "./images/message.png";
 	
 	public static final String HOSPITAL_ICON_PATH = "./images/hospital.png";
 	public static final String HARBOUR_ICON_PATH = "./images/port.png";
