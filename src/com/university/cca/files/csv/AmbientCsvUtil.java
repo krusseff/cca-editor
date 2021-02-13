@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 
 import com.university.cca.entities.Ambient;
+import com.university.cca.entities.Message;
 
 /**
  * Utility methods related to the functionality that reads and writes from/to CSV file.
@@ -26,7 +27,7 @@ public class AmbientCsvUtil {
 		if (!file.exists()) {
 			try {
 				boolean result = file.createNewFile();
-				System.out.println("Ambients CSV file: " + filePath + " is created with status: " + result);
+				System.out.println("CSV file: " + filePath + " is created with status: " + result);
 			} catch (IOException e) {
 				System.err.println("Unable to create CSV file: " + e.getMessage());
 				System.err.println("Exiting the program...");
@@ -67,5 +68,29 @@ public class AmbientCsvUtil {
 		ambientBean.setLongitude(ambient.getLongitude());
 		
 		return ambientBean;
+	}
+	
+	/**
+	 * Method that converts from CsvMessageBean object to Message object.
+	 */
+	public static Message convertToMessage(CsvMessageBean messageBean) {
+		Message ambientMessage = new Message();
+		ambientMessage.setSenderAmbient(messageBean.getSenderAmbient());
+		ambientMessage.setRecipientAmbient(messageBean.getRecipientAmbient());
+		ambientMessage.setMessage(messageBean.getAmbientMessage());
+		
+		return ambientMessage;
+	}
+	
+	/**
+	 * Method that converts from Message object to CsvMessageBean object.
+	 */
+	public static CsvMessageBean convertToCsvMessageBean(Message ambientMessage) {
+		CsvMessageBean messageBean = new CsvMessageBean();
+		messageBean.setSenderAmbient(ambientMessage.getSenderAmbient());
+		messageBean.setRecipientAmbient(ambientMessage.getRecipientAmbient());
+		messageBean.setAmbientMessage(ambientMessage.getMessage());
+		
+		return messageBean;
 	}
 }

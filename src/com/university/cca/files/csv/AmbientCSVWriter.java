@@ -13,6 +13,7 @@ import com.opencsv.exceptions.CsvDataTypeMismatchException;
 import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
 import com.university.cca.constants.Constants;
 import com.university.cca.entities.Ambient;
+import com.university.cca.entities.Message;
 
 /**
  * Utility methods related to the writting an ambient information to the CSV file.
@@ -36,6 +37,23 @@ public class AmbientCSVWriter {
 
 		try {
 			writeCsvFromBean(path, AmbientCsvUtil.convertToCsvAmbientBean(ambient));
+		} catch (CsvDataTypeMismatchException | CsvRequiredFieldEmptyException | IOException e) {
+			System.err.println("Unable to write the data to the CSV file: " + e.getMessage());
+			System.err.println("Exiting the program...");
+			System.exit(2);
+		}
+	}
+	
+	/**
+	 * Method, which main responsibility is to write ambient messages to the csv file.
+	 */
+	public static void writeMessageToCsv(Message ambientMessage) {
+		String filePath = Constants.MESSAGES_CSV_FILE_PATH;
+		AmbientCsvUtil.createFileIfDoesNotExist(filePath);
+		Path path = Paths.get(filePath);
+
+		try {
+			writeCsvFromBean(path, AmbientCsvUtil.convertToCsvMessageBean(ambientMessage));
 		} catch (CsvDataTypeMismatchException | CsvRequiredFieldEmptyException | IOException e) {
 			System.err.println("Unable to write the data to the CSV file: " + e.getMessage());
 			System.err.println("Exiting the program...");
