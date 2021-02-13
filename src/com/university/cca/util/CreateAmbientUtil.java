@@ -1,5 +1,6 @@
 package com.university.cca.util;
 
+import java.util.List;
 import java.util.regex.Pattern;
 
 import javax.swing.ImageIcon;
@@ -10,6 +11,7 @@ import com.university.cca.constants.Constants;
 import com.university.cca.dialogs.CreateAmbientDialog;
 import com.university.cca.entities.Ambient;
 import com.university.cca.enums.AmbientType;
+import com.university.cca.files.csv.AmbientCSVReader;
 
 /**
  * Utility methods related to the create ambient functionality
@@ -54,10 +56,11 @@ public class CreateAmbientUtil {
 	/**
 	 * Method that shows an error dialog if the fields of an ambient are invalid.
 	 */
-	public static void createErrorDialog(CreateAmbientDialog parentDialog) {
+	public static void createErrorDialog(CreateAmbientDialog parentDialog,
+										 String errorMessage) {
 		JOptionPane.showMessageDialog(
 			parentDialog,
-			"Please, enter valid values for the input fields!", 
+			errorMessage, 
 			"Validation Error",
             JOptionPane.ERROR_MESSAGE
 		);
@@ -80,6 +83,15 @@ public class CreateAmbientUtil {
 		System.out.println("Ambient: " + ambient);
 		
 		return ambient;
+	}
+	
+	/**
+	 * Method that checks for already existing ambients with provided as an input parameter name.
+	 */
+	public static boolean isExistingAmbient(String ambientName) {
+		List<String> ambientNames = AmbientCSVReader.readAmbientNamesFromCsv();
+		
+		return ambientNames.contains(ambientName);
 	}
 	
 	/**

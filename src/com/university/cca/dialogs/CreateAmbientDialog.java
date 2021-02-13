@@ -91,33 +91,42 @@ public class CreateAmbientDialog extends JDialog {
         dialogPanel.add(new CancelDialogButton(this));
         
         createAmbientButton.addActionListener(new ActionListener() {
-
         	@Override
 			public void actionPerformed(ActionEvent e) {
-				
-				String name = ambientNameTextField.getText().trim();
-				String location = ambientLocationTextField.getText().trim();
-				String latitude = ambientGpsLatitudeTextField.getText().trim();
-				String longitude = ambientGpsLongitudeTextField.getText().trim();
-				boolean isStatic = staticCheckBox.isSelected();
-				Object parentAmbient = parentAmbientsComboBox.getSelectedItem();
-				
-				if (CreateAmbientUtil.isValidAmbient(name, location, latitude, longitude, parentAmbient)) {
-					Ambient ambient = CreateAmbientUtil.constructAmbient(name, location, latitude, longitude, isStatic, parentAmbient, ambientType);
-					
-					AmbientCSVWriter.writeAmbientToCsv(ambient);
-					
-					// TODO: Writing to CCA file here
-					
-					CreateAmbientUtil.createSuccessDialog(getCurrentDialog());
-					getCurrentDialog().dispose();
-				} else {
-					CreateAmbientUtil.createErrorDialog(getCurrentDialog());
-				}
+        		createAmbient(ambientType);
 			}
 		});
         
         this.getContentPane().add(dialogPanel);
+	}
+	
+	/**
+	 * Method that validates and creates an ambient if the enterred data is valid.
+	 */
+	private void createAmbient(AmbientType ambientType) {
+		String name = ambientNameTextField.getText().trim();
+		String location = ambientLocationTextField.getText().trim();
+		String latitude = ambientGpsLatitudeTextField.getText().trim();
+		String longitude = ambientGpsLongitudeTextField.getText().trim();
+		boolean isStatic = staticCheckBox.isSelected();
+		Object parentAmbient = parentAmbientsComboBox.getSelectedItem();
+		
+		if (!CreateAmbientUtil.isValidAmbient(name, location, latitude, longitude, parentAmbient)) {
+			String errorMsg = "Please, enter valid values for the input fields!";
+			CreateAmbientUtil.createErrorDialog(getCurrentDialog(), errorMsg);
+		} else if (CreateAmbientUtil.isExistingAmbient(name)) {
+			String errorMsg = "Ambient with that name already exists!";
+			CreateAmbientUtil.createErrorDialog(getCurrentDialog(), errorMsg);
+		} else {
+			Ambient ambient = CreateAmbientUtil.constructAmbient(name, location, latitude, longitude, isStatic, parentAmbient, ambientType);
+			
+			AmbientCSVWriter.writeAmbientToCsv(ambient);
+			
+			// TODO: Writing to CCA file here
+			
+			CreateAmbientUtil.createSuccessDialog(getCurrentDialog());
+			getCurrentDialog().dispose();
+		}
 	}
 	
 	/**
