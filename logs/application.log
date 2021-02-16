@@ -5,3 +5,243 @@
 16-02-2021 00:11:17.989 INFO  com.university.cca.buttons.UniversityButton - University Button is clicked
 16-02-2021 00:11:30.496 INFO  com.university.cca.buttons.CancelDialogButton - Cancel Dialog button is clicked
 16-02-2021 00:11:31.571 INFO  com.university.cca.buttons.CancelDialogButton - Cancel button confirmation dialog is closed with result: 0
+16-02-2021 07:28:09.733 INFO  com.university.cca.main.Main - CCA Editor application starting... :)
+16-02-2021 07:28:14.753 INFO  com.university.cca.frames.AppMainFrame - Application main frame initialized
+16-02-2021 07:28:14.775 INFO  com.university.cca.panels.AmbientButtonsPanel - Ambient buttons panel initialized
+16-02-2021 07:28:14.856 INFO  com.university.cca.panels.AppMainPanel - Application main frame initialized
+16-02-2021 07:28:23.323 INFO  com.university.cca.buttons.CreateMessageButton - Create Message Button is clicked and create ambient message dialog is opened
+16-02-2021 07:28:29.211 INFO  com.university.cca.dialogs.CreateAmbientMsgDialog - Create Ambient Message Button is clicked
+16-02-2021 07:28:29.212 INFO  com.university.cca.dialogs.CreateAmbientMsgDialog - Tried to create an ambient message with invalid values
+16-02-2021 07:28:32.130 INFO  com.university.cca.buttons.CancelDialogButton - Cancel Dialog button is clicked
+16-02-2021 07:28:33.040 INFO  com.university.cca.buttons.CancelDialogButton - Cancel button confirmation dialog is closed with result: 1
+16-02-2021 07:28:40.837 INFO  com.university.cca.dialogs.CreateAmbientMsgDialog - Create Ambient Message Button is clicked
+16-02-2021 07:28:40.838 INFO  com.university.cca.dialogs.CreateAmbientMsgDialog - Tried to create an ambient message with invalid values
+16-02-2021 07:28:45.937 INFO  com.university.cca.dialogs.CreateAmbientMsgDialog - Create Ambient Message Button is clicked
+16-02-2021 07:28:45.938 INFO  com.university.cca.dialogs.CreateAmbientMsgDialog - Tried to create an ambient message with invalid values
+16-02-2021 07:28:52.927 INFO  com.university.cca.dialogs.CreateAmbientMsgDialog - Create Ambient Message Button is clicked
+16-02-2021 07:28:52.928 INFO  com.university.cca.dialogs.CreateAmbientMsgDialog - Tried to create an ambient message with invalid values
+16-02-2021 07:29:17.287 INFO  com.university.cca.dialogs.CreateAmbientMsgDialog - Create Ambient Message Button is clicked
+16-02-2021 07:29:17.289 INFO  com.university.cca.util.CreateMessageUtil - Ambient Message constructed: Message [senderAmbient=Plovdiv University, recipientAmbient=Plovdiv, message=No Students at the university!]
+16-02-2021 07:29:17.291 INFO  com.university.cca.files.csv.AmbientCsvUtil - The file: ./files/csv/messages.csv already exists.
+16-02-2021 07:29:17.304 INFO  com.university.cca.dialogs.CreateAmbientMsgDialog - Ambient Message created successfully: Message [senderAmbient=Plovdiv University, recipientAmbient=Plovdiv, message=No Students at the university!]
+16-02-2021 07:39:53.123 INFO  com.university.cca.main.Main - CCA Editor application starting... :)
+16-02-2021 07:39:58.138 INFO  com.university.cca.frames.AppMainFrame - Application main frame initialized
+16-02-2021 07:39:58.203 INFO  com.university.cca.panels.AmbientButtonsPanel - Ambient buttons panel initialized
+16-02-2021 07:39:58.271 INFO  com.university.cca.panels.AppMainPanel - Application main frame initialized
+16-02-2021 07:40:36.710 INFO  com.university.cca.main.Main - CCA Editor application starting... :)
+16-02-2021 07:40:41.737 INFO  com.university.cca.frames.AppMainFrame - Application main frame initialized
+16-02-2021 07:40:41.756 INFO  com.university.cca.panels.AmbientButtonsPanel - Ambient buttons panel initialized
+16-02-2021 07:40:41.830 INFO  com.university.cca.panels.AppMainPanel - Application main frame initialized
+16-02-2021 07:40:56.897 INFO  com.university.cca.main.Main - CCA Editor application starting... :)
+16-02-2021 07:41:01.926 INFO  com.university.cca.frames.AppMainFrame - Application main frame initialized
+16-02-2021 07:41:01.943 INFO  com.university.cca.panels.AmbientButtonsPanel - Ambient buttons panel initialized
+16-02-2021 07:41:02.036 INFO  com.university.cca.panels.AppMainPanel - Application main frame initialized
+16-02-2021 07:47:46.335 INFO  com.university.cca.main.Main - CCA Editor application starting... :)
+16-02-2021 07:47:51.356 INFO  com.university.cca.frames.AppMainFrame - Application main frame initialized
+16-02-2021 07:47:51.412 INFO  com.university.cca.panels.AmbientButtonsPanel - Ambient buttons panel initialized
+16-02-2021 07:47:51.487 INFO  com.university.cca.panels.AppMainPanel - Application main frame initialized
+16-02-2021 07:56:19.706 INFO  com.university.cca.main.Main - CCA Editor application starting... :)
+16-02-2021 07:56:24.730 INFO  com.university.cca.frames.AppMainFrame - Application main frame initialized
+16-02-2021 07:56:24.761 INFO  com.university.cca.menu.FileMenu - File option of the menu is initialized
+16-02-2021 07:56:24.762 INFO  com.university.cca.menu.EditMenu - Edit option of the menu is initialized
+16-02-2021 07:56:24.773 INFO  com.university.cca.panels.AmbientButtonsPanel - Ambient buttons panel initialized
+16-02-2021 07:56:24.856 INFO  com.university.cca.panels.AppMainPanel - Application main frame initialized
+16-02-2021 08:09:14.398 INFO  com.university.cca.main.Main - CCA Editor application starting... :)
+16-02-2021 08:09:19.445 INFO  com.university.cca.frames.AppMainFrame - Application main frame initialized
+16-02-2021 08:09:19.469 INFO  com.university.cca.menu.FileMenu - File option of the menu is initialized
+16-02-2021 08:09:19.471 INFO  com.university.cca.menu.EditMenu - Edit option of the menu is initialized
+16-02-2021 08:09:19.472 INFO  com.university.cca.menu.ViewMenu - View option of the menu is initialized
+16-02-2021 08:09:19.473 INFO  com.university.cca.menu.HelpMenu - Help option of the menu is initialized
+16-02-2021 08:09:19.474 INFO  com.university.cca.menu.AboutMenu - About option of the menu is initialized
+16-02-2021 08:09:19.485 INFO  com.university.cca.panels.AmbientButtonsPanel - Ambient buttons panel initialized
+16-02-2021 08:09:19.553 INFO  com.university.cca.panels.AppMainPanel - Application main frame initialized
+16-02-2021 08:25:16.681 INFO  com.university.cca.main.Main - CCA Editor application starting... :)
+16-02-2021 08:25:21.704 INFO  com.university.cca.frames.AppMainFrame - Application main frame initialized
+16-02-2021 08:25:21.731 INFO  com.university.cca.menu.FileMenu - File option of the menu is initialized
+16-02-2021 08:25:21.732 INFO  com.university.cca.menu.EditMenu - Edit option of the menu is initialized
+16-02-2021 08:25:21.733 INFO  com.university.cca.menu.ViewMenu - View option of the menu is initialized
+16-02-2021 08:25:21.733 INFO  com.university.cca.menu.HelpMenu - Help option of the menu is initialized
+16-02-2021 08:25:21.734 INFO  com.university.cca.menu.AboutMenu - About option of the menu is initialized
+16-02-2021 08:25:21.744 INFO  com.university.cca.panels.AmbientButtonsPanel - Ambient buttons panel initialized
+16-02-2021 08:25:21.808 INFO  com.university.cca.panels.AppMainPanel - Application main frame initialized
+16-02-2021 08:32:22.029 INFO  com.university.cca.main.Main - CCA Editor application starting... :)
+16-02-2021 08:32:27.050 INFO  com.university.cca.frames.AppMainFrame - Application main frame initialized
+16-02-2021 08:32:27.075 INFO  com.university.cca.menu.FileMenu - File option of the menu is initialized
+16-02-2021 08:32:27.076 INFO  com.university.cca.menu.EditMenu - Edit option of the menu is initialized
+16-02-2021 08:32:27.077 INFO  com.university.cca.menu.ViewMenu - View option of the menu is initialized
+16-02-2021 08:32:27.078 INFO  com.university.cca.menu.HelpMenu - Help option of the menu is initialized
+16-02-2021 08:32:27.081 INFO  com.university.cca.menu.AboutMenu - About option of the menu is initialized
+16-02-2021 08:32:27.096 INFO  com.university.cca.panels.AmbientButtonsPanel - Ambient buttons panel initialized
+16-02-2021 08:32:27.168 INFO  com.university.cca.panels.AppMainPanel - Application main frame initialized
+16-02-2021 08:32:49.429 INFO  com.university.cca.main.Main - CCA Editor application starting... :)
+16-02-2021 08:32:54.446 INFO  com.university.cca.frames.AppMainFrame - Application main frame initialized
+16-02-2021 08:32:54.467 INFO  com.university.cca.menu.FileMenu - File option of the menu is initialized
+16-02-2021 08:32:54.468 INFO  com.university.cca.menu.EditMenu - Edit option of the menu is initialized
+16-02-2021 08:32:54.469 INFO  com.university.cca.menu.ViewMenu - View option of the menu is initialized
+16-02-2021 08:32:54.469 INFO  com.university.cca.menu.HelpMenu - Help option of the menu is initialized
+16-02-2021 08:32:54.470 INFO  com.university.cca.menu.AboutMenu - About option of the menu is initialized
+16-02-2021 08:32:54.481 INFO  com.university.cca.panels.AmbientButtonsPanel - Ambient buttons panel initialized
+16-02-2021 08:32:54.551 INFO  com.university.cca.panels.AppMainPanel - Application main frame initialized
+16-02-2021 08:46:36.231 INFO  com.university.cca.main.Main - CCA Editor application starting... :)
+16-02-2021 08:46:41.253 INFO  com.university.cca.frames.AppMainFrame - Application main frame initialized
+16-02-2021 08:46:41.278 INFO  com.university.cca.menu.FileMenu - File option of the menu is initialized
+16-02-2021 08:46:41.289 INFO  com.university.cca.menu.EditMenu - Edit option of the menu is initialized
+16-02-2021 08:46:41.290 INFO  com.university.cca.menu.ViewMenu - View option of the menu is initialized
+16-02-2021 08:46:41.293 INFO  com.university.cca.menu.HelpMenu - Help option of the menu is initialized
+16-02-2021 08:46:41.296 INFO  com.university.cca.menu.AboutMenu - About option of the menu is initialized
+16-02-2021 08:46:41.303 INFO  com.university.cca.panels.AmbientButtonsPanel - Ambient buttons panel initialized
+16-02-2021 08:46:41.372 INFO  com.university.cca.panels.AppMainPanel - Application main frame initialized
+16-02-2021 08:49:17.995 INFO  com.university.cca.main.Main - CCA Editor application starting... :)
+16-02-2021 08:49:23.014 INFO  com.university.cca.frames.AppMainFrame - Application main frame initialized
+16-02-2021 08:49:23.040 INFO  com.university.cca.menu.FileMenu - File option of the menu is initialized
+16-02-2021 08:49:23.087 INFO  com.university.cca.menu.EditMenu - Edit option of the menu is initialized
+16-02-2021 08:49:23.089 INFO  com.university.cca.menu.ViewMenu - View option of the menu is initialized
+16-02-2021 08:49:23.090 INFO  com.university.cca.menu.HelpMenu - Help option of the menu is initialized
+16-02-2021 08:49:23.091 INFO  com.university.cca.menu.AboutMenu - About option of the menu is initialized
+16-02-2021 08:49:23.099 INFO  com.university.cca.panels.AmbientButtonsPanel - Ambient buttons panel initialized
+16-02-2021 08:49:23.177 INFO  com.university.cca.panels.AppMainPanel - Application main frame initialized
+16-02-2021 08:55:50.465 INFO  com.university.cca.main.Main - CCA Editor application starting... :)
+16-02-2021 08:55:55.486 INFO  com.university.cca.frames.AppMainFrame - Application main frame initialized
+16-02-2021 08:55:55.513 INFO  com.university.cca.menu.FileMenu - File option of the menu is initialized
+16-02-2021 08:55:55.521 INFO  com.university.cca.menu.EditMenu - Edit option of the menu is initialized
+16-02-2021 08:55:55.526 INFO  com.university.cca.menu.ViewMenu - View option of the menu is initialized
+16-02-2021 08:55:55.527 INFO  com.university.cca.menu.HelpMenu - Help option of the menu is initialized
+16-02-2021 08:55:55.528 INFO  com.university.cca.menu.AboutMenu - About option of the menu is initialized
+16-02-2021 08:55:55.539 INFO  com.university.cca.panels.AmbientButtonsPanel - Ambient buttons panel initialized
+16-02-2021 08:55:55.607 INFO  com.university.cca.panels.AppMainPanel - Application main frame initialized
+16-02-2021 08:56:48.205 INFO  com.university.cca.main.Main - CCA Editor application starting... :)
+16-02-2021 08:56:53.223 INFO  com.university.cca.frames.AppMainFrame - Application main frame initialized
+16-02-2021 08:56:53.241 INFO  com.university.cca.menu.FileMenu - File option of the menu is initialized
+16-02-2021 08:56:53.251 INFO  com.university.cca.menu.EditMenu - Edit option of the menu is initialized
+16-02-2021 08:56:53.254 INFO  com.university.cca.menu.ViewMenu - View option of the menu is initialized
+16-02-2021 08:56:53.255 INFO  com.university.cca.menu.HelpMenu - Help option of the menu is initialized
+16-02-2021 08:56:53.256 INFO  com.university.cca.menu.AboutMenu - About option of the menu is initialized
+16-02-2021 08:56:53.263 INFO  com.university.cca.panels.AmbientButtonsPanel - Ambient buttons panel initialized
+16-02-2021 08:56:53.329 INFO  com.university.cca.panels.AppMainPanel - Application main frame initialized
+16-02-2021 08:56:56.063 INFO  com.university.cca.buttons.HospitalButton - Hospital Button is clicked
+16-02-2021 09:18:10.701 INFO  com.university.cca.main.Main - CCA Editor application starting... :)
+16-02-2021 09:18:15.723 INFO  com.university.cca.frames.AppMainFrame - Application main frame initialized
+16-02-2021 09:18:15.745 INFO  com.university.cca.menu.FileMenu - File option of the menu is initialized
+16-02-2021 09:18:15.762 INFO  com.university.cca.menu.EditMenu - Edit option of the menu is initialized
+16-02-2021 09:18:15.766 INFO  com.university.cca.menu.ViewMenu - View option of the menu is initialized
+16-02-2021 09:18:15.767 INFO  com.university.cca.menu.HelpMenu - Help option of the menu is initialized
+16-02-2021 09:18:15.768 INFO  com.university.cca.menu.AboutMenu - About option of the menu is initialized
+16-02-2021 09:18:15.775 INFO  com.university.cca.panels.AmbientButtonsPanel - Ambient buttons panel initialized
+16-02-2021 09:18:16.038 INFO  com.university.cca.panels.AppMainPanel - Application main frame initialized
+16-02-2021 09:31:42.405 INFO  com.university.cca.main.Main - CCA Editor application starting... :)
+16-02-2021 09:31:47.423 INFO  com.university.cca.frames.AppMainFrame - Application main frame initialized
+16-02-2021 09:31:47.448 INFO  com.university.cca.menu.FileMenu - File option of the menu is initialized
+16-02-2021 09:31:47.486 INFO  com.university.cca.menu.EditMenu - Edit option of the menu is initialized
+16-02-2021 09:31:47.491 INFO  com.university.cca.menu.ViewMenu - View option of the menu is initialized
+16-02-2021 09:31:47.495 INFO  com.university.cca.menu.HelpMenu - Help option of the menu is initialized
+16-02-2021 09:31:47.496 INFO  com.university.cca.menu.AboutMenu - About option of the menu is initialized
+16-02-2021 09:31:47.509 INFO  com.university.cca.panels.AmbientButtonsPanel - Ambient buttons panel initialized
+16-02-2021 09:31:47.587 INFO  com.university.cca.panels.AppMainPanel - Application main frame initialized
+16-02-2021 09:36:21.006 INFO  com.university.cca.main.Main - CCA Editor application starting... :)
+16-02-2021 09:36:26.028 INFO  com.university.cca.frames.AppMainFrame - Application main frame initialized
+16-02-2021 09:36:26.053 INFO  com.university.cca.menu.FileMenu - File option of the menu is initialized
+16-02-2021 09:36:26.071 INFO  com.university.cca.menu.EditMenu - Edit option of the menu is initialized
+16-02-2021 09:36:26.075 INFO  com.university.cca.menu.ViewMenu - View option of the menu is initialized
+16-02-2021 09:36:26.076 INFO  com.university.cca.menu.HelpMenu - Help option of the menu is initialized
+16-02-2021 09:36:26.077 INFO  com.university.cca.menu.AboutMenu - About option of the menu is initialized
+16-02-2021 09:36:26.085 INFO  com.university.cca.panels.AmbientButtonsPanel - Ambient buttons panel initialized
+16-02-2021 09:36:26.150 INFO  com.university.cca.panels.AppMainPanel - Application main frame initialized
+16-02-2021 09:37:01.804 INFO  com.university.cca.main.Main - CCA Editor application starting... :)
+16-02-2021 09:37:06.822 INFO  com.university.cca.frames.AppMainFrame - Application main frame initialized
+16-02-2021 09:37:06.847 INFO  com.university.cca.menu.FileMenu - File option of the menu is initialized
+16-02-2021 09:37:06.859 INFO  com.university.cca.menu.EditMenu - Edit option of the menu is initialized
+16-02-2021 09:37:06.862 INFO  com.university.cca.menu.ViewMenu - View option of the menu is initialized
+16-02-2021 09:37:06.863 INFO  com.university.cca.menu.HelpMenu - Help option of the menu is initialized
+16-02-2021 09:37:06.864 INFO  com.university.cca.menu.AboutMenu - About option of the menu is initialized
+16-02-2021 09:37:06.870 INFO  com.university.cca.panels.AmbientButtonsPanel - Ambient buttons panel initialized
+16-02-2021 09:37:06.934 INFO  com.university.cca.panels.AppMainPanel - Application main frame initialized
+16-02-2021 09:42:03.276 INFO  com.university.cca.main.Main - CCA Editor application starting... :)
+16-02-2021 09:42:08.296 INFO  com.university.cca.frames.AppMainFrame - Application main frame initialized
+16-02-2021 09:42:08.324 INFO  com.university.cca.menu.FileMenu - File option of the menu is initialized
+16-02-2021 09:42:08.341 INFO  com.university.cca.menu.EditMenu - Edit option of the menu is initialized
+16-02-2021 09:42:08.346 INFO  com.university.cca.menu.ViewMenu - View option of the menu is initialized
+16-02-2021 09:42:08.347 INFO  com.university.cca.menu.HelpMenu - Help option of the menu is initialized
+16-02-2021 09:42:08.348 INFO  com.university.cca.menu.AboutMenu - About option of the menu is initialized
+16-02-2021 09:42:08.355 INFO  com.university.cca.panels.AmbientButtonsPanel - Ambient buttons panel initialized
+16-02-2021 09:42:08.422 INFO  com.university.cca.panels.AppMainPanel - Application main frame initialized
+16-02-2021 09:49:28.472 INFO  com.university.cca.main.Main - CCA Editor application starting... :)
+16-02-2021 09:49:33.487 INFO  com.university.cca.frames.AppMainFrame - Application main frame initialized
+16-02-2021 09:49:33.515 INFO  com.university.cca.menu.FileMenu - File option of the menu is initialized
+16-02-2021 09:49:33.525 INFO  com.university.cca.menu.EditMenu - Edit option of the menu is initialized
+16-02-2021 09:49:33.527 INFO  com.university.cca.menu.ViewMenu - View option of the menu is initialized
+16-02-2021 09:49:33.528 INFO  com.university.cca.menu.HelpMenu - Help option of the menu is initialized
+16-02-2021 09:49:33.529 INFO  com.university.cca.menu.AboutMenu - About option of the menu is initialized
+16-02-2021 09:49:33.536 INFO  com.university.cca.panels.AmbientButtonsPanel - Ambient buttons panel initialized
+16-02-2021 09:49:33.598 INFO  com.university.cca.panels.AppMainPanel - Application main frame initialized
+16-02-2021 09:50:58.525 INFO  com.university.cca.main.Main - CCA Editor application starting... :)
+16-02-2021 09:51:03.536 INFO  com.university.cca.frames.AppMainFrame - Application main frame initialized
+16-02-2021 09:51:03.556 INFO  com.university.cca.menu.FileMenu - File option of the menu is initialized
+16-02-2021 09:51:03.564 INFO  com.university.cca.menu.EditMenu - Edit option of the menu is initialized
+16-02-2021 09:51:03.569 INFO  com.university.cca.menu.ViewMenu - View option of the menu is initialized
+16-02-2021 09:51:03.570 INFO  com.university.cca.menu.HelpMenu - Help option of the menu is initialized
+16-02-2021 09:51:03.570 INFO  com.university.cca.menu.AboutMenu - About option of the menu is initialized
+16-02-2021 09:51:03.577 INFO  com.university.cca.panels.AmbientButtonsPanel - Ambient buttons panel initialized
+16-02-2021 09:51:03.639 INFO  com.university.cca.panels.AppMainPanel - Application main frame initialized
+16-02-2021 10:00:28.042 INFO  com.university.cca.main.Main - CCA Editor application starting... :)
+16-02-2021 10:00:33.058 INFO  com.university.cca.frames.AppMainFrame - Application main frame initialized
+16-02-2021 10:00:33.082 INFO  com.university.cca.menu.FileMenu - File option of the menu is initialized
+16-02-2021 10:00:33.098 INFO  com.university.cca.menu.EditMenu - Edit option of the menu is initialized
+16-02-2021 10:00:33.103 INFO  com.university.cca.menu.ViewMenu - View option of the menu is initialized
+16-02-2021 10:00:33.103 INFO  com.university.cca.menu.HelpMenu - Help option of the menu is initialized
+16-02-2021 10:00:33.104 INFO  com.university.cca.menu.AboutMenu - About option of the menu is initialized
+16-02-2021 10:00:33.111 INFO  com.university.cca.panels.AmbientButtonsPanel - Ambient buttons panel initialized
+16-02-2021 10:00:33.175 INFO  com.university.cca.panels.AppMainPanel - Application main frame initialized
+16-02-2021 10:04:56.520 INFO  com.university.cca.main.Main - CCA Editor application starting... :)
+16-02-2021 10:05:01.540 INFO  com.university.cca.frames.AppMainFrame - Application main frame initialized
+16-02-2021 10:05:01.574 INFO  com.university.cca.menu.FileMenu - File option of the menu is initialized
+16-02-2021 10:05:01.587 INFO  com.university.cca.menu.EditMenu - Edit option of the menu is initialized
+16-02-2021 10:05:01.592 INFO  com.university.cca.menu.ViewMenu - View option of the menu is initialized
+16-02-2021 10:05:01.594 INFO  com.university.cca.menu.HelpMenu - Help option of the menu is initialized
+16-02-2021 10:05:01.595 INFO  com.university.cca.menu.AboutMenu - About option of the menu is initialized
+16-02-2021 10:05:01.602 INFO  com.university.cca.panels.AmbientButtonsPanel - Ambient buttons panel initialized
+16-02-2021 10:05:01.673 INFO  com.university.cca.panels.AppMainPanel - Application main frame initialized
+16-02-2021 10:07:17.017 INFO  com.university.cca.main.Main - CCA Editor application starting... :)
+16-02-2021 10:07:22.033 INFO  com.university.cca.frames.AppMainFrame - Application main frame initialized
+16-02-2021 10:07:22.063 INFO  com.university.cca.menu.FileMenu - File option of the menu is initialized
+16-02-2021 10:07:22.073 INFO  com.university.cca.menu.EditMenu - Edit option of the menu is initialized
+16-02-2021 10:07:22.077 INFO  com.university.cca.menu.ViewMenu - View option of the menu is initialized
+16-02-2021 10:07:22.079 INFO  com.university.cca.menu.HelpMenu - Help option of the menu is initialized
+16-02-2021 10:07:22.080 INFO  com.university.cca.menu.AboutMenu - About option of the menu is initialized
+16-02-2021 10:07:22.087 INFO  com.university.cca.panels.AmbientButtonsPanel - Ambient buttons panel initialized
+16-02-2021 10:07:22.154 INFO  com.university.cca.panels.AppMainPanel - Application main frame initialized
+16-02-2021 10:10:13.030 INFO  com.university.cca.main.Main - CCA Editor application starting... :)
+16-02-2021 10:10:18.045 INFO  com.university.cca.frames.AppMainFrame - Application main frame initialized
+16-02-2021 10:10:18.070 INFO  com.university.cca.menu.FileMenu - File option of the menu is initialized
+16-02-2021 10:10:18.081 INFO  com.university.cca.menu.EditMenu - Edit option of the menu is initialized
+16-02-2021 10:10:18.085 INFO  com.university.cca.menu.ViewMenu - View option of the menu is initialized
+16-02-2021 10:10:18.087 INFO  com.university.cca.menu.HelpMenu - Help option of the menu is initialized
+16-02-2021 10:10:18.089 INFO  com.university.cca.menu.AboutMenu - About option of the menu is initialized
+16-02-2021 10:10:18.095 INFO  com.university.cca.panels.AmbientButtonsPanel - Ambient buttons panel initialized
+16-02-2021 10:10:18.167 INFO  com.university.cca.panels.AppMainPanel - Application main frame initialized
+16-02-2021 10:11:31.386 INFO  com.university.cca.main.Main - CCA Editor application starting... :)
+16-02-2021 10:11:36.400 INFO  com.university.cca.frames.AppMainFrame - Application main frame initialized
+16-02-2021 10:11:36.435 INFO  com.university.cca.menu.FileMenu - File option of the menu is initialized
+16-02-2021 10:11:36.443 INFO  com.university.cca.menu.EditMenu - Edit option of the menu is initialized
+16-02-2021 10:11:36.446 INFO  com.university.cca.menu.ViewMenu - View option of the menu is initialized
+16-02-2021 10:11:36.448 INFO  com.university.cca.menu.HelpMenu - Help option of the menu is initialized
+16-02-2021 10:11:36.450 INFO  com.university.cca.menu.AboutMenu - About option of the menu is initialized
+16-02-2021 10:11:36.457 INFO  com.university.cca.panels.AmbientButtonsPanel - Ambient buttons panel initialized
+16-02-2021 10:11:36.526 INFO  com.university.cca.panels.AppMainPanel - Application main frame initialized
+16-02-2021 10:14:10.210 INFO  com.university.cca.main.Main - CCA Editor application starting... :)
+16-02-2021 10:14:15.221 INFO  com.university.cca.frames.AppMainFrame - Application main frame initialized
+16-02-2021 10:14:15.250 INFO  com.university.cca.menu.FileMenu - File option of the menu is initialized
+16-02-2021 10:14:15.260 INFO  com.university.cca.menu.EditMenu - Edit option of the menu is initialized
+16-02-2021 10:14:15.265 INFO  com.university.cca.menu.ViewMenu - View option of the menu is initialized
+16-02-2021 10:14:15.267 INFO  com.university.cca.menu.HelpMenu - Help option of the menu is initialized
+16-02-2021 10:14:15.271 INFO  com.university.cca.menu.AboutMenu - About option of the menu is initialized
+16-02-2021 10:14:15.278 INFO  com.university.cca.panels.AmbientButtonsPanel - Ambient buttons panel initialized
+16-02-2021 10:14:15.347 INFO  com.university.cca.panels.AppMainPanel - Application main frame initialized
+16-02-2021 10:14:35.115 INFO  com.university.cca.main.Main - CCA Editor application starting... :)
+16-02-2021 10:14:40.131 INFO  com.university.cca.frames.AppMainFrame - Application main frame initialized
+16-02-2021 10:14:40.157 INFO  com.university.cca.menu.FileMenu - File option of the menu is initialized
+16-02-2021 10:14:40.166 INFO  com.university.cca.menu.EditMenu - Edit option of the menu is initialized
+16-02-2021 10:14:40.172 INFO  com.university.cca.menu.ViewMenu - View option of the menu is initialized
+16-02-2021 10:14:40.174 INFO  com.university.cca.menu.HelpMenu - Help option of the menu is initialized
+16-02-2021 10:14:40.175 INFO  com.university.cca.menu.AboutMenu - About option of the menu is initialized
+16-02-2021 10:14:40.183 INFO  com.university.cca.panels.AmbientButtonsPanel - Ambient buttons panel initialized
+16-02-2021 10:14:40.251 INFO  com.university.cca.panels.AppMainPanel - Application main frame initialized
