@@ -7,6 +7,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.university.cca.constants.Constants;
 import com.university.cca.dialogs.CreateAmbientDialog;
 import com.university.cca.entities.Ambient;
@@ -20,6 +23,8 @@ import com.university.cca.files.csv.AmbientCSVReader;
  * @version 1.0
  */
 public class CreateAmbientUtil {
+	
+    private static final Logger logger = LoggerFactory.getLogger(CreateAmbientUtil.class);
 	
     private static final String LATITUDE_REGEX ="^(\\+|-)?(?:90(?:(?:\\.0{1,6})?)|(?:[0-9]|[1-8][0-9])(?:(?:\\.[0-9]{1,6})?))$";
     private static final String LONGITUDE_REGEX ="^(\\+|-)?(?:180(?:(?:\\.0{1,6})?)|(?:[0-9]|[1-9][0-9]|1[0-7][0-9])(?:(?:\\.[0-9]{1,6})?))$";
@@ -80,7 +85,7 @@ public class CreateAmbientUtil {
 		String parent = String.valueOf(parentAmbient);
 		Ambient ambient = new Ambient(name, location, latitude, longitude, isStatic, parent, ambientType);
 		
-		System.out.println("Ambient: " + ambient);
+		logger.info("Ambient constructed: {}", ambient);
 		
 		return ambient;
 	}

@@ -14,6 +14,9 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.university.cca.buttons.CancelDialogButton;
 import com.university.cca.entities.Message;
 import com.university.cca.files.csv.AmbientCSVReader;
@@ -23,6 +26,7 @@ import com.university.cca.util.CreateMessageUtil;
 public class CreateAmbientMsgDialog extends JDialog {
 	
 	private static final long serialVersionUID = 1L;
+	private static final Logger logger = LoggerFactory.getLogger(CreateAmbientMsgDialog.class);
 	private static final String TITLE_DIALOG = "Create and Send Message";
 	private static final int TEXT_AREA_COLS = 25;
 	private static final int TEXT_AREA_ROWS = 2;
@@ -70,6 +74,7 @@ public class CreateAmbientMsgDialog extends JDialog {
         createMessageButton.addActionListener(new ActionListener() {
         	@Override
 			public void actionPerformed(ActionEvent e) {
+        		logger.info("Create Ambient Message Button is clicked");
         		createMessage();
 			}
 		});
@@ -86,9 +91,11 @@ public class CreateAmbientMsgDialog extends JDialog {
 		String ambientMessage = ambientMessageTextArea.getText().replace("\n", " ").replace("\r", " ").trim();
 		
 		if (!CreateMessageUtil.isValidMessageInfo(senderAmbient, recipientAmbient, ambientMessage)) {
+			logger.info("Tried to create an ambient message with invalid values");
 			String errorMsg = "Please, enter valid values for the input fields!";
 			CreateMessageUtil.createErrorDialog(getCurrentDialog(), errorMsg);
 		} else if (!CreateMessageUtil.isValidMessageLength(ambientMessage)) {
+			logger.info("Tried to create an ambient message, which is lower than 0 or greater than 500");
 			String errorMsg = "The message length should be greater than 0 and lower than 500!";
 			CreateMessageUtil.createErrorDialog(getCurrentDialog(), errorMsg);
 		} else {
@@ -98,6 +105,7 @@ public class CreateAmbientMsgDialog extends JDialog {
 			
 			// TODO: Writing to CCA file here
 			
+			logger.info("Ambient Message created successfully: {}", message);
 			CreateMessageUtil.createSuccessDialog(getCurrentDialog(), senderAmbient, recipientAmbient, ambientMessage);
 			getCurrentDialog().dispose();
 		}

@@ -9,6 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.opencsv.bean.ColumnPositionMappingStrategy;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
@@ -21,6 +24,8 @@ import com.university.cca.constants.Constants;
  * @version 1.0
  */
 public class AmbientCSVReader {
+	
+	private static final Logger logger = LoggerFactory.getLogger(AmbientCSVReader.class);
 
 	private AmbientCSVReader() {
 		// Prevent creating an object of type AmbientCSVReader
@@ -64,7 +69,7 @@ public class AmbientCSVReader {
 		try {
 			ambientBeans = readCsvToBean(path, CsvAmbientBean.class);
 		} catch (IOException e) {
-			System.err.println("Unable to read the data from the CSV file: " + e.getMessage());
+			logger.error("Unable to read the data from the CSV file: {}", e.getMessage());
 			ambientBeans = new ArrayList<>();
 		}
 		
@@ -83,7 +88,7 @@ public class AmbientCSVReader {
 		try {
 			messageBeans = readCsvToBean(path, CsvMessageBean.class);
 		} catch (IOException e) {
-			System.err.println("Unable to read the data from the CSV file: " + e.getMessage());
+			logger.error("Unable to read the data from the CSV file: {}", e.getMessage());
 			messageBeans = new ArrayList<>();
 		}
 		

@@ -13,6 +13,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.university.cca.buttons.CancelDialogButton;
 import com.university.cca.entities.Ambient;
 import com.university.cca.enums.AmbientType;
@@ -23,6 +26,7 @@ import com.university.cca.util.CreateAmbientUtil;
 public class CreateAmbientDialog extends JDialog {
 
 	private static final long serialVersionUID = 1L;
+	private static final Logger logger = LoggerFactory.getLogger(CreateAmbientDialog.class);
 	private static final int GRID_ROWS = 0;
 	private static final int GRID_COLS = 2;
 	private static final int TEXT_FIELD_SIZE = 16;
@@ -93,6 +97,7 @@ public class CreateAmbientDialog extends JDialog {
         createAmbientButton.addActionListener(new ActionListener() {
         	@Override
 			public void actionPerformed(ActionEvent e) {
+        		logger.info("Create Ambient Button is clicked");
         		createAmbient(ambientType);
 			}
 		});
@@ -112,9 +117,11 @@ public class CreateAmbientDialog extends JDialog {
 		Object parentAmbient = parentAmbientsComboBox.getSelectedItem();
 		
 		if (!CreateAmbientUtil.isValidAmbient(name, location, latitude, longitude, parentAmbient)) {
+			logger.info("Tried to create an ambient with invalid values");
 			String errorMsg = "Please, enter valid values for the input fields!";
 			CreateAmbientUtil.createErrorDialog(getCurrentDialog(), errorMsg);
 		} else if (CreateAmbientUtil.isExistingAmbient(name)) {
+			logger.info("Ambient with name: {} already exists", name);
 			String errorMsg = "Ambient with that name already exists!";
 			CreateAmbientUtil.createErrorDialog(getCurrentDialog(), errorMsg);
 		} else {
@@ -124,6 +131,7 @@ public class CreateAmbientDialog extends JDialog {
 			
 			// TODO: Writing to CCA file here
 			
+			logger.info("Ambient created successfully: {}", ambient);
 			CreateAmbientUtil.createSuccessDialog(getCurrentDialog());
 			getCurrentDialog().dispose();
 		}

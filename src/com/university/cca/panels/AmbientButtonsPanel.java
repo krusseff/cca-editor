@@ -7,6 +7,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.university.cca.buttons.BusStationButton;
 import com.university.cca.buttons.CityButton;
 import com.university.cca.buttons.CoffeeButton;
@@ -34,12 +37,14 @@ import com.university.cca.util.PanelsUtil;
 public class AmbientButtonsPanel extends JPanel {
 	
 	private static final long serialVersionUID = 1L;
+    private static final Logger logger = LoggerFactory.getLogger(AmbientButtonsPanel.class);
 	private static final int GRID_ROWS = 0;
 	private static final int GRID_COLS = 1;
 	
 	private JFrame parentFrame;
 
 	public AmbientButtonsPanel(JFrame parentFrame) {
+		logger.info("Ambient buttons panel initialized");
 		this.parentFrame = parentFrame;
 		
 		this.setLayout(PanelsUtil.getGridLayout(GRID_ROWS, GRID_COLS));

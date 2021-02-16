@@ -3,6 +3,9 @@ package com.university.cca.files.csv;
 import java.io.File;
 import java.io.IOException;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.university.cca.entities.Ambient;
 import com.university.cca.entities.Message;
 
@@ -13,6 +16,8 @@ import com.university.cca.entities.Message;
  * @version 1.0
  */
 public class AmbientCsvUtil {
+	
+	private static final Logger logger = LoggerFactory.getLogger(AmbientCsvUtil.class);
 	
 	private AmbientCsvUtil() {
 		// Prevent creating an object of type AmbientCsvUtil
@@ -27,14 +32,14 @@ public class AmbientCsvUtil {
 		if (!file.exists()) {
 			try {
 				boolean result = file.createNewFile();
-				System.out.println("CSV file: " + filePath + " is created with status: " + result);
+				logger.info("The CSV file: {} is created with status: {}", filePath, result);
 			} catch (IOException e) {
-				System.err.println("Unable to create CSV file: " + e.getMessage());
-				System.err.println("Exiting the program...");
+				logger.error("Unable to create CSV file: {}", e.getMessage());
+				logger.error("Exiting the program... :(");
 				System.exit(2);
 			}
 		} else {
-			System.out.println("File: " + filePath + " already exists.");
+			logger.info("The file: {} already exists.", filePath);
 		}	
 	}
 	

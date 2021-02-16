@@ -8,6 +8,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.university.cca.constants.Constants;
 import com.university.cca.dialogs.CreateAmbientDialog;
 import com.university.cca.enums.AmbientType;
@@ -15,6 +18,7 @@ import com.university.cca.enums.AmbientType;
 public class CountryButton extends JButton implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
+	private static final Logger logger = LoggerFactory.getLogger(CountryButton.class);
 	
 	private JFrame parentFrame;
 	
@@ -32,7 +36,7 @@ public class CountryButton extends JButton implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		System.out.println("Country Button Clicked");
+		logger.info("Country Button is clicked");
 		
 		new CreateAmbientDialog(
 			parentFrame, 

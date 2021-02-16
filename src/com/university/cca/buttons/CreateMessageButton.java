@@ -8,6 +8,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.university.cca.constants.Constants;
 import com.university.cca.dialogs.CreateAmbientMsgDialog;
 
@@ -20,6 +23,7 @@ import com.university.cca.dialogs.CreateAmbientMsgDialog;
 public class CreateMessageButton extends JButton implements ActionListener {
 	
 	private static final long serialVersionUID = 1L;
+	private static final Logger logger = LoggerFactory.getLogger(CreateMessageButton.class);
 	
 	private JFrame parentFrame;
 	
@@ -37,6 +41,7 @@ public class CreateMessageButton extends JButton implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		logger.info("Create Message Button is clicked and create ambient message dialog is opened");
 		new CreateAmbientMsgDialog(parentFrame);
 	}
 	

@@ -6,6 +6,9 @@ import java.io.Writer;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.opencsv.CSVWriter;
 import com.opencsv.bean.StatefulBeanToCsv;
 import com.opencsv.bean.StatefulBeanToCsvBuilder;
@@ -23,6 +26,8 @@ import com.university.cca.entities.Message;
  */
 public class AmbientCSVWriter {
 	
+	private static final Logger logger = LoggerFactory.getLogger(AmbientCSVWriter.class);
+	
 	private AmbientCSVWriter() {
 		// Prevent creating an object of type AmbientCSVWriter
 	}
@@ -38,8 +43,8 @@ public class AmbientCSVWriter {
 		try {
 			writeCsvFromBean(path, AmbientCsvUtil.convertToCsvAmbientBean(ambient));
 		} catch (CsvDataTypeMismatchException | CsvRequiredFieldEmptyException | IOException e) {
-			System.err.println("Unable to write the data to the CSV file: " + e.getMessage());
-			System.err.println("Exiting the program...");
+			logger.error("Unable to write the data to the CSV file: {}", e.getMessage());
+			logger.error("Exiting the program... :(");
 			System.exit(2);
 		}
 	}
@@ -55,8 +60,8 @@ public class AmbientCSVWriter {
 		try {
 			writeCsvFromBean(path, AmbientCsvUtil.convertToCsvMessageBean(ambientMessage));
 		} catch (CsvDataTypeMismatchException | CsvRequiredFieldEmptyException | IOException e) {
-			System.err.println("Unable to write the data to the CSV file: " + e.getMessage());
-			System.err.println("Exiting the program...");
+			logger.error("Unable to write the data to the CSV file: {}", e.getMessage());
+			logger.error("Exiting the program... :(");
 			System.exit(2);
 		}
 	}

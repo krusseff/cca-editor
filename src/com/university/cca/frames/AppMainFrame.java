@@ -8,6 +8,9 @@ import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.university.cca.constants.Constants;
 import com.university.cca.panels.AmbientButtonsPanel;
 import com.university.cca.panels.AppMainPanel;
@@ -22,10 +25,12 @@ import com.university.cca.util.CCAUtils;
 public class AppMainFrame extends JFrame {
 
 	private static final long serialVersionUID = 1L;
+	private static final Logger logger = LoggerFactory.getLogger(AppMainFrame.class);
 	private static final int GRID_ROWS = 0;
 	private static final int GRID_COLS = 3; // TODO: Maybe 4
 
 	public AppMainFrame() {
+		logger.info("Application main frame initialized");
 		this.setTitle(Constants.APPLICATION_TITLE);
 		this.setName(Constants.MAIN_FRAME_NAME);
 		this.setIconImage(createMainFrameIconImage());

@@ -8,11 +8,15 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.university.cca.constants.Constants;
 
 public class CancelDialogButton extends JButton implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
+	private static final Logger logger = LoggerFactory.getLogger(CancelDialogButton.class);
 	public static final int YES_OPTION = 0;
 	
 	private JDialog parentDialog;
@@ -29,7 +33,7 @@ public class CancelDialogButton extends JButton implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		System.out.println("Cancel Dialog Button Clicked");
+		logger.info("Cancel Dialog button is clicked");
 		
 		int confirmationResult = createConfirmationDialog();
 		
@@ -37,9 +41,12 @@ public class CancelDialogButton extends JButton implements ActionListener {
 			parentDialog.dispose();
 		} 
 
-	    System.out.println("Cancel button confirmation dialog is closed with result: " + confirmationResult);
+		logger.info("Cancel button confirmation dialog is closed with result: {}", confirmationResult);
 	}
 	
+	/**
+	 * Method that creates a confirmation dialog.
+	 */
 	private int createConfirmationDialog() {
 		// 0=yes, 1=no, 2=cancel
 		return JOptionPane.showConfirmDialog(
@@ -51,6 +58,7 @@ public class CancelDialogButton extends JButton implements ActionListener {
         );
 	}
 
+	// Getters and Setters
 	public JDialog getParentDialog() {
 		return parentDialog;
 	}

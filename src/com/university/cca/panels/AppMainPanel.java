@@ -5,6 +5,9 @@ import java.awt.FlowLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.university.cca.buttons.CreateMessageButton;
 import com.university.cca.util.PanelsUtil;
 
@@ -17,10 +20,12 @@ import com.university.cca.util.PanelsUtil;
 public class AppMainPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
+    private static final Logger logger = LoggerFactory.getLogger(AppMainPanel.class);
 	
 	private JFrame parentFrame;
 	
 	public AppMainPanel(JFrame parentFrame) {
+		logger.info("Application main frame initialized");
 		this.parentFrame = parentFrame;
 		
 		this.setLayout(new FlowLayout());
