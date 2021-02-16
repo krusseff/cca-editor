@@ -1,0 +1,7 @@
+16-02-2021 00:10:59.252 INFO  com.university.cca.main.Main - CCA Editor application starting... :)
+16-02-2021 00:11:04.266 INFO  com.university.cca.frames.AppMainFrame - Application main frame initialized
+16-02-2021 00:11:04.276 INFO  com.university.cca.panels.AmbientButtonsPanel - Ambient buttons panel initialized
+16-02-2021 00:11:04.415 INFO  com.university.cca.panels.AppMainPanel - Application main frame initialized
+16-02-2021 00:11:17.989 INFO  com.university.cca.buttons.UniversityButton - University Button is clicked
+16-02-2021 00:11:30.496 INFO  com.university.cca.buttons.CancelDialogButton - Cancel Dialog button is clicked
+16-02-2021 00:11:31.571 INFO  com.university.cca.buttons.CancelDialogButton - Cancel button confirmation dialog is closed with result: 0
