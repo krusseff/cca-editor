@@ -12,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.university.cca.constants.Constants;
+import com.university.cca.menu.ApplicationMenuBar;
 import com.university.cca.panels.AmbientButtonsPanel;
 import com.university.cca.panels.AppMainPanel;
 import com.university.cca.util.CCAUtils;
@@ -50,6 +51,8 @@ public class AppMainFrame extends JFrame {
 	 * Method that adds content to the main frame of the application
 	 */
 	private void addContentToFrame() {
+		new ApplicationMenuBar(this);
+		
 		new AmbientButtonsPanel(this);
 		new AppMainPanel(this);
 	}
