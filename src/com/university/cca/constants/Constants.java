@@ -40,6 +40,8 @@ public final class Constants {
 	
 	// Help menu images paths
 	public static final String HELP_ICON_PATH = "./images/menu/help/help.png";
+	public static final String TERMS_ICON_PATH = "./images/menu/help/terms.png";
+	public static final String SHORTCUTS_ICON_PATH = "./images/menu/help/tips_tricks.png";
 	
 	// Ambient buttons images paths
 	public static final String HOSPITAL_ICON_PATH = "./images/ambient_buttons/hospital.png";
@@ -68,14 +70,16 @@ public final class Constants {
 	public static final String FILE = "File";
 	
 	public static final String EDIT = "Edit";
-	public static final String EDIT_ITEM_CUT = "Cut";
-	public static final String EDIT_ITEM_COPY = "Copy";
-	public static final String EDIT_ITEM_PASTE = "Paste";
+	public static final String EDIT_ITEM_CUT = "Cut...";
+	public static final String EDIT_ITEM_COPY = "Copy...";
+	public static final String EDIT_ITEM_PASTE = "Paste...";
 
 	public static final String VIEW = "View";
 	
 	public static final String HELP = "Help";
-	public static final String HELP_ITEM_FAQ = "FAQ";
+	public static final String HELP_ITEM_FAQ = "FAQs";
+	public static final String HELP_ITEM_TERMS = "T&C's";
+	public static final String HELP_ITEM_SHORTCUTS = "Tips and Tricks...";
 	
 	public static final String ABOUT = "About";
 	public static final String ABOUT_ITEM_CCA = "About CCA";

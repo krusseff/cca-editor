@@ -1,31 +1,46 @@
 package com.university.cca.menu;
 
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JMenu;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.university.cca.constants.Constants;
+import com.university.cca.menu.items.help.FAQMenuItem;
+import com.university.cca.menu.items.help.ShortcutsMenuItem;
+import com.university.cca.menu.items.help.TermsMenuItem;
 
 public class HelpMenu extends JMenu {
 
 	private static final long serialVersionUID = 1L;
     private static final Logger logger = LoggerFactory.getLogger(HelpMenu.class);
 
-    public HelpMenu() {
-    	this.setText(Constants.HELP);
+    private JFrame parentFrame;
+    
+    public HelpMenu(JFrame parentFrame) {
+    	this.parentFrame = parentFrame;
     	
-    	ImageIcon icon = new ImageIcon(Constants.HELP_ICON_PATH);
-		this.setIcon(icon);
+    	this.setText(Constants.HELP);
+		this.setIcon(new ImageIcon(Constants.HELP_ICON_PATH));
 
-		// TODO
-		this.setEnabled(false);
+		addHelpMenuItems();
     	
     	logger.info("Help option of the menu is initialized");
     }
     
-    // TODO: Elements
-    // 1. Questions -> FAQ (Frequently Answered Questions)
-    // 2. Shortcuts of the application and keyboard combinations
+    private void addHelpMenuItems() {
+    	this.addSeparator();
+    	this.add(new FAQMenuItem(parentFrame));
+    	this.add(new TermsMenuItem(parentFrame));
+    	this.addSeparator();
+    	this.add(new ShortcutsMenuItem(parentFrame));
+    	this.addSeparator();
+    }
+    
+    // Getters and Setters
+	public JFrame getParentFrame() {
+		return parentFrame;
+	}
 }

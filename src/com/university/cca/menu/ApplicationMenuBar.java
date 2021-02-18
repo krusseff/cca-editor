@@ -18,14 +18,8 @@ public class ApplicationMenuBar extends JMenuBar {
 	public ApplicationMenuBar(JFrame mainFrame) {
 		this.parentFrame = mainFrame;
 
-		// this.setLayout(null);
-		// this.setBounds(1, 1, mainFrame.getWidth(), 20);
-		
-		// add menu options to menubar
 		addElementsToMenu();
 		
-		// put the menu bar on the main frame
-		// mainFrame.setJMenuBar(this);
 		this.parentFrame.setJMenuBar(this);
 	}
 	
@@ -33,7 +27,7 @@ public class ApplicationMenuBar extends JMenuBar {
 		this.add(new FileMenu());
 		this.add(new EditMenu(parentFrame));
 		this.add(new ViewMenu());       
-		this.add(new HelpMenu());
+		this.add(new HelpMenu(parentFrame));
 		this.add(new AboutMenu());
 	}
 

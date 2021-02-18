@@ -31,4 +31,5 @@ public class AboutMenu extends JMenu {
     // 3. Team that works on this
     // 4. Useful links: delc, delc2, delc space, github repo, fmi plovdiv web site
     // 5. Technologies: Java 8, and all other libraries
+    // 6. Contact us: Form for contact and an email should be sent: Java mail API or GMAIL API
 }
