@@ -69,8 +69,7 @@ public class AppMainFrame extends JFrame {
 	 * Set the size of the main frame of the application
 	 */
 	private void makeFrameHalfSize() {
-		CCAUtils ccaUtils = new CCAUtils();
-	    Dimension screenSize = ccaUtils.getScreenSize();
+	    Dimension screenSize = CCAUtils.getScreenSize();
 	    this.setSize(screenSize.width / 2, screenSize.height / 2);
 	}
 	

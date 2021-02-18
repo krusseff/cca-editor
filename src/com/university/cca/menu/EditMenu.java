@@ -11,6 +11,7 @@ import com.university.cca.constants.Constants;
 import com.university.cca.menu.items.edit.CopyMenuItem;
 import com.university.cca.menu.items.edit.CutMenuItem;
 import com.university.cca.menu.items.edit.PasteMenuItem;
+import com.university.cca.util.MouseCursorUtil;
 
 public class EditMenu extends JMenu {
 
@@ -24,6 +25,7 @@ public class EditMenu extends JMenu {
 
     	this.setText(Constants.EDIT);
 		this.setIcon(new ImageIcon(Constants.EDIT_ICON_PATH));
+		this.setCursor(MouseCursorUtil.getMouseHand());
 		
     	addEditMenuItems();
     	

@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 
 import com.university.cca.constants.Constants;
 import com.university.cca.dialogs.UnderConstructionDialog;
+import com.university.cca.util.MouseCursorUtil;
 
 public class ShortcutsMenuItem extends JMenuItem implements ActionListener {
 
@@ -25,6 +26,9 @@ public class ShortcutsMenuItem extends JMenuItem implements ActionListener {
 		
 		this.setText(Constants.HELP_ITEM_SHORTCUTS);
 		this.setIcon(new ImageIcon(Constants.SHORTCUTS_ICON_PATH));
+		
+		this.setToolTipText("Keyboard Shortcuts");
+		this.setCursor(MouseCursorUtil.getMouseHand());
 		
 		this.addActionListener(this);
 	}

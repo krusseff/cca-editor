@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 
 import com.university.cca.constants.Constants;
 import com.university.cca.dialogs.UnderConstructionDialog;
+import com.university.cca.util.MouseCursorUtil;
 
 public class CutMenuItem extends JMenuItem implements ActionListener {
 
@@ -25,6 +26,7 @@ public class CutMenuItem extends JMenuItem implements ActionListener {
 		
 		this.setText(Constants.EDIT_ITEM_CUT);
 		this.setIcon(new ImageIcon(Constants.CUT_ICON_PATH));
+		this.setCursor(MouseCursorUtil.getMouseHand());
 		
 		this.addActionListener(this);
 	}

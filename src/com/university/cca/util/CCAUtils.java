@@ -13,7 +13,7 @@ import com.university.cca.loading.LoadingScreen;
  */
 public class CCAUtils {
 	
-	public CCAUtils() {
+	private CCAUtils() {
 		// Constructor that prevents creating an object of type CCAUtils
 	}
 	
@@ -22,7 +22,7 @@ public class CCAUtils {
 		loadingScreen.createImage();
 	}
 	
-	public Dimension getScreenSize() {
+	public static Dimension getScreenSize() {
 		return Toolkit.getDefaultToolkit().getScreenSize();
 	}
 }

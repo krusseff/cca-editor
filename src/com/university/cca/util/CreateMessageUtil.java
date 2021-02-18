@@ -37,6 +37,7 @@ public class CreateMessageUtil {
     	ImageIcon successIcon = new ImageIcon(Constants.SUCCESS_ICON_PATH);
     	createMessageButton.setIcon(successIcon);
     	createMessageButton.setText("Create Message");
+    	createMessageButton.setCursor(MouseCursorUtil.getMouseHand());
     	
     	return createMessageButton;
 	}

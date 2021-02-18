@@ -42,6 +42,7 @@ public class CreateAmbientUtil {
     	ImageIcon successIcon = new ImageIcon(Constants.SUCCESS_ICON_PATH);
     	createAmbientButton.setIcon(successIcon);
     	createAmbientButton.setText("Create Ambient");
+    	createAmbientButton.setCursor(MouseCursorUtil.getMouseHand());
     	
     	return createAmbientButton;
 	}

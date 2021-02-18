@@ -14,6 +14,7 @@ import org.slf4j.LoggerFactory;
 import com.university.cca.constants.Constants;
 import com.university.cca.dialogs.CreateAmbientDialog;
 import com.university.cca.enums.AmbientType;
+import com.university.cca.util.MouseCursorUtil;
 
 public class UniversityButton extends JButton implements ActionListener {
 
@@ -30,6 +31,7 @@ public class UniversityButton extends JButton implements ActionListener {
         this.setText("University");
         this.setIcon(icon);
         this.setPreferredSize(new Dimension(190, 80));
+        this.setCursor(MouseCursorUtil.getMouseHand());
         
         this.addActionListener(this);
     }

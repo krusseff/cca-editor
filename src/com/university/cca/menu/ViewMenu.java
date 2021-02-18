@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.university.cca.constants.Constants;
+import com.university.cca.util.MouseCursorUtil;
 
 public class ViewMenu extends JMenu {
 
@@ -21,6 +22,7 @@ public class ViewMenu extends JMenu {
     	
     	this.setText(Constants.VIEW);
 		this.setIcon(new ImageIcon(Constants.VIEW_ICON_PATH));
+		this.setCursor(MouseCursorUtil.getMouseHand());
 		
 		// TODO
 		this.setEnabled(false);

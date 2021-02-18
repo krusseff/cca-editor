@@ -12,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.university.cca.constants.Constants;
+import com.university.cca.util.MouseCursorUtil;
 
 public class CancelDialogButton extends JButton implements ActionListener {
 
@@ -27,6 +28,7 @@ public class CancelDialogButton extends JButton implements ActionListener {
     	ImageIcon cancelIcon = new ImageIcon(Constants.CANCEL_ICON_PATH);
         this.setIcon(cancelIcon);
         this.setText("Cancel");
+        this.setCursor(MouseCursorUtil.getMouseHand());
         
         this.addActionListener(this);
     }

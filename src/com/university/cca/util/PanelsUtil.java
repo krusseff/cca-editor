@@ -32,8 +32,7 @@ public class PanelsUtil {
 	 * Set the size of the panels of the application
 	 */
 	public static void setPanelSize(JPanel panel) {
-		CCAUtils ccaUtils = new CCAUtils();
-	    Dimension screenSize = ccaUtils.getScreenSize();
+	    Dimension screenSize = CCAUtils.getScreenSize();
 	    panel.setBounds(1, 20, screenSize.width / 2, ((screenSize.height / 2) - 30));
 	}
 }

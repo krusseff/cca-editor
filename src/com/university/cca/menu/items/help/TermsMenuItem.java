@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 
 import com.university.cca.constants.Constants;
 import com.university.cca.dialogs.UnderConstructionDialog;
+import com.university.cca.util.MouseCursorUtil;
 
 public class TermsMenuItem extends JMenuItem implements ActionListener {
 	
@@ -25,6 +26,9 @@ public class TermsMenuItem extends JMenuItem implements ActionListener {
 		
 		this.setText(Constants.HELP_ITEM_TERMS);
 		this.setIcon(new ImageIcon(Constants.TERMS_ICON_PATH));
+		
+		this.setToolTipText("Terms and Conditions");
+		this.setCursor(MouseCursorUtil.getMouseHand());
 		
 		this.addActionListener(this);
 	}

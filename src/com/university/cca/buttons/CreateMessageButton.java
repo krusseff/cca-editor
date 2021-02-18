@@ -13,6 +13,7 @@ import org.slf4j.LoggerFactory;
 
 import com.university.cca.constants.Constants;
 import com.university.cca.dialogs.CreateAmbientMsgDialog;
+import com.university.cca.util.MouseCursorUtil;
 
 /**
  * The button that shows the dialog for creating a message between two ambients
@@ -35,6 +36,7 @@ public class CreateMessageButton extends JButton implements ActionListener {
         this.setText("Create Message");
         this.setIcon(icon);
         this.setPreferredSize(new Dimension(165, 35));
+        this.setCursor(MouseCursorUtil.getMouseHand());
         
         this.addActionListener(this);
     }

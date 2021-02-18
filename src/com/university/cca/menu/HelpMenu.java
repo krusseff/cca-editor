@@ -11,6 +11,7 @@ import com.university.cca.constants.Constants;
 import com.university.cca.menu.items.help.FAQMenuItem;
 import com.university.cca.menu.items.help.ShortcutsMenuItem;
 import com.university.cca.menu.items.help.TermsMenuItem;
+import com.university.cca.util.MouseCursorUtil;
 
 public class HelpMenu extends JMenu {
 
@@ -24,6 +25,7 @@ public class HelpMenu extends JMenu {
     	
     	this.setText(Constants.HELP);
 		this.setIcon(new ImageIcon(Constants.HELP_ICON_PATH));
+		this.setCursor(MouseCursorUtil.getMouseHand());
 
 		addHelpMenuItems();
     	
