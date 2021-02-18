@@ -1,6 +1,7 @@
 package com.university.cca.menu;
 
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JMenu;
 
 import org.slf4j.Logger;
@@ -13,11 +14,13 @@ public class ViewMenu extends JMenu {
 	private static final long serialVersionUID = 1L;
     private static final Logger logger = LoggerFactory.getLogger(ViewMenu.class);
 
-    public ViewMenu() {
-    	this.setText(Constants.VIEW);
+    private JFrame parentFrame;
+    
+    public ViewMenu(JFrame parentFrame) {
+    	this.parentFrame = parentFrame;
     	
-    	ImageIcon icon = new ImageIcon(Constants.VIEW_ICON_PATH);
-		this.setIcon(icon);
+    	this.setText(Constants.VIEW);
+		this.setIcon(new ImageIcon(Constants.VIEW_ICON_PATH));
 		
 		// TODO
 		this.setEnabled(false);
@@ -30,4 +33,9 @@ public class ViewMenu extends JMenu {
     // 2. Show ambient messages CSV file ???
     // 3. Show ambient CCA file ???
     // 4. Show ambients information: name, location, parents, and etc.
+    
+	// Getters and Setters
+	public JFrame getParentFrame() {
+		return parentFrame;
+	}
 }

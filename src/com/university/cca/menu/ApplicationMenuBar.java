@@ -24,11 +24,11 @@ public class ApplicationMenuBar extends JMenuBar {
 	}
 	
 	private void addElementsToMenu() {
-		this.add(new FileMenu());
+		this.add(new FileMenu(parentFrame));
 		this.add(new EditMenu(parentFrame));
-		this.add(new ViewMenu());       
+		this.add(new ViewMenu(parentFrame));       
 		this.add(new HelpMenu(parentFrame));
-		this.add(new AboutMenu());
+		this.add(new AboutMenu(parentFrame));
 	}
 
 	// Getters and Setters

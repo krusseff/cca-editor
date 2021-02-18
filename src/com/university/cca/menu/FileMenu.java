@@ -1,6 +1,7 @@
 package com.university.cca.menu;
 
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JMenu;
 
 import org.slf4j.Logger;
@@ -13,11 +14,13 @@ public class FileMenu extends JMenu {
 	private static final long serialVersionUID = 1L;
     private static final Logger logger = LoggerFactory.getLogger(FileMenu.class);
 
-    public FileMenu() {
-    	this.setText(Constants.FILE);
+    private JFrame parentFrame;
+    
+    public FileMenu(JFrame parentFrame) {
+    	this.parentFrame = parentFrame;
     	
-    	ImageIcon icon = new ImageIcon(Constants.FILE_ICON_PATH);
-		this.setIcon(icon);
+    	this.setText(Constants.FILE);
+		this.setIcon(new ImageIcon(Constants.FILE_ICON_PATH));
 
 		// TODO
 		this.setEnabled(false);
@@ -39,4 +42,9 @@ public class FileMenu extends JMenu {
     // eMenuItem.setMnemonic(KeyEvent.VK_E);
     // eMenuItem.setToolTipText("Exit application");
     // eMenuItem.addActionListener((event) -> System.exit(0));
+    
+	// Getters and Setters
+	public JFrame getParentFrame() {
+		return parentFrame;
+	}
 }
