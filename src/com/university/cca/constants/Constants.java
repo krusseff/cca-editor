@@ -1,6 +1,7 @@
 package com.university.cca.constants;
 
 import java.awt.Color;
+import java.awt.event.KeyEvent;
 
 /**
  * All constants for CCA Editor application
@@ -9,7 +10,12 @@ import java.awt.Color;
  * @version 1.0
  */
 public final class Constants {
+	
 	public static final String APPLICATION_TITLE = "CCA Editor";
+	public static final String MAIN_FRAME_NAME = "Main Frame Panel";
+	public static final String FONT_ARIAL = "Arial";
+	public static final int FONT_SIZE_FOURTEEN = 14;
+	public static final Color LIGHT_GREY = new Color(222, 222, 222);
 	
 	// Ambient files paths
 	public static final String AMBIENTS_CSV_FILE_PATH = "./files/csv/ambients.csv";
@@ -25,12 +31,20 @@ public final class Constants {
 	
 	// File menu images paths
 	public static final String FILE_ICON_PATH = "./images/menu/file/file.png";
+	public static final String NEW_ICON_PATH = "./images/menu/file/new.png";
+	public static final String OPEN_ICON_PATH = "./images/menu/file/open.png";
+	public static final String SAVE_ICON_PATH = "./images/menu/file/save.png";
+	public static final String EXIT_ICON_PATH = "./images/menu/file/exit.png";
+	public static final String IMPORT_ICON_PATH = "./images/menu/file/import.png";
+	public static final String EXPORT_ICON_PATH = "./images/menu/file/export.png";
+	public static final String TERMINAL_ICON_PATH = "./images/menu/file/terminal.png";
 	
 	// Edit menu images paths
 	public static final String EDIT_ICON_PATH = "./images/menu/edit/edit.png";
 	public static final String CUT_ICON_PATH = "./images/menu/edit/cut.png";
 	public static final String COPY_ICON_PATH = "./images/menu/edit/copy.png";
 	public static final String PASTE_ICON_PATH = "./images/menu/edit/paste.png";
+	public static final String DELETE_ICON_PATH = "./images/menu/edit/delete.png";
 	
 	// View menu images paths
 	public static final String VIEW_ICON_PATH = "./images/menu/view/view.png";
@@ -60,19 +74,21 @@ public final class Constants {
 	public static final String COUNTRY_ICON_PATH = "./images/ambient_buttons/country.png";
 	public static final String CONTINENT_ICON_PATH = "./images/ambient_buttons/continent.png";
 	
-	public static final String FONT_ARIAL = "Arial";
-	public static final int FONT_SIZE_FOURTEEN = 14;
-	public static final Color LIGHT_GREY = new Color(222, 222, 222);
-	
-	public static final String MAIN_FRAME_NAME = "Main Frame Panel";
-	
 	// Menu text labels
 	public static final String FILE = "File";
+	public static final String FILE_ITEM_NEW = "New...";
+	public static final String FILE_ITEM_OPEN = "Open...";
+	public static final String FILE_ITEM_SAVE = "Save...";
+	public static final String FILE_ITEM_EXIT = "Exit...";
+	public static final String FILE_ITEM_IMPORT = "Import...";
+	public static final String FILE_ITEM_EXPORT = "Export...";
+	public static final String FILE_ITEM_TERMINAL = "Open Terminal...";
 	
 	public static final String EDIT = "Edit";
 	public static final String EDIT_ITEM_CUT = "Cut...";
 	public static final String EDIT_ITEM_COPY = "Copy...";
 	public static final String EDIT_ITEM_PASTE = "Paste...";
+	public static final String EDIT_ITEM_DELETE = "Delete...";
 
 	public static final String VIEW = "View";
 	
@@ -84,6 +100,18 @@ public final class Constants {
 	public static final String ABOUT = "About";
 	public static final String ABOUT_ITEM_CCA = "About CCA";
 	public static final String ABOUT_ITEM_CCA_EDITOR = "About CCA Editor";
+	
+	// File menu shortcuts
+	public static final int EXIT_SHORTCUT = KeyEvent.VK_E;
+	public static final int IMPORT_SHORTCUT = KeyEvent.VK_I;
+	public static final int EXPORT_SHORTCUT = KeyEvent.VK_X;
+	public static final int TERMINAL_SHORTCUT = KeyEvent.VK_T;
+	
+	// Edit menu shortcuts
+	public static final int CUT_SHORTCUT = KeyEvent.VK_U;
+	public static final int COPY_SHORTCUT = KeyEvent.VK_C;
+	public static final int PASTE_SHORTCUT = KeyEvent.VK_P;
+	public static final int DELETE_SHORTCUT = KeyEvent.VK_D;
 	
 	private Constants() {
 		// private constructor to hide the implicit public one
