@@ -8,6 +8,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.university.cca.constants.Constants;
+import com.university.cca.menu.items.file.ExitMenuItem;
+import com.university.cca.menu.items.file.ExportMenuItem;
+import com.university.cca.menu.items.file.ImportMenuItem;
+import com.university.cca.menu.items.file.TerminalMenuItem;
+import com.university.cca.util.MouseCursorUtil;
 
 public class FileMenu extends JMenu {
 
@@ -21,27 +26,27 @@ public class FileMenu extends JMenu {
     	
     	this.setText(Constants.FILE);
 		this.setIcon(new ImageIcon(Constants.FILE_ICON_PATH));
+		this.setCursor(MouseCursorUtil.getMouseHand());
 
-		// TODO
-		this.setEnabled(false);
+		addFileMenuItems();
 		
     	logger.info("File option of the menu is initialized");
     }
     
-    // Elements:
-    // 1. New
-    // 2. Open
-    // 3. Save
-    // 4. Separator: fileMenu.addSeparator();
-    // 5. Import...
-    // 6. Export...
-    // 7. Separator: fileMenu.addSeparator();
-    // 8. Exit
-    
-    // var eMenuItem = new JMenuItem("Exit", exitIcon);
-    // eMenuItem.setMnemonic(KeyEvent.VK_E);
-    // eMenuItem.setToolTipText("Exit application");
-    // eMenuItem.addActionListener((event) -> System.exit(0));
+    private void addFileMenuItems() {
+    	this.addSeparator();
+    	// this.add(new NewMenuItem(parentFrame));
+    	// this.add(new OpenMenuItem(parentFrame));
+    	// this.add(new SaveMenuItem(parentFrame));
+    	this.addSeparator();
+    	this.add(new ImportMenuItem(parentFrame));
+    	this.add(new ExportMenuItem(parentFrame));
+    	this.addSeparator();
+    	this.add(new TerminalMenuItem(parentFrame));
+    	this.addSeparator();
+    	this.add(new ExitMenuItem(parentFrame));
+    	this.addSeparator();
+    }
     
 	// Getters and Setters
 	public JFrame getParentFrame() {
