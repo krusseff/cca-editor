@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import com.university.cca.constants.Constants;
 import com.university.cca.menu.items.edit.CopyMenuItem;
 import com.university.cca.menu.items.edit.CutMenuItem;
+import com.university.cca.menu.items.edit.DeleteMenuItem;
 import com.university.cca.menu.items.edit.PasteMenuItem;
 import com.university.cca.util.MouseCursorUtil;
 
@@ -37,6 +38,8 @@ public class EditMenu extends JMenu {
     	this.add(new CutMenuItem(parentFrame));
     	this.add(new CopyMenuItem(parentFrame));
     	this.add(new PasteMenuItem(parentFrame));
+    	this.addSeparator();
+    	this.add(new DeleteMenuItem(parentFrame));
     	this.addSeparator();
     }
 

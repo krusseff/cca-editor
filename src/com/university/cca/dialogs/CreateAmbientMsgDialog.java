@@ -22,6 +22,7 @@ import com.university.cca.entities.Message;
 import com.university.cca.files.csv.AmbientCSVReader;
 import com.university.cca.files.csv.AmbientCSVWriter;
 import com.university.cca.util.CreateMessageUtil;
+import com.university.cca.util.MouseCursorUtil;
 
 public class CreateAmbientMsgDialog extends JDialog {
 	
@@ -118,6 +119,7 @@ public class CreateAmbientMsgDialog extends JDialog {
 		String[] ambientNames = AmbientCSVReader.getAmbientNamesSorted();
 		JComboBox<String> ambientNamesComboBox = new JComboBox<>(ambientNames);
 		ambientNamesComboBox.setSelectedIndex(-1); // set default empty value
+		ambientNamesComboBox.setCursor(MouseCursorUtil.getMouseHand());
 		ambientNamesComboBox.setBorder(BorderFactory.createEmptyBorder(5, 0, 0, 5));
 		
 		return ambientNamesComboBox;

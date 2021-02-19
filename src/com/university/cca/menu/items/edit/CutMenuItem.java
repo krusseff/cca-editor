@@ -28,6 +28,9 @@ public class CutMenuItem extends JMenuItem implements ActionListener {
 		this.setIcon(new ImageIcon(Constants.CUT_ICON_PATH));
 		this.setCursor(MouseCursorUtil.getMouseHand());
 		
+		// Open Edit Menu and Press 'U' = Click on Cut
+		this.setMnemonic(Constants.CUT_SHORTCUT);
+		
 		this.addActionListener(this);
 	}
 

@@ -22,6 +22,7 @@ import com.university.cca.enums.AmbientType;
 import com.university.cca.files.csv.AmbientCSVReader;
 import com.university.cca.files.csv.AmbientCSVWriter;
 import com.university.cca.util.CreateAmbientUtil;
+import com.university.cca.util.MouseCursorUtil;
 
 public class CreateAmbientDialog extends JDialog {
 
@@ -80,6 +81,7 @@ public class CreateAmbientDialog extends JDialog {
 
         // sixth row of the dialog
         staticCheckBox = new JCheckBox("", true);
+        staticCheckBox.setCursor(MouseCursorUtil.getMouseHand());
         dialogPanel.add(createLabel("Static Ambient:"));
         dialogPanel.add(staticCheckBox);
         
@@ -142,8 +144,10 @@ public class CreateAmbientDialog extends JDialog {
 	 */
 	private JComboBox<String> createComboBox() {
 		String[] parentAmbientNames = AmbientCSVReader.getAmbientNamesSorted();
+		JComboBox<String> parentsComboBox = new JComboBox<>(parentAmbientNames);
+		parentsComboBox.setCursor(MouseCursorUtil.getMouseHand());
 		
-		return new JComboBox<>(parentAmbientNames);
+		return parentsComboBox;
 	}
 	
 	/**

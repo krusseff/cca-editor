@@ -36,6 +36,14 @@ public class ShortcutsMenuItem extends JMenuItem implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO: Add the exact implementation here
+		// 1. Open File Menu and Press 'E' = Click on Exit
+		// 2. Open File Menu and Press 'I' = Click on Import
+		// 3. Open File Menu and Press 'X' = Click on Export
+		// 4. Open File Menu and Press 'T' = Click on Open Terminal
+		// 5. Open Edit Menu and Press 'D' = Click on Delete
+		// 6. Open Edit Menu and Press 'P' = Click on Paste
+		// 7. Open Edit Menu and Press 'C' = Click on Copy
+		// 8. Open Edit Menu and Press 'U' = Click on Cut
 		
 		new UnderConstructionDialog(parentFrame);
 		

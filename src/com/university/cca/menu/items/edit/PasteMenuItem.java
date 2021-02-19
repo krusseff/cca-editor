@@ -28,6 +28,9 @@ public class PasteMenuItem extends JMenuItem implements ActionListener {
 		this.setIcon(new ImageIcon(Constants.PASTE_ICON_PATH));
 		this.setCursor(MouseCursorUtil.getMouseHand());
 		
+		// Open Edit Menu and Press 'P' = Click on Paste
+		this.setMnemonic(Constants.PASTE_SHORTCUT);
+		
 		this.addActionListener(this);
 	}
 
