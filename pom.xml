@@ -7,24 +7,32 @@
   <description>CCAEditor is Java-based application for Calculus of Context-Aware System models</description>
   
   <properties>
+  	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  	<logback.version>1.2.3</logback.version>
+	<opencsv.version>5.3</opencsv.version>
   	<junit.version>4.13.1</junit.version>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   
   <dependencies>
   
 	<dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>${junit.version}</version>
-  	</dependency>
+		<groupId>junit</groupId>
+		<artifactId>junit</artifactId>
+		<version>${junit.version}</version>
+	</dependency>
   	
 	<dependency>
 	    <groupId>com.opencsv</groupId>
 	    <artifactId>opencsv</artifactId>
-	    <version>5.3</version>
+	    <version>${opencsv.version}</version>
 	</dependency>
-	  	
+
+	<dependency>
+	    <groupId>ch.qos.logback</groupId>
+	    <artifactId>logback-classic</artifactId>
+	    <version>${logback.version}</version>
+	</dependency>
+
   </dependencies>
   
   <build>
@@ -34,8 +42,8 @@
     	  <artifactId>maven-compiler-plugin</artifactId>
 	      <version>3.5.1</version>
 	      <configuration>
-	        <source>1.8</source>
-	        <target>1.8</target>
+	      	<source>1.8</source>
+            <target>1.8</target>
 	      </configuration>
 	    </plugin>
       

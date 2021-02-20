@@ -4,6 +4,10 @@ import static com.university.cca.constants.Constants.*;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 
@@ -16,6 +20,8 @@ import java.awt.FlowLayout;
  */
 public class LoadingScreen {
 
+	private static final Logger logger = LoggerFactory.getLogger(LoadingScreen.class);
+	
 	private JFrame imageFrame;
 	
 	public LoadingScreen() { 
@@ -25,7 +31,7 @@ public class LoadingScreen {
 	@SuppressWarnings("deprecation")
 	public void createImage() {
 		try {
-			Thread t = new Thread(new Runnable() {
+			Thread loadingScreenThread = new Thread(new Runnable() {
 				public void run() {
 					imageFrame = new JFrame();
 					imageFrame.setUndecorated(true);
@@ -58,16 +64,16 @@ public class LoadingScreen {
 				}
 			});
 			
-			synchronized(t) {
-				t.wait(2000);
-				t.start();
+			synchronized(loadingScreenThread) {
+				loadingScreenThread.wait(2000);
+				loadingScreenThread.start();
 				Thread.sleep(3000);
-				t.stop();
+				loadingScreenThread.stop();
 				imageFrame.setVisible(false);
 			}
 		}
 		catch(IllegalComponentStateException | InterruptedException ex) {
-			System.err.println("Loading screen error occurred: " + ex.getMessage());
+			logger.error("Application loading screen error occurred: {}", ex.getMessage());
 		}
 	}
 }

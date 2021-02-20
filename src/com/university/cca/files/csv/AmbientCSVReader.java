@@ -7,6 +7,10 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.opencsv.bean.ColumnPositionMappingStrategy;
 import com.opencsv.bean.CsvToBean;
@@ -20,6 +24,8 @@ import com.university.cca.constants.Constants;
  * @version 1.0
  */
 public class AmbientCSVReader {
+	
+	private static final Logger logger = LoggerFactory.getLogger(AmbientCSVReader.class);
 
 	private AmbientCSVReader() {
 		// Prevent creating an object of type AmbientCSVReader
@@ -28,11 +34,13 @@ public class AmbientCSVReader {
 	/**
 	 * Method, which main responsibility is to read ambient names from the csv file as an array.
 	 */
-	public static String[] getAmbientNames() {
+	public static String[] getAmbientNamesSorted() {
 		List<String> ambients = readAmbientNamesFromCsv();
-		String[] ambientNames = new String[ambients.size()];
+		List<String> sortedAmbients = ambients.stream().sorted().collect(Collectors.toList());
 		
-		return ambients.toArray(ambientNames);
+		String[] ambientNames = new String[sortedAmbients.size()];
+		
+		return sortedAmbients.toArray(ambientNames);
 	}
 	
 	/**
@@ -61,11 +69,30 @@ public class AmbientCSVReader {
 		try {
 			ambientBeans = readCsvToBean(path, CsvAmbientBean.class);
 		} catch (IOException e) {
-			System.err.println("Unable to read the data from the CSV file: " + e.getMessage());
+			logger.error("Unable to read the data from the CSV file: {}", e.getMessage());
 			ambientBeans = new ArrayList<>();
 		}
 		
 		return ambientBeans;
+	}
+	
+	/**
+	 * Method, which main responsibility is to read ambient messages from the csv file.
+	 */
+	public static List<CsvMessageBean> readAmbientMessagesFromCsv() {
+		List<CsvMessageBean> messageBeans;
+		
+		String filePath = Constants.MESSAGES_CSV_FILE_PATH;
+		Path path = Paths.get(filePath);
+
+		try {
+			messageBeans = readCsvToBean(path, CsvMessageBean.class);
+		} catch (IOException e) {
+			logger.error("Unable to read the data from the CSV file: {}", e.getMessage());
+			messageBeans = new ArrayList<>();
+		}
+		
+		return messageBeans;
 	}
 
 	/**

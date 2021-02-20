@@ -8,13 +8,18 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.university.cca.constants.Constants;
 import com.university.cca.dialogs.CreateAmbientDialog;
 import com.university.cca.enums.AmbientType;
+import com.university.cca.util.MouseCursorUtil;
 
 public class CityButton extends JButton implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
+	private static final Logger logger = LoggerFactory.getLogger(CityButton.class);
 	
 	private JFrame parentFrame;
 	
@@ -26,13 +31,14 @@ public class CityButton extends JButton implements ActionListener {
         this.setText("City/Town");
         this.setIcon(icon);
         this.setPreferredSize(new Dimension(190, 80));
+        this.setCursor(MouseCursorUtil.getMouseHand());
         
         this.addActionListener(this);
     }
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		System.out.println("City Button Clicked");
+		logger.info("City Button is clicked");
 		
 		new CreateAmbientDialog(
 			parentFrame, 

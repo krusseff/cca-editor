@@ -13,22 +13,29 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import com.university.caa.entities.Ambient;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.university.cca.buttons.CancelDialogButton;
+import com.university.cca.entities.Ambient;
 import com.university.cca.enums.AmbientType;
 import com.university.cca.files.csv.AmbientCSVReader;
 import com.university.cca.files.csv.AmbientCSVWriter;
 import com.university.cca.util.CreateAmbientUtil;
+import com.university.cca.util.MouseCursorUtil;
 
 public class CreateAmbientDialog extends JDialog {
 
 	private static final long serialVersionUID = 1L;
+	private static final Logger logger = LoggerFactory.getLogger(CreateAmbientDialog.class);
 	private static final int GRID_ROWS = 0;
 	private static final int GRID_COLS = 2;
 	private static final int TEXT_FIELD_SIZE = 16;
 
 	private JTextField ambientNameTextField;
 	private JTextField ambientLocationTextField;
+	private JTextField ambientGpsLatitudeTextField;
+	private JTextField ambientGpsLongitudeTextField;
 	private JCheckBox staticCheckBox;
 	private JComboBox<String> parentAmbientsComboBox;
 	
@@ -59,45 +66,41 @@ public class CreateAmbientDialog extends JDialog {
         ambientLocationTextField = createTextField();
         dialogPanel.add(createLabel("Ambient Location:"));
         dialogPanel.add(ambientLocationTextField);
-
+        
         // fourth row of the dialog
+        ambientGpsLatitudeTextField = createTextField();
+        ambientGpsLatitudeTextField.setToolTipText("Example: 42.135652");
+        dialogPanel.add(createLabel("Ambient GPS Latitude:"));
+        dialogPanel.add(ambientGpsLatitudeTextField);
+        
+        // fifth row of the dialog
+        ambientGpsLongitudeTextField = createTextField();
+        ambientGpsLongitudeTextField.setToolTipText("Example: 24.753942");
+        dialogPanel.add(createLabel("Ambient GPS Longitude:"));
+        dialogPanel.add(ambientGpsLongitudeTextField);
+
+        // sixth row of the dialog
         staticCheckBox = new JCheckBox("", true);
+        staticCheckBox.setCursor(MouseCursorUtil.getMouseHand());
         dialogPanel.add(createLabel("Static Ambient:"));
         dialogPanel.add(staticCheckBox);
         
-        // fifth row of the dialog
+        // seventh row of the dialog
         parentAmbientsComboBox = createComboBox();
         parentAmbientsComboBox.setSelectedIndex(-1); // set default empty value
         dialogPanel.add(createLabel("Parent Ambient Name:"));
         dialogPanel.add(parentAmbientsComboBox);
         
-        // sixth row of the dialog with the buttons      
+        // eight row of the dialog with the buttons      
         JButton createAmbientButton = CreateAmbientUtil.createAmbientButton();
         dialogPanel.add(createAmbientButton);
         dialogPanel.add(new CancelDialogButton(this));
         
         createAmbientButton.addActionListener(new ActionListener() {
-
         	@Override
 			public void actionPerformed(ActionEvent e) {
-				
-				String name = ambientNameTextField.getText();
-				String location = ambientLocationTextField.getText();
-				boolean isStatic = staticCheckBox.isSelected();
-				Object parentAmbient = parentAmbientsComboBox.getSelectedItem();
-				
-				if (CreateAmbientUtil.isValidAmbient(name, location, parentAmbient)) {
-					Ambient ambient = CreateAmbientUtil.constructAmbient(name, location, isStatic, parentAmbient, ambientType);
-					
-					AmbientCSVWriter.writeAmbientToCsv(ambient);
-					
-					// TODO: Writing to CCA file here
-					
-					CreateAmbientUtil.createSuccessDialog(getCurrentDialog());
-					getCurrentDialog().dispose();
-				} else {
-					CreateAmbientUtil.createErrorDialog(getCurrentDialog());
-				}
+        		logger.info("Create Ambient Button is clicked");
+        		createAmbient(ambientType);
 			}
 		});
         
@@ -105,12 +108,46 @@ public class CreateAmbientDialog extends JDialog {
 	}
 	
 	/**
+	 * Method that validates and creates an ambient if the enterred data is valid.
+	 */
+	private void createAmbient(AmbientType ambientType) {
+		String name = ambientNameTextField.getText().trim();
+		String location = ambientLocationTextField.getText().trim();
+		String latitude = ambientGpsLatitudeTextField.getText().trim();
+		String longitude = ambientGpsLongitudeTextField.getText().trim();
+		boolean isStatic = staticCheckBox.isSelected();
+		Object parentAmbient = parentAmbientsComboBox.getSelectedItem();
+		
+		if (!CreateAmbientUtil.isValidAmbient(name, location, latitude, longitude, parentAmbient)) {
+			logger.info("Tried to create an ambient with invalid values");
+			String errorMsg = "Please, enter valid values for the input fields!";
+			CreateAmbientUtil.createErrorDialog(getCurrentDialog(), errorMsg);
+		} else if (CreateAmbientUtil.isExistingAmbient(name)) {
+			logger.info("Ambient with name: {} already exists", name);
+			String errorMsg = "Ambient with that name already exists!";
+			CreateAmbientUtil.createErrorDialog(getCurrentDialog(), errorMsg);
+		} else {
+			Ambient ambient = CreateAmbientUtil.constructAmbient(name, location, latitude, longitude, isStatic, parentAmbient, ambientType);
+			
+			AmbientCSVWriter.writeAmbientToCsv(ambient);
+			
+			// TODO: Writing to CCA file here
+			
+			logger.info("Ambient created successfully: {}", ambient);
+			CreateAmbientUtil.createSuccessDialog(getCurrentDialog());
+			getCurrentDialog().dispose();
+		}
+	}
+	
+	/**
 	 * @return set up and return the combo box with all ambient names that are already created.
 	 */
 	private JComboBox<String> createComboBox() {
-		String[] parentAmbientNames = AmbientCSVReader.getAmbientNames();
+		String[] parentAmbientNames = AmbientCSVReader.getAmbientNamesSorted();
+		JComboBox<String> parentsComboBox = new JComboBox<>(parentAmbientNames);
+		parentsComboBox.setCursor(MouseCursorUtil.getMouseHand());
 		
-		return new JComboBox<>(parentAmbientNames);
+		return parentsComboBox;
 	}
 	
 	/**

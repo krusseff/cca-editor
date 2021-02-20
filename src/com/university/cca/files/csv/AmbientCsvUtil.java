@@ -3,7 +3,11 @@ package com.university.cca.files.csv;
 import java.io.File;
 import java.io.IOException;
 
-import com.university.caa.entities.Ambient;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.university.cca.entities.Ambient;
+import com.university.cca.entities.Message;
 
 /**
  * Utility methods related to the functionality that reads and writes from/to CSV file.
@@ -12,6 +16,8 @@ import com.university.caa.entities.Ambient;
  * @version 1.0
  */
 public class AmbientCsvUtil {
+	
+	private static final Logger logger = LoggerFactory.getLogger(AmbientCsvUtil.class);
 	
 	private AmbientCsvUtil() {
 		// Prevent creating an object of type AmbientCsvUtil
@@ -26,14 +32,14 @@ public class AmbientCsvUtil {
 		if (!file.exists()) {
 			try {
 				boolean result = file.createNewFile();
-				System.out.println("Ambients CSV file: " + filePath + " is created with status: " + result);
+				logger.info("The CSV file: {} is created with status: {}", filePath, result);
 			} catch (IOException e) {
-				System.err.println("Unable to create CSV file: " + e.getMessage());
-				System.err.println("Exiting the program...");
+				logger.error("Unable to create CSV file: {}", e.getMessage());
+				logger.error("Exiting the program... :(");
 				System.exit(2);
 			}
 		} else {
-			System.out.println("File: " + filePath + " already exists.");
+			logger.info("The file: {} already exists.", filePath);
 		}	
 	}
 	
@@ -47,6 +53,8 @@ public class AmbientCsvUtil {
 		ambient.setStaticAmbient(ambientBean.isStaticAmbient());
 		ambient.setParentAmbient(ambientBean.getParentAmbient());
 		ambient.setAmbientType(ambientBean.getAmbientType());
+		ambient.setLatitude(ambientBean.getLatitude());
+		ambient.setLongitude(ambientBean.getLongitude());
 		
 		return ambient;
 	}
@@ -61,7 +69,33 @@ public class AmbientCsvUtil {
 		ambientBean.setStaticAmbient(ambient.isStaticAmbient());
 		ambientBean.setParentAmbient(ambient.getParentAmbient());
 		ambientBean.setAmbientType(ambient.getAmbientType());
+		ambientBean.setLatitude(ambient.getLatitude());
+		ambientBean.setLongitude(ambient.getLongitude());
 		
 		return ambientBean;
+	}
+	
+	/**
+	 * Method that converts from CsvMessageBean object to Message object.
+	 */
+	public static Message convertToMessage(CsvMessageBean messageBean) {
+		Message ambientMessage = new Message();
+		ambientMessage.setSenderAmbient(messageBean.getSenderAmbient());
+		ambientMessage.setRecipientAmbient(messageBean.getRecipientAmbient());
+		ambientMessage.setMessage(messageBean.getAmbientMessage());
+		
+		return ambientMessage;
+	}
+	
+	/**
+	 * Method that converts from Message object to CsvMessageBean object.
+	 */
+	public static CsvMessageBean convertToCsvMessageBean(Message ambientMessage) {
+		CsvMessageBean messageBean = new CsvMessageBean();
+		messageBean.setSenderAmbient(ambientMessage.getSenderAmbient());
+		messageBean.setRecipientAmbient(ambientMessage.getRecipientAmbient());
+		messageBean.setAmbientMessage(ambientMessage.getMessage());
+		
+		return messageBean;
 	}
 }

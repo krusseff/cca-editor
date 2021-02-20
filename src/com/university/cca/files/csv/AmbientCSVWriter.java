@@ -6,13 +6,17 @@ import java.io.Writer;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.opencsv.CSVWriter;
 import com.opencsv.bean.StatefulBeanToCsv;
 import com.opencsv.bean.StatefulBeanToCsvBuilder;
 import com.opencsv.exceptions.CsvDataTypeMismatchException;
 import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
-import com.university.caa.entities.Ambient;
 import com.university.cca.constants.Constants;
+import com.university.cca.entities.Ambient;
+import com.university.cca.entities.Message;
 
 /**
  * Utility methods related to the writting an ambient information to the CSV file.
@@ -21,6 +25,8 @@ import com.university.cca.constants.Constants;
  * @version 1.0
  */
 public class AmbientCSVWriter {
+	
+	private static final Logger logger = LoggerFactory.getLogger(AmbientCSVWriter.class);
 	
 	private AmbientCSVWriter() {
 		// Prevent creating an object of type AmbientCSVWriter
@@ -37,8 +43,25 @@ public class AmbientCSVWriter {
 		try {
 			writeCsvFromBean(path, AmbientCsvUtil.convertToCsvAmbientBean(ambient));
 		} catch (CsvDataTypeMismatchException | CsvRequiredFieldEmptyException | IOException e) {
-			System.err.println("Unable to write the data to the CSV file: " + e.getMessage());
-			System.err.println("Exiting the program...");
+			logger.error("Unable to write the data to the CSV file: {}", e.getMessage());
+			logger.error("Exiting the program... :(");
+			System.exit(2);
+		}
+	}
+	
+	/**
+	 * Method, which main responsibility is to write ambient messages to the csv file.
+	 */
+	public static void writeMessageToCsv(Message ambientMessage) {
+		String filePath = Constants.MESSAGES_CSV_FILE_PATH;
+		AmbientCsvUtil.createFileIfDoesNotExist(filePath);
+		Path path = Paths.get(filePath);
+
+		try {
+			writeCsvFromBean(path, AmbientCsvUtil.convertToCsvMessageBean(ambientMessage));
+		} catch (CsvDataTypeMismatchException | CsvRequiredFieldEmptyException | IOException e) {
+			logger.error("Unable to write the data to the CSV file: {}", e.getMessage());
+			logger.error("Exiting the program... :(");
 			System.exit(2);
 		}
 	}
