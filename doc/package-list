@@ -1,8 +1,16 @@
+com.university.cca.buttons
 com.university.cca.constants
+com.university.cca.dialogs
+com.university.cca.entities
+com.university.cca.enums
+com.university.cca.files.cca
+com.university.cca.files.csv
 com.university.cca.frames
 com.university.cca.loading
 com.university.cca.main
 com.university.cca.menu
-com.university.cca.menu.items
+com.university.cca.menu.items.edit
+com.university.cca.menu.items.file
+com.university.cca.menu.items.help
 com.university.cca.panels
 com.university.cca.util
