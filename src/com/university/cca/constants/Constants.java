@@ -37,6 +37,8 @@ public final class Constants {
 	public static final String EXIT_ICON_PATH = "./images/menu/file/exit.png";
 	public static final String IMPORT_ICON_PATH = "./images/menu/file/import.png";
 	public static final String EXPORT_ICON_PATH = "./images/menu/file/export.png";
+	public static final String REFRESH_ICON_PATH = "./images/menu/file/refresh.png";
+	public static final String RESTART_ICON_PATH = "./images/menu/file/restart.png";
 	public static final String TERMINAL_ICON_PATH = "./images/menu/file/terminal.png";
 	
 	// Edit menu images paths
@@ -82,6 +84,8 @@ public final class Constants {
 	public static final String FILE_ITEM_EXIT = "Exit...";
 	public static final String FILE_ITEM_IMPORT = "Import...";
 	public static final String FILE_ITEM_EXPORT = "Export...";
+	public static final String FILE_ITEM_REFRESH = "Refresh...";
+	public static final String FILE_ITEM_RESTART = "Restart...";
 	public static final String FILE_ITEM_TERMINAL = "Open Terminal...";
 	
 	public static final String EDIT = "Edit";
@@ -102,9 +106,14 @@ public final class Constants {
 	public static final String ABOUT_ITEM_CCA_EDITOR = "About CCA Editor";
 	
 	// File menu shortcuts
+	public static final int NEW_SHORTCUT = KeyEvent.VK_N;
+	public static final int OPEN_SHORTCUT = KeyEvent.VK_O;
+	public static final int SAVE_SHORTCUT = KeyEvent.VK_S;
 	public static final int EXIT_SHORTCUT = KeyEvent.VK_E;
 	public static final int IMPORT_SHORTCUT = KeyEvent.VK_I;
 	public static final int EXPORT_SHORTCUT = KeyEvent.VK_X;
+	public static final int REFRESH_SHORTCUT = KeyEvent.VK_R;
+	public static final int RESTART_SHORTCUT = KeyEvent.VK_L;
 	public static final int TERMINAL_SHORTCUT = KeyEvent.VK_T;
 	
 	// Edit menu shortcuts
