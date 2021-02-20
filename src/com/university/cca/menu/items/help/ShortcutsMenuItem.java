@@ -44,6 +44,11 @@ public class ShortcutsMenuItem extends JMenuItem implements ActionListener {
 		// 6. Open Edit Menu and Press 'P' = Click on Paste
 		// 7. Open Edit Menu and Press 'C' = Click on Copy
 		// 8. Open Edit Menu and Press 'U' = Click on Cut
+		// 9. Open File Menu and Press 'N' = Click on New
+		// 10. Open File Menu and Press 'O' = Click on Open
+		// 11. Open File Menu and Press 'S' = Click on Save
+		// 12. Open File Menu and Press 'R' = Click on Refresh
+		// 13. Open File Menu and Press 'L' = Click on Restart
 		
 		new UnderConstructionDialog(parentFrame);
 		
