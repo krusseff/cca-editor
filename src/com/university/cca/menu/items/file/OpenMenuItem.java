@@ -27,6 +27,7 @@ public class OpenMenuItem extends JMenuItem implements ActionListener {
 		this.setText(Constants.FILE_ITEM_OPEN);
 		this.setIcon(new ImageIcon(Constants.OPEN_ICON_PATH));
 		this.setCursor(MouseCursorUtil.getMouseHand());
+		this.setIconTextGap(Constants.ICON_GAP_SIZE);
 		
 		// Open File Menu and Press 'O' = Click on Open
 		this.setMnemonic(Constants.OPEN_SHORTCUT);

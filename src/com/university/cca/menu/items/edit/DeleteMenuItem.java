@@ -27,6 +27,7 @@ public class DeleteMenuItem extends JMenuItem implements ActionListener {
 		this.setText(Constants.EDIT_ITEM_DELETE);
 		this.setIcon(new ImageIcon(Constants.DELETE_ICON_PATH));
 		this.setCursor(MouseCursorUtil.getMouseHand());
+		this.setIconTextGap(Constants.ICON_GAP_SIZE);
 		
 		// Open Edit Menu and Press 'D' = Click on Delete
 		this.setMnemonic(Constants.DELETE_SHORTCUT);

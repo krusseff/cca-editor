@@ -32,6 +32,7 @@ public class UniversityButton extends JButton implements ActionListener {
         this.setIcon(icon);
         this.setPreferredSize(new Dimension(190, 80));
         this.setCursor(MouseCursorUtil.getMouseHand());
+        this.setIconTextGap(Constants.ICON_GAP_SIZE);
         
         this.addActionListener(this);
     }

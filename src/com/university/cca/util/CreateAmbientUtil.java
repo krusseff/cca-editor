@@ -43,6 +43,7 @@ public class CreateAmbientUtil {
     	createAmbientButton.setIcon(successIcon);
     	createAmbientButton.setText("Create Ambient");
     	createAmbientButton.setCursor(MouseCursorUtil.getMouseHand());
+    	createAmbientButton.setIconTextGap(Constants.ICON_GAP_SIZE);
     	
     	return createAmbientButton;
 	}

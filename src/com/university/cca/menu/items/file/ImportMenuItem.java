@@ -27,6 +27,7 @@ public class ImportMenuItem extends JMenuItem implements ActionListener {
 		this.setText(Constants.FILE_ITEM_IMPORT);
 		this.setIcon(new ImageIcon(Constants.IMPORT_ICON_PATH));
 		this.setCursor(MouseCursorUtil.getMouseHand());
+		this.setIconTextGap(Constants.ICON_GAP_SIZE);
 		
 		// Open File Menu and Press 'I' = Click on Import
 		this.setMnemonic(Constants.IMPORT_SHORTCUT);

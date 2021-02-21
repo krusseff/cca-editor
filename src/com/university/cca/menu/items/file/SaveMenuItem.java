@@ -27,6 +27,7 @@ public class SaveMenuItem extends JMenuItem implements ActionListener {
 		this.setText(Constants.FILE_ITEM_SAVE);
 		this.setIcon(new ImageIcon(Constants.SAVE_ICON_PATH));
 		this.setCursor(MouseCursorUtil.getMouseHand());
+		this.setIconTextGap(Constants.ICON_GAP_SIZE);
 		
 		// Open File Menu and Press 'S' = Click on Save
 		this.setMnemonic(Constants.SAVE_SHORTCUT);

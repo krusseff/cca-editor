@@ -27,6 +27,7 @@ public class ExportMenuItem extends JMenuItem implements ActionListener {
 		this.setText(Constants.FILE_ITEM_EXPORT);
 		this.setIcon(new ImageIcon(Constants.EXPORT_ICON_PATH));
 		this.setCursor(MouseCursorUtil.getMouseHand());
+		this.setIconTextGap(Constants.ICON_GAP_SIZE);
 		
 		// Open File Menu and Press 'X' = Click on Export
 		this.setMnemonic(Constants.EXPORT_SHORTCUT);

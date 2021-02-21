@@ -38,6 +38,7 @@ public class CreateMessageUtil {
     	createMessageButton.setIcon(successIcon);
     	createMessageButton.setText("Create Message");
     	createMessageButton.setCursor(MouseCursorUtil.getMouseHand());
+    	createMessageButton.setIconTextGap(Constants.ICON_GAP_SIZE);
     	
     	return createMessageButton;
 	}

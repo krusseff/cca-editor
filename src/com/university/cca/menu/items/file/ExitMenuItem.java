@@ -31,6 +31,7 @@ public class ExitMenuItem extends JMenuItem implements ActionListener {
 		
 		this.setToolTipText("Exit Application");
 		this.setCursor(MouseCursorUtil.getMouseHand());
+		this.setIconTextGap(Constants.ICON_GAP_SIZE);
 		
 		// Open File Menu and Press 'E' = Click on Exit
 		this.setMnemonic(Constants.EXIT_SHORTCUT);

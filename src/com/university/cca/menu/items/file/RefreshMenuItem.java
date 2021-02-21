@@ -27,6 +27,7 @@ public class RefreshMenuItem extends JMenuItem implements ActionListener {
 		this.setText(Constants.FILE_ITEM_REFRESH);
 		this.setIcon(new ImageIcon(Constants.REFRESH_ICON_PATH));
 		this.setCursor(MouseCursorUtil.getMouseHand());
+		this.setIconTextGap(Constants.ICON_GAP_SIZE);
 		
 		// Open File Menu and Press 'R' = Click on Refresh
 		this.setMnemonic(Constants.REFRESH_SHORTCUT);

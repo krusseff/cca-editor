@@ -27,6 +27,7 @@ public class CopyMenuItem extends JMenuItem implements ActionListener {
 		this.setText(Constants.EDIT_ITEM_COPY);		
 		this.setIcon(new ImageIcon(Constants.COPY_ICON_PATH));
 		this.setCursor(MouseCursorUtil.getMouseHand());
+		this.setIconTextGap(Constants.ICON_GAP_SIZE);
 		
 		// Open Edit Menu and Press 'C' = Click on Copy
 		this.setMnemonic(Constants.COPY_SHORTCUT);

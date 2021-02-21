@@ -29,6 +29,7 @@ public class FAQMenuItem extends JMenuItem implements ActionListener {
 		
 		this.setToolTipText("Frequently Asked Questions");
 		this.setCursor(MouseCursorUtil.getMouseHand());
+		this.setIconTextGap(Constants.ICON_GAP_SIZE);
 		
 		this.addActionListener(this);
 	}

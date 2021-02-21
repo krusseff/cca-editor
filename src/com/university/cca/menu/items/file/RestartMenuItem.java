@@ -28,6 +28,7 @@ public class RestartMenuItem extends JMenuItem implements ActionListener {
 		this.setIcon(new ImageIcon(Constants.RESTART_ICON_PATH));
 		this.setCursor(MouseCursorUtil.getMouseHand());
 		this.setToolTipText("Restart the application");
+		this.setIconTextGap(Constants.ICON_GAP_SIZE);
 		
 		// Open File Menu and Press 'L' = Click on Restart
 		this.setMnemonic(Constants.RESTART_SHORTCUT);

@@ -29,6 +29,7 @@ public class TerminalMenuItem extends JMenuItem implements ActionListener {
 		this.setText(Constants.FILE_ITEM_TERMINAL);
 		this.setIcon(new ImageIcon(Constants.TERMINAL_ICON_PATH));
 		this.setCursor(MouseCursorUtil.getMouseHand());
+		this.setIconTextGap(Constants.ICON_GAP_SIZE);
 		
 		// Open File Menu and Press 'T' = Click on Open Terminal
 		this.setMnemonic(Constants.TERMINAL_SHORTCUT);

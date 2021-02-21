@@ -29,6 +29,7 @@ public class TermsMenuItem extends JMenuItem implements ActionListener {
 		
 		this.setToolTipText("Terms and Conditions");
 		this.setCursor(MouseCursorUtil.getMouseHand());
+		this.setIconTextGap(Constants.ICON_GAP_SIZE);
 		
 		this.addActionListener(this);
 	}
