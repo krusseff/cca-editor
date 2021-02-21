@@ -31,8 +31,9 @@ public class CloseDialogButton extends JButton implements ActionListener {
         this.setToolTipText("Click to close the window");
         this.setCursor(MouseCursorUtil.getMouseHand());
         
-        this.setPreferredSize(new Dimension(150, 35));
+        this.setPreferredSize(new Dimension(200, 35));
         this.setAlignmentX(Component.CENTER_ALIGNMENT);
+        this.setAlignmentY(Component.CENTER_ALIGNMENT);
         this.setIconTextGap(Constants.ICON_GAP_SIZE);
         
         this.addActionListener(this);
