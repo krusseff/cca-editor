@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JMenuItem;
+import javax.swing.KeyStroke;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,8 +30,8 @@ public class ExportMenuItem extends JMenuItem implements ActionListener {
 		this.setCursor(MouseCursorUtil.getMouseHand());
 		this.setIconTextGap(Constants.ICON_GAP_SIZE);
 		
-		// Open File Menu and Press 'X' = Click on Export
-		this.setMnemonic(Constants.EXPORT_SHORTCUT);
+		// Open File Menu and click on Export or press 'CTRL + X'
+	    this.setAccelerator(KeyStroke.getKeyStroke(Constants.EXPORT_SHORTCUT, Constants.CTRL_SHORTCUT));
 		
 		this.addActionListener(this);
 	}

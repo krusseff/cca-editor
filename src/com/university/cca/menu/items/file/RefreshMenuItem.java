@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JMenuItem;
+import javax.swing.KeyStroke;
 import javax.swing.SwingUtilities;
 
 import org.slf4j.Logger;
@@ -29,8 +30,8 @@ public class RefreshMenuItem extends JMenuItem implements ActionListener {
 		this.setCursor(MouseCursorUtil.getMouseHand());
 		this.setIconTextGap(Constants.ICON_GAP_SIZE);
 		
-		// Open File Menu and Press 'R' = Click on Refresh
-		this.setMnemonic(Constants.REFRESH_SHORTCUT);
+		// Open File Menu and click on Refresh or press 'CTRL + R'
+	    this.setAccelerator(KeyStroke.getKeyStroke(Constants.REFRESH_SHORTCUT, Constants.CTRL_SHORTCUT));
 		
 		this.addActionListener(this);
 	}

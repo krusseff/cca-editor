@@ -1,6 +1,7 @@
 package com.university.cca.constants;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 
 /**
@@ -106,6 +107,9 @@ public final class Constants {
 	public static final String ABOUT = "About";
 	public static final String ABOUT_ITEM_CCA = "About CCA";
 	public static final String ABOUT_ITEM_CCA_EDITOR = "About CCA Editor";
+	
+	// Shortcuts
+	public static final int CTRL_SHORTCUT = ActionEvent.CTRL_MASK;
 	
 	// File menu shortcuts
 	public static final int NEW_SHORTCUT = KeyEvent.VK_N;
