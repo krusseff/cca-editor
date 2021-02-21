@@ -33,12 +33,10 @@ public class HelpMenu extends JMenu {
     }
     
     private void addHelpMenuItems() {
-    	this.addSeparator();
     	this.add(new FAQMenuItem(parentFrame));
     	this.add(new TermsMenuItem(parentFrame));
     	this.addSeparator();
     	this.add(new ShortcutsMenuItem(parentFrame));
-    	this.addSeparator();
     }
     
     // Getters and Setters

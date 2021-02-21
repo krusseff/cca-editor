@@ -39,7 +39,6 @@ public class FileMenu extends JMenu {
     }
     
     private void addFileMenuItems() {
-    	this.addSeparator();
     	this.add(new NewMenuItem(parentFrame));
     	this.add(new OpenMenuItem(parentFrame));
     	this.add(new SaveMenuItem(parentFrame));
@@ -53,7 +52,6 @@ public class FileMenu extends JMenu {
     	this.add(new TerminalMenuItem(parentFrame));
     	this.addSeparator();
     	this.add(new ExitMenuItem(parentFrame));
-    	this.addSeparator();
     }
     
 	// Getters and Setters
