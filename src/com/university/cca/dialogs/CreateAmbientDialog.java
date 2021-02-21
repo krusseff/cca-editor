@@ -45,6 +45,8 @@ public class CreateAmbientDialog extends JDialog {
         addDialogContent(message, ambientType);
         
         this.pack();
+        this.setLocationRelativeTo(parent);
+
         this.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
         this.setVisible(true);
 	}
