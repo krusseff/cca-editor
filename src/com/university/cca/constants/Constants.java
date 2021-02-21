@@ -15,6 +15,7 @@ public final class Constants {
 	public static final String MAIN_FRAME_NAME = "Main Frame Panel";
 	public static final String FONT_ARIAL = "Arial";
 	public static final int FONT_SIZE_FOURTEEN = 14;
+	public static final int ICON_GAP_SIZE = 8;
 	public static final Color LIGHT_GREY = new Color(222, 222, 222);
 	
 	// Ambient files paths
@@ -27,6 +28,7 @@ public final class Constants {
 	public static final String IMAGES_LOADING_SCREEN_JPG = "./images/app/loading-screen.jpg";
 	public static final String SUCCESS_ICON_PATH = "./images/buttons/check.png";
 	public static final String CANCEL_ICON_PATH = "./images/buttons/cancel.png";
+	public static final String CLOSE_ICON_PATH = "./images/buttons/close.png";
 	public static final String MESSAGE_ICON_PATH = "./images/buttons/message.png";
 	
 	// File menu images paths
