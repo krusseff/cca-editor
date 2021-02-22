@@ -11,7 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.university.cca.constants.Constants;
-import com.university.cca.dialogs.UnderConstructionDialog;
+import com.university.cca.dialogs.TermsDialog;
 import com.university.cca.util.MouseCursorUtil;
 
 public class TermsMenuItem extends JMenuItem implements ActionListener {
@@ -36,11 +36,9 @@ public class TermsMenuItem extends JMenuItem implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO: Add the exact implementation here
-		
-		new UnderConstructionDialog(parentFrame);
-		
 		logger.info("Help Terms and Conditions button is clicked");
+		
+		new TermsDialog(parentFrame);
 	}
 
 	// Getters and Setters
