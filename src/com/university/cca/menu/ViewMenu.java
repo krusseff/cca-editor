@@ -34,7 +34,7 @@ public class ViewMenu extends JMenu {
     // 1. Show ambients CSV file ???
     // 2. Show ambient messages CSV file ???
     // 3. Show ambient CCA file ???
-    // 4. Show ambients information: name, location, parents, and etc. IN TABLE
+    // 4. Show ambients information: name, location, parents, and etc. IN TABLE: add description
     // 5. Show ambients messages: sender, recipient, message. IN TABLE
     
 	// Getters and Setters
