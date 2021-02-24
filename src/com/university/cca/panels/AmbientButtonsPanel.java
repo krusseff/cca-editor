@@ -1,9 +1,10 @@
 package com.university.cca.panels;
 
-import java.awt.Font;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
 
+import javax.swing.BorderFactory;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
@@ -27,6 +28,8 @@ import com.university.cca.buttons.SchoolButton;
 import com.university.cca.buttons.ShopButton;
 import com.university.cca.buttons.UniversityButton;
 import com.university.cca.constants.Constants;
+
+import com.university.cca.util.CCAUtils;
 import com.university.cca.util.PanelsUtil;
 
 /**
@@ -39,7 +42,8 @@ public class AmbientButtonsPanel extends JPanel {
 	
 	private static final long serialVersionUID = 1L;
     private static final Logger logger = LoggerFactory.getLogger(AmbientButtonsPanel.class);
-	private static final int GRID_ROWS = 0;
+    private static final Dimension screenSize = CCAUtils.getScreenSize();
+    private static final int GRID_ROWS = 0;
 	private static final int GRID_COLS = 1;
 	
 	private JFrame parentFrame;
@@ -49,14 +53,15 @@ public class AmbientButtonsPanel extends JPanel {
 		this.parentFrame = parentFrame;
 		
 		this.setLayout(PanelsUtil.getGridLayout(GRID_ROWS, GRID_COLS));
+		this.setBorder(BorderFactory.createTitledBorder("Ambients Library"));
 		this.setBackground(Constants.LIGHT_GREY);
-		PanelsUtil.setPanelSize(this);
+		
+		this.setPreferredSize(new Dimension(screenSize.width / 7, screenSize.height));
+	    this.setMaximumSize(new Dimension(screenSize.width / 7, screenSize.height));
 		
 		addContentToPanel();
 		
-		JScrollPane scrollPanel = new JScrollPane(this);
-		
-		parentFrame.add(scrollPanel);
+		parentFrame.add(new JScrollPane(this), BorderLayout.WEST);
 		this.setVisible(true);
 	}
 	
@@ -64,7 +69,6 @@ public class AmbientButtonsPanel extends JPanel {
 	 * Method that adds content to the panel with all of the ambient buttons
 	 */
 	private void addContentToPanel() {
-		this.add(createHeaderLabel());
 		this.add(new HospitalButton(parentFrame));
 		this.add(new HarbourButton(parentFrame));
 		this.add(new HotelButton(parentFrame));
@@ -81,17 +85,5 @@ public class AmbientButtonsPanel extends JPanel {
 		this.add(new CountryButton(parentFrame));
 		this.add(new ContinentButton(parentFrame));
 		this.add(new OtherButton(parentFrame));
-	}
-	
-	/**
-	 * Create a header label of the panel with all of the ambient buttons
-	 */
-	private JLabel createHeaderLabel() {
-		JLabel label = new JLabel("Ambients Library", JLabel.CENTER);
-		label.setFont(new Font(Constants.FONT_ARIAL, Font.BOLD + Font.ITALIC, Constants.FONT_SIZE_FOURTEEN));
-		label.setBackground(Constants.LIGHT_GREY);
-		label.setOpaque(true);
-		
-		return label;
 	}
 }

@@ -1,6 +1,6 @@
 package com.university.cca.panels;
 
-import java.awt.FlowLayout;
+import java.awt.BorderLayout;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -9,7 +9,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.university.cca.buttons.CreateMessageButton;
-import com.university.cca.util.PanelsUtil;
 
 /**
  * Main panel of the application
@@ -28,12 +27,13 @@ public class AppMainPanel extends JPanel {
 		logger.info("Application main frame initialized");
 		this.parentFrame = parentFrame;
 		
-		this.setLayout(new FlowLayout());
-		PanelsUtil.setPanelSize(this);
+		// this.setLayout(new CardLayout());
+		// PanelsUtil.setPanelSize(this);
 		
 		addContentToPanel();
 		
-		parentFrame.add(this);
+		parentFrame.add(this, BorderLayout.CENTER); 
+		// parentFrame.add(this); 
 		this.setVisible(true);
 	}
 	
