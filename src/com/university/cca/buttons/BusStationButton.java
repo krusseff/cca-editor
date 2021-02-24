@@ -28,7 +28,7 @@ public class BusStationButton extends JButton implements ActionListener {
     	
         this.setText("Bus Station");
         this.setIcon(new ImageIcon(Constants.BUS_STATION_ICON_PATH));
-        this.setPreferredSize(new Dimension(135, 40));
+        this.setPreferredSize(new Dimension(80, 40));
         this.setCursor(MouseCursorUtil.getMouseHand());
         this.setIconTextGap(Constants.ICON_GAP_SIZE);
         

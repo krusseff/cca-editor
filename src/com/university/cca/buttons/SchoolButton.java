@@ -28,7 +28,7 @@ public class SchoolButton extends JButton implements ActionListener {
     	
         this.setText("School");
         this.setIcon(new ImageIcon(Constants.SCHOOL_ICON_PATH));
-        this.setPreferredSize(new Dimension(135, 40));
+        this.setPreferredSize(new Dimension(80, 40));
         this.setCursor(MouseCursorUtil.getMouseHand());
         this.setIconTextGap(Constants.ICON_GAP_SIZE);
         

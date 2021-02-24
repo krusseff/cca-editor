@@ -24,7 +24,7 @@ public class PanelsUtil {
 		GridLayout layout = new GridLayout(rows, cols);
         layout.setHgap(10);
         layout.setVgap(10);
-        
+
         return layout;
 	}
 	
