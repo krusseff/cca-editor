@@ -28,7 +28,7 @@ public class AppMainFrame extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(AppMainFrame.class);
 	private static final int GRID_ROWS = 0;
-	private static final int GRID_COLS = 3; // TODO: Maybe 4
+	private static final int GRID_COLS = 4; // TODO: Maybe 3 or 4
 
 	public AppMainFrame() {
 		logger.info("Application main frame initialized");

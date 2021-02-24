@@ -18,6 +18,7 @@ import com.university.cca.buttons.CountryButton;
 import com.university.cca.buttons.HospitalButton;
 import com.university.cca.buttons.HotelButton;
 import com.university.cca.buttons.MuseumButton;
+import com.university.cca.buttons.OtherButton;
 import com.university.cca.buttons.ParkingButton;
 import com.university.cca.buttons.PharmacyButton;
 import com.university.cca.buttons.HarbourButton;
@@ -79,6 +80,7 @@ public class AmbientButtonsPanel extends JPanel {
 		this.add(new CityButton(parentFrame));
 		this.add(new CountryButton(parentFrame));
 		this.add(new ContinentButton(parentFrame));
+		this.add(new OtherButton(parentFrame));
 	}
 	
 	/**

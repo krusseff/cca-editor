@@ -78,6 +78,7 @@ public final class Constants {
 	public static final String CITY_ICON_PATH = "./images/ambient_buttons/city.png";
 	public static final String COUNTRY_ICON_PATH = "./images/ambient_buttons/country.png";
 	public static final String CONTINENT_ICON_PATH = "./images/ambient_buttons/continent.png";
+	public static final String OTHER_ICON_PATH = "./images/ambient_buttons/other.png";
 	
 	// Menu text labels
 	public static final String FILE = "File";

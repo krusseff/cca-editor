@@ -3,3 +3,5 @@
 "PHARMACY","36.6","Plovdiv","34.3244","34.2342","true","Plovdiv"
 "HOSPITAL","Saint George Hospital","Plovdiv","32.4324","32.3245","true","Plovdiv"
 "HOSPITAL","Test","Plovdiv","32.3423","123.3432","true","Plovdiv"
+"OTHER","Other","Plovdiv","34.3244","123.4324","true","Plovdiv University"
+"OTHER","Other-123","Plovdiv","23.3424","123.1444","true","36.6"
