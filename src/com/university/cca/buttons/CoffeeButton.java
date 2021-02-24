@@ -26,11 +26,9 @@ public class CoffeeButton extends JButton implements ActionListener {
     public CoffeeButton(JFrame parentFrame) {
     	this.parentFrame = parentFrame;
     	
-    	ImageIcon icon = new ImageIcon(Constants.COFFEE_ICON_PATH);
-
         this.setText("Caffeteria");
-        this.setIcon(icon);
-        this.setPreferredSize(new Dimension(190, 80));
+        this.setIcon(new ImageIcon(Constants.COFFEE_ICON_PATH));
+        this.setPreferredSize(new Dimension(135, 40));
         this.setCursor(MouseCursorUtil.getMouseHand());
         this.setIconTextGap(Constants.ICON_GAP_SIZE);
         

@@ -26,11 +26,9 @@ public class CityButton extends JButton implements ActionListener {
     public CityButton(JFrame parentFrame) {
     	this.parentFrame = parentFrame;
     	
-    	ImageIcon icon = new ImageIcon(Constants.CITY_ICON_PATH);
-
         this.setText("City/Town");
-        this.setIcon(icon);
-        this.setPreferredSize(new Dimension(190, 80));
+        this.setIcon(new ImageIcon(Constants.CITY_ICON_PATH));
+        this.setPreferredSize(new Dimension(135, 40));
         this.setCursor(MouseCursorUtil.getMouseHand());
         this.setIconTextGap(Constants.ICON_GAP_SIZE);
         
