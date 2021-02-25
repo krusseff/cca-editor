@@ -12,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.university.cca.buttons.BusStationButton;
+import com.university.cca.buttons.CarButton;
 import com.university.cca.buttons.CityButton;
 import com.university.cca.buttons.CoffeeButton;
 import com.university.cca.buttons.ContinentButton;
@@ -84,6 +85,7 @@ public class AmbientButtonsPanel extends JPanel {
 		this.add(new CityButton(parentFrame));
 		this.add(new CountryButton(parentFrame));
 		this.add(new ContinentButton(parentFrame));
+		this.add(new CarButton(parentFrame));
 		this.add(new OtherButton(parentFrame));
 	}
 }

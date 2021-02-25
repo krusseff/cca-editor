@@ -27,6 +27,7 @@ public final class Constants {
 	// Application system images paths
 	public static final String IMAGES_ICON_JPG = "./images/app/icon.jpg";
 	public static final String IMAGES_LOADING_SCREEN_JPG = "./images/app/loading-screen.jpg";
+	public static final String BACKGROUND_ICON_PATH = "./images/app/background_map.png";
 	public static final String SUCCESS_ICON_PATH = "./images/buttons/check.png";
 	public static final String CANCEL_ICON_PATH = "./images/buttons/cancel.png";
 	public static final String CLOSE_ICON_PATH = "./images/buttons/close.png";
@@ -78,6 +79,7 @@ public final class Constants {
 	public static final String CITY_ICON_PATH = "./images/ambient_buttons/city.png";
 	public static final String COUNTRY_ICON_PATH = "./images/ambient_buttons/country.png";
 	public static final String CONTINENT_ICON_PATH = "./images/ambient_buttons/continent.png";
+	public static final String CAR_ICON_PATH = "./images/ambient_buttons/car.png";
 	public static final String OTHER_ICON_PATH = "./images/ambient_buttons/other.png";
 	
 	// Menu text labels

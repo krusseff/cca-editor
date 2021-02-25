@@ -40,6 +40,6 @@ public class AboutMenu extends JMenu {
     
 	// Getters and Setters
 	public JFrame getParentFrame() {
-		return parentFrame;
+		return this.parentFrame;
 	}
 }

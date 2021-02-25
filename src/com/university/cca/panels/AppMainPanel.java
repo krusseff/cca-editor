@@ -27,25 +27,22 @@ public class AppMainPanel extends JPanel {
 		logger.info("Application main frame initialized");
 		this.parentFrame = parentFrame;
 		
+		// TODO
 		// this.setLayout(new CardLayout());
 		// PanelsUtil.setPanelSize(this);
 		
 		addContentToPanel();
 		
 		parentFrame.add(this, BorderLayout.CENTER); 
-		// parentFrame.add(this); 
 		this.setVisible(true);
 	}
 	
-	/**
-	 * Method that adds content to the main panel of the application
-	 */
 	private void addContentToPanel() {
 		this.add(new CreateMessageButton(parentFrame));
 	}
 
 	// Getters and setters
 	public JFrame getParentFrame() {
-		return parentFrame;
+		return this.parentFrame;
 	}
 }

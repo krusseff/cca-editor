@@ -29,7 +29,7 @@ public class AppMainFrame extends JFrame {
 	private static final Logger logger = LoggerFactory.getLogger(AppMainFrame.class);
 
 	public AppMainFrame() {
-		logger.info("Application main frame initialized");
+		logger.info("Application main frame initializing...");
 		this.setTitle(Constants.APPLICATION_TITLE);
 		this.setName(Constants.MAIN_FRAME_NAME);
 		this.setIconImage(createMainFrameIconImage());
