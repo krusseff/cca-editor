@@ -55,6 +55,12 @@ public class ShortcutsDialog extends JDialog {
 				  "<li> To copy something in the application open the Edit menu and click on <i>'Copy'</i> or press <i>'CTRL + C'</i> </li>" +
 				  "<li> To paste something in the application open the Edit menu and click on <i>'Paste'</i> or press <i>'CTRL + P'</i> </li>" +
 				  "<li> To delete something in the application open the Edit menu and click on <i>'Delete'</i> or press <i>'CTRL + D'</i> </li>" +
+				  "<li> To see details of the CCA open About menu and click on <i>'About CCA'</i> or press <i>'CTRL + 0'</i> </li>" +
+				  "<li> To see details of the CCA Editor open About menu and click on <i>'About CCA Editor'</i> or press <i>'CTRL + 1'</i> </li>" +
+				  "<li> To see details of the CCA Team open About menu and click on <i>'CCA Editor Team'</i> or press <i>'CTRL + 2'</i> </li>" +
+				  "<li> To see details of some links open the About menu and click <i>'Useful Links'</i> or press <i>'CTRL + 3'</i> </li>" +
+				  "<li> To see details of the technologies open the About menu and click <i>'Technologies'</i> or press <i>'CTRL + 4'</i> </li>" +
+				  "<li> To contact the team of the CCA Editor open the About menu and click <i>'Contact Us'</i> or press <i>'CTRL + 5'</i> </li>" +
 				  "<li> ... </li>" +
 			  	"</ul>" + 
 			"</body>" +

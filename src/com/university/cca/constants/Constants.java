@@ -57,6 +57,11 @@ public final class Constants {
 	
 	// About menu images paths
 	public static final String ABOUT_ICON_PATH = "./images/menu/about/about.png";
+	public static final String ABOUT_CCA_ICON_PATH = "./images/menu/about/about_cca.png";
+	public static final String CCA_TEAM_ICON_PATH = "./images/menu/about/cca_team.png";
+	public static final String LINKS_ICON_PATH = "./images/menu/about/useful_links.png";
+	public static final String TECH_ICON_PATH = "./images/menu/about/technologies.png";
+	public static final String CONTACT_ICON_PATH = "./images/menu/about/contact_us.png";
 	
 	// Help menu images paths
 	public static final String HELP_ICON_PATH = "./images/menu/help/help.png";
@@ -110,6 +115,10 @@ public final class Constants {
 	public static final String ABOUT = "About";
 	public static final String ABOUT_ITEM_CCA = "About CCA";
 	public static final String ABOUT_ITEM_CCA_EDITOR = "About CCA Editor";
+	public static final String ABOUT_ITEM_CCA_TEAM = "CCA Editor Team";
+	public static final String ABOUT_ITEM_LINKS = "Useful Links";
+	public static final String ABOUT_ITEM_TECH = "Technologies";
+	public static final String ABOUT_ITEM_CONTACT = "Contact Us";
 	
 	// Shortcuts
 	public static final int CTRL_SHORTCUT = ActionEvent.CTRL_MASK;
@@ -130,6 +139,14 @@ public final class Constants {
 	public static final int COPY_SHORTCUT = KeyEvent.VK_C;
 	public static final int PASTE_SHORTCUT = KeyEvent.VK_P;
 	public static final int DELETE_SHORTCUT = KeyEvent.VK_D;
+	
+	// About menu shortcuts
+	public static final int ABOUT_CCA_SHORTCUT = KeyEvent.VK_0;
+	public static final int ABOUT_CCA_EDITOR_SHORTCUT = KeyEvent.VK_1;
+	public static final int CCA_TEAM_SHORTCUT = KeyEvent.VK_2;
+	public static final int USEFUL_LINKS_SHORTCUT = KeyEvent.VK_3;
+	public static final int TECHNOLOGIES_SHORTCUT = KeyEvent.VK_4;
+	public static final int CONTACT_US_SHORTCUT = KeyEvent.VK_5;
 	
 	private Constants() {
 		// private constructor to hide the implicit public one
