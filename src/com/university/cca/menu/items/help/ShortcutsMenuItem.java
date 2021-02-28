@@ -11,7 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.university.cca.constants.Constants;
-import com.university.cca.dialogs.ShortcutsDialog;
+import com.university.cca.dialogs.menu.help.ShortcutsDialog;
 import com.university.cca.util.MouseCursorUtil;
 
 public class ShortcutsMenuItem extends JMenuItem implements ActionListener {

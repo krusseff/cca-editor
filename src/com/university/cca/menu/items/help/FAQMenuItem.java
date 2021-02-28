@@ -11,7 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.university.cca.constants.Constants;
-import com.university.cca.dialogs.FAQDialog;
+import com.university.cca.dialogs.menu.help.FAQDialog;
 import com.university.cca.util.MouseCursorUtil;
 
 public class FAQMenuItem extends JMenuItem implements ActionListener {

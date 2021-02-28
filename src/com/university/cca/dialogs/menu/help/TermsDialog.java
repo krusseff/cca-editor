@@ -1,4 +1,4 @@
-package com.university.cca.dialogs;
+package com.university.cca.dialogs.menu.help;
 
 import java.awt.FlowLayout;
 
