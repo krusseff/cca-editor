@@ -12,7 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.university.cca.constants.Constants;
-import com.university.cca.dialogs.UnderConstructionDialog;
+import com.university.cca.dialogs.menu.about.LinksDialog;
 import com.university.cca.util.MouseCursorUtil;
 
 public class LinksMenuItem extends JMenuItem implements ActionListener {
@@ -40,10 +40,7 @@ public class LinksMenuItem extends JMenuItem implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		logger.info("Useful Links About item menu button is clicked");
 		
-		new UnderConstructionDialog(parentFrame);
-		
-		// TODO: Add the exact implementation here
-		// 4. Useful links: delc, delc2, delc space, github repo, fmi plovdiv web site
+		new LinksDialog(parentFrame);
 	}
 
 	// Getters and Setters
