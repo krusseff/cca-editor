@@ -12,7 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.university.cca.constants.Constants;
-import com.university.cca.dialogs.UnderConstructionDialog;
+import com.university.cca.dialogs.menu.about.TechnologiesDialog;
 import com.university.cca.util.MouseCursorUtil;
 
 public class TechnologiesMenuItem extends JMenuItem implements ActionListener {
@@ -40,10 +40,7 @@ public class TechnologiesMenuItem extends JMenuItem implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		logger.info("Technologies About item menu button is clicked");
 		
-		new UnderConstructionDialog(parentFrame);
-		
-		// TODO: Add the exact implementation here
-		// 5. Technologies: Java 8, and all other libraries
+		new TechnologiesDialog(parentFrame);
 	}
 
 	// Getters and Setters
