@@ -40,7 +40,7 @@ public class AppMainFrame extends JFrame {
 		makeFrameCenterPosition();
 		
 		addContentToFrame();
-
+		
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
 	}

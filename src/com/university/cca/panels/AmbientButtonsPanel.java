@@ -17,19 +17,18 @@ import com.university.cca.buttons.CityButton;
 import com.university.cca.buttons.CoffeeButton;
 import com.university.cca.buttons.ContinentButton;
 import com.university.cca.buttons.CountryButton;
+import com.university.cca.buttons.HarbourButton;
 import com.university.cca.buttons.HospitalButton;
 import com.university.cca.buttons.HotelButton;
 import com.university.cca.buttons.MuseumButton;
 import com.university.cca.buttons.OtherButton;
 import com.university.cca.buttons.ParkingButton;
 import com.university.cca.buttons.PharmacyButton;
-import com.university.cca.buttons.HarbourButton;
 import com.university.cca.buttons.RestaurantButton;
 import com.university.cca.buttons.SchoolButton;
 import com.university.cca.buttons.ShopButton;
 import com.university.cca.buttons.UniversityButton;
 import com.university.cca.constants.Constants;
-
 import com.university.cca.util.CCAUtils;
 import com.university.cca.util.PanelsUtil;
 

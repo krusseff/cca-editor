@@ -27,11 +27,16 @@ public final class Constants {
 	// Application system images paths
 	public static final String IMAGES_ICON_JPG = "./images/app/icon.jpg";
 	public static final String IMAGES_LOADING_SCREEN_JPG = "./images/app/loading-screen.jpg";
-	public static final String BACKGROUND_ICON_PATH = "./images/app/background_map.png";
+	public static final String BACKGROUND_ICON_PATH = "./images/app/background_map.gif";
 	public static final String SUCCESS_ICON_PATH = "./images/buttons/check.png";
 	public static final String CANCEL_ICON_PATH = "./images/buttons/cancel.png";
 	public static final String CLOSE_ICON_PATH = "./images/buttons/close.png";
 	public static final String MESSAGE_ICON_PATH = "./images/buttons/message.png";
+	
+	// CCA Team images paths
+	public static final String STOYANOV_ICON_PATH = "./images/cca_team/prof-stoyanov.png";
+	public static final String GLUSHKOVA_ICON_PATH = "./images/cca_team/t-glushkova.png";
+	public static final String RUSEV_ICON_PATH = "./images/cca_team/k-russeff.png";
 	
 	// File menu images paths
 	public static final String FILE_ICON_PATH = "./images/menu/file/file.png";
