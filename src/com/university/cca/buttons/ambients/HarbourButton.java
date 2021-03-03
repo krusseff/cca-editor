@@ -1,4 +1,4 @@
-package com.university.cca.buttons;
+package com.university.cca.buttons.ambients;
 
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -16,39 +16,39 @@ import com.university.cca.dialogs.CreateAmbientDialog;
 import com.university.cca.enums.AmbientType;
 import com.university.cca.util.MouseCursorUtil;
 
-public class CarButton extends JButton implements ActionListener {
-	
+public class HarbourButton extends JButton implements ActionListener {
+
 	private static final long serialVersionUID = 1L;
-	private static final Logger logger = LoggerFactory.getLogger(CarButton.class);
+	private static final Logger logger = LoggerFactory.getLogger(HarbourButton.class);
 	
 	private JFrame parentFrame;
 	
-    public CarButton(JFrame parentFrame) {
+    public HarbourButton(JFrame parentFrame) {
     	this.parentFrame = parentFrame;
     	
-        this.setText("Car");
-        this.setIcon(new ImageIcon(Constants.CAR_ICON_PATH));
+        this.setText("Harbour");
+        this.setIcon(new ImageIcon(Constants.HARBOUR_ICON_PATH));
         this.setPreferredSize(new Dimension(80, 40));
         this.setCursor(MouseCursorUtil.getMouseHand());
         this.setIconTextGap(Constants.ICON_GAP_SIZE);
         
         this.addActionListener(this);
     }
-	
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		logger.info("Car button is clicked");
+		logger.info("Harbour Button is clicked");
 		
 		new CreateAmbientDialog(
 			parentFrame, 
-			"Create Car", 
-			"Please, enter a valid car information",
-			AmbientType.CAR
+			"Create Harbour", 
+			"Please, enter a valid harbour information",
+			AmbientType.HARBOUR
 		);
 	}
 	
 	// Getters and Setters
 	public JFrame getParentFrame() {
-		return this.parentFrame;
+		return parentFrame;
 	}
 }

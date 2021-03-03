@@ -1,4 +1,4 @@
-package com.university.cca.buttons;
+package com.university.cca.buttons.ambients;
 
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -16,18 +16,18 @@ import com.university.cca.dialogs.CreateAmbientDialog;
 import com.university.cca.enums.AmbientType;
 import com.university.cca.util.MouseCursorUtil;
 
-public class UniversityButton extends JButton implements ActionListener {
+public class RestaurantButton extends JButton implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
-	private static final Logger logger = LoggerFactory.getLogger(UniversityButton.class);
+	private static final Logger logger = LoggerFactory.getLogger(RestaurantButton.class);
 	
 	private JFrame parentFrame;
 	
-    public UniversityButton(JFrame parentFrame) {
+    public RestaurantButton(JFrame parentFrame) {
     	this.parentFrame = parentFrame;
     	
-        this.setText("University");
-        this.setIcon(new ImageIcon(Constants.UNIVERSITY_ICON_PATH));
+        this.setText("Restaurant");
+        this.setIcon(new ImageIcon(Constants.RESTAURANT_ICON_PATH));
         this.setPreferredSize(new Dimension(80, 40));
         this.setCursor(MouseCursorUtil.getMouseHand());
         this.setIconTextGap(Constants.ICON_GAP_SIZE);
@@ -37,13 +37,13 @@ public class UniversityButton extends JButton implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		logger.info("University Button is clicked");
+		logger.info("Restaurant Button is clicked");
 		
 		new CreateAmbientDialog(
 			parentFrame, 
-			"Create University", 
-			"Please, enter a valid university information",
-			AmbientType.UNIVERSITY
+			"Create Restaurant", 
+			"Please, enter a valid restaurant information",
+			AmbientType.RESTAURANT
 		);
 	}
 	

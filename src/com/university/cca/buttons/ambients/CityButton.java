@@ -1,4 +1,4 @@
-package com.university.cca.buttons;
+package com.university.cca.buttons.ambients;
 
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -16,18 +16,18 @@ import com.university.cca.dialogs.CreateAmbientDialog;
 import com.university.cca.enums.AmbientType;
 import com.university.cca.util.MouseCursorUtil;
 
-public class SchoolButton extends JButton implements ActionListener {
+public class CityButton extends JButton implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
-	private static final Logger logger = LoggerFactory.getLogger(SchoolButton.class);
-
+	private static final Logger logger = LoggerFactory.getLogger(CityButton.class);
+	
 	private JFrame parentFrame;
 	
-    public SchoolButton(JFrame parentFrame) {
+    public CityButton(JFrame parentFrame) {
     	this.parentFrame = parentFrame;
     	
-        this.setText("School");
-        this.setIcon(new ImageIcon(Constants.SCHOOL_ICON_PATH));
+        this.setText("City/Town");
+        this.setIcon(new ImageIcon(Constants.CITY_ICON_PATH));
         this.setPreferredSize(new Dimension(80, 40));
         this.setCursor(MouseCursorUtil.getMouseHand());
         this.setIconTextGap(Constants.ICON_GAP_SIZE);
@@ -37,13 +37,13 @@ public class SchoolButton extends JButton implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		logger.info("School Button is clicked");
+		logger.info("City Button is clicked");
 		
 		new CreateAmbientDialog(
 			parentFrame, 
-			"Create School", 
-			"Please, enter a valid school information",
-			AmbientType.SCHOOL
+			"Create City/Town", 
+			"Please, enter a valid city/town information",
+			AmbientType.CITY
 		);
 	}
 	

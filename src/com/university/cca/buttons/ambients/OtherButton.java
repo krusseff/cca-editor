@@ -1,4 +1,4 @@
-package com.university.cca.buttons;
+package com.university.cca.buttons.ambients;
 
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -16,34 +16,34 @@ import com.university.cca.dialogs.CreateAmbientDialog;
 import com.university.cca.enums.AmbientType;
 import com.university.cca.util.MouseCursorUtil;
 
-public class BusStationButton extends JButton implements ActionListener {
-
-	private static final long serialVersionUID = 1L;
-	private static final Logger logger = LoggerFactory.getLogger(BusStationButton.class);
+public class OtherButton extends JButton implements ActionListener {
 	
+	private static final long serialVersionUID = 1L;
+	private static final Logger logger = LoggerFactory.getLogger(OtherButton.class);
+
 	private JFrame parentFrame;
 	
-    public BusStationButton(JFrame parentFrame) {
+    public OtherButton(JFrame parentFrame) {
     	this.parentFrame = parentFrame;
     	
-        this.setText("Bus Station");
-        this.setIcon(new ImageIcon(Constants.BUS_STATION_ICON_PATH));
+        this.setText("Other");
+        this.setIcon(new ImageIcon(Constants.OTHER_ICON_PATH));
         this.setPreferredSize(new Dimension(80, 40));
         this.setCursor(MouseCursorUtil.getMouseHand());
         this.setIconTextGap(Constants.ICON_GAP_SIZE);
         
         this.addActionListener(this);
     }
-
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		logger.info("Bus Station button is clicked");
+		logger.info("Create Other Ambient Button is clicked");
 		
 		new CreateAmbientDialog(
 			parentFrame, 
-			"Create Bus Station", 
-			"Please, enter a valid bus station information",
-			AmbientType.BUS_STATION
+			"Create Ambient", 
+			"Please, enter a valid ambient information",
+			AmbientType.OTHER
 		);
 	}
 	

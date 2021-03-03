@@ -1,4 +1,4 @@
-package com.university.cca.buttons;
+package com.university.cca.buttons.ambients;
 
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -16,18 +16,18 @@ import com.university.cca.dialogs.CreateAmbientDialog;
 import com.university.cca.enums.AmbientType;
 import com.university.cca.util.MouseCursorUtil;
 
-public class HarbourButton extends JButton implements ActionListener {
+public class UniversityButton extends JButton implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
-	private static final Logger logger = LoggerFactory.getLogger(HarbourButton.class);
+	private static final Logger logger = LoggerFactory.getLogger(UniversityButton.class);
 	
 	private JFrame parentFrame;
 	
-    public HarbourButton(JFrame parentFrame) {
+    public UniversityButton(JFrame parentFrame) {
     	this.parentFrame = parentFrame;
     	
-        this.setText("Harbour");
-        this.setIcon(new ImageIcon(Constants.HARBOUR_ICON_PATH));
+        this.setText("University");
+        this.setIcon(new ImageIcon(Constants.UNIVERSITY_ICON_PATH));
         this.setPreferredSize(new Dimension(80, 40));
         this.setCursor(MouseCursorUtil.getMouseHand());
         this.setIconTextGap(Constants.ICON_GAP_SIZE);
@@ -37,13 +37,13 @@ public class HarbourButton extends JButton implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		logger.info("Harbour Button is clicked");
+		logger.info("University Button is clicked");
 		
 		new CreateAmbientDialog(
 			parentFrame, 
-			"Create Harbour", 
-			"Please, enter a valid harbour information",
-			AmbientType.HARBOUR
+			"Create University", 
+			"Please, enter a valid university information",
+			AmbientType.UNIVERSITY
 		);
 	}
 	
