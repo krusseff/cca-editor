@@ -103,10 +103,8 @@ public class CreateAmbientMsgDialog extends JDialog {
 			CreateMessageUtil.createErrorDialog(getCurrentDialog(), errorMsg);
 		} else {
 			Message message = CreateMessageUtil.constructAmbient(senderAmbient, recipientAmbient, ambientMessage);
-			
+
 			AmbientCSVWriter.writeMessageToCsv(message);
-			
-			// TODO: Writing to CCA file here
 			
 			logger.info("Ambient Message created successfully: {}", message);
 			CreateMessageUtil.createSuccessDialog(getCurrentDialog(), senderAmbient, recipientAmbient, ambientMessage);
