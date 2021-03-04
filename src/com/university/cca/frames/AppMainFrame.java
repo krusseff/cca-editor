@@ -1,7 +1,7 @@
 package com.university.cca.frames;
 
+import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
 
@@ -27,22 +27,20 @@ public class AppMainFrame extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(AppMainFrame.class);
-	private static final int GRID_ROWS = 0;
-	private static final int GRID_COLS = 3; // TODO: Maybe 4
 
 	public AppMainFrame() {
-		logger.info("Application main frame initialized");
+		logger.info("Application main frame initializing...");
 		this.setTitle(Constants.APPLICATION_TITLE);
 		this.setName(Constants.MAIN_FRAME_NAME);
 		this.setIconImage(createMainFrameIconImage());
 		this.setResizable(true);
-		
-		this.setLayout(getGridLayout());
+		this.setLayout(new BorderLayout());
+
 		makeFrameHalfSize();
 		makeFrameCenterPosition();
 		
 		addContentToFrame();
-
+		
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
 	}
@@ -81,16 +79,5 @@ public class AppMainFrame extends JFrame {
 	    int x = (int) ((dimension.getWidth() - this.getWidth()) / 2);
 	    int y = (int) ((dimension.getHeight() - this.getHeight()) / 2);
 	    this.setLocation(x, y);
-	}
-	
-	/**
-	 * Set the Grid Layout of the main frame of the application
-	 */
-	private GridLayout getGridLayout() {
-		GridLayout layout = new GridLayout(GRID_ROWS, GRID_COLS);
-        layout.setHgap(10);
-        layout.setVgap(10);
-        
-        return layout;
 	}
 }

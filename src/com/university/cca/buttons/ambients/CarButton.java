@@ -1,4 +1,4 @@
-package com.university.cca.buttons;
+package com.university.cca.buttons.ambients;
 
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -16,40 +16,39 @@ import com.university.cca.dialogs.CreateAmbientDialog;
 import com.university.cca.enums.AmbientType;
 import com.university.cca.util.MouseCursorUtil;
 
-public class ShopButton extends JButton implements ActionListener {
-
+public class CarButton extends JButton implements ActionListener {
+	
 	private static final long serialVersionUID = 1L;
-	private static final Logger logger = LoggerFactory.getLogger(ShopButton.class);
+	private static final Logger logger = LoggerFactory.getLogger(CarButton.class);
 	
 	private JFrame parentFrame;
 	
-    public ShopButton(JFrame parentFrame) {
+    public CarButton(JFrame parentFrame) {
     	this.parentFrame = parentFrame;
     	
-    	ImageIcon icon = new ImageIcon(Constants.SHOP_ICON_PATH);
-
-        this.setText("Food Shop");
-        this.setIcon(icon);
-        this.setPreferredSize(new Dimension(190, 80));
+        this.setText("Car");
+        this.setIcon(new ImageIcon(Constants.CAR_ICON_PATH));
+        this.setPreferredSize(new Dimension(80, 40));
         this.setCursor(MouseCursorUtil.getMouseHand());
+        this.setIconTextGap(Constants.ICON_GAP_SIZE);
         
         this.addActionListener(this);
     }
-
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		logger.info("Shop Button is clicked");
+		logger.info("Car button is clicked");
 		
 		new CreateAmbientDialog(
 			parentFrame, 
-			"Create Shop", 
-			"Please, enter a valid shop information",
-			AmbientType.SHOP
+			"Create Car", 
+			"Please, enter a valid car information",
+			AmbientType.CAR
 		);
 	}
 	
 	// Getters and Setters
 	public JFrame getParentFrame() {
-		return parentFrame;
+		return this.parentFrame;
 	}
 }

@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JMenuItem;
+import javax.swing.KeyStroke;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,9 +28,10 @@ public class ImportMenuItem extends JMenuItem implements ActionListener {
 		this.setText(Constants.FILE_ITEM_IMPORT);
 		this.setIcon(new ImageIcon(Constants.IMPORT_ICON_PATH));
 		this.setCursor(MouseCursorUtil.getMouseHand());
+		this.setIconTextGap(Constants.ICON_GAP_SIZE);
 		
-		// Open File Menu and Press 'I' = Click on Import
-		this.setMnemonic(Constants.IMPORT_SHORTCUT);
+		// Open File Menu and click on Import or press 'CTRL + I'
+	    this.setAccelerator(KeyStroke.getKeyStroke(Constants.IMPORT_SHORTCUT, Constants.CTRL_SHORTCUT));
 		
 		this.addActionListener(this);
 	}

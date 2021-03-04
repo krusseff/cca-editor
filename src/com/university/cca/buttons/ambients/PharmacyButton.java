@@ -1,4 +1,4 @@
-package com.university.cca.buttons;
+package com.university.cca.buttons.ambients;
 
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -16,35 +16,34 @@ import com.university.cca.dialogs.CreateAmbientDialog;
 import com.university.cca.enums.AmbientType;
 import com.university.cca.util.MouseCursorUtil;
 
-public class ParkingButton extends JButton implements ActionListener {
+public class PharmacyButton extends JButton implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
-	private static final Logger logger = LoggerFactory.getLogger(ParkingButton.class);
-	
+	private static final Logger logger = LoggerFactory.getLogger(PharmacyButton.class);
+
 	private JFrame parentFrame;
 	
-    public ParkingButton(JFrame parentFrame) {
+    public PharmacyButton(JFrame parentFrame) {
     	this.parentFrame = parentFrame;
     	
-    	ImageIcon icon = new ImageIcon(Constants.PARKING_ICON_PATH);
-
-        this.setText("Car Parking");
-        this.setIcon(icon);
-        this.setPreferredSize(new Dimension(190, 80));
+        this.setText("Pharmacy");
+        this.setIcon(new ImageIcon(Constants.PHARMACY_ICON_PATH));
+        this.setPreferredSize(new Dimension(80, 40));
         this.setCursor(MouseCursorUtil.getMouseHand());
+        this.setIconTextGap(Constants.ICON_GAP_SIZE);
         
         this.addActionListener(this);
     }
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		logger.info("Car Parking Button is clicked");
+		logger.info("Pharmacy Button is clicked");
 		
 		new CreateAmbientDialog(
 			parentFrame, 
-			"Create Car Parking", 
-			"Please, enter a valid car parking information",
-			AmbientType.PARKING
+			"Create Pharmacy", 
+			"Please, enter a valid pharmacy information",
+			AmbientType.PHARMACY
 		);
 	}
 	

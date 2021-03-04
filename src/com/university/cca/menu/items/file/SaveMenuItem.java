@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JMenuItem;
+import javax.swing.KeyStroke;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,9 +28,10 @@ public class SaveMenuItem extends JMenuItem implements ActionListener {
 		this.setText(Constants.FILE_ITEM_SAVE);
 		this.setIcon(new ImageIcon(Constants.SAVE_ICON_PATH));
 		this.setCursor(MouseCursorUtil.getMouseHand());
+		this.setIconTextGap(Constants.ICON_GAP_SIZE);
 		
-		// Open File Menu and Press 'S' = Click on Save
-		this.setMnemonic(Constants.SAVE_SHORTCUT);
+		// Open File Menu and click on Save or press 'CTRL + S'
+	    this.setAccelerator(KeyStroke.getKeyStroke(Constants.SAVE_SHORTCUT, Constants.CTRL_SHORTCUT));
 		
 		this.addActionListener(this);
 	}

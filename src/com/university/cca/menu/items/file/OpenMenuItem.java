@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JMenuItem;
+import javax.swing.KeyStroke;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,9 +28,10 @@ public class OpenMenuItem extends JMenuItem implements ActionListener {
 		this.setText(Constants.FILE_ITEM_OPEN);
 		this.setIcon(new ImageIcon(Constants.OPEN_ICON_PATH));
 		this.setCursor(MouseCursorUtil.getMouseHand());
+		this.setIconTextGap(Constants.ICON_GAP_SIZE);
 		
-		// Open File Menu and Press 'O' = Click on Open
-		this.setMnemonic(Constants.OPEN_SHORTCUT);
+		// Open File Menu and click on Open or press 'CTRL + O'
+	    this.setAccelerator(KeyStroke.getKeyStroke(Constants.OPEN_SHORTCUT, Constants.CTRL_SHORTCUT));
 		
 		this.addActionListener(this);
 	}

@@ -1,6 +1,7 @@
 package com.university.cca.constants;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 
 /**
@@ -15,6 +16,7 @@ public final class Constants {
 	public static final String MAIN_FRAME_NAME = "Main Frame Panel";
 	public static final String FONT_ARIAL = "Arial";
 	public static final int FONT_SIZE_FOURTEEN = 14;
+	public static final int ICON_GAP_SIZE = 8;
 	public static final Color LIGHT_GREY = new Color(222, 222, 222);
 	
 	// Ambient files paths
@@ -25,9 +27,17 @@ public final class Constants {
 	// Application system images paths
 	public static final String IMAGES_ICON_JPG = "./images/app/icon.jpg";
 	public static final String IMAGES_LOADING_SCREEN_JPG = "./images/app/loading-screen.jpg";
+	public static final String BACKGROUND_ICON_PATH = "./images/app/background_map.gif";
 	public static final String SUCCESS_ICON_PATH = "./images/buttons/check.png";
 	public static final String CANCEL_ICON_PATH = "./images/buttons/cancel.png";
+	public static final String CLOSE_ICON_PATH = "./images/buttons/close.png";
 	public static final String MESSAGE_ICON_PATH = "./images/buttons/message.png";
+	public static final String GENERATE_CCA_ICON_PATH = "./images/buttons/generate_cca.png";
+	
+	// CCA Team images paths
+	public static final String STOYANOV_ICON_PATH = "./images/cca_team/prof-stoyanov.png";
+	public static final String GLUSHKOVA_ICON_PATH = "./images/cca_team/t-glushkova.png";
+	public static final String RUSEV_ICON_PATH = "./images/cca_team/k-russeff.png";
 	
 	// File menu images paths
 	public static final String FILE_ICON_PATH = "./images/menu/file/file.png";
@@ -53,6 +63,11 @@ public final class Constants {
 	
 	// About menu images paths
 	public static final String ABOUT_ICON_PATH = "./images/menu/about/about.png";
+	public static final String ABOUT_CCA_ICON_PATH = "./images/menu/about/about_cca.png";
+	public static final String CCA_TEAM_ICON_PATH = "./images/menu/about/cca_team.png";
+	public static final String LINKS_ICON_PATH = "./images/menu/about/useful_links.png";
+	public static final String TECH_ICON_PATH = "./images/menu/about/technologies.png";
+	public static final String CONTACT_ICON_PATH = "./images/menu/about/contact_us.png";
 	
 	// Help menu images paths
 	public static final String HELP_ICON_PATH = "./images/menu/help/help.png";
@@ -75,6 +90,8 @@ public final class Constants {
 	public static final String CITY_ICON_PATH = "./images/ambient_buttons/city.png";
 	public static final String COUNTRY_ICON_PATH = "./images/ambient_buttons/country.png";
 	public static final String CONTINENT_ICON_PATH = "./images/ambient_buttons/continent.png";
+	public static final String CAR_ICON_PATH = "./images/ambient_buttons/car.png";
+	public static final String OTHER_ICON_PATH = "./images/ambient_buttons/other.png";
 	
 	// Menu text labels
 	public static final String FILE = "File";
@@ -104,6 +121,13 @@ public final class Constants {
 	public static final String ABOUT = "About";
 	public static final String ABOUT_ITEM_CCA = "About CCA";
 	public static final String ABOUT_ITEM_CCA_EDITOR = "About CCA Editor";
+	public static final String ABOUT_ITEM_CCA_TEAM = "CCA Editor Team";
+	public static final String ABOUT_ITEM_LINKS = "Useful Links";
+	public static final String ABOUT_ITEM_TECH = "Technologies";
+	public static final String ABOUT_ITEM_CONTACT = "Contact Us";
+	
+	// Shortcuts
+	public static final int CTRL_SHORTCUT = ActionEvent.CTRL_MASK;
 	
 	// File menu shortcuts
 	public static final int NEW_SHORTCUT = KeyEvent.VK_N;
@@ -121,6 +145,14 @@ public final class Constants {
 	public static final int COPY_SHORTCUT = KeyEvent.VK_C;
 	public static final int PASTE_SHORTCUT = KeyEvent.VK_P;
 	public static final int DELETE_SHORTCUT = KeyEvent.VK_D;
+	
+	// About menu shortcuts
+	public static final int ABOUT_CCA_SHORTCUT = KeyEvent.VK_0;
+	public static final int ABOUT_CCA_EDITOR_SHORTCUT = KeyEvent.VK_1;
+	public static final int CCA_TEAM_SHORTCUT = KeyEvent.VK_2;
+	public static final int USEFUL_LINKS_SHORTCUT = KeyEvent.VK_3;
+	public static final int TECHNOLOGIES_SHORTCUT = KeyEvent.VK_4;
+	public static final int CONTACT_US_SHORTCUT = KeyEvent.VK_5;
 	
 	private Constants() {
 		// private constructor to hide the implicit public one

@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JMenuItem;
+import javax.swing.KeyStroke;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,9 +28,10 @@ public class CutMenuItem extends JMenuItem implements ActionListener {
 		this.setText(Constants.EDIT_ITEM_CUT);
 		this.setIcon(new ImageIcon(Constants.CUT_ICON_PATH));
 		this.setCursor(MouseCursorUtil.getMouseHand());
+		this.setIconTextGap(Constants.ICON_GAP_SIZE);
 		
-		// Open Edit Menu and Press 'U' = Click on Cut
-		this.setMnemonic(Constants.CUT_SHORTCUT);
+		// Open Edit Menu and click on Cut or press 'CTRL + U'
+	    this.setAccelerator(KeyStroke.getKeyStroke(Constants.CUT_SHORTCUT, Constants.CTRL_SHORTCUT));
 		
 		this.addActionListener(this);
 	}

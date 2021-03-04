@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JMenuItem;
+import javax.swing.KeyStroke;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,9 +29,10 @@ public class RestartMenuItem extends JMenuItem implements ActionListener {
 		this.setIcon(new ImageIcon(Constants.RESTART_ICON_PATH));
 		this.setCursor(MouseCursorUtil.getMouseHand());
 		this.setToolTipText("Restart the application");
+		this.setIconTextGap(Constants.ICON_GAP_SIZE);
 		
-		// Open File Menu and Press 'L' = Click on Restart
-		this.setMnemonic(Constants.RESTART_SHORTCUT);
+		// Open File Menu and click on Restart or press 'CTRL + L'
+	    this.setAccelerator(KeyStroke.getKeyStroke(Constants.RESTART_SHORTCUT, Constants.CTRL_SHORTCUT));
 		
 		this.addActionListener(this);
 	}

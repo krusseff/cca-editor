@@ -33,10 +33,11 @@ public class CreateMessageButton extends JButton implements ActionListener {
     	
     	ImageIcon icon = new ImageIcon(Constants.MESSAGE_ICON_PATH);
 
-        this.setText("Create Message");
+        this.setText("Send Message");
         this.setIcon(icon);
-        this.setPreferredSize(new Dimension(165, 35));
+        this.setPreferredSize(new Dimension(155, 35));
         this.setCursor(MouseCursorUtil.getMouseHand());
+        this.setIconTextGap(Constants.ICON_GAP_SIZE);
         
         this.addActionListener(this);
     }

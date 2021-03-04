@@ -45,6 +45,8 @@ public class CreateAmbientDialog extends JDialog {
         addDialogContent(message, ambientType);
         
         this.pack();
+        this.setLocationRelativeTo(parent);
+
         this.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
         this.setVisible(true);
 	}
@@ -130,8 +132,6 @@ public class CreateAmbientDialog extends JDialog {
 			Ambient ambient = CreateAmbientUtil.constructAmbient(name, location, latitude, longitude, isStatic, parentAmbient, ambientType);
 			
 			AmbientCSVWriter.writeAmbientToCsv(ambient);
-			
-			// TODO: Writing to CCA file here
 			
 			logger.info("Ambient created successfully: {}", ambient);
 			CreateAmbientUtil.createSuccessDialog(getCurrentDialog());

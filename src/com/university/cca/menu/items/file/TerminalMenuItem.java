@@ -7,6 +7,7 @@ import java.io.IOException;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JMenuItem;
+import javax.swing.KeyStroke;
 
 import org.apache.commons.lang3.SystemUtils;
 import org.slf4j.Logger;
@@ -29,9 +30,10 @@ public class TerminalMenuItem extends JMenuItem implements ActionListener {
 		this.setText(Constants.FILE_ITEM_TERMINAL);
 		this.setIcon(new ImageIcon(Constants.TERMINAL_ICON_PATH));
 		this.setCursor(MouseCursorUtil.getMouseHand());
+		this.setIconTextGap(Constants.ICON_GAP_SIZE);
 		
-		// Open File Menu and Press 'T' = Click on Open Terminal
-		this.setMnemonic(Constants.TERMINAL_SHORTCUT);
+		// Open File Menu and click on Terminal or press 'CTRL + T'
+	    this.setAccelerator(KeyStroke.getKeyStroke(Constants.TERMINAL_SHORTCUT, Constants.CTRL_SHORTCUT));
 		
 		this.addActionListener(this);
 	}

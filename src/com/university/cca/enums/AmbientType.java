@@ -21,5 +21,7 @@ public enum AmbientType {
 	UNIVERSITY,
 	CITY,
 	COUNTRY,
-	CONTINENT
+	CONTINENT,
+	CAR,
+	OTHER
 }

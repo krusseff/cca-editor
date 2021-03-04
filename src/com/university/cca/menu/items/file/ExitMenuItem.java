@@ -7,6 +7,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
+import javax.swing.KeyStroke;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,10 +32,11 @@ public class ExitMenuItem extends JMenuItem implements ActionListener {
 		
 		this.setToolTipText("Exit Application");
 		this.setCursor(MouseCursorUtil.getMouseHand());
+		this.setIconTextGap(Constants.ICON_GAP_SIZE);
 		
-		// Open File Menu and Press 'E' = Click on Exit
-		this.setMnemonic(Constants.EXIT_SHORTCUT);
-		
+		// Open File Menu and click on Exit or press 'CTRL + E'
+	    this.setAccelerator(KeyStroke.getKeyStroke(Constants.EXIT_SHORTCUT, Constants.CTRL_SHORTCUT));
+	    
 		this.addActionListener(this);
 	}
 

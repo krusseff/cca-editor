@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JMenuItem;
+import javax.swing.KeyStroke;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,9 +28,10 @@ public class PasteMenuItem extends JMenuItem implements ActionListener {
 		this.setText(Constants.EDIT_ITEM_PASTE);
 		this.setIcon(new ImageIcon(Constants.PASTE_ICON_PATH));
 		this.setCursor(MouseCursorUtil.getMouseHand());
+		this.setIconTextGap(Constants.ICON_GAP_SIZE);
 		
-		// Open Edit Menu and Press 'P' = Click on Paste
-		this.setMnemonic(Constants.PASTE_SHORTCUT);
+		// Open Edit Menu and click on Paste or press 'CTRL + P'
+	    this.setAccelerator(KeyStroke.getKeyStroke(Constants.PASTE_SHORTCUT, Constants.CTRL_SHORTCUT));
 		
 		this.addActionListener(this);
 	}

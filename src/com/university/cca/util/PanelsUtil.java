@@ -22,9 +22,9 @@ public class PanelsUtil {
 	 */
 	public static GridLayout getGridLayout(int rows, int cols) {
 		GridLayout layout = new GridLayout(rows, cols);
-        layout.setHgap(10);
-        layout.setVgap(10);
-        
+        layout.setHgap(5);
+        layout.setVgap(5);
+
         return layout;
 	}
 	

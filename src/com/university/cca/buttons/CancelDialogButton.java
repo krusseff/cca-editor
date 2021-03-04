@@ -29,6 +29,7 @@ public class CancelDialogButton extends JButton implements ActionListener {
         this.setIcon(cancelIcon);
         this.setText("Cancel");
         this.setCursor(MouseCursorUtil.getMouseHand());
+        this.setIconTextGap(Constants.ICON_GAP_SIZE);
         
         this.addActionListener(this);
     }
