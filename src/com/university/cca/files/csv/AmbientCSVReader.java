@@ -16,6 +16,8 @@ import com.opencsv.bean.ColumnPositionMappingStrategy;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
 import com.university.cca.constants.Constants;
+import com.university.cca.entities.Ambient;
+import com.university.cca.entities.Message;
 
 /**
  * Utility methods related to the reading an ambient information from the CSV file.
@@ -29,6 +31,36 @@ public class AmbientCSVReader {
 
 	private AmbientCSVReader() {
 		// Prevent creating an object of type AmbientCSVReader
+	}
+	
+	/**
+	 * Method, which main responsibility is to fetch all ambients from the csv file.
+	 */
+	public static List<Ambient> getAllAmbients() {
+		List<CsvAmbientBean> ambientBeans = readAmbientsFromCsv();
+		List<Ambient> ambients = new ArrayList<>();
+		
+		for (CsvAmbientBean ambientBean : ambientBeans) {
+			Ambient ambient = AmbientCsvUtil.convertToAmbient(ambientBean);
+			ambients.add(ambient);
+		}
+		
+		return ambients;
+	}
+	
+	/**
+	 * Method, which main responsibility is to fetch all ambient messages from the csv file.
+	 */
+	public static List<Message> getAllMessages() {
+		List<CsvMessageBean> messageBeans = readAmbientMessagesFromCsv();
+		List<Message> messages = new ArrayList<>();
+		
+		for (CsvMessageBean messageBean : messageBeans) {
+			Message message = AmbientCsvUtil.convertToMessage(messageBean);
+			messages.add(message);
+		}
+		
+		return messages;
 	}
 	
 	/**
