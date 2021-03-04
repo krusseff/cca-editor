@@ -12,7 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.university.cca.constants.Constants;
-import com.university.cca.dialogs.UnderConstructionDialog;
+import com.university.cca.dialogs.menu.about.CCADialog;
 import com.university.cca.util.MouseCursorUtil;
 
 public class CCAMenuItem extends JMenuItem implements ActionListener {
@@ -40,9 +40,7 @@ public class CCAMenuItem extends JMenuItem implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		logger.info("About CCA item menu button is clicked");
 		
-		new UnderConstructionDialog(parentFrame);
-		
-		// TODO: Add the exact implementation here
+		new CCADialog(parentFrame);
 	}
 
 	// Getters and Setters
