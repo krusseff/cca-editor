@@ -12,7 +12,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.university.cca.constants.Constants;
-import com.university.cca.dialogs.UnderConstructionDialog;
+import com.university.cca.generator.CCAGenerator;
+import com.university.cca.util.GenerateCCAUtil;
 import com.university.cca.util.MouseCursorUtil;
 
 /**
@@ -26,6 +27,9 @@ public class GenerateCCAButton extends JButton implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(GenerateCCAButton.class);
 	
+	private static final int CCA_STATUS_SUCCESS = 0;
+	private static final int CCA_STATUS_FAILURE = 1;
+	
 	private JFrame parentFrame;
 	
     public GenerateCCAButton(JFrame parentFrame) {
@@ -33,7 +37,7 @@ public class GenerateCCAButton extends JButton implements ActionListener {
     	
         this.setText("CCA Generator");
         this.setIcon(new ImageIcon(Constants.GENERATE_CCA_ICON_PATH));
-
+        
         this.setPreferredSize(new Dimension(155, 35));
         this.setCursor(MouseCursorUtil.getMouseHand());
         this.setIconTextGap(Constants.ICON_GAP_SIZE);
@@ -43,15 +47,34 @@ public class GenerateCCAButton extends JButton implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		logger.info("Generate CCA Button is clicked and generating CCA is triggered");
+		logger.info("Generate CCA Button is clicked and generating CCA file is triggered");
 		
-		// TODO: Implement the exact logic here
+		triggerCCAGeneration();
+	}
+	
+	private void triggerCCAGeneration() {
+		int generationResult = CCAGenerator.generate();
 		
-		new UnderConstructionDialog(parentFrame);
+		switch (generationResult) {
+			case CCA_STATUS_SUCCESS:
+				GenerateCCAUtil.createSuccessDialog(parentFrame);
+				logger.info("The CCA file is generated successfully! Exit code: {}", generationResult);
+				break;
+				
+			case CCA_STATUS_FAILURE:
+				GenerateCCAUtil.createErrorDialog(parentFrame);
+				logger.error("The CCA file is NOT generated! Exit code: {}", generationResult);
+				break;
+	
+			default:
+				GenerateCCAUtil.createErrorDialog(parentFrame);
+				logger.error("The CCA file is NOT generated! Unexpected error occurred!");
+				break;
+		}
 	}
 	
 	// Getters and Setters
 	public JFrame getParentFrame() {
-		return parentFrame;
+		return this.parentFrame;
 	}
 }

@@ -31,7 +31,7 @@ public class CCAEditorDialog extends JDialog {
 						"font-family: Verdana, sans-serif;" +
 					"}" +
 					"div {" +
-						"margin-top: 20;" + 
+						"margin-top: 10;" + 
 						"width: " + (WIDHT_DIALOG - 250) + "px;" +
 						"font-style: italic;" +
 						"word-wrap: break-word;" +
@@ -141,7 +141,7 @@ public class CCAEditorDialog extends JDialog {
 		textPane.setEditable(false);
 		textPane.setOpaque(false);
 		textPane.setBorder(null);
-		
+
 		return textPane;
 	}
 }
