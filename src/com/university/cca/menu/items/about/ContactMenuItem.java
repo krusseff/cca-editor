@@ -12,7 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.university.cca.constants.Constants;
-import com.university.cca.dialogs.UnderConstructionDialog;
+import com.university.cca.dialogs.menu.about.ContactDialog;
 import com.university.cca.util.MouseCursorUtil;
 
 public class ContactMenuItem extends JMenuItem implements ActionListener {
@@ -39,11 +39,8 @@ public class ContactMenuItem extends JMenuItem implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		logger.info("Contact Us About item menu button is clicked");
-		
-		new UnderConstructionDialog(parentFrame);
-		
-		// TODO: Add the exact implementation here
-	    // 6. Contact us: Form for contact and an email should be sent: Java mail API or GMAIL API
+
+		new ContactDialog(parentFrame);
 	}
 
 	// Getters and Setters
