@@ -29,6 +29,21 @@ public class CCAGenerator {
 		List<Ambient> ambients = AmbientCSVReader.getAllAmbients();
 		List<Message> messages = AmbientCSVReader.getAllMessages();
 		
+		for (Ambient ambient : ambients) {
+			
+			for (Message message : messages) {
+				
+				if (ambient.getName().equals(message.getSenderAmbient())) {
+					
+				}
+				
+				if (ambient.getName().equals(message.getRecipientAmbient())) {
+					
+				}
+			}
+			
+		}
+		
 		return CCA_STATUS_FAILURE;
 	}
 }

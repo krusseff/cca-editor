@@ -31,6 +31,7 @@ public final class Constants {
 	public static final String SUCCESS_ICON_PATH = "./images/buttons/check.png";
 	public static final String CANCEL_ICON_PATH = "./images/buttons/cancel.png";
 	public static final String CLOSE_ICON_PATH = "./images/buttons/close.png";
+	public static final String SEND_ICON_PATH = "./images/buttons/send.png";
 	public static final String MESSAGE_ICON_PATH = "./images/buttons/message.png";
 	public static final String GENERATE_CCA_ICON_PATH = "./images/buttons/generate_cca.png";
 	
