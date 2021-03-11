@@ -11,6 +11,7 @@
   	<logback.version>1.2.3</logback.version>
 	<opencsv.version>5.3</opencsv.version>
   	<junit.version>4.13.1</junit.version>
+  	<mail.version>1.6.2</mail.version>
   </properties>
   
   <dependencies>
@@ -31,6 +32,12 @@
 	    <groupId>ch.qos.logback</groupId>
 	    <artifactId>logback-classic</artifactId>
 	    <version>${logback.version}</version>
+	</dependency>
+	
+	<dependency>
+	    <groupId>com.sun.mail</groupId>
+	    <artifactId>javax.mail</artifactId>
+	    <version>${mail.version}</version>
 	</dependency>
 
   </dependencies>

@@ -10,6 +10,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 * [Java 8](https://www.oracle.com/java/technologies/java8.html)
 * [Java Swing/AWT](https://docs.oracle.com/javase/tutorial/uiswing/)
+* [Java Mail API 1.6.2](https://javadoc.io/doc/javax.mail/javax.mail-api/latest/index.html)
 * [Logback 1.2.3](http://logback.qos.ch/)
 * [SLF4J 1.7.30](http://www.slf4j.org/)
 * [OpenCSV 5.3](http://opencsv.sourceforge.net)

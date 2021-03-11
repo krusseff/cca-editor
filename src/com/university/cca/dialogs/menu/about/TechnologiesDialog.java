@@ -56,6 +56,11 @@ public class TechnologiesDialog extends JDialog {
 				  "</li>" +
 					
 				  "<li>" +
+				    "Java Mail API 1.6.2: " + 
+				    "<u>https://javadoc.io/doc/javax.mail/javax.mail-api/latest/index.html</u>" +
+				  "</li>" +
+					
+				  "<li>" +
 					"Logback 1.2.3: " + 
 					"<u>http://logback.qos.ch/</u>" +
 				  "</li>" +
