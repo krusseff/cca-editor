@@ -76,6 +76,7 @@ public final class Constants {
 	public static final String SHORTCUTS_ICON_PATH = "./images/menu/help/tips_tricks.png";
 	
 	// Ambient buttons images paths
+	public static final String PA_ICON_PATH = "./images/ambient_buttons/personal_assistant.png";
 	public static final String HOSPITAL_ICON_PATH = "./images/ambient_buttons/hospital.png";
 	public static final String HARBOUR_ICON_PATH = "./images/ambient_buttons/port.png";
 	public static final String HOTEL_ICON_PATH = "./images/ambient_buttons/hotel.png";
