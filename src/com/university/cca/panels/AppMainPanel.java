@@ -41,7 +41,10 @@ public class AppMainPanel extends JPanel {
 		logger.info("Application main panel with the map is initialized successfully");
 		this.parentFrame = parentFrame;
 		
-		this.setLayout(new FlowLayout(FlowLayout.LEFT)); // TODO: This places buttons on left
+		// This places the buttons on the left side of the panel
+		this.setLayout(new FlowLayout(FlowLayout.LEFT));
+		
+		// Comment the preferred size of the panel to make the map smaller
 		this.setPreferredSize(new Dimension(PANEL_WIDTH, PANEL_HEIGTH));
 		
 		addContentToPanel();

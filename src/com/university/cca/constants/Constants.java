@@ -24,6 +24,9 @@ public final class Constants {
 	public static final String AMBIENTS_CCA_FILE_PATH = "./files/cca/ambients.cca";
 	public static final String MESSAGES_CSV_FILE_PATH = "./files/csv/messages.csv";
 	
+	// Email configuration files paths
+	public static final String EMAIL_CONFIG_FILE_PATH = "src/main/resources/email_config.json";
+	
 	// Application system images paths
 	public static final String IMAGES_ICON_JPG = "./images/app/icon.jpg";
 	public static final String IMAGES_LOADING_SCREEN_JPG = "./images/app/loading-screen.jpg";
@@ -31,6 +34,7 @@ public final class Constants {
 	public static final String SUCCESS_ICON_PATH = "./images/buttons/check.png";
 	public static final String CANCEL_ICON_PATH = "./images/buttons/cancel.png";
 	public static final String CLOSE_ICON_PATH = "./images/buttons/close.png";
+	public static final String SEND_ICON_PATH = "./images/buttons/send.png";
 	public static final String MESSAGE_ICON_PATH = "./images/buttons/message.png";
 	public static final String GENERATE_CCA_ICON_PATH = "./images/buttons/generate_cca.png";
 	
@@ -75,6 +79,7 @@ public final class Constants {
 	public static final String SHORTCUTS_ICON_PATH = "./images/menu/help/tips_tricks.png";
 	
 	// Ambient buttons images paths
+	public static final String PA_ICON_PATH = "./images/ambient_buttons/personal_assistant.png";
 	public static final String HOSPITAL_ICON_PATH = "./images/ambient_buttons/hospital.png";
 	public static final String HARBOUR_ICON_PATH = "./images/ambient_buttons/port.png";
 	public static final String HOTEL_ICON_PATH = "./images/ambient_buttons/hotel.png";

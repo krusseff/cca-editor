@@ -11,6 +11,8 @@
   	<logback.version>1.2.3</logback.version>
 	<opencsv.version>5.3</opencsv.version>
   	<junit.version>4.13.1</junit.version>
+  	<mail.version>1.6.2</mail.version>
+  	<jackson.version>2.12.2</jackson.version>
   </properties>
   
   <dependencies>
@@ -32,6 +34,18 @@
 	    <artifactId>logback-classic</artifactId>
 	    <version>${logback.version}</version>
 	</dependency>
+	
+	<dependency>
+	    <groupId>com.sun.mail</groupId>
+	    <artifactId>javax.mail</artifactId>
+	    <version>${mail.version}</version>
+	</dependency>
+	
+	<dependency>
+	    <groupId>com.fasterxml.jackson.core</groupId>
+	    <artifactId>jackson-databind</artifactId>
+	    <version>${jackson.version}</version>
+	</dependency>
 
   </dependencies>
   
@@ -47,7 +61,8 @@
 	      </configuration>
 	    </plugin>
       
-<!-- 	Find appropriate plugin for maven jar plugin, applicable with project Java version	
+<!-- 	
+		Find appropriate plugin for maven jar plugin, applicable with project Java version	
 		<plugin>
 		  <artifactId>maven-jar-plugin</artifactId>
 		  <version>2.6</version>
@@ -56,6 +71,7 @@
 		  </configuration>
 		</plugin> 
 -->
+
     </plugins>
   </build>
 </project>

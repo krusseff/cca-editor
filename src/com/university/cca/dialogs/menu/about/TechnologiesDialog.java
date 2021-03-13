@@ -56,6 +56,11 @@ public class TechnologiesDialog extends JDialog {
 				  "</li>" +
 					
 				  "<li>" +
+				    "Java Mail API 1.6.2: " + 
+				    "<u>https://javadoc.io/doc/javax.mail/javax.mail-api/latest/index.html</u>" +
+				  "</li>" +
+					
+				  "<li>" +
 					"Logback 1.2.3: " + 
 					"<u>http://logback.qos.ch/</u>" +
 				  "</li>" +
@@ -69,7 +74,12 @@ public class TechnologiesDialog extends JDialog {
 					"OpenCSV 5.3: " + 
 					"<u>http://opencsv.sourceforge.net</u>" +
 				  "</li>" +
-				  
+					
+				  "<li>" +
+					"Jackson 2.12.2: " + 
+					"<u>https://en.wikipedia.org/wiki/Jackson_(API)</u>" +
+				  "</li>" +
+					
 				  "<li>" +
 					"JUnit 4.13.1: " + 
 					"<u>https://junit.org/junit4</u>" +

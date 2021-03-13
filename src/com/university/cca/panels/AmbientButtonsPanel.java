@@ -22,6 +22,7 @@ import com.university.cca.buttons.ambients.HospitalButton;
 import com.university.cca.buttons.ambients.HotelButton;
 import com.university.cca.buttons.ambients.MuseumButton;
 import com.university.cca.buttons.ambients.OtherButton;
+import com.university.cca.buttons.ambients.PAButton;
 import com.university.cca.buttons.ambients.ParkingButton;
 import com.university.cca.buttons.ambients.PharmacyButton;
 import com.university.cca.buttons.ambients.RestaurantButton;
@@ -69,6 +70,7 @@ public class AmbientButtonsPanel extends JPanel {
 	 * Method that adds content to the panel with all of the ambient buttons
 	 */
 	private void addContentToPanel() {
+		this.add(new PAButton(parentFrame));
 		this.add(new HospitalButton(parentFrame));
 		this.add(new HarbourButton(parentFrame));
 		this.add(new HotelButton(parentFrame));

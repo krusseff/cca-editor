@@ -5,3 +5,4 @@
 /target/*
 /target/
 /logs/application.log*
+/src/main/resources/email_config.json
