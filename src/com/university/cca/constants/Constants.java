@@ -83,6 +83,7 @@ public final class Constants {
 	public static final String HOSPITAL_ICON_PATH = "./images/ambient_buttons/hospital.png";
 	public static final String HARBOUR_ICON_PATH = "./images/ambient_buttons/port.png";
 	public static final String HOTEL_ICON_PATH = "./images/ambient_buttons/hotel.png";
+	public static final String BUS_ICON_PATH = "./images/ambient_buttons/bus.png";
 	public static final String BUS_STATION_ICON_PATH = "./images/ambient_buttons/bus_station.png";
 	public static final String PHARMACY_ICON_PATH = "./images/ambient_buttons/pharmacy.png";
 	public static final String SHOP_ICON_PATH = "./images/ambient_buttons/shop.png";

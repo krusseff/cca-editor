@@ -11,6 +11,7 @@ import javax.swing.JScrollPane;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.university.cca.buttons.ambients.BusButton;
 import com.university.cca.buttons.ambients.BusStationButton;
 import com.university.cca.buttons.ambients.CarButton;
 import com.university.cca.buttons.ambients.CityButton;
@@ -87,6 +88,7 @@ public class AmbientButtonsPanel extends JPanel {
 		this.add(new CountryButton(parentFrame));
 		this.add(new ContinentButton(parentFrame));
 		this.add(new CarButton(parentFrame));
+		this.add(new BusButton(parentFrame));
 		this.add(new OtherButton(parentFrame));
 	}
 }

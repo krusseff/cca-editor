@@ -9,6 +9,7 @@ package com.university.cca.enums;
 public enum AmbientType {
 	PERSONAL_ASSISTANT,
 	BUS_STATION,
+	BUS,
 	COFFEE,
 	HARBOUR,
 	HOSPITAL,
