@@ -74,7 +74,12 @@ public class TechnologiesDialog extends JDialog {
 					"OpenCSV 5.3: " + 
 					"<u>http://opencsv.sourceforge.net</u>" +
 				  "</li>" +
-				  
+					
+				  "<li>" +
+					"Jackson 2.12.2: " + 
+					"<u>https://en.wikipedia.org/wiki/Jackson_(API)</u>" +
+				  "</li>" +
+					
 				  "<li>" +
 					"JUnit 4.13.1: " + 
 					"<u>https://junit.org/junit4</u>" +

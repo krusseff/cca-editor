@@ -24,6 +24,9 @@ public final class Constants {
 	public static final String AMBIENTS_CCA_FILE_PATH = "./files/cca/ambients.cca";
 	public static final String MESSAGES_CSV_FILE_PATH = "./files/csv/messages.csv";
 	
+	// Email configuration files paths
+	public static final String EMAIL_CONFIG_FILE_PATH = "src/main/resources/email_config.json";
+	
 	// Application system images paths
 	public static final String IMAGES_ICON_JPG = "./images/app/icon.jpg";
 	public static final String IMAGES_LOADING_SCREEN_JPG = "./images/app/loading-screen.jpg";

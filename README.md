@@ -9,8 +9,8 @@ These instructions will get you a copy of the project up and running on your loc
 ### You Need
 
 1. To install on your local machine Java JDK 1.8 or greater.
-2. To install Java Development Environment (IDE) - Eclipse IDE or IntelliJ IDEA.
-3. To install Maven on your local machine, but it's not required to run the application.
+2. To install Java Development Environment (IDE) - Eclipse IDE or IntelliJ IDEA (no required versions).
+3. To install Maven (no required version) on your local machine, but it's not required to run the application.
 
 ### Project Set Up
 
@@ -19,7 +19,7 @@ These instructions will get you a copy of the project up and running on your loc
 3. Configure your build path and where your local Java is located.
 4. This is a Maven project. So, run maven clean and/or maven build if it's neccessary.
 5. All project configurations are part from the repository in GitHub except the credentials for email sending functionality, because of the security reasons.
-6. Ask other team member to give you the `email_config.json` file.
+6. Ask other team member to give you the `email_config.json` file. If you don't have the file, it will be created automatically, when you try to use `Contact Us` form, but it will be empty and should not be able to send an email.
 7. Once you have the file, you need to place it into the following folder: `src/main/resources/`
 8. The email configurations file has the following format (this is example data)
 
@@ -35,6 +35,7 @@ These instructions will get you a copy of the project up and running on your loc
 	"smtpServerPort":"80"
 }
 ```
+9. Now, you can try to run the application. If you have any other issues that are not described here, please contact the other team members.
 
 ## Used Technologies
 
