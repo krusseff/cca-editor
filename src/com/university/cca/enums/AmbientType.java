@@ -24,6 +24,10 @@ public enum AmbientType {
 	CITY,
 	COUNTRY,
 	CONTINENT,
+	MOTORBIKE,
 	CAR,
+	TAXI,
+	LORRY,
+	TRAIN,
 	OTHER
 }
