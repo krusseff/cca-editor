@@ -17,15 +17,19 @@ public class CsvMessageBean {
 	private String recipientAmbient;
 	
 	@CsvBindByPosition(position = 2)
+	private String respondToMessage;
+	
+	@CsvBindByPosition(position = 3)
 	private String ambientMessage;
 	
 	public CsvMessageBean() {
 		// To be able to create an object without information for it
 	}
 	
-	public CsvMessageBean(String senderAmbient, String recipientAmbient, String ambientMessage) {
+	public CsvMessageBean(String senderAmbient, String recipientAmbient, String respondToMessage, String ambientMessage) {
 		this.senderAmbient = senderAmbient;
 		this.recipientAmbient = recipientAmbient;
+		this.respondToMessage = respondToMessage;
 		this.ambientMessage = ambientMessage;
 	}
 
@@ -44,6 +48,14 @@ public class CsvMessageBean {
 
 	public void setRecipientAmbient(String recipientAmbient) {
 		this.recipientAmbient = recipientAmbient;
+	}
+
+	public String getRespondToMessage() {
+		return respondToMessage;
+	}
+
+	public void setRespondToMessage(String respondToMessage) {
+		this.respondToMessage = respondToMessage;
 	}
 
 	public String getAmbientMessage() {

@@ -49,12 +49,16 @@ public class CreateMessageUtil {
 	public static void createSuccessDialog(CreateAmbientMsgDialog parentDialog,
 										   Object ambientSender,
 										   Object ambientRecipient,
+										   Object respondToMessage,
 										   String ambientMessage) {
+		String respondToMsg = respondToMessage != null ? respondToMessage.toString() : "-";
+		
 		JOptionPane.showMessageDialog(
 			parentDialog,
 			"The message is created and sent successfully! \n"
 			+ "Ambient Sender: " + ambientSender + " \n"
 			+ "Ambient Recipient: " + ambientRecipient + " \n"
+			+ "Respond To: " + respondToMsg + " \n" 
 			+ "Message: " + ambientMessage + " \n", 
 			"Successful Operation",
             JOptionPane.INFORMATION_MESSAGE
@@ -78,11 +82,14 @@ public class CreateMessageUtil {
 	 * Method that creates and returns a message object.
 	 */
 	public static Message constructAmbient(Object senderAmbient, 
-										   Object recipientAmbient, 
+										   Object recipientAmbient,
+										   Object respondToMessage,
 										   String ambientMessage) {
 		String sender = String.valueOf(senderAmbient);
 		String recipient = String.valueOf(recipientAmbient);
-		Message message = new Message(sender, recipient, ambientMessage);
+		String respondToMsg = String.valueOf(respondToMessage);
+		
+		Message message = new Message(sender, recipient, respondToMsg, ambientMessage);
 		
 		logger.info("Ambient Message constructed: {}", message);
 		
@@ -94,12 +101,14 @@ public class CreateMessageUtil {
 	 */
 	public static boolean isValidMessageInfo(Object senderAmbient,
 											 Object recipientAmbient,
+											 Object respondToMessage,
 											 String ambientMessage) {
 		boolean isValidSender = (senderAmbient != null);
 		boolean isValidRecipient = (recipientAmbient != null);
+		boolean isValidRespondToMessage = isValidRespondToMsg(respondToMessage);
 		boolean isValidMessage = (ambientMessage != null && !ambientMessage.isEmpty());
 		
-		return isValidSender && isValidRecipient && isValidMessage;
+		return isValidSender && isValidRecipient && isValidRespondToMessage && isValidMessage;
 	}
 	
 	/**
@@ -109,5 +118,16 @@ public class CreateMessageUtil {
 		int messageLength = ambientMessage.length();
 		
 	    return messageLength > MESSAGE_MIN_LENGTH && messageLength <= MESSAGE_MAX_LENGTH;
+	}
+	
+	/**
+	 * Method that validates the respond to message of the newly created ambient message.
+	 */
+	private static boolean isValidRespondToMsg(Object respondToMessage) {
+		if (respondToMessage == null) {
+			return true;
+		} else {
+			return respondToMessage.toString().length() > MESSAGE_MIN_LENGTH;
+		}
 	}
 }

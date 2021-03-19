@@ -90,6 +90,32 @@ public class AmbientCSVReader {
 	}
 	
 	/**
+	 * Method, which main responsibility is to read the exact ambient messages as String from the csv file as a sorted array in alphabetical order.
+	 */
+	public static String[] getAmbientMessagesSorted() {
+		List<String> messages = readMessagesFromCsv();
+		List<String> sortedMessages = messages.stream().sorted().collect(Collectors.toList());
+		
+		String[] ambientMessages = new String[sortedMessages.size()];
+		
+		return sortedMessages.toArray(ambientMessages);
+	}
+
+	/**
+	 * Method, which main responsibility is to read exact ambient messages as String from the csv file.
+	 */
+	public static List<String> readMessagesFromCsv() {
+		List<CsvMessageBean> ambientMessages = readAmbientMessagesFromCsv();
+		List<String> stringMessages = new ArrayList<>();
+		
+		for (CsvMessageBean ambientMessage : ambientMessages) {
+			stringMessages.add(ambientMessage.getAmbientMessage());
+		}
+		
+		return stringMessages;
+	}
+	
+	/**
 	 * Method, which main responsibility is to read ambients from the csv file.
 	 */
 	public static List<CsvAmbientBean> readAmbientsFromCsv() {
