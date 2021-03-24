@@ -5,9 +5,17 @@ import java.util.List;
 import com.university.cca.entities.Message;
 import com.university.cca.exceptions.AmbientMessageNotFound;
 
+/**
+ * Utility class related to the generation of the CCA file
+ * 
+ * @author Konstantin Rusev
+ * @version 1.0
+ */
 public class GeneratorUtil {
 	
 	private static final String CSV_DELIMITER = ",";
+	private static final String AMBIENT_WORD_DELIMITER = "_";
+	private static final String ALPHA_NUMERIC_CHARS_REGEX = "[^A-Za-z0-9]";
 
 	private GeneratorUtil() {
 		// Prevent creating an object of type GeneratorUtil
@@ -30,16 +38,6 @@ public class GeneratorUtil {
 			.findFirst()
 			.orElseThrow(() -> new AmbientMessageNotFound(errorMsg));
 	}
-
-	/**
-	 * Replaces all occurrences of the old value with the new value.
-	 */
-	protected static String replace(String originalString, 
-									String stringOldValue, 
-									String stringNewValue) {
-		
-		return originalString.replace(stringOldValue, stringNewValue);
-	}
 	
 	/**
 	 * Converts two string values in one in CSV format.
@@ -53,5 +51,27 @@ public class GeneratorUtil {
 		stringBuilder.append(secondValue); 
 		
 		return stringBuilder.toString();
+	}
+	
+	/**
+	 * Replaces all non-alphanumeric characters with underscore from the message object.
+	 */
+	protected static Message replaceUnsupportedChars(Message message) {
+		return new Message(
+			replaceUnsupportedChars(message.getSenderAmbient()), 
+			replaceUnsupportedChars(message.getRecipientAmbient()), 
+			replaceUnsupportedChars(message.getRespondToMessage()), 
+			replaceUnsupportedChars(message.getMessage())
+		);
+	}
+
+	/**
+	 * Replaces all non-alphanumeric characters with underscore.
+	 */
+	protected static String replaceUnsupportedChars(String originalStringValue) {
+		return originalStringValue.replaceAll(
+			ALPHA_NUMERIC_CHARS_REGEX, 
+			AMBIENT_WORD_DELIMITER
+		);
 	}
 }
