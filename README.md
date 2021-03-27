@@ -52,6 +52,8 @@ These instructions will get you a copy of the project up and running on your loc
 * [SonarLint](https://www.sonarlint.org/)
 * CCA paradigm
 * ccaPL language
+* CCA Parser
+* CCA Animator
 
 ## Resources
 
