@@ -14,7 +14,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.university.cca.buttons.CreateMessageButton;
-import com.university.cca.buttons.GenerateCCAButton;
+import com.university.cca.buttons.cca.CCAGeneratorButton;
 import com.university.cca.constants.Constants;
 
 /**
@@ -55,7 +55,7 @@ public class AppMainPanel extends JPanel {
 	
 	private void addContentToPanel() {
 		this.add(new CreateMessageButton(parentFrame));
-		this.add(new GenerateCCAButton(parentFrame));
+		this.add(new CCAGeneratorButton(parentFrame));
 	}
 	
     @Override
