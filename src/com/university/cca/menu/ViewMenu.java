@@ -26,6 +26,8 @@ public class ViewMenu extends JMenu {
 		
 		// TODO
 		this.setEnabled(false);
+		
+		addViewMenuItems();
     	
     	logger.info("View option of the menu is initialized");
     }
@@ -37,8 +39,14 @@ public class ViewMenu extends JMenu {
     // 4. Show ambients information: name, location, parents, and etc. IN TABLE: add description
     // 5. Show ambients messages: sender, recipient, message. IN TABLE
     
+    private void addViewMenuItems() {
+    	// this.add();
+    	this.addSeparator();
+    	// this.add();
+    }
+    
 	// Getters and Setters
 	public JFrame getParentFrame() {
-		return parentFrame;
+		return this.parentFrame;
 	}
 }
