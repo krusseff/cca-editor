@@ -30,6 +30,7 @@ public class AppMainFrame extends JFrame {
 
 	public AppMainFrame() {
 		logger.info("Application main frame initializing...");
+
 		this.setTitle(Constants.APPLICATION_TITLE);
 		this.setName(Constants.MAIN_FRAME_NAME);
 		this.setIconImage(createMainFrameIconImage());
