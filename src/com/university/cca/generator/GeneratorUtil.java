@@ -74,4 +74,13 @@ public class GeneratorUtil {
 			AMBIENT_WORD_DELIMITER
 		);
 	}
+	
+	/**
+	 * Checks for the last element of the ambient messages collection
+	 */
+	protected static boolean isLastAmbientMessage(List<Message> ambientMessages, 
+												  Message currentMessage) {
+		
+		return currentMessage != ambientMessages.get(ambientMessages.size() - 1);
+	}
 }
