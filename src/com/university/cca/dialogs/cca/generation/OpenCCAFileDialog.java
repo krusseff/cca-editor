@@ -21,6 +21,7 @@ import org.slf4j.LoggerFactory;
 import com.university.cca.buttons.CloseDialogButton;
 import com.university.cca.buttons.cca.SaveCCAFileButton;
 import com.university.cca.constants.Constants;
+import com.university.cca.files.cca.AmbientCCAWriter;
 import com.university.cca.util.CCAUtils;
 import com.university.cca.util.MouseCursorUtil;
 
@@ -89,9 +90,7 @@ public class OpenCCAFileDialog extends JDialog {
 		JPanel buttonsPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
 		buttonsPanel.setBackground(Constants.LIGHT_GREY);
 		
-		String contentToSave = textArea.getText().trim();
-
-		buttonsPanel.add(new SaveCCAFileButton(this, contentToSave));
+		buttonsPanel.add(createSaveButton());
 		buttonsPanel.add(new CloseDialogButton(this));
 		
 		return buttonsPanel;
@@ -112,6 +111,20 @@ public class OpenCCAFileDialog extends JDialog {
 		}
 
 		return textAreaCCA;
+	}
+	
+	private SaveCCAFileButton createSaveButton() {
+		SaveCCAFileButton saveButton = new SaveCCAFileButton(this);
+		
+		saveButton.addActionListener(event -> {
+			String ccaFileContent = textArea.getText().trim();
+			
+			AmbientCCAWriter.write(ccaFileContent);
+			
+			this.dispose();
+		});
+		
+		return saveButton;
 	}
 	
 	private JTextPane createTextPane(String textPaneContent) {
