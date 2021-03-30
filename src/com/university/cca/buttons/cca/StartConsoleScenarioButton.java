@@ -20,17 +20,17 @@ import com.university.cca.util.MouseCursorUtil;
  * @author Konstantin Rusev
  * @version 1.0
  */
-public class StartCCAScenarioButton extends JButton implements ActionListener {
+public class StartConsoleScenarioButton extends JButton implements ActionListener {
 	
 	private static final long serialVersionUID = 1L;
-	private static final Logger logger = LoggerFactory.getLogger(StartCCAScenarioButton.class);
+	private static final Logger logger = LoggerFactory.getLogger(StartConsoleScenarioButton.class);
 	
 	private JFrame parentFrame;
 	
-    public StartCCAScenarioButton(JFrame parentFrame) {
+    public StartConsoleScenarioButton(JFrame parentFrame) {
     	this.parentFrame = parentFrame;
     	
-        this.setText("Start CCA Scenario");
+        this.setText("Start Console Scenario");
         this.setIcon(new ImageIcon(Constants.START_CCA_ICON_PATH));
         
         this.setCursor(MouseCursorUtil.getMouseHand());

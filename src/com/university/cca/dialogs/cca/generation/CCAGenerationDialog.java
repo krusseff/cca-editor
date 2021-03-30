@@ -13,7 +13,7 @@ import javax.swing.JTextPane;
 
 import com.university.cca.buttons.cca.GenerateCCAButton;
 import com.university.cca.buttons.cca.OpenCCAFileButton;
-import com.university.cca.buttons.cca.StartCCAScenarioButton;
+import com.university.cca.buttons.cca.StartConsoleScenarioButton;
 import com.university.cca.util.MouseCursorUtil;
 
 /**
@@ -33,7 +33,7 @@ public class CCAGenerationDialog extends JDialog {
 	private static final int HEIGHT_DIALOG = 400;
 	private static final int WIDHT_DIALOG = 600;
 	
-	private static final int GRID_ROWS = 3;
+	private static final int GRID_ROWS = 4;
 	private static final int GRID_COLS = 1;
 	
 	private JFrame parentFrame;
@@ -70,7 +70,8 @@ public class CCAGenerationDialog extends JDialog {
 		
 		JPanel contentPanel = new JPanel(new GridLayout(GRID_ROWS, GRID_COLS));
 		contentPanel.add(new GenerateCCAButton(getParentFrame()));
-		contentPanel.add(new StartCCAScenarioButton(getParentFrame()));
+		contentPanel.add(new StartConsoleScenarioButton(getParentFrame()));
+		// TODO: contentPanel.add(new StartAnimatedScenarioButton(getParentFrame()));
 		contentPanel.add(new OpenCCAFileButton(getParentFrame()));
 
 		panel.add(titlePanel);
@@ -81,6 +82,7 @@ public class CCAGenerationDialog extends JDialog {
 	
 	private JPanel footerPanel() {
 		JPanel footerPanel = new JPanel(new FlowLayout());
+
 		JLabel footherLabel = new JLabel("NOTE: Create the whole CCA Model and as a last step generate the CCA file!");
 		footerPanel.add(footherLabel);
 		
