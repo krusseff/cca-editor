@@ -25,6 +25,8 @@ public class OpenCCAFileButton extends JButton implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(OpenCCAFileButton.class);
 	
+	private static final String BUTTON_TOOL_TIP = "Notice that you will edit the CCA file";
+	
 	private JFrame parentFrame;
 	
     public OpenCCAFileButton(JFrame parentFrame) {
@@ -35,6 +37,7 @@ public class OpenCCAFileButton extends JButton implements ActionListener {
         
         this.setCursor(MouseCursorUtil.getMouseHand());
         this.setIconTextGap(Constants.ICON_GAP_SIZE);
+        this.setToolTipText(BUTTON_TOOL_TIP);
         
         this.addActionListener(this);
     }

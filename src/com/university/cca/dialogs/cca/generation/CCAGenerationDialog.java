@@ -13,6 +13,7 @@ import javax.swing.JTextPane;
 
 import com.university.cca.buttons.cca.GenerateCCAButton;
 import com.university.cca.buttons.cca.OpenCCAFileButton;
+import com.university.cca.buttons.cca.StartAnimatedScenarioButton;
 import com.university.cca.buttons.cca.StartConsoleScenarioButton;
 import com.university.cca.util.MouseCursorUtil;
 
@@ -71,7 +72,7 @@ public class CCAGenerationDialog extends JDialog {
 		JPanel contentPanel = new JPanel(new GridLayout(GRID_ROWS, GRID_COLS));
 		contentPanel.add(new GenerateCCAButton(getParentFrame()));
 		contentPanel.add(new StartConsoleScenarioButton(getParentFrame()));
-		// TODO: contentPanel.add(new StartAnimatedScenarioButton(getParentFrame()));
+		contentPanel.add(new StartAnimatedScenarioButton(getParentFrame()));
 		contentPanel.add(new OpenCCAFileButton(getParentFrame()));
 
 		panel.add(titlePanel);

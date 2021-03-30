@@ -42,7 +42,8 @@ public final class Constants {
 	public static final String GENERATOR_CCA_ICON_PATH = "./images/cca_buttons/generator_cca.png";
 	public static final String GENERATE_CCA_ICON_PATH = "./images/cca_buttons/generate_cca.png";
 	public static final String OPEN_CCA_ICON_PATH = "./images/cca_buttons/open_cca.png";
-	public static final String START_CCA_ICON_PATH = "./images/cca_buttons/start_cca.png";
+	public static final String START_CONSOLE_CCA_ICON_PATH = "./images/cca_buttons/start_cca.png";
+	public static final String START_ANIMATED_CCA_ICON_PATH = "./images/cca_buttons/start_animated_cca.png";
 	
 	// CCA Team images paths
 	public static final String STOYANOV_ICON_PATH = "./images/cca_team/prof-stoyanov.png";

@@ -15,25 +15,25 @@ import com.university.cca.dialogs.UnderConstructionDialog;
 import com.university.cca.util.MouseCursorUtil;
 
 /**
- * The button that starts the CCA scenario from the generated CCA file via console
+ * The button that starts the CCA scenario from the generated CCA file via the CCA Animator
  * 
  * @author Konstantin Rusev
  * @version 1.0
  */
-public class StartConsoleScenarioButton extends JButton implements ActionListener {
+public class StartAnimatedScenarioButton extends JButton implements ActionListener {
 	
 	private static final long serialVersionUID = 1L;
-	private static final Logger logger = LoggerFactory.getLogger(StartConsoleScenarioButton.class);
+	private static final Logger logger = LoggerFactory.getLogger(StartAnimatedScenarioButton.class);
 	
-	private static final String BUTTON_TOOL_TIP = "Start the CCA Scenario via console";
+	private static final String BUTTON_TOOL_TIP = "Start the CCA Scenario via the animator";
 	
 	private JFrame parentFrame;
 	
-    public StartConsoleScenarioButton(JFrame parentFrame) {
+    public StartAnimatedScenarioButton(JFrame parentFrame) {
     	this.parentFrame = parentFrame;
     	
-        this.setText("Start Console Scenario");
-        this.setIcon(new ImageIcon(Constants.START_CONSOLE_CCA_ICON_PATH));
+        this.setText("Start Animated Scenario");
+        this.setIcon(new ImageIcon(Constants.START_ANIMATED_CCA_ICON_PATH));
         
         this.setCursor(MouseCursorUtil.getMouseHand());
         this.setIconTextGap(Constants.ICON_GAP_SIZE);
@@ -43,10 +43,10 @@ public class StartConsoleScenarioButton extends JButton implements ActionListene
         
         this.addActionListener(this);
     }
-	
+    
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		logger.info("Start the CCA Console Scenario button is clicked");
+		logger.info("Start the CCA Animated Scenario button is clicked");
 
 		// TODO: Exact implementation here
 		new UnderConstructionDialog(parentFrame);
