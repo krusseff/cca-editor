@@ -36,7 +36,14 @@ public final class Constants {
 	public static final String CLOSE_ICON_PATH = "./images/buttons/close.png";
 	public static final String SEND_ICON_PATH = "./images/buttons/send.png";
 	public static final String MESSAGE_ICON_PATH = "./images/buttons/message.png";
-	public static final String GENERATE_CCA_ICON_PATH = "./images/buttons/generate_cca.png";
+	public static final String SAVE_BUTTON_ICON_PATH = "./images/buttons/save.png";
+	
+	// CCA related images paths
+	public static final String GENERATOR_CCA_ICON_PATH = "./images/cca_buttons/generator_cca.png";
+	public static final String GENERATE_CCA_ICON_PATH = "./images/cca_buttons/generate_cca.png";
+	public static final String OPEN_CCA_ICON_PATH = "./images/cca_buttons/open_cca.png";
+	public static final String START_CONSOLE_CCA_ICON_PATH = "./images/cca_buttons/start_cca.png";
+	public static final String START_ANIMATED_CCA_ICON_PATH = "./images/cca_buttons/start_animated_cca.png";
 	
 	// CCA Team images paths
 	public static final String STOYANOV_ICON_PATH = "./images/cca_team/prof-stoyanov.png";
@@ -83,6 +90,7 @@ public final class Constants {
 	public static final String HOSPITAL_ICON_PATH = "./images/ambient_buttons/hospital.png";
 	public static final String HARBOUR_ICON_PATH = "./images/ambient_buttons/port.png";
 	public static final String HOTEL_ICON_PATH = "./images/ambient_buttons/hotel.png";
+	public static final String BUS_ICON_PATH = "./images/ambient_buttons/bus.png";
 	public static final String BUS_STATION_ICON_PATH = "./images/ambient_buttons/bus_station.png";
 	public static final String PHARMACY_ICON_PATH = "./images/ambient_buttons/pharmacy.png";
 	public static final String SHOP_ICON_PATH = "./images/ambient_buttons/shop.png";
@@ -95,7 +103,11 @@ public final class Constants {
 	public static final String CITY_ICON_PATH = "./images/ambient_buttons/city.png";
 	public static final String COUNTRY_ICON_PATH = "./images/ambient_buttons/country.png";
 	public static final String CONTINENT_ICON_PATH = "./images/ambient_buttons/continent.png";
+	public static final String MOTORBIKE_ICON_PATH = "./images/ambient_buttons/motorbike.png";
 	public static final String CAR_ICON_PATH = "./images/ambient_buttons/car.png";
+	public static final String TAXI_ICON_PATH = "./images/ambient_buttons/taxi.png";
+	public static final String LORRY_ICON_PATH = "./images/ambient_buttons/lorry.png";
+	public static final String TRAIN_ICON_PATH = "./images/ambient_buttons/train.png";
 	public static final String OTHER_ICON_PATH = "./images/ambient_buttons/other.png";
 	
 	// Menu text labels

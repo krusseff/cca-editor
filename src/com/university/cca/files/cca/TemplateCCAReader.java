@@ -8,6 +8,8 @@ import java.io.InputStreamReader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.university.cca.constants.CCATemplates;
+
 /**
  * Utility methods related to the reading a CCA ambient templates from files.
  * 
@@ -21,6 +23,18 @@ public class TemplateCCAReader {
 	
 	private TemplateCCAReader() {
 		// Prevent creating an object of type TemplateCCAReader
+	}
+	
+	public static String readAmbientDelimiterTemplate() {
+		return readFromFile(CCATemplates.AMBIENTS_DELIMITER_FILE_PATH);
+	}
+	
+	public static String readSendReceiveOneAmbientTemplate() {
+		return readFromFile(CCATemplates.SEND_RECEIVE_ONE_AMBIENT_FILE_PATH);
+	}
+	
+	public static String readReceiveSendOneAmbientTemplate() {
+		return readFromFile(CCATemplates.RECEIVE_SEND_ONE_AMBIENT_FILE_PATH);
 	}
 	
 	/**

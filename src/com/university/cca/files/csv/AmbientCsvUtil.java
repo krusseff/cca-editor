@@ -82,6 +82,7 @@ public class AmbientCsvUtil {
 		Message ambientMessage = new Message();
 		ambientMessage.setSenderAmbient(messageBean.getSenderAmbient());
 		ambientMessage.setRecipientAmbient(messageBean.getRecipientAmbient());
+		ambientMessage.setRespondToMessage(messageBean.getRespondToMessage());
 		ambientMessage.setMessage(messageBean.getAmbientMessage());
 		
 		return ambientMessage;
@@ -94,6 +95,7 @@ public class AmbientCsvUtil {
 		CsvMessageBean messageBean = new CsvMessageBean();
 		messageBean.setSenderAmbient(ambientMessage.getSenderAmbient());
 		messageBean.setRecipientAmbient(ambientMessage.getRecipientAmbient());
+		messageBean.setRespondToMessage(ambientMessage.getRespondToMessage());
 		messageBean.setAmbientMessage(ambientMessage.getMessage());
 		
 		return messageBean;

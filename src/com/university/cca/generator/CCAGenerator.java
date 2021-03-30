@@ -16,8 +16,10 @@ import com.university.cca.files.csv.AmbientCSVReader;
  * @version 1.0
  */
 public class CCAGenerator {
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(CCAGenerator.class);
+	
+	private static final String MSG_RESPOND_TO_NULL = "null";
 	private static final int CCA_STATUS_SUCCESS = 0;
 	private static final int CCA_STATUS_FAILURE = 1;
 	

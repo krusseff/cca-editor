@@ -11,6 +11,7 @@ import javax.swing.JScrollPane;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.university.cca.buttons.ambients.BusButton;
 import com.university.cca.buttons.ambients.BusStationButton;
 import com.university.cca.buttons.ambients.CarButton;
 import com.university.cca.buttons.ambients.CityButton;
@@ -20,6 +21,8 @@ import com.university.cca.buttons.ambients.CountryButton;
 import com.university.cca.buttons.ambients.HarbourButton;
 import com.university.cca.buttons.ambients.HospitalButton;
 import com.university.cca.buttons.ambients.HotelButton;
+import com.university.cca.buttons.ambients.LorryButton;
+import com.university.cca.buttons.ambients.MotorbikeButton;
 import com.university.cca.buttons.ambients.MuseumButton;
 import com.university.cca.buttons.ambients.OtherButton;
 import com.university.cca.buttons.ambients.PAButton;
@@ -28,6 +31,8 @@ import com.university.cca.buttons.ambients.PharmacyButton;
 import com.university.cca.buttons.ambients.RestaurantButton;
 import com.university.cca.buttons.ambients.SchoolButton;
 import com.university.cca.buttons.ambients.ShopButton;
+import com.university.cca.buttons.ambients.TaxiButton;
+import com.university.cca.buttons.ambients.TrainButton;
 import com.university.cca.buttons.ambients.UniversityButton;
 import com.university.cca.constants.Constants;
 import com.university.cca.util.CCAUtils;
@@ -86,7 +91,12 @@ public class AmbientButtonsPanel extends JPanel {
 		this.add(new CityButton(parentFrame));
 		this.add(new CountryButton(parentFrame));
 		this.add(new ContinentButton(parentFrame));
+		this.add(new MotorbikeButton(parentFrame));
 		this.add(new CarButton(parentFrame));
+		this.add(new TaxiButton(parentFrame));
+		this.add(new LorryButton(parentFrame));
+		this.add(new BusButton(parentFrame));
+		this.add(new TrainButton(parentFrame));
 		this.add(new OtherButton(parentFrame));
 	}
 }

@@ -1,6 +1,5 @@
-package com.university.cca.buttons;
+package com.university.cca.buttons.cca;
 
-import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -17,30 +16,31 @@ import com.university.cca.util.GenerateCCAUtil;
 import com.university.cca.util.MouseCursorUtil;
 
 /**
- * The button that triggers generation of the CCA file
+ * The button that starts the generation of the CCA file
  * 
  * @author Konstantin Rusev
  * @version 1.0
  */
 public class GenerateCCAButton extends JButton implements ActionListener {
-
+	
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(GenerateCCAButton.class);
 	
 	private static final int CCA_STATUS_SUCCESS = 0;
 	private static final int CCA_STATUS_FAILURE = 1;
+	private static final String BUTTON_TOOL_TIP = "Create the whole CCA Model and as a last step generate the CCA file";
 	
 	private JFrame parentFrame;
 	
     public GenerateCCAButton(JFrame parentFrame) {
     	this.parentFrame = parentFrame;
     	
-        this.setText("CCA Generator");
+        this.setText("Generate CCA");
         this.setIcon(new ImageIcon(Constants.GENERATE_CCA_ICON_PATH));
         
-        this.setPreferredSize(new Dimension(155, 35));
         this.setCursor(MouseCursorUtil.getMouseHand());
         this.setIconTextGap(Constants.ICON_GAP_SIZE);
+        this.setToolTipText(BUTTON_TOOL_TIP);
         
         this.addActionListener(this);
     }

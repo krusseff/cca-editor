@@ -18,7 +18,7 @@ import com.university.cca.constants.Constants;
 public class AmbientCCAWriter {
 	
 	private static final Logger logger = LoggerFactory.getLogger(AmbientCCAWriter.class);
-	private static final boolean APPEND_TO_FILE = true;
+	private static final boolean APPEND_TO_FILE = false;
 	private static final String NEW_LINE = "\n";
 
 	private AmbientCCAWriter() {

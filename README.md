@@ -52,6 +52,8 @@ These instructions will get you a copy of the project up and running on your loc
 * [SonarLint](https://www.sonarlint.org/)
 * CCA paradigm
 * ccaPL language
+* CCA Parser
+* CCA Animator
 
 ## Resources
 
@@ -67,3 +69,14 @@ You can view full Java [documentation](doc/index.html) for all classes and inter
 You can update Java documentation from Eclipse: `Project -> Generate javadoc...`
 
 Reference: [here](https://stackoverflow.com/questions/4468669/how-to-generate-javadoc-html-files-in-eclipse)
+
+## Sample output of the CCA Parser from a scenario into the console
+
+```java
+--->  {Sibling to sibling: Plovdiv_University ===(Are_you_working)===> Pharmacy}
+--->  {Sibling to sibling: Pharmacy ===(Are_you_working,Yes)===> Plovdiv_University}
+--->  {Sibling to sibling: Plovdiv_University ===(Do_you_have_a_coffee)===> Coffee_Shop}
+--->  {Sibling to sibling: Coffee_Shop ===(Do_you_have_a_coffee,Yes_of_course)===> Plovdiv_University}
+--->  {Sibling to sibling: Plovdiv_University ===(Do_you_have_notebooks)===> Bookstore}
+--->  {Sibling to sibling: Bookstore ===(Do_you_have_notebooks,Yes_I_have_only_one)===> Plovdiv_University}
+```
