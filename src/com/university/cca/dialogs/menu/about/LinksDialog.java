@@ -20,7 +20,7 @@ public class LinksDialog extends JDialog {
 	private static final String TITLE_DIALOG = "Useful Links";
 	private static final int HEIGHT_DIALOG = CCAUtils.getScreenSize().height / 2 + 150;
 	private static final int WIDHT_DIALOG = 800;
-	private static final String TEXT_PANE_CONTENT_TYPE = "text/html";
+	private static final String TEXT_PANE_CONTENT_TYPE = "text/html; charset=UTF-8";
 	private static final String CONTENT_DIALOG = 
 		"<html>" + 
 			"<head>" + 
@@ -77,12 +77,12 @@ public class LinksDialog extends JDialog {
 					
 				  "<li>" +
 					"CCA Editor Developer: " + 
-					"<u>http://delc.space/team/докторант-константин-русев</u>" +
+					"<u>http://delc.space/team/РґРѕРєС‚РѕСЂР°РЅС‚-РєРѕРЅСЃС‚Р°РЅС‚РёРЅ-СЂСѓСЃРµРІ/</u>" +
 				  "</li>" +
 					
 				  "<li>" +
 					"CCA Editor Supervisor: " + 
-					"<u>http://delc.space/team/проф-стоянов</u>" +
+					"<u>http://delc.space/team/РїСЂРѕС„-СЃС‚РѕСЏРЅРѕРІ/</u>" +
 				  "</li>" +
 			  	"</ul>" + 
 			"</body>" +
