@@ -61,7 +61,11 @@ public class ShortcutsDialog extends JDialog {
 				  "<li> To see details of some links open the About menu and click <i>'Useful Links'</i> or press <i>'CTRL + 3'</i> </li>" +
 				  "<li> To see details of the technologies open the About menu and click <i>'Technologies'</i> or press <i>'CTRL + 4'</i> </li>" +
 				  "<li> To contact the team of the CCA Editor open the About menu and click <i>'Contact Us'</i> or press <i>'CTRL + 5'</i> </li>" +
-				  "<li> ... </li>" +
+				  "<li> To see all ambients in CSV open the View menu and click <i>'Show Ambients CSV File'</i> or press <i>'CTRL + 6'</i> </li>" +
+				  "<li> To see all messages in CSV open the View menu and click <i>'Show Messages CSV File'</i> or press <i>'CTRL + 7'</i> </li>" +
+				  "<li> To see all ambients open the View menu and click <i>'Show Ambients'</i> or press <i>'CTRL + 8'</i> </li>" +
+				  "<li> To see all ambient messages open the View menu and click <i>'Show Messages'</i> or press <i>'CTRL + 9'</i> </li>" +
+				  "<li> To see all ambients in CCA open the View menu and click <i>'Show Ambients CCA File'</i> or press <i>'CTRL + A'</i> </li>" +
 			  	"</ul>" + 
 			"</body>" +
 		"</html>";
