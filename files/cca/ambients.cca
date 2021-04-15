@@ -45,4 +45,3 @@ Plovdiv
 	Plovdiv::recv(Do_you_have_medicines).
 	Plovdiv::send(Do_you_have_medicines,YES).0
 ]
-
