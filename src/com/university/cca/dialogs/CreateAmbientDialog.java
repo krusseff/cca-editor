@@ -1,8 +1,6 @@
 package com.university.cca.dialogs;
 
 import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -98,13 +96,10 @@ public class CreateAmbientDialog extends JDialog {
         dialogPanel.add(createAmbientButton);
         dialogPanel.add(new CancelDialogButton(this));
         
-        createAmbientButton.addActionListener(new ActionListener() {
-        	@Override
-			public void actionPerformed(ActionEvent e) {
-        		logger.info("Create Ambient Button is clicked");
-        		createAmbient(ambientType);
-			}
-		});
+        createAmbientButton.addActionListener(event -> {
+        	logger.info("Create Ambient Button is clicked");
+    		createAmbient(ambientType);
+        });
         
         this.getContentPane().add(dialogPanel);
 	}

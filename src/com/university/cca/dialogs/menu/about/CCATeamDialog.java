@@ -44,7 +44,7 @@ public class CCATeamDialog extends JDialog {
 				"</style>" +
 			"</head>" +
 			"<body>" +
-				"<h2 style=\"text-align: center;\"> Proffesor Ph.D. Stanimir Stoyanov </h2>" + 
+				"<h2 style=\"text-align: center;\"> Professor Ph.D. Stanimir Stoyanov </h2>" + 
 					
 				"<ul>" +
 				  "<li>" +
@@ -63,7 +63,7 @@ public class CCATeamDialog extends JDialog {
 					
 				  "<li>" +
 				    "More information: " + 
-				    "<u>http://delc.space/team/проф-стоянов/</u>" +
+				    "<u>http://delc.space/team/</u>" +
 				  "</li>" +
 			  	"</ul>" + 
 			"</body>" +
@@ -88,7 +88,7 @@ public class CCATeamDialog extends JDialog {
 				"</style>" +
 			"</head>" +
 			"<body>" +
-				"<h2 style=\"text-align: center;\"> Associate Proffesor Ph.D. Todorka Glushkova </h2>" + 
+				"<h2 style=\"text-align: center;\"> Associate Professor Ph.D. Todorka Glushkova </h2>" + 
 					
 				"<ul>" +
 				  "<li>" +
@@ -146,7 +146,7 @@ public class CCATeamDialog extends JDialog {
 					
 				  "<li>" +
 				    "More information: " + 
-				    "<u>http://delc.space/team/докторант-константин-русев</u>" +
+				    "<u>http://delc.space/team/</u>" +
 				  "</li>" +
 			  	"</ul>" + 
 			"</body>" +

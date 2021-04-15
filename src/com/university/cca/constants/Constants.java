@@ -71,6 +71,9 @@ public final class Constants {
 	
 	// View menu images paths
 	public static final String VIEW_ICON_PATH = "./images/menu/view/view.png";
+	public static final String SHOW_CSV_ICON_PATH = "./images/menu/view/show_csv.png";
+	public static final String SHOW_CCA_ICON_PATH = "./images/menu/view/show_ambients_cca.png";
+	public static final String SHOW_AMBIENTS_INFO_ICON_PATH = "./images/menu/view/show_ambients_info.png";
 	
 	// About menu images paths
 	public static final String ABOUT_ICON_PATH = "./images/menu/about/about.png";
@@ -129,6 +132,11 @@ public final class Constants {
 	public static final String EDIT_ITEM_DELETE = "Delete...";
 
 	public static final String VIEW = "View";
+	public static final String VIEW_ITEM_AMBIENTS_CSV = "Show Ambients CSV File";
+	public static final String VIEW_ITEM_MESSAGES_CSV = "Show Messages CSV File";
+	public static final String VIEW_ITEM_AMBIENTS_CCA = "Show Ambients CCA File";
+	public static final String VIEW_ITEM_AMBIENTS = "Show Ambients";
+	public static final String VIEW_ITEM_MESSAGES = "Show Messages";
 	
 	public static final String HELP = "Help";
 	public static final String HELP_ITEM_FAQ = "FAQs";
@@ -170,6 +178,11 @@ public final class Constants {
 	public static final int USEFUL_LINKS_SHORTCUT = KeyEvent.VK_3;
 	public static final int TECHNOLOGIES_SHORTCUT = KeyEvent.VK_4;
 	public static final int CONTACT_US_SHORTCUT = KeyEvent.VK_5;
+	public static final int SHOW_AMBIENTS_CSV_SHORTCUT = KeyEvent.VK_6;
+	public static final int SHOW_MESSAGES_CSV_SHORTCUT = KeyEvent.VK_7;
+	public static final int SHOW_AMBIENTS_SHORTCUT = KeyEvent.VK_8;
+	public static final int SHOW_MESSAGES_SHORTCUT = KeyEvent.VK_9;
+	public static final int SHOW_AMBIENTS_CCA_SHORTCUT = KeyEvent.VK_A;
 	
 	private Constants() {
 		// private constructor to hide the implicit public one
