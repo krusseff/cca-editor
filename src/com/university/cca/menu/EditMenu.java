@@ -34,15 +34,15 @@ public class EditMenu extends JMenu {
     }
     
     private void addEditMenuItems() {
-    	this.add(new CutMenuItem(parentFrame));
-    	this.add(new CopyMenuItem(parentFrame));
-    	this.add(new PasteMenuItem(parentFrame));
+    	this.add(new CutMenuItem(this.parentFrame));
+    	this.add(new CopyMenuItem(this.parentFrame));
+    	this.add(new PasteMenuItem(this.parentFrame));
     	this.addSeparator();
-    	this.add(new DeleteMenuItem(parentFrame));
+    	this.add(new DeleteMenuItem(this.parentFrame));
     }
 
     // Getters and Setters
 	public JFrame getParentFrame() {
-		return parentFrame;
+		return this.parentFrame;
 	}
 }

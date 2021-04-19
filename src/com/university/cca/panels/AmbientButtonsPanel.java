@@ -75,28 +75,28 @@ public class AmbientButtonsPanel extends JPanel {
 	 * Method that adds content to the panel with all of the ambient buttons
 	 */
 	private void addContentToPanel() {
-		this.add(new PAButton(parentFrame));
-		this.add(new HospitalButton(parentFrame));
-		this.add(new HarbourButton(parentFrame));
-		this.add(new HotelButton(parentFrame));
-		this.add(new BusStationButton(parentFrame));
-		this.add(new PharmacyButton(parentFrame));
-		this.add(new ShopButton(parentFrame));
-		this.add(new SchoolButton(parentFrame));
-		this.add(new MuseumButton(parentFrame));
-		this.add(new UniversityButton(parentFrame));
-		this.add(new RestaurantButton(parentFrame));
-		this.add(new CoffeeButton(parentFrame));
-		this.add(new ParkingButton(parentFrame));
-		this.add(new CityButton(parentFrame));
-		this.add(new CountryButton(parentFrame));
-		this.add(new ContinentButton(parentFrame));
-		this.add(new MotorbikeButton(parentFrame));
-		this.add(new CarButton(parentFrame));
-		this.add(new TaxiButton(parentFrame));
-		this.add(new LorryButton(parentFrame));
-		this.add(new BusButton(parentFrame));
-		this.add(new TrainButton(parentFrame));
-		this.add(new OtherButton(parentFrame));
+		this.add(new PAButton(this.parentFrame));
+		this.add(new HospitalButton(this.parentFrame));
+		this.add(new HarbourButton(this.parentFrame));
+		this.add(new HotelButton(this.parentFrame));
+		this.add(new BusStationButton(this.parentFrame));
+		this.add(new PharmacyButton(this.parentFrame));
+		this.add(new ShopButton(this.parentFrame));
+		this.add(new SchoolButton(this.parentFrame));
+		this.add(new MuseumButton(this.parentFrame));
+		this.add(new UniversityButton(this.parentFrame));
+		this.add(new RestaurantButton(this.parentFrame));
+		this.add(new CoffeeButton(this.parentFrame));
+		this.add(new ParkingButton(this.parentFrame));
+		this.add(new CityButton(this.parentFrame));
+		this.add(new CountryButton(this.parentFrame));
+		this.add(new ContinentButton(this.parentFrame));
+		this.add(new MotorbikeButton(this.parentFrame));
+		this.add(new CarButton(this.parentFrame));
+		this.add(new TaxiButton(this.parentFrame));
+		this.add(new LorryButton(this.parentFrame));
+		this.add(new BusButton(this.parentFrame));
+		this.add(new TrainButton(this.parentFrame));
+		this.add(new OtherButton(this.parentFrame));
 	}
 }

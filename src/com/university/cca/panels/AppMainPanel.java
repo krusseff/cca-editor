@@ -54,8 +54,8 @@ public class AppMainPanel extends JPanel {
 	}
 	
 	private void addContentToPanel() {
-		this.add(new CreateMessageButton(parentFrame));
-		this.add(new CCAGeneratorButton(parentFrame));
+		this.add(new CreateMessageButton(this.parentFrame));
+		this.add(new CCAGeneratorButton(this.parentFrame));
 	}
 	
     @Override
