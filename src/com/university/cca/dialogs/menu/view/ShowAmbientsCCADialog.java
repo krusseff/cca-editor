@@ -19,7 +19,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.university.cca.buttons.CloseDialogButton;
-import com.university.cca.buttons.cca.SaveCCAFileButton;
+import com.university.cca.buttons.SaveFileButton;
 import com.university.cca.constants.Constants;
 import com.university.cca.files.cca.AmbientCCAWriter;
 import com.university.cca.util.CCAUtils;
@@ -111,8 +111,8 @@ public class ShowAmbientsCCADialog extends JDialog {
 		return textAreaCCA;
 	}
 	
-	private SaveCCAFileButton createSaveButton() {
-		SaveCCAFileButton saveButton = new SaveCCAFileButton(this);
+	private SaveFileButton createSaveButton() {
+		SaveFileButton saveButton = new SaveFileButton(this);
 		
 		saveButton.addActionListener(event -> {
 			String ccaFileContent = textArea.getText().trim();
