@@ -20,7 +20,9 @@ public class SaveFileButton extends JButton {
 	
 	private static final long serialVersionUID = 1L;
 	
-	private static final String BUTTON_TOOL_TIP = "Click to save the content";
+	public static final boolean BUTTON_DISABLED = false;
+	public static final String BUTTON_TOOL_TIP = "Click to save the content";
+	public static final String BUTTON_TOOL_TIP_DISABLED = "Not able to save to not existing file";
 	
 	private JDialog parentDialog;
 
