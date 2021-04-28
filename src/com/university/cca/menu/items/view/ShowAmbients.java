@@ -12,7 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.university.cca.constants.Constants;
-import com.university.cca.dialogs.UnderConstructionDialog;
+import com.university.cca.dialogs.menu.view.ShowAmbientsDialog;
 import com.university.cca.util.MouseCursorUtil;
 
 public class ShowAmbients extends JMenuItem implements ActionListener {
@@ -42,11 +42,7 @@ public class ShowAmbients extends JMenuItem implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		logger.info("View Show All Ambients information button is clicked");
 		
-		// TODO
-		// [IN PROGRESS] Show ambients information: name, location, parents, and etc. 
-		// IN TABLE: add description
-		
-		new UnderConstructionDialog(getParentFrame());
+		new ShowAmbientsDialog(getParentFrame());
 	}
 
 	// Getters and Setters
