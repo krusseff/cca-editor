@@ -42,6 +42,18 @@ public class AmbientCsvUtil {
 			logger.info("The file: {} already exists.", filePath);
 		}	
 	}
+
+	/**
+	 * Method that checks for CSV file existence
+	 * 
+	 * @return <code>true</code> if the specified file already exists
+	 * 		   <code>false</code> if the specified file does not exist
+	 */
+	public static boolean isFileCreated(String filePath) {
+		File file = new File(filePath);
+		
+		return file.exists();
+	}
 	
 	/**
 	 * Method that converts from CsvAmbientBean object to Ambient object.

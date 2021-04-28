@@ -1,4 +1,4 @@
-package com.university.cca.buttons.cca;
+package com.university.cca.buttons;
 
 import java.awt.Component;
 import java.awt.Dimension;
@@ -11,20 +11,22 @@ import com.university.cca.constants.Constants;
 import com.university.cca.util.MouseCursorUtil;
 
 /**
- * Button that saves the CCA content from text area to the CCA file.
+ * Button that saves the file content from text area to the CCA/CSV file.
  * 
  * @author Konstantin Rusev
  * @version 1.0
  */
-public class SaveCCAFileButton extends JButton {
+public class SaveFileButton extends JButton {
 	
 	private static final long serialVersionUID = 1L;
 	
-	private static final String BUTTON_TOOL_TIP = "Click to save the content";
+	public static final boolean BUTTON_DISABLED = false;
+	public static final String BUTTON_TOOL_TIP = "Click to save the content";
+	public static final String BUTTON_TOOL_TIP_DISABLED = "Not able to save to not existing file";
 	
 	private JDialog parentDialog;
 
-    public SaveCCAFileButton(JDialog parentDialog) {
+    public SaveFileButton(JDialog parentDialog) {
     	this.parentDialog = parentDialog;
     	
     	this.setText("Save");

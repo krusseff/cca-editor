@@ -6,6 +6,8 @@ import java.io.IOException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.university.cca.constants.Constants;
+
 /**
  * Utility methods related to the functionality that reads and writes from/to CCA files.
  * 
@@ -38,5 +40,19 @@ public class AmbientCCAUtil {
 		} else {
 			logger.info("The file: {} already exists.", filePath);
 		}	
+	}
+	
+	/**
+	 * Method that checks for Ambients CCA file existence
+	 * 
+	 * @return <code>true</code> if the CCA file already exists
+	 * 		   <code>false</code> if the CCA file does not exist
+	 */
+	public static boolean isFileCreated() {
+		String filePath = Constants.AMBIENTS_CCA_FILE_PATH;
+
+		File file = new File(filePath);
+		
+		return file.exists();
 	}
 }

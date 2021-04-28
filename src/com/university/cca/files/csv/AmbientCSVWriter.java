@@ -1,5 +1,6 @@
 package com.university.cca.files.csv;
 
+import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
@@ -28,10 +29,33 @@ public class AmbientCSVWriter {
 	
 	private static final Logger logger = LoggerFactory.getLogger(AmbientCSVWriter.class);
 	
+	private static final String NEW_LINE = "\n";
+	
 	private AmbientCSVWriter() {
 		// Prevent creating an object of type AmbientCSVWriter
 	}
 	
+	/**
+	 * Method, which main responsibility is to rewrite the whole CSV file with the newly provided data.
+	 * 
+	 * @param data		the data that will be stored into the CSV file.
+	 * @param filePath	the file that will be populated with the <code>data</code>.
+	 */
+	public static void writeToCsv(String data, String filePath) {
+		boolean shouldAppendToFile = false;
+		AmbientCsvUtil.createFileIfDoesNotExist(filePath);
+		
+		try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, shouldAppendToFile))) {
+			writer.write(data);
+			writer.write(NEW_LINE);
+			logger.info("The data: \n{} \nis written successfully to the CSV file: {}", data, filePath);
+		} catch (IOException ex) {
+			logger.error("Unable to write the data to the CSV file: {}", ex.getMessage());
+			logger.error("Exiting the program... :(");
+			System.exit(2);
+		}
+	}
+
 	/**
 	 * Method, which main responsibility is to write ambients to the csv file.
 	 */

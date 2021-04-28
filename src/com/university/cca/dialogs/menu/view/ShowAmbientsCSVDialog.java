@@ -1,4 +1,4 @@
-package com.university.cca.dialogs.cca.generation;
+package com.university.cca.dialogs.menu.view;
 
 import java.awt.FlowLayout;
 import java.io.FileInputStream;
@@ -21,35 +21,33 @@ import org.slf4j.LoggerFactory;
 import com.university.cca.buttons.CloseDialogButton;
 import com.university.cca.buttons.SaveFileButton;
 import com.university.cca.constants.Constants;
-import com.university.cca.files.cca.AmbientCCAUtil;
-import com.university.cca.files.cca.AmbientCCAWriter;
+import com.university.cca.files.csv.AmbientCSVWriter;
+import com.university.cca.files.csv.AmbientCsvUtil;
 import com.university.cca.util.CCAUtils;
 import com.university.cca.util.MouseCursorUtil;
 
 /**
- * The dialog that holds the information from the CCA file.
+ * The dialog that holds the information for the ambients into a CSV file.
  * 
  * @author Konstantin Rusev
  * @version 1.0
  */
-public class OpenCCAFileDialog extends JDialog {
+public class ShowAmbientsCSVDialog extends JDialog {
 	
 	private static final long serialVersionUID = 1L;
-	private static final Logger logger = LoggerFactory.getLogger(OpenCCAFileDialog.class);
-	
-	private static final String TITLE = "CCA File";
-	private static final String OPEN_CCA_FILE_TITLE = "<h1 style=\"text-align: center;\"><i> CCA File </i></h1>";
+	private static final Logger logger = LoggerFactory.getLogger(ShowAmbientsCSVDialog.class);
+
+	private static final String TITLE = "Ambients CSV File";
+	private static final String SHOW_CSV_FILE_TITLE = "<h1 style=\"text-align: center;\"><i> Ambients CSV File </i></h1>";
 	private static final String TEXT_PANE_CONTENT_TYPE = "text/html";
 	
 	private static final int HEIGHT_DIALOG = CCAUtils.getScreenSize().height / 2 + 150;
 	private static final int WIDHT_DIALOG = 800;
 	
-	private JFrame parentFrame;
 	private JTextArea textArea;
 	
-	public OpenCCAFileDialog(JFrame parentFrame) {
+	public ShowAmbientsCSVDialog(JFrame parentFrame) {
         super(parentFrame, TITLE, true);
-        this.parentFrame = parentFrame;
         
         addDialogContent();
         
@@ -75,10 +73,10 @@ public class OpenCCAFileDialog extends JDialog {
 		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 		
 		JPanel titlePanel = new JPanel(new FlowLayout());
-		titlePanel.add(createTextPane(OPEN_CCA_FILE_TITLE));
+		titlePanel.add(createTextPane(SHOW_CSV_FILE_TITLE));
 		
 		JPanel contentPanel = new JPanel(new FlowLayout());
-		textArea = createCCATextArea();
+		textArea = createAmbientsCSVTextArea();
 		contentPanel.add(new JScrollPane(textArea));
 		
 		panel.add(titlePanel);
@@ -86,7 +84,7 @@ public class OpenCCAFileDialog extends JDialog {
 		
 		return new JScrollPane(panel);
 	}
-	
+
 	private JPanel createButtonsPanel() {
 		JPanel buttonsPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
 		buttonsPanel.setBackground(Constants.LIGHT_GREY);
@@ -97,17 +95,17 @@ public class OpenCCAFileDialog extends JDialog {
 		return buttonsPanel;
 	}
 	
-	private JTextArea createCCATextArea() {
+	private JTextArea createAmbientsCSVTextArea() {
 		JTextArea textAreaCCA = new JTextArea();
-		String ccaFile = Constants.AMBIENTS_CCA_FILE_PATH;
+		String ambientsCSVFile = Constants.AMBIENTS_CSV_FILE_PATH;
 
-		try (InputStream inputStream = new FileInputStream(ccaFile);
+		try (InputStream inputStream = new FileInputStream(ambientsCSVFile);
 			 Reader inputStreamReader = new InputStreamReader(inputStream);
 		) {
 			textAreaCCA.read(inputStreamReader, null);
 		} catch (IOException e) {
-			logger.error("An error occurres during the reading from the CCA file: {}", ccaFile);
-			textAreaCCA.setText("Unable to read from the CCA File or the file does not exist! Contact the administrators!");
+			logger.error("An error occurres during the reading from the ambients CSV file: {}", ambientsCSVFile);
+			textAreaCCA.setText("Unable to read from the ambients CSV File or the file does not exist! Contact the administrators!");
 			textAreaCCA.setEnabled(false);
 		}
 
@@ -116,17 +114,17 @@ public class OpenCCAFileDialog extends JDialog {
 	
 	private SaveFileButton createSaveButton() {
 		SaveFileButton saveButton = new SaveFileButton(this);
-
-		// If the CCA file does not exist the SAVE button will be disabled
-		if (!AmbientCCAUtil.isFileCreated()) {
+		
+		// If the CSV file does not exist the SAVE button will be disabled
+		if (!AmbientCsvUtil.isFileCreated(Constants.AMBIENTS_CSV_FILE_PATH)) {
 			saveButton.setEnabled(SaveFileButton.BUTTON_DISABLED);
 			saveButton.setToolTipText(SaveFileButton.BUTTON_TOOL_TIP_DISABLED);
 		}
 		
 		saveButton.addActionListener(event -> {
-			String ccaFileContent = textArea.getText().trim();
+			String csvFileContent = textArea.getText().trim();
 			
-			AmbientCCAWriter.write(ccaFileContent);
+			AmbientCSVWriter.writeToCsv(csvFileContent, Constants.AMBIENTS_CSV_FILE_PATH);			
 			
 			this.dispose();
 		});
@@ -147,10 +145,6 @@ public class OpenCCAFileDialog extends JDialog {
 	}
 
 	// Getters and Setters
-	public JFrame getParentFrame() {
-		return this.parentFrame;
-	}
-
 	public JTextArea getTextArea() {
 		return this.textArea;
 	}

@@ -39,23 +39,23 @@ public class FileMenu extends JMenu {
     }
     
     private void addFileMenuItems() {
-    	this.add(new NewMenuItem(parentFrame));
-    	this.add(new OpenMenuItem(parentFrame));
-    	this.add(new SaveMenuItem(parentFrame));
+    	this.add(new NewMenuItem(this.parentFrame));
+    	this.add(new OpenMenuItem(this.parentFrame));
+    	this.add(new SaveMenuItem(this.parentFrame));
     	this.addSeparator();
-    	this.add(new ImportMenuItem(parentFrame));
-    	this.add(new ExportMenuItem(parentFrame));
+    	this.add(new ImportMenuItem(this.parentFrame));
+    	this.add(new ExportMenuItem(this.parentFrame));
     	this.addSeparator();
-    	this.add(new RefreshMenuItem(parentFrame));
-    	this.add(new RestartMenuItem(parentFrame));
+    	this.add(new RefreshMenuItem(this.parentFrame));
+    	this.add(new RestartMenuItem(this.parentFrame));
     	this.addSeparator();
-    	this.add(new TerminalMenuItem(parentFrame));
+    	this.add(new TerminalMenuItem(this.parentFrame));
     	this.addSeparator();
-    	this.add(new ExitMenuItem(parentFrame));
+    	this.add(new ExitMenuItem(this.parentFrame));
     }
     
 	// Getters and Setters
 	public JFrame getParentFrame() {
-		return parentFrame;
+		return this.parentFrame;
 	}
 }
