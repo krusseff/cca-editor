@@ -12,7 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.university.cca.constants.Constants;
-import com.university.cca.dialogs.UnderConstructionDialog;
+import com.university.cca.dialogs.menu.view.ShowMessagesCSVDialog;
 import com.university.cca.util.MouseCursorUtil;
 
 public class ShowMessagesCSVFile extends JMenuItem implements ActionListener {
@@ -41,11 +41,8 @@ public class ShowMessagesCSVFile extends JMenuItem implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		logger.info("View Show Ambient Messages CSV File button is clicked");
-		
-		// TODO
-		// [IN PROGRESS] Show ambient messages CSV file
-		
-		new UnderConstructionDialog(getParentFrame());
+
+		new ShowMessagesCSVDialog(getParentFrame());
 	}
 
 	// Getters and Setters
