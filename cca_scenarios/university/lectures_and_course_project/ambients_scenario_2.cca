@@ -1,0 +1,228 @@
+PA_STUDENT
+[
+	ETHNOGRAPHIC_COMPLEX::send(Hello).0|
+	ETHNOGRAPHIC_COMPLEX::recv(Hello,Hello_student_can_I_help_you).0
+]
+|
+ETHNOGRAPHIC_COMPLEX
+[
+	PA_STUDENT::recv(Hello).
+	PA_STUDENT::send(Hello,Hello_student_can_I_help_you).0
+]
+|
+PA_STUDENT
+[
+	ETHNOGRAPHIC_COMPLEX::send(Do_you_have_any_information_about_the_cultural_and_historical_heritage_of_the_town_of_Lovech).0|
+	ETHNOGRAPHIC_COMPLEX::recv(Do_you_have_any_information_about_the_cultural_and_historical_heritage_of_the_town_of_Lovech,Yes_of_course).0
+]
+|
+ETHNOGRAPHIC_COMPLEX
+[
+	PA_STUDENT::recv(Do_you_have_any_information_about_the_cultural_and_historical_heritage_of_the_town_of_Lovech).
+	PA_STUDENT::send(Do_you_have_any_information_about_the_cultural_and_historical_heritage_of_the_town_of_Lovech,Yes_of_course).0
+]
+|
+PA_STUDENT
+[
+	ETHNOGRAPHIC_COMPLEX::send(Can_you_tell_me_the_location_of_the_ethnographic_complex).0|
+	ETHNOGRAPHIC_COMPLEX::recv(Can_you_tell_me_the_location_of_the_ethnographic_complex,Street_Hristo_Ivanov_Golemiya_16).0
+]
+|
+ETHNOGRAPHIC_COMPLEX
+[
+	PA_STUDENT::recv(Can_you_tell_me_the_location_of_the_ethnographic_complex).
+	PA_STUDENT::send(Can_you_tell_me_the_location_of_the_ethnographic_complex,Street_Hristo_Ivanov_Golemiya_16).0
+]
+|
+PA_STUDENT
+[
+	ETHNOGRAPHIC_COMPLEX::send(What_are_your_working_hours).0|
+	ETHNOGRAPHIC_COMPLEX::recv(What_are_your_working_hours,From_9_AM_to_5_PM_each_day).0
+]
+|
+ETHNOGRAPHIC_COMPLEX
+[
+	PA_STUDENT::recv(What_are_your_working_hours).
+	PA_STUDENT::send(What_are_your_working_hours,From_9_AM_to_5_PM_each_day).0
+]
+|
+PA_STUDENT
+[
+	ETHNOGRAPHIC_COMPLEX::send(Can_you_tell_me_the_price_of_the_ticket).0|
+	ETHNOGRAPHIC_COMPLEX::recv(Can_you_tell_me_the_price_of_the_ticket,The_price_for_students_is_2_levas).0
+]
+|
+ETHNOGRAPHIC_COMPLEX
+[
+	PA_STUDENT::recv(Can_you_tell_me_the_price_of_the_ticket).
+	PA_STUDENT::send(Can_you_tell_me_the_price_of_the_ticket,The_price_for_students_is_2_levas).0
+]
+|
+PA_STUDENT
+[
+	ETHNOGRAPHIC_COMPLEX::send(Can_you_suggest_me_how_to_come_to_the_ethnographic_complex).0|
+	ETHNOGRAPHIC_COMPLEX::recv(Can_you_suggest_me_how_to_come_to_the_ethnographic_complex,You_can_use_bus__taxi_or_thru_walking).0
+]
+|
+ETHNOGRAPHIC_COMPLEX
+[
+	PA_STUDENT::recv(Can_you_suggest_me_how_to_come_to_the_ethnographic_complex).
+	PA_STUDENT::send(Can_you_suggest_me_how_to_come_to_the_ethnographic_complex,You_can_use_bus__taxi_or_thru_walking).0
+]
+|
+PA_STUDENT
+[
+	ETHNOGRAPHIC_COMPLEX::send(Thank_you_for_the_information).0|
+	ETHNOGRAPHIC_COMPLEX::recv(Thank_you_for_the_information,You_are_welcome).0
+]
+|
+ETHNOGRAPHIC_COMPLEX
+[
+	PA_STUDENT::recv(Thank_you_for_the_information).
+	PA_STUDENT::send(Thank_you_for_the_information,You_are_welcome).0
+]
+|
+PA_STUDENT
+[
+	HOTEL_VAROSHA::send(Hello).0|
+	HOTEL_VAROSHA::recv(Hello,Can_I_help_you_with_something).0
+]
+|
+HOTEL_VAROSHA
+[
+	PA_STUDENT::recv(Hello).
+	PA_STUDENT::send(Hello,Can_I_help_you_with_something).0
+]
+|
+PA_STUDENT
+[
+	HOTEL_VAROSHA::send(Can_you_give_me_the_walking_time_to_the_ethnographic_complex).0|
+	HOTEL_VAROSHA::recv(Can_you_give_me_the_walking_time_to_the_ethnographic_complex,I_should_be_around_30_minutes).0
+]
+|
+HOTEL_VAROSHA
+[
+	PA_STUDENT::recv(Can_you_give_me_the_walking_time_to_the_ethnographic_complex).
+	PA_STUDENT::send(Can_you_give_me_the_walking_time_to_the_ethnographic_complex,I_should_be_around_30_minutes).0
+]
+|
+PA_STUDENT
+[
+	HOTEL_VAROSHA::send(Okay_thanks).0|
+	HOTEL_VAROSHA::recv(Okay_thanks,you_are_welcome).0
+]
+|
+HOTEL_VAROSHA
+[
+	PA_STUDENT::recv(Okay_thanks).
+	PA_STUDENT::send(Okay_thanks,you_are_welcome).0
+]
+|
+PA_STUDENT
+[
+	BUS_STATION::send(What_is_the_bus_schedule_to_the_ethnographic_complex).0|
+	BUS_STATION::recv(What_is_the_bus_schedule_to_the_ethnographic_complex,I_am_sending_the_bus_schedule).0
+]
+|
+BUS_STATION
+[
+	PA_STUDENT::recv(What_is_the_bus_schedule_to_the_ethnographic_complex).
+	PA_STUDENT::send(What_is_the_bus_schedule_to_the_ethnographic_complex,I_am_sending_the_bus_schedule).0
+]
+|
+PA_STUDENT
+[
+	BUS_STATION::send(Are_there_any_buses_to_the_ethnographic_complex_soon).0|
+	BUS_STATION::recv(Are_there_any_buses_to_the_ethnographic_complex_soon,No).0
+]
+|
+BUS_STATION
+[
+	PA_STUDENT::recv(Are_there_any_buses_to_the_ethnographic_complex_soon).
+	PA_STUDENT::send(Are_there_any_buses_to_the_ethnographic_complex_soon,No).0
+]
+|
+PA_STUDENT
+[
+	TAXI::send(Are_there_any_free_taxi_cars_available_soon).0|
+	TAXI::recv(Are_there_any_free_taxi_cars_available_soon,Yes).0
+]
+|
+TAXI
+[
+	PA_STUDENT::recv(Are_there_any_free_taxi_cars_available_soon).
+	PA_STUDENT::send(Are_there_any_free_taxi_cars_available_soon,Yes).0
+]
+|
+TAXI
+[
+	PA_STUDENT::send(Which_is_the_place_that_you_want_to_attend).0|
+	PA_STUDENT::recv(Which_is_the_place_that_you_want_to_attend,I_want_to_go_to_the_ethnographic_complex).0
+]
+|
+PA_STUDENT
+[
+	TAXI::recv(Which_is_the_place_that_you_want_to_attend).
+	TAXI::send(Which_is_the_place_that_you_want_to_attend,I_want_to_go_to_the_ethnographic_complex).0
+]
+|
+TAXI
+[
+	PA_STUDENT::send(Where_you_are_now).0|
+	PA_STUDENT::recv(Where_you_are_now,I_am_in_hotel_Varosha).0
+]
+|
+PA_STUDENT
+[
+	TAXI::recv(Where_you_are_now).
+	TAXI::send(Where_you_are_now,I_am_in_hotel_Varosha).0
+]
+|
+PA_STUDENT
+[
+	TAXI::send(Can_you_tell_me_the_price).0|
+	TAXI::recv(Can_you_tell_me_the_price,It_should_be_around_5_levas).0
+]
+|
+TAXI
+[
+	PA_STUDENT::recv(Can_you_tell_me_the_price).
+	PA_STUDENT::send(Can_you_tell_me_the_price,It_should_be_around_5_levas).0
+]
+|
+PA_STUDENT
+[
+	TAXI::send(When_you_can_drive_me_to_the_ethnographic_complex_soon).0|
+	TAXI::recv(When_you_can_drive_me_to_the_ethnographic_complex_soon,I_will_be_there_after_10_minutes).0
+]
+|
+TAXI
+[
+	PA_STUDENT::recv(When_you_can_drive_me_to_the_ethnographic_complex_soon).
+	PA_STUDENT::send(When_you_can_drive_me_to_the_ethnographic_complex_soon,I_will_be_there_after_10_minutes).0
+]
+|
+PA_STUDENT
+[
+	TAXI::send(I_am_waiting_you).0|
+	TAXI::recv(I_am_waiting_you,I_am_coming_soon).0
+]
+|
+TAXI
+[
+	PA_STUDENT::recv(I_am_waiting_you).
+	PA_STUDENT::send(I_am_waiting_you,I_am_coming_soon).0
+]
+|
+PA_STUDENT
+[
+	TAXI::send(See_you_soon).0|
+	TAXI::recv(See_you_soon,See_you).0
+]
+|
+TAXI
+[
+	PA_STUDENT::recv(See_you_soon).
+	PA_STUDENT::send(See_you_soon,See_you).0
+]
+

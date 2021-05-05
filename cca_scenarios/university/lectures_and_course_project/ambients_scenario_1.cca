@@ -1,0 +1,240 @@
+PA_STUDENT
+[
+	LOVECH_UNIVERSITY::send(Hello).0|
+	LOVECH_UNIVERSITY::recv(Hello,Hello_student).0
+]
+|
+LOVECH_UNIVERSITY
+[
+	PA_STUDENT::recv(Hello).
+	PA_STUDENT::send(Hello,Hello_student).0
+]
+|
+PA_STUDENT
+[
+	LOVECH_UNIVERSITY::send(Can_you_send_me_the_schedule_for_the_current_semester).0|
+	LOVECH_UNIVERSITY::recv(Can_you_send_me_the_schedule_for_the_current_semester,You_can_find_it_on_the_web_site_of_the_university).0
+]
+|
+LOVECH_UNIVERSITY
+[
+	PA_STUDENT::recv(Can_you_send_me_the_schedule_for_the_current_semester).
+	PA_STUDENT::send(Can_you_send_me_the_schedule_for_the_current_semester,You_can_find_it_on_the_web_site_of_the_university).0
+]
+|
+PA_STUDENT
+[
+	LOVECH_UNIVERSITY::send(Do_I_have_lectures_today).0|
+	LOVECH_UNIVERSITY::recv(Do_I_have_lectures_today,Yes_you_have_lecture_after_30_minutes).0
+]
+|
+LOVECH_UNIVERSITY
+[
+	PA_STUDENT::recv(Do_I_have_lectures_today).
+	PA_STUDENT::send(Do_I_have_lectures_today,Yes_you_have_lecture_after_30_minutes).0
+]
+|
+PA_STUDENT
+[
+	LOVECH_UNIVERSITY::send(Thank_you_for_the_helpful_information).0|
+	LOVECH_UNIVERSITY::recv(Thank_you_for_the_helpful_information,You_are_welcome).0
+]
+|
+LOVECH_UNIVERSITY
+[
+	PA_STUDENT::recv(Thank_you_for_the_helpful_information).
+	PA_STUDENT::send(Thank_you_for_the_helpful_information,You_are_welcome).0
+]
+|
+PA_STUDENT
+[
+	BUS_STATION::send(Are_there_any_buses_available_soon).0|
+	BUS_STATION::recv(Are_there_any_buses_available_soon,Unfortunately_no).0
+]
+|
+BUS_STATION
+[
+	PA_STUDENT::recv(Are_there_any_buses_available_soon).
+	PA_STUDENT::send(Are_there_any_buses_available_soon,Unfortunately_no).0
+]
+|
+PA_STUDENT
+[
+	TAXI::send(Are_there_any_free_taxi_cars_to_drive_me_to_the_university).0|
+	TAXI::recv(Are_there_any_free_taxi_cars_to_drive_me_to_the_university,No_all_cars_are_busy_now).0
+]
+|
+TAXI
+[
+	PA_STUDENT::recv(Are_there_any_free_taxi_cars_to_drive_me_to_the_university).
+	PA_STUDENT::send(Are_there_any_free_taxi_cars_to_drive_me_to_the_university,No_all_cars_are_busy_now).0
+]
+|
+PA_STUDENT
+[
+	LOVECH_UNIVERSITY::send(I_am_not_able_to_attend_the_lecture_today).0|
+	LOVECH_UNIVERSITY::recv(I_am_not_able_to_attend_the_lecture_today,It_is_not_required_to_attend_each_lecture).0
+]
+|
+LOVECH_UNIVERSITY
+[
+	PA_STUDENT::recv(I_am_not_able_to_attend_the_lecture_today).
+	PA_STUDENT::send(I_am_not_able_to_attend_the_lecture_today,It_is_not_required_to_attend_each_lecture).0
+]
+|
+PA_STUDENT
+[
+	LOVECH_UNIVERSITY::send(Can_you_send_me_the_lectures_from_today).0|
+	LOVECH_UNIVERSITY::recv(Can_you_send_me_the_lectures_from_today,I_am_sending_the_lectures).0
+]
+|
+LOVECH_UNIVERSITY
+[
+	PA_STUDENT::recv(Can_you_send_me_the_lectures_from_today).
+	PA_STUDENT::send(Can_you_send_me_the_lectures_from_today,I_am_sending_the_lectures).0
+]
+|
+PA_STUDENT
+[
+	LOVECH_UNIVERSITY::send(Thank_you_a_lot).0|
+	LOVECH_UNIVERSITY::recv(Thank_you_a_lot,No_worries).0
+]
+|
+LOVECH_UNIVERSITY
+[
+	PA_STUDENT::recv(Thank_you_a_lot).
+	PA_STUDENT::send(Thank_you_a_lot,No_worries).0
+]
+|
+PA_STUDENT
+[
+	LOVECH_UNIVERSITY::send(When_is_my_next_exam).0|
+	LOVECH_UNIVERSITY::recv(When_is_my_next_exam,At_the_end_of_the_current_semester).0
+]
+|
+LOVECH_UNIVERSITY
+[
+	PA_STUDENT::recv(When_is_my_next_exam).
+	PA_STUDENT::send(When_is_my_next_exam,At_the_end_of_the_current_semester).0
+]
+|
+PA_STUDENT
+[
+	LOVECH_UNIVERSITY::send(Should_it_be_an_online_exam).0|
+	LOVECH_UNIVERSITY::recv(Should_it_be_an_online_exam,yes_because_of_the_COVID_19_pandemic_it_will_be_online).0
+]
+|
+LOVECH_UNIVERSITY
+[
+	PA_STUDENT::recv(Should_it_be_an_online_exam).
+	PA_STUDENT::send(Should_it_be_an_online_exam,yes_because_of_the_COVID_19_pandemic_it_will_be_online).0
+]
+|
+PA_STUDENT
+[
+	LOVECH_UNIVERSITY::send(Can_you_send_me_some_examples_of_the_exam).0|
+	LOVECH_UNIVERSITY::recv(Can_you_send_me_some_examples_of_the_exam,No_it_is_not_possible_to_send_you_examples_of_the_exam).0
+]
+|
+LOVECH_UNIVERSITY
+[
+	PA_STUDENT::recv(Can_you_send_me_some_examples_of_the_exam).
+	PA_STUDENT::send(Can_you_send_me_some_examples_of_the_exam,No_it_is_not_possible_to_send_you_examples_of_the_exam).0
+]
+|
+LOVECH_UNIVERSITY
+[
+	PA_STUDENT::send(You_should_create_a_course_project_before_the_exam).0|
+	PA_STUDENT::recv(You_should_create_a_course_project_before_the_exam,Okay).0
+]
+|
+PA_STUDENT
+[
+	LOVECH_UNIVERSITY::recv(You_should_create_a_course_project_before_the_exam).
+	LOVECH_UNIVERSITY::send(You_should_create_a_course_project_before_the_exam,Okay).0
+]
+|
+LOVECH_UNIVERSITY
+[
+	PA_STUDENT::send(The_theme_of_the_course_project_is_Cultural_and_Historical_Heritage_of_the_Town_of_Lovech).0|
+	PA_STUDENT::recv(The_theme_of_the_course_project_is_Cultural_and_Historical_Heritage_of_the_Town_of_Lovech,Okay_thanks).0
+]
+|
+PA_STUDENT
+[
+	LOVECH_UNIVERSITY::recv(The_theme_of_the_course_project_is_Cultural_and_Historical_Heritage_of_the_Town_of_Lovech).
+	LOVECH_UNIVERSITY::send(The_theme_of_the_course_project_is_Cultural_and_Historical_Heritage_of_the_Town_of_Lovech,Okay_thanks).0
+]
+|
+PA_STUDENT
+[
+	LOVECH_UNIVERSITY::send(How_much_time_do_I_have_to_create_the_course_project).0|
+	LOVECH_UNIVERSITY::recv(How_much_time_do_I_have_to_create_the_course_project,You_should_be_ready_until_the_end_of_the_semester).0
+]
+|
+LOVECH_UNIVERSITY
+[
+	PA_STUDENT::recv(How_much_time_do_I_have_to_create_the_course_project).
+	PA_STUDENT::send(How_much_time_do_I_have_to_create_the_course_project,You_should_be_ready_until_the_end_of_the_semester).0
+]
+|
+PA_STUDENT
+[
+	LOVECH_UNIVERSITY::send(How_many_pages_should_it_be).0|
+	LOVECH_UNIVERSITY::recv(How_many_pages_should_it_be,The_course_project_should_be_up_to_10_pages).0
+]
+|
+LOVECH_UNIVERSITY
+[
+	PA_STUDENT::recv(How_many_pages_should_it_be).
+	PA_STUDENT::send(How_many_pages_should_it_be,The_course_project_should_be_up_to_10_pages).0
+]
+|
+PA_STUDENT
+[
+	LOVECH_UNIVERSITY::send(What_kind_of_resources_should_we_use).0|
+	LOVECH_UNIVERSITY::recv(What_kind_of_resources_should_we_use,You_can_use_everything).0
+]
+|
+LOVECH_UNIVERSITY
+[
+	PA_STUDENT::recv(What_kind_of_resources_should_we_use).
+	PA_STUDENT::send(What_kind_of_resources_should_we_use,You_can_use_everything).0
+]
+|
+PA_STUDENT
+[
+	LOVECH_UNIVERSITY::send(Can_I_go_to_the_museum_to_collect_some_information_for_the_project).0|
+	LOVECH_UNIVERSITY::recv(Can_I_go_to_the_museum_to_collect_some_information_for_the_project,Yes_you_can).0
+]
+|
+LOVECH_UNIVERSITY
+[
+	PA_STUDENT::recv(Can_I_go_to_the_museum_to_collect_some_information_for_the_project).
+	PA_STUDENT::send(Can_I_go_to_the_museum_to_collect_some_information_for_the_project,Yes_you_can).0
+]
+|
+PA_STUDENT
+[
+	LOVECH_UNIVERSITY::send(Thank_you).0|
+	LOVECH_UNIVERSITY::recv(Thank_you,Let_me_know_if_you_have_any_other_questions_to_ask).0
+]
+|
+LOVECH_UNIVERSITY
+[
+	PA_STUDENT::recv(Thank_you).
+	PA_STUDENT::send(Thank_you,Let_me_know_if_you_have_any_other_questions_to_ask).0
+]
+|
+PA_STUDENT
+[
+	LOVECH_UNIVERSITY::send(Thanks_see_yoo_soon).0|
+	LOVECH_UNIVERSITY::recv(Thanks_see_yoo_soon,Bye).0
+]
+|
+LOVECH_UNIVERSITY
+[
+	PA_STUDENT::recv(Thanks_see_yoo_soon).
+	PA_STUDENT::send(Thanks_see_yoo_soon,Bye).0
+]
+
