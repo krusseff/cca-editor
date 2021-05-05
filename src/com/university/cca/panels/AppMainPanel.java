@@ -29,8 +29,12 @@ public class AppMainPanel extends JPanel {
     private static final Logger logger = LoggerFactory.getLogger(AppMainPanel.class);
 
     // This is the size of the background image with the Plovdiv map
-    private static final int PANEL_WIDTH = 1697;
-    private static final int PANEL_HEIGTH = 1169;
+    // private static final int PANEL_WIDTH = 1697;
+    // private static final int PANEL_HEIGTH = 1169;
+    
+    // This is the size of the background image with the Lovech map mini
+    private static final int PANEL_WIDTH = 666;
+    private static final int PANEL_HEIGTH = 524;
     
     private static final int X_COORDINATE = 0;
     private static final int Y_COORDINATE = 0;
@@ -62,15 +66,22 @@ public class AppMainPanel extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         
-        Image image = new ImageIcon(Constants.BACKGROUND_ICON_PATH).getImage();
-
-        g.drawImage(image, X_COORDINATE, Y_COORDINATE, this);
+        g.drawImage(getLovechMap(), X_COORDINATE, Y_COORDINATE, this);
         
         // Use this line and comment the preferred size of the panel to make the map smaller
         // g.drawImage(image, X_COORDINATE, Y_COORDINATE, getWidth(), getHeight(), this);
     }
+    
+    @SuppressWarnings("unused")
+	private Image getPlovdivMap() {
+    	return new ImageIcon(Constants.BACKGROUND_ICON_PATH).getImage();
+    }
+    
+    private Image getLovechMap() {
+    	return new ImageIcon(Constants.BACKGROUND_LOVECH_ICON_PATH).getImage();
+    }
 	
-	// Getters and setters
+	// Getters
 	public JFrame getParentFrame() {
 		return this.parentFrame;
 	}
