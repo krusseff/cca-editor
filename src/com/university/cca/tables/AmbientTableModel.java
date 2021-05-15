@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 import com.university.cca.entities.Ambient;
 
 /**
- * The table with all ambients that are created into the CCA Editor.
+ * The table with all of the ambients that are created with the help of the CCA Editor.
  * 
  * @author Konstantin Rusev
  * @version 1.0
