@@ -32,13 +32,13 @@ public class AmbientCCAUtil {
 			try {
 				boolean result = file.createNewFile();
 				logger.info("The file: {} is created with status: {}", filePath, result);
-			} catch (IOException e) {
-				logger.error("Unable to create a file: {}", e.getMessage());
+			} catch (IOException ex) {
+				logger.error("Unable to create a file. Exception: {}", ex.getMessage());
 				logger.error("Exiting the program... :(");
 				System.exit(2);
 			}
 		} else {
-			logger.info("The file: {} already exists.", filePath);
+			logger.info("The file with name: {} already exists.", filePath);
 		}	
 	}
 	

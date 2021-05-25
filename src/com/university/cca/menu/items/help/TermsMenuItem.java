@@ -36,13 +36,13 @@ public class TermsMenuItem extends JMenuItem implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		logger.info("Help Terms and Conditions button is clicked");
+		logger.info("Help Terms and Conditions Button is clicked");
 		
-		new TermsDialog(parentFrame);
+		new TermsDialog(this.parentFrame);
 	}
 
-	// Getters and Setters
+	// Getters
 	public JFrame getParentFrame() {
-		return parentFrame;
+		return this.parentFrame;
 	}
 }

@@ -6,7 +6,7 @@ import javax.swing.JOptionPane;
 import com.university.cca.constants.Constants;
 
 /**
- * Utility methods related to the generate CCA file functionality
+ * Utility methods related to the generate CCA file functionality of the application.
  * 
  * @author Konstantin Rusev
  * @version 1.0
@@ -18,7 +18,8 @@ public class GenerateCCAUtil {
 	}
 	
 	/**
-	 * Method that shows a success dialog if the CCA file is generated successfully
+	 * Method that shows a success dialog if the CCA file is generated successfully.
+	 * 
 	 */
 	public static void createSuccessDialog(JFrame parentFrame) {
 		JOptionPane.showMessageDialog(
@@ -31,7 +32,8 @@ public class GenerateCCAUtil {
 	}
 	
 	/**
-	 * Method that shows an error dialog if there is an error related to the CCA file generation
+	 * Method that shows an error dialog if there is an error related to the CCA file generation.
+	 * 
 	 */
 	public static void createErrorDialog(JFrame parentFrame) {
 		JOptionPane.showMessageDialog(

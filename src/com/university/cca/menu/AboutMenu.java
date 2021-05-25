@@ -41,7 +41,7 @@ public class AboutMenu extends JMenu {
     	this.add(new ContactMenuItem(this.parentFrame));
     }
     
-	// Getters and Setters
+	// Getters
 	public JFrame getParentFrame() {
 		return this.parentFrame;
 	}

@@ -54,7 +54,7 @@ public class FileMenu extends JMenu {
     	this.add(new ExitMenuItem(this.parentFrame));
     }
     
-	// Getters and Setters
+	// Getters
 	public JFrame getParentFrame() {
 		return this.parentFrame;
 	}

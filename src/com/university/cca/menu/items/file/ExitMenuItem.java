@@ -42,17 +42,18 @@ public class ExitMenuItem extends JMenuItem implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		logger.info("File Exit button is clicked");
+		logger.info("File Exit Button is clicked");
 		
 		if (createConfirmationDialog() == YES_OPTION) {
-			logger.info("Exiting the application...");
+			logger.info("Exiting the application... :)");
 			System.exit(0);
 		}
 	}
 	
 	private int createConfirmationDialog() {
+		
 		return JOptionPane.showConfirmDialog(
-			parentFrame, 
+			this.parentFrame, 
 			"Are you sure you want to quit the application?", 
 			"Confirm Quit Application Operation",
             JOptionPane.YES_NO_OPTION, 
@@ -60,8 +61,8 @@ public class ExitMenuItem extends JMenuItem implements ActionListener {
         );
 	}
 
-	// Getters and Setters
+	// Getters
 	public JFrame getParentFrame() {
-		return parentFrame;
+		return this.parentFrame;
 	}
 }

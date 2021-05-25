@@ -38,13 +38,13 @@ public class RefreshMenuItem extends JMenuItem implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		logger.info("File Refresh button is clicked");
+		logger.info("File Refresh Button is clicked");
 		
-		SwingUtilities.updateComponentTreeUI(parentFrame);
+		SwingUtilities.updateComponentTreeUI(this.parentFrame);
 	}
 	
-	// Getters and Setters
+	// Getters
 	public JFrame getParentFrame() {
-		return parentFrame;
+		return this.parentFrame;
 	}
 }

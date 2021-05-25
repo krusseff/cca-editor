@@ -45,7 +45,7 @@ public class ShowAmbientsCSVFile extends JMenuItem implements ActionListener {
 		new ShowAmbientsCSVDialog(getParentFrame());
 	}
 
-	// Getters and Setters
+	// Getters
 	public JFrame getParentFrame() {
 		return this.parentFrame;
 	}

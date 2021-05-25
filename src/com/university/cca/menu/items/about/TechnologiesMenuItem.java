@@ -40,10 +40,10 @@ public class TechnologiesMenuItem extends JMenuItem implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		logger.info("Technologies About item menu button is clicked");
 		
-		new TechnologiesDialog(parentFrame);
+		new TechnologiesDialog(this.parentFrame);
 	}
 
-	// Getters and Setters
+	// Getters
 	public JFrame getParentFrame() {
 		return this.parentFrame;
 	}

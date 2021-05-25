@@ -45,7 +45,7 @@ public class ShowAmbientsCCAFile extends JMenuItem implements ActionListener {
 		new ShowAmbientsCCADialog(getParentFrame());
 	}
 
-	// Getters and Setters
+	// Getters
 	public JFrame getParentFrame() {
 		return this.parentFrame;
 	}

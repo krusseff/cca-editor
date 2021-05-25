@@ -45,7 +45,7 @@ public class ShowAmbients extends JMenuItem implements ActionListener {
 		new ShowAmbientsDialog(getParentFrame());
 	}
 
-	// Getters and Setters
+	// Getters
 	public JFrame getParentFrame() {
 		return this.parentFrame;
 	}

@@ -42,13 +42,12 @@ public class ShowAmbientMessages extends JMenuItem implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		logger.info("View Show All Ambient Messages information button is clicked");
 		
-		// TODO
-		// [IN PROGRESS] Show ambient messages: sender, recipient, message. IN TABLE
+		// [IN PROGRESS] Show ambient messages: sender, recipient, message
 		
 		new UnderConstructionDialog(getParentFrame());
 	}
 
-	// Getters and Setters
+	// Getters
 	public JFrame getParentFrame() {
 		return this.parentFrame;
 	}

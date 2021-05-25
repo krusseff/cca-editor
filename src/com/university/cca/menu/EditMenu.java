@@ -41,7 +41,7 @@ public class EditMenu extends JMenu {
     	this.add(new DeleteMenuItem(this.parentFrame));
     }
 
-    // Getters and Setters
+    // Getters
 	public JFrame getParentFrame() {
 		return this.parentFrame;
 	}

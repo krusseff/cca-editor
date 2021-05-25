@@ -40,7 +40,7 @@ public class TerminalMenuItem extends JMenuItem implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		logger.info("File Open Terminal button is clicked");
+		logger.info("File Open Terminal Button is clicked");
 		
 		openTerminal();
 	}
@@ -54,7 +54,7 @@ public class TerminalMenuItem extends JMenuItem implements ActionListener {
 			if (openTerminalCommand != null) {
 				Runtime.getRuntime().exec(openTerminalCommand);
 			} else {
-				new UnderConstructionDialog(parentFrame);
+				new UnderConstructionDialog(this.parentFrame);
 			}
 			
 		} catch (IOException ex) {
@@ -80,8 +80,8 @@ public class TerminalMenuItem extends JMenuItem implements ActionListener {
 		return command;
 	}
 	
-	// Getters and Setters
+	// Getters
 	public JFrame getParentFrame() {
-		return parentFrame;
+		return this.parentFrame;
 	}
 }

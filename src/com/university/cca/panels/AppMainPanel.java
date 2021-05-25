@@ -18,7 +18,7 @@ import com.university.cca.buttons.cca.CCAGeneratorButton;
 import com.university.cca.constants.Constants;
 
 /**
- * Main panel of the application
+ * Main panel of the CCA Editor application.
  * 
  * @author Konstantin Rusev
  * @version 1.0

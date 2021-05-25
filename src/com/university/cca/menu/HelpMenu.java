@@ -39,7 +39,7 @@ public class HelpMenu extends JMenu {
     	this.add(new ShortcutsMenuItem(this.parentFrame));
     }
     
-    // Getters and Setters
+    // Getters
 	public JFrame getParentFrame() {
 		return this.parentFrame;
 	}

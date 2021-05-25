@@ -6,7 +6,7 @@ import java.awt.Toolkit;
 import com.university.cca.loading.LoadingScreen;
 
 /**
- * Base utility class with utility methods for CCA Editor application
+ * Base utility class with utility methods for the CCA Editor application.
  * 
  * @author Konstantin Rusev
  * @version 1.0

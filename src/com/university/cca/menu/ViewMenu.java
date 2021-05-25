@@ -4,6 +4,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.university.cca.constants.Constants;
 import com.university.cca.menu.items.view.ShowAmbientMessages;
 import com.university.cca.menu.items.view.ShowAmbients;
@@ -15,6 +18,7 @@ import com.university.cca.util.MouseCursorUtil;
 public class ViewMenu extends JMenu {
 
 	private static final long serialVersionUID = 1L;
+	private static final Logger logger = LoggerFactory.getLogger(ViewMenu.class);
 
     private JFrame parentFrame;
     
@@ -26,6 +30,8 @@ public class ViewMenu extends JMenu {
 		this.setCursor(MouseCursorUtil.getMouseHand());
 		
 		addViewMenuItems();
+		
+		logger.info("View menu option is initialized");
     }
     
     private void addViewMenuItems() {
@@ -38,7 +44,7 @@ public class ViewMenu extends JMenu {
     	this.add(new ShowAmbientMessages(getParentFrame()));
     }
     
-	// Getters and Setters
+	// Getters
 	public JFrame getParentFrame() {
 		return this.parentFrame;
 	}
