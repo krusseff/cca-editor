@@ -40,7 +40,7 @@ public class HotelButton extends JButton implements ActionListener {
 		logger.info("Hotel Button is clicked");
 		
 		new CreateAmbientDialog(
-			parentFrame, 
+			this.parentFrame, 
 			"Create Hotel", 
 			"Please, enter a valid hotel information",
 			AmbientType.HOTEL
@@ -49,6 +49,6 @@ public class HotelButton extends JButton implements ActionListener {
 	
 	// Getters and Setters
 	public JFrame getParentFrame() {
-		return parentFrame;
+		return this.parentFrame;
 	}
 }

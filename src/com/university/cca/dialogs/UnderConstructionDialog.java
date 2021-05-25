@@ -5,7 +5,11 @@ import javax.swing.JOptionPane;
 
 public class UnderConstructionDialog {
 
+	private JFrame parentFrame;
+	
 	public UnderConstructionDialog(JFrame parentFrame) {
+		this.parentFrame = parentFrame;
+		
 		String dialogContent = 
 			"<html>" +
 				"<h3 style=\"text-align: center;\">Coming Soon!</h3>" +
@@ -13,10 +17,15 @@ public class UnderConstructionDialog {
 			"</html>";
 		
 		JOptionPane.showMessageDialog(
-			parentFrame,
+			this.parentFrame,
 			dialogContent, 
 			"Under Construction Dialog",
             JOptionPane.WARNING_MESSAGE
 		);
+	}
+
+	// Getters and Setters
+	public JFrame getParentFrame() {
+		return this.parentFrame;
 	}
 }

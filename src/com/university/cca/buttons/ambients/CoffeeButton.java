@@ -40,7 +40,7 @@ public class CoffeeButton extends JButton implements ActionListener {
 		logger.info("Caffeteria Button is clicked");
 		
 		new CreateAmbientDialog(
-			parentFrame, 
+			this.parentFrame, 
 			"Create Caffeteria", 
 			"Please, enter a valid caffeteria information",
 			AmbientType.COFFEE
@@ -49,6 +49,6 @@ public class CoffeeButton extends JButton implements ActionListener {
 	
 	// Getters and Setters
 	public JFrame getParentFrame() {
-		return parentFrame;
+		return this.parentFrame;
 	}
 }

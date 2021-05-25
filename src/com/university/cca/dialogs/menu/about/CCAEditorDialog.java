@@ -79,17 +79,17 @@ public class CCAEditorDialog extends JDialog {
 					"<ul>" +
 					  "<li>" +
 					  	"CCA Editor: " +
-					  	"<u>http://delc.space/projects/cca-editor/</u>" +
+					  	"<u> http://delc.space/projects/cca-editor/ </u>" +
 				  	  "</li>" +
 						
 					  "<li>" +
-						"Supervisor: " + 
-						"<u>http://delc.space/team/проф-стоянов/</u>" +
+						"Supervisors: " + 
+						"<u> http://delc.space/team/ </u>" +
 					  "</li>" +
 					  
 					  "<li>" +
-					    "Developer: " + 
-					    "<u>http://delc.space/team/докторант-константин-русев</u>" +
+					    "Developers: " + 
+					    "<u> http://delc.space/team/ </u>" +
 					  "</li>" +
 				  	"</ul>" + 
 				"</div>" +
@@ -128,6 +128,7 @@ public class CCAEditorDialog extends JDialog {
 	private JPanel createButtonPanel() {
 		JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
 		buttonPanel.setBackground(Constants.LIGHT_GREY);
+		
 		buttonPanel.add(new CloseDialogButton(this));
 		
 		return buttonPanel;

@@ -40,7 +40,7 @@ public class BusButton extends JButton implements ActionListener {
 		logger.info("Bus button is clicked");
 		
 		new CreateAmbientDialog(
-			parentFrame, 
+			this.parentFrame, 
 			"Create Bus", 
 			"Please, enter a valid bus information",
 			AmbientType.BUS

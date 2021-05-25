@@ -76,8 +76,8 @@ public class ShowAmbientsCCADialog extends JDialog {
 		titlePanel.add(createTextPane(SHOW_CCA_FILE_TITLE));
 		
 		JPanel contentPanel = new JPanel(new FlowLayout());
-		textArea = createCCATextArea();
-		contentPanel.add(new JScrollPane(textArea));
+		this.textArea = createCCATextArea();
+		contentPanel.add(new JScrollPane(this.textArea));
 		
 		panel.add(titlePanel);
 		panel.add(contentPanel);
@@ -122,7 +122,7 @@ public class ShowAmbientsCCADialog extends JDialog {
 		}
 		
 		saveButton.addActionListener(event -> {
-			String ccaFileContent = textArea.getText().trim();
+			String ccaFileContent = this.textArea.getText().trim();
 			
 			AmbientCCAWriter.write(ccaFileContent);
 			

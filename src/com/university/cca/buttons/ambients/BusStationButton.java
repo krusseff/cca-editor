@@ -40,7 +40,7 @@ public class BusStationButton extends JButton implements ActionListener {
 		logger.info("Bus Station button is clicked");
 		
 		new CreateAmbientDialog(
-			parentFrame, 
+			this.parentFrame, 
 			"Create Bus Station", 
 			"Please, enter a valid bus station information",
 			AmbientType.BUS_STATION
@@ -49,6 +49,6 @@ public class BusStationButton extends JButton implements ActionListener {
 	
 	// Getters and Setters
 	public JFrame getParentFrame() {
-		return parentFrame;
+		return this.parentFrame;
 	}
 }

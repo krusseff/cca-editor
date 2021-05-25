@@ -1,5 +1,11 @@
 package com.university.cca.email;
 
+/**
+ * Class that has the responsibility to hold all email configurations
+ * 
+ * @author Konstantin Rusev
+ * @version 1.0
+ */
 public class EmailConfiguration {
 	
 	private String senderEmail;

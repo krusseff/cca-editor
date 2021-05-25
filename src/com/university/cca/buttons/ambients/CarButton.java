@@ -40,7 +40,7 @@ public class CarButton extends JButton implements ActionListener {
 		logger.info("Car button is clicked");
 		
 		new CreateAmbientDialog(
-			parentFrame, 
+			this.parentFrame, 
 			"Create Car", 
 			"Please, enter a valid car information",
 			AmbientType.CAR

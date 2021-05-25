@@ -37,10 +37,10 @@ public class MotorbikeButton extends JButton implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		logger.info("Motorbike button is clicked");
+		logger.info("Motorbike Button is clicked");
 		
 		new CreateAmbientDialog(
-			parentFrame, 
+			this.parentFrame, 
 			"Create Motorbike", 
 			"Please, enter a valid motorbike information",
 			AmbientType.MOTORBIKE

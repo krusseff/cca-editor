@@ -40,7 +40,7 @@ public class ParkingButton extends JButton implements ActionListener {
 		logger.info("Car Parking Button is clicked");
 		
 		new CreateAmbientDialog(
-			parentFrame, 
+			this.parentFrame, 
 			"Create Car Parking", 
 			"Please, enter a valid car parking information",
 			AmbientType.PARKING
@@ -49,6 +49,6 @@ public class ParkingButton extends JButton implements ActionListener {
 	
 	// Getters and Setters
 	public JFrame getParentFrame() {
-		return parentFrame;
+		return this.parentFrame;
 	}
 }

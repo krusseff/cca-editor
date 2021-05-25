@@ -7,6 +7,7 @@ package com.university.cca.enums;
  * @version 1.0
  */
 public enum AmbientType {
+	
 	PERSONAL_ASSISTANT,
 	BUS_STATION,
 	BUS,

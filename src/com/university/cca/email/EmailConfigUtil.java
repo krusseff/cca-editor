@@ -18,6 +18,7 @@ public class EmailConfigUtil {
 		String senderPass = properties.getProperty("mail.smtp.password");
 		
 		return Session.getInstance(properties, new Authenticator() {
+			
     	    @Override
     	    protected PasswordAuthentication getPasswordAuthentication() {
     	        return new PasswordAuthentication(senderEmail, senderPass);

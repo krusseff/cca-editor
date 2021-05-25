@@ -30,10 +30,10 @@ public class ContactDialog extends JDialog {
 
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(ContactDialog.class);
-	private static final String TITLE_DIALOG = "Contact Us";
+	private static final String TITLE_DIALOG = "Contact Us Form";
 	private static final String TEXT_PANE_CONTENT_TYPE = "text/html";
-	private static final String CONTACT_US_TITLE = "<h1 style=\"text-align: center;\"> Contact Us </h1>";
-	private static final String CONTACT_US_SUBTITLE = "<h2 style=\"text-align: center;\"> Got a question? <br/> Send us a message and we'll respond as soon as possible. </h2>";
+	private static final String CONTACT_US_TITLE = "<h1 style=\"text-align: center;\"> Contact Us Form </h1>";
+	private static final String CONTACT_US_SUBTITLE = "<h2 style=\"text-align: center;\"> Got a question? <br/> <i> Send us a message and we'll respond as soon as possible. </i> </h2>";
 	
 	private static final int TEXT_FIELD_SIZE = 16;
 	private static final int TEXT_AREA_COLS = 16;
@@ -92,10 +92,10 @@ public class ContactDialog extends JDialog {
 		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 		
 		String nameLabel = "<p style=\"margin-left: 5px;\"> Name* </p>";
-		nameTextField = new JTextField(TEXT_FIELD_SIZE);
+		this.nameTextField = new JTextField(TEXT_FIELD_SIZE);
 		
 		panel.add(createTextPane(nameLabel));
-		panel.add(nameTextField);
+		panel.add(this.nameTextField);
 		
 		return panel;
 	}
@@ -105,10 +105,10 @@ public class ContactDialog extends JDialog {
 		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 		
 		String emailLabel = "<p style=\"margin-left: 5px;\"> Email* </p>";
-		emailTextField = new JTextField(TEXT_FIELD_SIZE);
+		this.emailTextField = new JTextField(TEXT_FIELD_SIZE);
 		
 		panel.add(createTextPane(emailLabel));
-		panel.add(emailTextField);
+		panel.add(this.emailTextField);
 		
 		return panel;
 	}
@@ -118,10 +118,10 @@ public class ContactDialog extends JDialog {
 		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 		
 		String messageLabel = "<p style=\"margin-left: 5px;\"> Message* </p>";
-		messageTextArea = createTextArea();
+		this.messageTextArea = createTextArea();
 		
 		panel.add(createTextPane(messageLabel));
-		panel.add(new JScrollPane(messageTextArea));
+		panel.add(new JScrollPane(this.messageTextArea));
 		
 		return panel;
 	}
@@ -129,13 +129,13 @@ public class ContactDialog extends JDialog {
 	private JPanel createSendButtonPanel() {
 		JPanel panel = new JPanel();
 		
-		JButton sendMessageButton = createSendButton();		
+		JButton sendMessageButton = createSendButton();
 		sendMessageButton.addActionListener(event -> {
 			logger.info("Send Message Button into the Contact Us form is clicked");
     
-			String name = nameTextField.getText().trim();
-			String email = emailTextField.getText().trim();
-			String message = messageTextArea.getText().trim();
+			String name = this.nameTextField.getText().trim();
+			String email = this.emailTextField.getText().trim();
+			String message = this.messageTextArea.getText().trim();
 			
 			int emailResult = EmailSender.send(name, email, message);
 			ContactDialogUtil.showEmailSentDialog(this, emailResult);

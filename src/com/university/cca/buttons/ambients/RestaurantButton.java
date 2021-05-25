@@ -40,7 +40,7 @@ public class RestaurantButton extends JButton implements ActionListener {
 		logger.info("Restaurant Button is clicked");
 		
 		new CreateAmbientDialog(
-			parentFrame, 
+			this.parentFrame, 
 			"Create Restaurant", 
 			"Please, enter a valid restaurant information",
 			AmbientType.RESTAURANT
@@ -49,6 +49,6 @@ public class RestaurantButton extends JButton implements ActionListener {
 	
 	// Getters and Setters
 	public JFrame getParentFrame() {
-		return parentFrame;
+		return this.parentFrame;
 	}
 }

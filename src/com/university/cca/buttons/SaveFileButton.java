@@ -31,6 +31,7 @@ public class SaveFileButton extends JButton {
     	
     	this.setText("Save");
         this.setIcon(new ImageIcon(Constants.SAVE_BUTTON_ICON_PATH));
+
         this.setCursor(MouseCursorUtil.getMouseHand());
         this.setToolTipText(BUTTON_TOOL_TIP);
         

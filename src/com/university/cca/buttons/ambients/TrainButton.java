@@ -40,7 +40,7 @@ public class TrainButton extends JButton implements ActionListener {
 		logger.info("Train button is clicked");
 		
 		new CreateAmbientDialog(
-			parentFrame, 
+			this.parentFrame, 
 			"Create Train", 
 			"Please, enter a valid train information",
 			AmbientType.TRAIN

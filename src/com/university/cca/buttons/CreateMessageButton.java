@@ -25,6 +25,7 @@ public class CreateMessageButton extends JButton implements ActionListener {
 	
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(CreateMessageButton.class);
+	
 	private static final String BUTTON_TOOL_TIP = "Create and Send Ambient Message";
 	
 	private JFrame parentFrame;
@@ -32,10 +33,9 @@ public class CreateMessageButton extends JButton implements ActionListener {
     public CreateMessageButton(JFrame parentFrame) {
     	this.parentFrame = parentFrame;
     	
-    	ImageIcon icon = new ImageIcon(Constants.MESSAGE_ICON_PATH);
-
         this.setText("Send Message");
-        this.setIcon(icon);
+        this.setIcon(new ImageIcon(Constants.MESSAGE_ICON_PATH));
+
         this.setPreferredSize(new Dimension(155, 35));
         this.setCursor(MouseCursorUtil.getMouseHand());
         this.setIconTextGap(Constants.ICON_GAP_SIZE);

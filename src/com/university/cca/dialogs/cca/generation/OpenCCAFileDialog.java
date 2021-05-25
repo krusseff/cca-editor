@@ -78,8 +78,8 @@ public class OpenCCAFileDialog extends JDialog {
 		titlePanel.add(createTextPane(OPEN_CCA_FILE_TITLE));
 		
 		JPanel contentPanel = new JPanel(new FlowLayout());
-		textArea = createCCATextArea();
-		contentPanel.add(new JScrollPane(textArea));
+		this.textArea = createCCATextArea();
+		contentPanel.add(new JScrollPane(this.textArea));
 		
 		panel.add(titlePanel);
 		panel.add(contentPanel);
@@ -105,7 +105,7 @@ public class OpenCCAFileDialog extends JDialog {
 			 Reader inputStreamReader = new InputStreamReader(inputStream);
 		) {
 			textAreaCCA.read(inputStreamReader, null);
-		} catch (IOException e) {
+		} catch (IOException ex) {
 			logger.error("An error occurres during the reading from the CCA file: {}", ccaFile);
 			textAreaCCA.setText("Unable to read from the CCA File or the file does not exist! Contact the administrators!");
 			textAreaCCA.setEnabled(false);
@@ -124,7 +124,7 @@ public class OpenCCAFileDialog extends JDialog {
 		}
 		
 		saveButton.addActionListener(event -> {
-			String ccaFileContent = textArea.getText().trim();
+			String ccaFileContent = this.textArea.getText().trim();
 			
 			AmbientCCAWriter.write(ccaFileContent);
 			

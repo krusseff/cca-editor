@@ -76,8 +76,8 @@ public class ShowAmbientsCSVDialog extends JDialog {
 		titlePanel.add(createTextPane(SHOW_CSV_FILE_TITLE));
 		
 		JPanel contentPanel = new JPanel(new FlowLayout());
-		textArea = createAmbientsCSVTextArea();
-		contentPanel.add(new JScrollPane(textArea));
+		this.textArea = createAmbientsCSVTextArea();
+		contentPanel.add(new JScrollPane(this.textArea));
 		
 		panel.add(titlePanel);
 		panel.add(contentPanel);
@@ -122,7 +122,7 @@ public class ShowAmbientsCSVDialog extends JDialog {
 		}
 		
 		saveButton.addActionListener(event -> {
-			String csvFileContent = textArea.getText().trim();
+			String csvFileContent = this.textArea.getText().trim();
 			
 			AmbientCSVWriter.writeToCsv(csvFileContent, Constants.AMBIENTS_CSV_FILE_PATH);			
 			

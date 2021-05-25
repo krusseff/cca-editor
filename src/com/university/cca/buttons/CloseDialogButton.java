@@ -20,6 +20,7 @@ public class CloseDialogButton extends JButton implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(CloseDialogButton.class);
+	
 	private static final String BUTTON_TOOL_TIP = "Close this window";
 	private static final int YES_OPTION = 0;
 	

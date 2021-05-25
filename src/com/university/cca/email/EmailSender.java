@@ -36,14 +36,15 @@ public class EmailSender {
 		int emailResultStatus;
 		
 		if (EmailValidator.isValidValues(name, email, message)) {
-			logger.info("Valid values are passed to the contact us form");
+			logger.info("Valid values are passed to the contact us form.");
 			emailResultStatus = sendEmail(name, email, message);
 		} else {
-			logger.info("Invalid values are passed to the contact us form");
+			logger.info("Invalid values are passed to the contact us form.");
 			emailResultStatus = EMAIL_VALIDATION_FAILED_STATUS;
 		}
 		
 		logger.info("Tried to send an email. Exit status: {}", emailResultStatus);
+		
 		return emailResultStatus;
 	}
 	
@@ -125,7 +126,7 @@ public class EmailSender {
 		
 		String footerEmail =
 			"<div>" + 
-				"<p> Please <b>do not reply</b> to this email. Replies to this email are routed to an unmonitored mailbox. If you want to contact the user, please use they email address provided above. </p>" +
+				"<p> Please <b>do NOT reply</b> to this email. Replies to this email are routed to an unmonitored mailbox. If you want to contact the user, please use they email address provided above. </p>" +
 			"</div>" +
 				
 			"<div>" + 

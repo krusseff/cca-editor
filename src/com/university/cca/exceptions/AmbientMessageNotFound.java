@@ -1,7 +1,7 @@
 package com.university.cca.exceptions;
 
 /**
- * Custom exception class for missing ambient message
+ * Custom exception class that handles the case when an ambient message is missed.
  * 
  * @author Konstantin Rusev
  * @version 1.0
