@@ -30,6 +30,7 @@ public class AmbientTableModel extends AbstractTableModel {
     private static final int COLUMN_LONGITUDE_INDEX = 4;
     private static final int COLUMN_STATIC_INDEX 	= 5;
     private static final int COLUMN_PARENT_INDEX 	= 6;
+    private static final int COLUMN_ACTIVE_INDEX 	= 7;
 
 	private final List<Ambient> ambients;
 	
@@ -40,7 +41,8 @@ public class AmbientTableModel extends AbstractTableModel {
 		"Latitude", 
 		"Longitude", 
 		"Static", 
-		"Parent"
+		"Parent",
+		"Active"
     };
     
     public AmbientTableModel(List<Ambient> ambients) {
@@ -98,6 +100,9 @@ public class AmbientTableModel extends AbstractTableModel {
 	        case COLUMN_PARENT_INDEX:
 	            columnResult = ambientRow.getParentAmbient();
 	            break;
+	        case COLUMN_ACTIVE_INDEX:
+	        	columnResult = ambientRow.isActiveAmbient();
+	        	break;
 	        default:
 	        	columnResult = null;
 	        	logger.error("Invalid value of column index: {} on show all ambients table.", columnIndex);
