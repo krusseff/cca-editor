@@ -36,7 +36,7 @@ public class AmbientCCAWriter {
 	 */
 	private static void writeToFile(String data) {
 		String filePath = Constants.AMBIENTS_CCA_FILE_PATH;
-		AmbientCCAUtil.createFileIfDoesNotExist(filePath);
+		AmbientCCAUtility.createFileIfDoesNotExist(filePath);
 		
 		try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, SHOULD_APPEND_TO_FILE))) {
 			writer.write(data);

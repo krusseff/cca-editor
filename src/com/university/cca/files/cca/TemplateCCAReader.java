@@ -42,7 +42,7 @@ public class TemplateCCAReader {
 	 * Method, which main responsibility is to read from the CCA Template files.
 	 */
 	private static String readFromFile(String filePath) {
-		AmbientCCAUtil.createFileIfDoesNotExist(filePath);
+		AmbientCCAUtility.createFileIfDoesNotExist(filePath);
 		
 	    StringBuilder resultStringBuilder = new StringBuilder();
 	    

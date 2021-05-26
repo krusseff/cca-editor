@@ -14,16 +14,17 @@ import com.university.cca.constants.Constants;
  * @author Konstantin Rusev
  * @version 1.0
  */
-public class AmbientCCAUtil {
+public class AmbientCCAUtility {
 	
-	private static final Logger logger = LoggerFactory.getLogger(AmbientCCAUtil.class);
+	private static final Logger logger = LoggerFactory.getLogger(AmbientCCAUtility.class);
 	
-	private AmbientCCAUtil() {
+	private AmbientCCAUtility() {
 		// Prevent creating an object of type AmbientCcaUtil
 	}
 	
 	/**
 	 * Method that creates a file if it does not exist.
+	 * 
 	 */
 	public static void createFileIfDoesNotExist(String filePath) {
 		File file = new File(filePath);
@@ -47,6 +48,7 @@ public class AmbientCCAUtil {
 	 * 
 	 * @return <code>true</code> if the CCA file already exists
 	 * 		   <code>false</code> if the CCA file does not exist
+	 * 
 	 */
 	public static boolean isFileCreated() {
 		String filePath = Constants.AMBIENTS_CCA_FILE_PATH;

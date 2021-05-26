@@ -21,7 +21,7 @@ import org.slf4j.LoggerFactory;
 import com.university.cca.buttons.CloseDialogButton;
 import com.university.cca.buttons.SaveFileButton;
 import com.university.cca.constants.Constants;
-import com.university.cca.files.cca.AmbientCCAUtil;
+import com.university.cca.files.cca.AmbientCCAUtility;
 import com.university.cca.files.cca.AmbientCCAWriter;
 import com.university.cca.util.CCAUtils;
 import com.university.cca.util.MouseCursorUtil;
@@ -118,7 +118,7 @@ public class OpenCCAFileDialog extends JDialog {
 		SaveFileButton saveButton = new SaveFileButton(this);
 
 		// If the CCA file does not exist the SAVE button will be disabled
-		if (!AmbientCCAUtil.isFileCreated()) {
+		if (!AmbientCCAUtility.isFileCreated()) {
 			saveButton.setEnabled(SaveFileButton.BUTTON_DISABLED);
 			saveButton.setToolTipText(SaveFileButton.BUTTON_TOOL_TIP_DISABLED);
 		}
