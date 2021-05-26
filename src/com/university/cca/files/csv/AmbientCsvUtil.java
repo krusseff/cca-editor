@@ -33,8 +33,8 @@ public class AmbientCsvUtil {
 			try {
 				boolean result = file.createNewFile();
 				logger.info("The CSV file: {} is created with status: {}", filePath, result);
-			} catch (IOException e) {
-				logger.error("Unable to create CSV file: {}", e.getMessage());
+			} catch (IOException ex) {
+				logger.error("Unable to create the CSV file: {}", ex.getMessage());
 				logger.error("Exiting the program... :(");
 				System.exit(2);
 			}
@@ -61,12 +61,13 @@ public class AmbientCsvUtil {
 	public static Ambient convertToAmbient(CsvAmbientBean ambientBean) {
 		Ambient ambient = new Ambient();
 		ambient.setName(ambientBean.getName());
-		ambient.setLocation(ambientBean.getLocation());
-		ambient.setStaticAmbient(ambientBean.isStaticAmbient());
-		ambient.setParentAmbient(ambientBean.getParentAmbient());
 		ambient.setAmbientType(ambientBean.getAmbientType());
+		ambient.setLocation(ambientBean.getLocation());
 		ambient.setLatitude(ambientBean.getLatitude());
 		ambient.setLongitude(ambientBean.getLongitude());
+		ambient.setStaticAmbient(ambientBean.isStaticAmbient());
+		ambient.setActiveAmbient(ambientBean.isActiveAmbient());
+		ambient.setParentAmbient(ambientBean.getParentAmbient());
 		
 		return ambient;
 	}
@@ -77,12 +78,13 @@ public class AmbientCsvUtil {
 	public static CsvAmbientBean convertToCsvAmbientBean(Ambient ambient) {
 		CsvAmbientBean ambientBean = new CsvAmbientBean();
 		ambientBean.setName(ambient.getName());
-		ambientBean.setLocation(ambient.getLocation());
-		ambientBean.setStaticAmbient(ambient.isStaticAmbient());
-		ambientBean.setParentAmbient(ambient.getParentAmbient());
 		ambientBean.setAmbientType(ambient.getAmbientType());
+		ambientBean.setLocation(ambient.getLocation());
 		ambientBean.setLatitude(ambient.getLatitude());
 		ambientBean.setLongitude(ambient.getLongitude());
+		ambientBean.setStaticAmbient(ambient.isStaticAmbient());
+		ambientBean.setActiveAmbient(ambient.isActiveAmbient());
+		ambientBean.setParentAmbient(ambient.getParentAmbient());
 		
 		return ambientBean;
 	}

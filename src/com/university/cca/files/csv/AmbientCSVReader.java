@@ -137,8 +137,8 @@ public class AmbientCSVReader {
 
 		try {
 			ambientBeans = readCsvToBean(path, CsvAmbientBean.class);
-		} catch (IOException e) {
-			logger.error("Unable to read the data from the CSV file: {}", e.getMessage());
+		} catch (IOException ex) {
+			logger.error("Unable to read the data from the CSV file: {}", ex.getMessage());
 			ambientBeans = new ArrayList<>();
 		}
 		
@@ -156,8 +156,8 @@ public class AmbientCSVReader {
 
 		try {
 			messageBeans = readCsvToBean(path, CsvMessageBean.class);
-		} catch (IOException e) {
-			logger.error("Unable to read the data from the CSV file: {}", e.getMessage());
+		} catch (IOException ex) {
+			logger.error("Unable to read the data from the CSV file: {}", ex.getMessage());
 			messageBeans = new ArrayList<>();
 		}
 		

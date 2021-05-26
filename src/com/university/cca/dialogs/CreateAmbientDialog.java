@@ -26,15 +26,19 @@ public class CreateAmbientDialog extends JDialog {
 
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(CreateAmbientDialog.class);
+	
 	private static final int GRID_ROWS = 0;
 	private static final int GRID_COLS = 2;
 	private static final int TEXT_FIELD_SIZE = 16;
+	private static final boolean IS_CHECKED = true;
+	private static final String EMPTY_LABEL = "";
 
 	private JTextField ambientNameTextField;
 	private JTextField ambientLocationTextField;
 	private JTextField ambientGpsLatitudeTextField;
 	private JTextField ambientGpsLongitudeTextField;
 	private JCheckBox staticCheckBox;
+	private JCheckBox activeCheckBox;
 	private JComboBox<String> parentAmbientsComboBox;
 	
 	public CreateAmbientDialog(JFrame parent, String title, String message, AmbientType ambientType) {
@@ -44,7 +48,6 @@ public class CreateAmbientDialog extends JDialog {
         
         this.pack();
         this.setLocationRelativeTo(parent);
-
         this.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
         this.setVisible(true);
 	}
@@ -58,40 +61,46 @@ public class CreateAmbientDialog extends JDialog {
         dialogPanel.add(new JLabel());
         
         // second row of the dialog
-        ambientNameTextField = createTextField();
+        this.ambientNameTextField = createTextField();
         dialogPanel.add(createLabel("Ambient Name:"));
-        dialogPanel.add(ambientNameTextField);
+        dialogPanel.add(this.ambientNameTextField);
 
         // third row of the dialog
-        ambientLocationTextField = createTextField();
+        this.ambientLocationTextField = createTextField();
         dialogPanel.add(createLabel("Ambient Location:"));
-        dialogPanel.add(ambientLocationTextField);
+        dialogPanel.add(this.ambientLocationTextField);
         
         // fourth row of the dialog
-        ambientGpsLatitudeTextField = createTextField();
-        ambientGpsLatitudeTextField.setToolTipText("Example: 42.135652");
+        this.ambientGpsLatitudeTextField = createTextField();
+        this.ambientGpsLatitudeTextField.setToolTipText("Example: 42.135652");
         dialogPanel.add(createLabel("Ambient GPS Latitude:"));
-        dialogPanel.add(ambientGpsLatitudeTextField);
+        dialogPanel.add(this.ambientGpsLatitudeTextField);
         
         // fifth row of the dialog
-        ambientGpsLongitudeTextField = createTextField();
-        ambientGpsLongitudeTextField.setToolTipText("Example: 24.753942");
+        this.ambientGpsLongitudeTextField = createTextField();
+        this.ambientGpsLongitudeTextField.setToolTipText("Example: 24.753942");
         dialogPanel.add(createLabel("Ambient GPS Longitude:"));
-        dialogPanel.add(ambientGpsLongitudeTextField);
+        dialogPanel.add(this.ambientGpsLongitudeTextField);
 
         // sixth row of the dialog
-        staticCheckBox = new JCheckBox("", true);
-        staticCheckBox.setCursor(MouseCursorUtil.getMouseHand());
+        this.staticCheckBox = new JCheckBox(EMPTY_LABEL, IS_CHECKED);
+        this.staticCheckBox.setCursor(MouseCursorUtil.getMouseHand());
         dialogPanel.add(createLabel("Static Ambient:"));
-        dialogPanel.add(staticCheckBox);
+        dialogPanel.add(this.staticCheckBox);
         
         // seventh row of the dialog
-        parentAmbientsComboBox = createComboBox();
-        parentAmbientsComboBox.setSelectedIndex(-1); // set default empty value
-        dialogPanel.add(createLabel("Parent Ambient Name:"));
-        dialogPanel.add(parentAmbientsComboBox);
+        this.activeCheckBox = new JCheckBox(EMPTY_LABEL, IS_CHECKED);
+        this.activeCheckBox.setCursor(MouseCursorUtil.getMouseHand());
+        dialogPanel.add(createLabel("Active Ambient:"));
+        dialogPanel.add(this.activeCheckBox);
         
-        // eight row of the dialog with the buttons      
+        // eight row of the dialog with the buttons
+        this.parentAmbientsComboBox = createComboBox();
+        this.parentAmbientsComboBox.setSelectedIndex(-1); // set default empty value
+        dialogPanel.add(createLabel("Parent Ambient Name:"));
+        dialogPanel.add(this.parentAmbientsComboBox);
+        
+        // ninth row of the dialog with the buttons      
         JButton createAmbientButton = CreateAmbientUtil.createAmbientButton();
         dialogPanel.add(createAmbientButton);
         dialogPanel.add(new CancelDialogButton(this));
@@ -108,12 +117,13 @@ public class CreateAmbientDialog extends JDialog {
 	 * Method that validates and creates an ambient if the enterred data is valid.
 	 */
 	private void createAmbient(AmbientType ambientType) {
-		String name = ambientNameTextField.getText().trim();
-		String location = ambientLocationTextField.getText().trim();
-		String latitude = ambientGpsLatitudeTextField.getText().trim();
-		String longitude = ambientGpsLongitudeTextField.getText().trim();
-		boolean isStatic = staticCheckBox.isSelected();
-		Object parentAmbient = parentAmbientsComboBox.getSelectedItem();
+		String name = this.ambientNameTextField.getText().trim();
+		String location = this.ambientLocationTextField.getText().trim();
+		String latitude = this.ambientGpsLatitudeTextField.getText().trim();
+		String longitude = this.ambientGpsLongitudeTextField.getText().trim();
+		boolean isStatic = this.staticCheckBox.isSelected();
+		boolean isActive = this.activeCheckBox.isSelected();
+		Object parentAmbient = this.parentAmbientsComboBox.getSelectedItem();
 		
 		if (!CreateAmbientUtil.isValidAmbient(name, location, latitude, longitude, parentAmbient)) {
 			logger.info("Tried to create an ambient with invalid values");
@@ -124,7 +134,7 @@ public class CreateAmbientDialog extends JDialog {
 			String errorMsg = "Ambient with that name already exists!";
 			CreateAmbientUtil.createErrorDialog(getCurrentDialog(), errorMsg);
 		} else {
-			Ambient ambient = CreateAmbientUtil.constructAmbient(name, location, latitude, longitude, isStatic, parentAmbient, ambientType);
+			Ambient ambient = CreateAmbientUtil.constructAmbient(name, location, latitude, longitude, isStatic, parentAmbient, ambientType, isActive);
 			
 			AmbientCSVWriter.writeAmbientToCsv(ambient);
 			

@@ -26,7 +26,9 @@ public class CsvMessageBean {
 		// To be able to create an object without information for it
 	}
 	
-	public CsvMessageBean(String senderAmbient, String recipientAmbient, String respondToMessage, String ambientMessage) {
+	public CsvMessageBean(String senderAmbient, String recipientAmbient, 
+						  String respondToMessage, String ambientMessage) {
+		
 		this.senderAmbient = senderAmbient;
 		this.recipientAmbient = recipientAmbient;
 		this.respondToMessage = respondToMessage;

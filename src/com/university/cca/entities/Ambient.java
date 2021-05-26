@@ -3,7 +3,7 @@ package com.university.cca.entities;
 import com.university.cca.enums.AmbientType;
 
 /**
- * Model class that holds an information for a specific ambient object
+ * Model class that holds an information for a specific ambient object.
  * 
  * @author Konstantin Rusev
  * @version 1.0
@@ -17,13 +17,16 @@ public class Ambient {
 	private boolean isStaticAmbient;
 	private String parentAmbient;
 	private AmbientType ambientType;
+	private boolean isActiveAmbient;
 	
 	public Ambient() {
 		// To be able to create an object without information for it
 	}
 
 	public Ambient(String name, String location, String latitude, String longitude, 
-				   boolean isStaticAmbient, String parentAmbient, AmbientType ambientType) {
+				   boolean isStaticAmbient, String parentAmbient, 
+				   AmbientType ambientType, boolean isActiveAmbient) {
+		
 		this.name = name;
 		this.location = location;
 		this.latitude = latitude;
@@ -31,13 +34,15 @@ public class Ambient {
 		this.isStaticAmbient = isStaticAmbient;
 		this.parentAmbient = parentAmbient;
 		this.ambientType = ambientType;
+		this.isActiveAmbient = isActiveAmbient;
 	}
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((ambientType == null) ? 0 : ambientType.hashCode());
+		result = prime * result + (isActiveAmbient ? 1231 : 1237);
 		result = prime * result + (isStaticAmbient ? 1231 : 1237);
 		result = prime * result + ((latitude == null) ? 0 : latitude.hashCode());
 		result = prime * result + ((location == null) ? 0 : location.hashCode());
@@ -49,50 +54,70 @@ public class Ambient {
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
+		if (this == obj) {
 			return true;
-		if (obj == null)
+		}
+		if (obj == null) {
 			return false;
-		if (getClass() != obj.getClass())
+		}
+		if (!(obj instanceof Ambient)) {
 			return false;
+		}
 		Ambient other = (Ambient) obj;
-		if (ambientType != other.ambientType)
+		if (ambientType != other.ambientType) {
 			return false;
-		if (isStaticAmbient != other.isStaticAmbient)
+		}
+		if (isActiveAmbient != other.isActiveAmbient) {
 			return false;
+		}
+		if (isStaticAmbient != other.isStaticAmbient) {
+			return false;
+		}
 		if (latitude == null) {
-			if (other.latitude != null)
+			if (other.latitude != null) {
 				return false;
-		} else if (!latitude.equals(other.latitude))
+			}
+		} else if (!latitude.equals(other.latitude)) {
 			return false;
+		}
 		if (location == null) {
-			if (other.location != null)
+			if (other.location != null) {
 				return false;
-		} else if (!location.equals(other.location))
+			}
+		} else if (!location.equals(other.location)) {
 			return false;
+		}
 		if (longitude == null) {
-			if (other.longitude != null)
+			if (other.longitude != null) {
 				return false;
-		} else if (!longitude.equals(other.longitude))
+			}
+		} else if (!longitude.equals(other.longitude)) {
 			return false;
+		}
 		if (name == null) {
-			if (other.name != null)
+			if (other.name != null) {
 				return false;
-		} else if (!name.equals(other.name))
+			}
+		} else if (!name.equals(other.name)) {
 			return false;
+		}
 		if (parentAmbient == null) {
-			if (other.parentAmbient != null)
+			if (other.parentAmbient != null) {
 				return false;
-		} else if (!parentAmbient.equals(other.parentAmbient))
+			}
+		} else if (!parentAmbient.equals(other.parentAmbient)) {
 			return false;
+		}
 		return true;
 	}
 	
 	@Override
 	public String toString() {
-		return "Ambient [name=" + name + ", location=" + location + ", latitude=" + latitude + ", longitude="
+		return "Ambient ["
+				+ "name=" + name + ", location=" + location + ", latitude=" + latitude + ", longitude="
 				+ longitude + ", isStaticAmbient=" + isStaticAmbient + ", parentAmbient=" + parentAmbient
-				+ ", ambientType=" + ambientType + "]";
+				+ ", ambientType=" + ambientType + ", isActiveAmbient=" + isActiveAmbient 
+				+ "]";
 	}
 
 	// Getters and Setters
@@ -150,5 +175,13 @@ public class Ambient {
 
 	public void setAmbientType(AmbientType ambientType) {
 		this.ambientType = ambientType;
+	}
+
+	public boolean isActiveAmbient() {
+		return isActiveAmbient;
+	}
+
+	public void setActiveAmbient(boolean isActiveAmbient) {
+		this.isActiveAmbient = isActiveAmbient;
 	}
 }

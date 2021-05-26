@@ -24,7 +24,7 @@ public class UnderConstructionDialog {
 		);
 	}
 
-	// Getters and Setters
+	// Getters
 	public JFrame getParentFrame() {
 		return this.parentFrame;
 	}

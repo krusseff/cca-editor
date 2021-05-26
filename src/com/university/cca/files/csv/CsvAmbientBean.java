@@ -32,12 +32,17 @@ public class CsvAmbientBean {
 	@CsvBindByPosition(position = 6)
 	private String parentAmbient;
 	
+	@CsvBindByPosition(position = 7)
+	private boolean isActiveAmbient;
+	
 	public CsvAmbientBean() {
 		// To be able to create an object without information for it
 	}
 
 	public CsvAmbientBean(String name, String location, String latitude, String longitude, 
-						  boolean isStaticAmbient, String parentAmbient, AmbientType ambientType) {
+						  boolean isStaticAmbient, String parentAmbient, 
+						  AmbientType ambientType, boolean isActiveAmbient) {
+		
 		this.name = name;
 		this.location = location;
 		this.latitude = latitude;
@@ -45,6 +50,7 @@ public class CsvAmbientBean {
 		this.isStaticAmbient = isStaticAmbient;
 		this.parentAmbient = parentAmbient;
 		this.ambientType = ambientType;
+		this.isActiveAmbient = isActiveAmbient;
 	}
 
 	// Getters and Setters
@@ -102,5 +108,13 @@ public class CsvAmbientBean {
 
 	public void setAmbientType(AmbientType ambientType) {
 		this.ambientType = ambientType;
+	}
+
+	public boolean isActiveAmbient() {
+		return isActiveAmbient;
+	}
+
+	public void setActiveAmbient(boolean isActiveAmbient) {
+		this.isActiveAmbient = isActiveAmbient;
 	}
 }
