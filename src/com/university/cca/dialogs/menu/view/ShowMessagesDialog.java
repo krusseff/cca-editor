@@ -8,7 +8,8 @@ import javax.swing.JPanel;
 import com.university.cca.util.CCAUtils;
 
 /**
- * The dialog that holds the information for the ambient messages into a table with an option to update their information.
+ * The dialog that holds the information for the ambient messages.
+ * This information is presented into a table with update option.
  * 
  * @author Konstantin Rusev
  * @version 1.0
