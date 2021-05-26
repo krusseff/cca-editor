@@ -6,6 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -46,6 +47,16 @@ public class AmbientCSVReader {
 		}
 		
 		return ambients;
+	}
+	
+	/**
+	 * Method, which main responsibility is to fetch all ambients from the csv file sorted by ambient name.
+	 */
+	public static List<Ambient> getAllAmbientsSortedByName() {
+		return getAllAmbients()
+				.stream()
+				.sorted(Comparator.comparing(Ambient::getName))
+				.collect(Collectors.toList());
 	}
 	
 	/**
@@ -126,8 +137,8 @@ public class AmbientCSVReader {
 
 		try {
 			ambientBeans = readCsvToBean(path, CsvAmbientBean.class);
-		} catch (IOException e) {
-			logger.error("Unable to read the data from the CSV file: {}", e.getMessage());
+		} catch (IOException ex) {
+			logger.error("Unable to read the data from the CSV file: {}", ex.getMessage());
 			ambientBeans = new ArrayList<>();
 		}
 		
@@ -145,8 +156,8 @@ public class AmbientCSVReader {
 
 		try {
 			messageBeans = readCsvToBean(path, CsvMessageBean.class);
-		} catch (IOException e) {
-			logger.error("Unable to read the data from the CSV file: {}", e.getMessage());
+		} catch (IOException ex) {
+			logger.error("Unable to read the data from the CSV file: {}", ex.getMessage());
 			messageBeans = new ArrayList<>();
 		}
 		

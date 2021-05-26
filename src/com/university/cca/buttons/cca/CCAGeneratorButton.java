@@ -25,6 +25,8 @@ public class CCAGeneratorButton extends JButton implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(CCAGeneratorButton.class);
+	
+	private static final String BUTTON_NAME = "CCA Generator";
 	private static final String BUTTON_TOOL_TIP = "Create the whole CCA Model and as a last step generate the CCA file";
 	
 	private JFrame parentFrame;
@@ -32,7 +34,7 @@ public class CCAGeneratorButton extends JButton implements ActionListener {
     public CCAGeneratorButton(JFrame parentFrame) {
     	this.parentFrame = parentFrame;
     	
-        this.setText("CCA Generator");
+        this.setText(BUTTON_NAME);
         this.setIcon(new ImageIcon(Constants.GENERATOR_CCA_ICON_PATH));
         
         this.setPreferredSize(new Dimension(155, 35));

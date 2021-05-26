@@ -4,7 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 
 /**
- * Application Main Menu Bar of CCA Editor application
+ * Application Main Menu Bar of the CCA Editor application
  * 
  * @author Konstantin Rusev
  * @version 1.0
@@ -31,7 +31,7 @@ public class ApplicationMenuBar extends JMenuBar {
 		this.add(new AboutMenu(this.parentFrame));
 	}
 
-	// Getters and Setters
+	// Getters
 	public JFrame getParentFrame() {
 		return this.parentFrame;
 	}

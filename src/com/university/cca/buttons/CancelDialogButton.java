@@ -18,6 +18,7 @@ public class CancelDialogButton extends JButton implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(CancelDialogButton.class);
+	
 	private static final String BUTTON_TOOL_TIP = "Cancel Operation";
 	private static final int YES_OPTION = 0;
 	
@@ -26,9 +27,9 @@ public class CancelDialogButton extends JButton implements ActionListener {
     public CancelDialogButton(JDialog parentDialog) {
     	this.parentDialog = parentDialog;
     	
-    	ImageIcon cancelIcon = new ImageIcon(Constants.CANCEL_ICON_PATH);
-        this.setIcon(cancelIcon);
         this.setText("Cancel");
+        this.setIcon(new ImageIcon(Constants.CANCEL_ICON_PATH));
+
         this.setCursor(MouseCursorUtil.getMouseHand());
         this.setIconTextGap(Constants.ICON_GAP_SIZE);
         this.setToolTipText(BUTTON_TOOL_TIP);

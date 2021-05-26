@@ -17,6 +17,7 @@ import com.university.cca.util.MouseCursorUtil;
 public class LinksDialog extends JDialog {
 	
 	private static final long serialVersionUID = 1L;
+	
 	private static final String TITLE_DIALOG = "Useful Links";
 	private static final int HEIGHT_DIALOG = CCAUtils.getScreenSize().height / 2 + 150;
 	private static final int WIDHT_DIALOG = 800;
@@ -47,42 +48,42 @@ public class LinksDialog extends JDialog {
 				"<ul>" +
 				  "<li>" +
 				  	"Distributed eLerning Center (DeLC): " + 
-				  	"<u>http://delc.fmi.uni-plovdiv.net</u>" +
+				  	"<u> http://delc.fmi.uni-plovdiv.net </u>" +
 			  	  "</li>" +
 				  
 				  "<li>" +
 					"Distributed eLerning Center 2 (DeLC2): " + 
-					"<u>https://delc2.fmi.uni-plovdiv.net</u>" +
+					"<u> https://delc2.fmi.uni-plovdiv.net </u>" +
 				  "</li>" +
 					
 				  "<li>" +
 					"Distributed eLerning Center Science (DeLC Science): " + 
-					"<u>http://delc.space</u>" +
+					"<u> http://delc.space </u>" +
 				  "</li>" +
 				  
 				  "<li>" +
 					"Faculty at Mathematics and Informatics at Plovdiv University: " + 
-					"<u>http://fmi-plovdiv.org</u>" +
+					"<u> http://fmi-plovdiv.org </u>" +
 				  "</li>" +
 				  
 				  "<li>" +
 					"Calculus of Context-Aware Editor (CCA Editor): " + 
-					"<u>http://delc.space/projects/cca-editor</u>" +
+					"<u> http://delc.space/projects/cca-editor </u>" +
 				  "</li>" +
 				  
 				  "<li>" +
 					"CCA Editor Code Base: " + 
-					"<u>https://github.com/krusseff/cca-editor</u>" +
+					"<u> https://github.com/krusseff/cca-editor </u>" +
 				  "</li>" +
 					
 				  "<li>" +
 					"CCA Editor Developer: " + 
-					"<u>http://delc.space/team/докторант-константин-русев/</u>" +
+					"<u> http://delc.space/team/докторант-константин-русев/ </u>" +
 				  "</li>" +
 					
 				  "<li>" +
 					"CCA Editor Supervisor: " + 
-					"<u>http://delc.space/team/проф-стоянов/</u>" +
+					"<u> http://delc.space/team/проф-стоянов/ </u>" +
 				  "</li>" +
 			  	"</ul>" + 
 			"</body>" +
@@ -122,6 +123,7 @@ public class LinksDialog extends JDialog {
 		JPanel buttonPanel = new JPanel();
 		buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
 		buttonPanel.setBackground(Constants.LIGHT_GREY);
+		
 		buttonPanel.add(new CloseDialogButton(this));
 		
 		return buttonPanel;

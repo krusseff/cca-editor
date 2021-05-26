@@ -40,7 +40,7 @@ public class CityButton extends JButton implements ActionListener {
 		logger.info("City Button is clicked");
 		
 		new CreateAmbientDialog(
-			parentFrame, 
+			this.parentFrame, 
 			"Create City/Town", 
 			"Please, enter a valid city/town information",
 			AmbientType.CITY
@@ -49,6 +49,6 @@ public class CityButton extends JButton implements ActionListener {
 	
 	// Getters and Setters
 	public JFrame getParentFrame() {
-		return parentFrame;
+		return this.parentFrame;
 	}
 }

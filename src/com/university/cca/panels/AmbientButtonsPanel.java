@@ -39,7 +39,7 @@ import com.university.cca.util.CCAUtils;
 import com.university.cca.util.PanelsUtil;
 
 /**
- * Panel with all of the buttons that create ambients
+ * Panel with all of the buttons that create ambients.
  * 
  * @author Konstantin Rusev
  * @version 1.0
@@ -48,14 +48,16 @@ public class AmbientButtonsPanel extends JPanel {
 	
 	private static final long serialVersionUID = 1L;
     private static final Logger logger = LoggerFactory.getLogger(AmbientButtonsPanel.class);
+    
     private static final Dimension screenSize = CCAUtils.getScreenSize();
+    
     private static final int GRID_ROWS = 0;
 	private static final int GRID_COLS = 1;
 	
 	private JFrame parentFrame;
 
 	public AmbientButtonsPanel(JFrame parentFrame) {
-		logger.info("Ambient buttons panel initialized");
+		logger.info("Ambient buttons panel is initialized");
 		this.parentFrame = parentFrame;
 		
 		this.setLayout(PanelsUtil.getGridLayout(GRID_ROWS, GRID_COLS));

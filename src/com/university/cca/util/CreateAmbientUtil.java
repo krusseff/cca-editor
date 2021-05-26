@@ -17,7 +17,7 @@ import com.university.cca.enums.AmbientType;
 import com.university.cca.files.csv.AmbientCSVReader;
 
 /**
- * Utility methods related to the create ambient functionality
+ * Utility methods related to the create ambient functionality of the CCA Editor.
  * 
  * @author Konstantin Rusev
  * @version 1.0
@@ -35,6 +35,7 @@ public class CreateAmbientUtil {
 	
 	/**
 	 * Method that creates and returns create ambient button.
+	 * 
 	 */
 	public static JButton createAmbientButton() {
 		JButton createAmbientButton = new JButton();
@@ -50,6 +51,7 @@ public class CreateAmbientUtil {
 	
 	/**
 	 * Method that shows a success dialog if an ambient is created successfully.
+	 * 
 	 */
 	public static void createSuccessDialog(CreateAmbientDialog parentDialog) {
 		JOptionPane.showMessageDialog(
@@ -62,6 +64,7 @@ public class CreateAmbientUtil {
 	
 	/**
 	 * Method that shows an error dialog if the fields of an ambient are invalid.
+	 * 
 	 */
 	public static void createErrorDialog(CreateAmbientDialog parentDialog,
 										 String errorMessage) {
@@ -75,6 +78,7 @@ public class CreateAmbientUtil {
 	
 	/**
 	 * Method that creates and returns an ambient object.
+	 * 
 	 */
 	public static Ambient constructAmbient(String name, 
 										   String location, 
@@ -82,10 +86,11 @@ public class CreateAmbientUtil {
 										   String longitude,
 										   boolean isStatic, 
 										   Object parentAmbient,
-										   AmbientType ambientType) {
+										   AmbientType ambientType,
+										   boolean isActiveAmbient) {
 		
 		String parent = String.valueOf(parentAmbient);
-		Ambient ambient = new Ambient(name, location, latitude, longitude, isStatic, parent, ambientType);
+		Ambient ambient = new Ambient(name, location, latitude, longitude, isStatic, parent, ambientType, isActiveAmbient);
 		
 		logger.info("Ambient constructed: {}", ambient);
 		
@@ -94,6 +99,7 @@ public class CreateAmbientUtil {
 	
 	/**
 	 * Method that checks for already existing ambients with provided as an input parameter name.
+	 * 
 	 */
 	public static boolean isExistingAmbient(String ambientName) {
 		List<String> ambientNames = AmbientCSVReader.readAmbientNamesFromCsv();
@@ -103,6 +109,7 @@ public class CreateAmbientUtil {
 	
 	/**
 	 * Method that validates the fields of the newly created ambient object.
+	 * 
 	 */
 	public static boolean isValidAmbient(String name, 
 										 String location, 
@@ -123,6 +130,7 @@ public class CreateAmbientUtil {
 	
 	/**
 	 * Method that validates the coordinates of the newly created ambient object.
+	 * 
 	 */
 	private static boolean isValidCoordinate(String coordinate, 
 											 String coordinateRegEx) {

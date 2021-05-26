@@ -36,13 +36,13 @@ public class ShortcutsMenuItem extends JMenuItem implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		logger.info("Help Tips and Tricks button is clicked");
+		logger.info("Help Tips and Tricks Button is clicked");
 		
-		new ShortcutsDialog(parentFrame);
+		new ShortcutsDialog(this.parentFrame);
 	}
 
-	// Getters and Setters
+	// Getters
 	public JFrame getParentFrame() {
-		return parentFrame;
+		return this.parentFrame;
 	}
 }

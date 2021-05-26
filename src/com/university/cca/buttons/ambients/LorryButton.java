@@ -37,10 +37,10 @@ public class LorryButton extends JButton implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		logger.info("Lorry button is clicked");
+		logger.info("Lorry Button is clicked");
 		
 		new CreateAmbientDialog(
-			parentFrame, 
+			this.parentFrame, 
 			"Create Lorry", 
 			"Please, enter a valid lorry information",
 			AmbientType.LORRY

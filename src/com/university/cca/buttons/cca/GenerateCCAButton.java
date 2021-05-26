@@ -28,6 +28,7 @@ public class GenerateCCAButton extends JButton implements ActionListener {
 	
 	private static final int CCA_STATUS_SUCCESS = 0;
 	private static final int CCA_STATUS_FAILURE = 1;
+	private static final String BUTTON_NAME = "Generate CCA";
 	private static final String BUTTON_TOOL_TIP = "Create the whole CCA Model and as a last step generate the CCA file";
 	
 	private JFrame parentFrame;
@@ -35,7 +36,7 @@ public class GenerateCCAButton extends JButton implements ActionListener {
     public GenerateCCAButton(JFrame parentFrame) {
     	this.parentFrame = parentFrame;
     	
-        this.setText("Generate CCA");
+        this.setText(BUTTON_NAME);
         this.setIcon(new ImageIcon(Constants.GENERATE_CCA_ICON_PATH));
         
         this.setCursor(MouseCursorUtil.getMouseHand());
@@ -52,22 +53,25 @@ public class GenerateCCAButton extends JButton implements ActionListener {
 		triggerCCAGeneration();
 	}
 	
+	/**
+	 * Triggers the generation of the CCA File and returns a result of that
+	 */
 	private void triggerCCAGeneration() {
 		int generationResult = CCAGenerator.generate();
 		
 		switch (generationResult) {
 			case CCA_STATUS_SUCCESS:
-				GenerateCCAUtil.createSuccessDialog(parentFrame);
+				GenerateCCAUtil.createSuccessDialog(this.parentFrame);
 				logger.info("The CCA file is generated successfully! Exit code: {}", generationResult);
 				break;
 				
 			case CCA_STATUS_FAILURE:
-				GenerateCCAUtil.createErrorDialog(parentFrame);
+				GenerateCCAUtil.createErrorDialog(this.parentFrame);
 				logger.error("The CCA file is NOT generated! Exit code: {}", generationResult);
 				break;
 	
 			default:
-				GenerateCCAUtil.createErrorDialog(parentFrame);
+				GenerateCCAUtil.createErrorDialog(this.parentFrame);
 				logger.error("The CCA file is NOT generated! Unexpected error occurred!");
 				break;
 		}

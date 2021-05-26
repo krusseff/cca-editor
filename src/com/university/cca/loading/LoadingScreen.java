@@ -1,20 +1,21 @@
 package com.university.cca.loading;
 
-import static com.university.cca.constants.Constants.*;
+import java.awt.FlowLayout;
+import java.awt.IllegalComponentStateException;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.swing.JLabel;
-import javax.swing.ImageIcon;
-
-import java.awt.IllegalComponentStateException;
-import java.awt.FlowLayout;
+import com.university.cca.constants.Constants;
 
 /**
+ * Class that implemented the loading screen of the CCA Editor application.
+ * 
  * @author Konstantin Rusev
  * @version 1.0
  */
@@ -47,9 +48,9 @@ public class LoadingScreen {
 					imageFrame.add(imagePanel);
 					
 				    // set icon and title
-				    ImageIcon icon = new ImageIcon(IMAGES_ICON_JPG);
+				    ImageIcon icon = new ImageIcon(Constants.IMAGES_ICON_JPG);
 				    imageFrame.setIconImage(icon.getImage());
-				    imageFrame.setTitle(APPLICATION_TITLE);
+				    imageFrame.setTitle(Constants.APPLICATION_TITLE);
 					
 				    JLabel imageLabel = new JLabel();
 					imageLabel.setVisible(true);
@@ -59,7 +60,7 @@ public class LoadingScreen {
 					imagePanel.add(imageLabel);
 					
 					// set loading screen
-					ImageIcon loadingPicture = new ImageIcon(IMAGES_LOADING_SCREEN_JPG);
+					ImageIcon loadingPicture = new ImageIcon(Constants.IMAGES_LOADING_SCREEN_JPG);
 					imageLabel.setIcon(loadingPicture);
 				}
 			});

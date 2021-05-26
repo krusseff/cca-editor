@@ -40,7 +40,7 @@ public class ContinentButton extends JButton implements ActionListener {
 		logger.info("Continent Button is clicked");
 		
 		new CreateAmbientDialog(
-			parentFrame, 
+			this.parentFrame, 
 			"Create Continent", 
 			"Please, enter a valid continent information",
 			AmbientType.CONTINENT
@@ -49,6 +49,6 @@ public class ContinentButton extends JButton implements ActionListener {
 	
 	// Getters and Setters
 	public JFrame getParentFrame() {
-		return parentFrame;
+		return this.parentFrame;
 	}
 }

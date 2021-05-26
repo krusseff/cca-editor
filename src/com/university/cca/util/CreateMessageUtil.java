@@ -12,7 +12,7 @@ import com.university.cca.dialogs.CreateAmbientMsgDialog;
 import com.university.cca.entities.Message;
 
 /**
- * Utility methods related to the create ambient message functionality
+ * Utility methods related to the create ambient message functionality of the application.
  * 
  * @author Konstantin Rusev
  * @version 1.0
@@ -23,6 +23,7 @@ public class CreateMessageUtil {
 	
 	private static final int MESSAGE_MIN_LENGTH = 0;
 	private static final int MESSAGE_MAX_LENGTH = 500;
+	private static final String BUTTON_NAME = "Create Message";
 
 	private CreateMessageUtil() {
 		// Prevent creating an object of type CreateMessageUtil
@@ -30,13 +31,13 @@ public class CreateMessageUtil {
 
 	/**
 	 * Method that creates and returns create ambient message button.
+	 * 
 	 */
 	public static JButton createMessageButton() {
 		JButton createMessageButton = new JButton();
 		
-    	ImageIcon successIcon = new ImageIcon(Constants.SUCCESS_ICON_PATH);
-    	createMessageButton.setIcon(successIcon);
-    	createMessageButton.setText("Create Message");
+		createMessageButton.setText(BUTTON_NAME);
+    	createMessageButton.setIcon(new ImageIcon(Constants.SUCCESS_ICON_PATH));
     	createMessageButton.setCursor(MouseCursorUtil.getMouseHand());
     	createMessageButton.setIconTextGap(Constants.ICON_GAP_SIZE);
     	
@@ -45,6 +46,7 @@ public class CreateMessageUtil {
 	
 	/**
 	 * Method that shows a success dialog if a message is created successfully.
+	 * 
 	 */
 	public static void createSuccessDialog(CreateAmbientMsgDialog parentDialog,
 										   Object ambientSender,
@@ -67,6 +69,7 @@ public class CreateMessageUtil {
 	
 	/**
 	 * Method that shows an error dialog if the fields of an ambient message are invalid.
+	 * 
 	 */
 	public static void createErrorDialog(CreateAmbientMsgDialog parentDialog,
 										 String errorMessage) {
@@ -80,6 +83,7 @@ public class CreateMessageUtil {
 	
 	/**
 	 * Method that creates and returns a message object.
+	 * 
 	 */
 	public static Message constructAmbient(Object senderAmbient, 
 										   Object recipientAmbient,
@@ -98,6 +102,7 @@ public class CreateMessageUtil {
 	
 	/**
 	 * Method that validates the fields of the newly created ambient message object.
+	 * 
 	 */
 	public static boolean isValidMessageInfo(Object senderAmbient,
 											 Object recipientAmbient,
@@ -113,6 +118,7 @@ public class CreateMessageUtil {
 	
 	/**
 	 * Method that validates the message of the newly created ambient message.
+	 * 
 	 */
 	public static boolean isValidMessageLength(String ambientMessage) {
 		int messageLength = ambientMessage.length();
@@ -122,6 +128,7 @@ public class CreateMessageUtil {
 	
 	/**
 	 * Method that validates the respond to message of the newly created ambient message.
+	 * 
 	 */
 	private static boolean isValidRespondToMsg(Object respondToMessage) {
 		if (respondToMessage == null) {

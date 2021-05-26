@@ -12,7 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.university.cca.constants.Constants;
-import com.university.cca.dialogs.UnderConstructionDialog;
+import com.university.cca.dialogs.menu.view.ShowMessagesDialog;
 import com.university.cca.util.MouseCursorUtil;
 
 public class ShowAmbientMessages extends JMenuItem implements ActionListener {
@@ -42,13 +42,10 @@ public class ShowAmbientMessages extends JMenuItem implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		logger.info("View Show All Ambient Messages information button is clicked");
 		
-		// TODO
-		// [IN PROGRESS] Show ambient messages: sender, recipient, message. IN TABLE
-		
-		new UnderConstructionDialog(getParentFrame());
+		new ShowMessagesDialog(getParentFrame());
 	}
 
-	// Getters and Setters
+	// Getters
 	public JFrame getParentFrame() {
 		return this.parentFrame;
 	}

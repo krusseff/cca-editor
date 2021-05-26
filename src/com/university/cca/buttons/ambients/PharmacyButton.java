@@ -40,7 +40,7 @@ public class PharmacyButton extends JButton implements ActionListener {
 		logger.info("Pharmacy Button is clicked");
 		
 		new CreateAmbientDialog(
-			parentFrame, 
+			this.parentFrame, 
 			"Create Pharmacy", 
 			"Please, enter a valid pharmacy information",
 			AmbientType.PHARMACY
@@ -49,6 +49,6 @@ public class PharmacyButton extends JButton implements ActionListener {
 	
 	// Getters and Setters
 	public JFrame getParentFrame() {
-		return parentFrame;
+		return this.parentFrame;
 	}
 }

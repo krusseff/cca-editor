@@ -7,7 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Main Class of CCA Editor application. 
+ * Main class and entry point of the CCA Editor application. 
  * 
  * @author Konstantin Rusev
  * @version 1.0
@@ -22,6 +22,7 @@ public class Main {
 	
 	/**
 	 * Method, which main responsibility is to start the CCA Editor Application
+	 * 
 	 */
 	private static void runApplication() {
 		logger.info("CCA Editor application starting... :)");

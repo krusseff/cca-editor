@@ -61,6 +61,7 @@ public class AppMainFrame extends JFrame {
 	 */
 	private Image createMainFrameIconImage() {
 		ImageIcon image = new ImageIcon(Constants.IMAGES_ICON_JPG);
+		
 		return image.getImage();
 	}
 	

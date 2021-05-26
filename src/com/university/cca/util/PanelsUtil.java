@@ -6,7 +6,7 @@ import java.awt.GridLayout;
 import javax.swing.JPanel;
 
 /**
- * Utility methods related to the UI panels of the application
+ * Utility methods related to the UI panels of the CCA Editor application.
  * 
  * @author Konstantin Rusev
  * @version 1.0

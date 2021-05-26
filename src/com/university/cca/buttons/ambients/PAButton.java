@@ -36,10 +36,10 @@ public class PAButton extends JButton implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		logger.info("Personal Assitant Ambient button is clicked");
+		logger.info("Personal Assitant Ambient Button is clicked");
 		
 		new CreateAmbientDialog(
-			parentFrame, 
+			this.parentFrame, 
 			"Create Personal Assistant", 
 			"Please, enter a valid personal assistant information",
 			AmbientType.PERSONAL_ASSISTANT

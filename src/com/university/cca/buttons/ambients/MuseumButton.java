@@ -40,7 +40,7 @@ public class MuseumButton extends JButton implements ActionListener {
 		logger.info("Museum Button is clicked");
 		
 		new CreateAmbientDialog(
-			parentFrame, 
+			this.parentFrame, 
 			"Create Museum", 
 			"Please, enter a valid museum information",
 			AmbientType.MUSEUM
@@ -49,6 +49,6 @@ public class MuseumButton extends JButton implements ActionListener {
 	
 	// Getters and Setters
 	public JFrame getParentFrame() {
-		return parentFrame;
+		return this.parentFrame;
 	}
 }

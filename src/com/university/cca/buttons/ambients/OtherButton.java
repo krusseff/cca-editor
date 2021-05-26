@@ -40,7 +40,7 @@ public class OtherButton extends JButton implements ActionListener {
 		logger.info("Create Other Ambient Button is clicked");
 		
 		new CreateAmbientDialog(
-			parentFrame, 
+			this.parentFrame, 
 			"Create Ambient", 
 			"Please, enter a valid ambient information",
 			AmbientType.OTHER
@@ -49,6 +49,6 @@ public class OtherButton extends JButton implements ActionListener {
 	
 	// Getters and Setters
 	public JFrame getParentFrame() {
-		return parentFrame;
+		return this.parentFrame;
 	}
 }

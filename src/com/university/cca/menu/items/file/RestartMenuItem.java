@@ -39,15 +39,15 @@ public class RestartMenuItem extends JMenuItem implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		logger.info("File Restart button is clicked");
+		logger.info("File Restart Button is clicked");
 		logger.info("CCA Editor application re-starting... :)");
 
-		parentFrame.dispose();
+		this.parentFrame.dispose();
 		new AppMainFrame();
 	}
 	
-	// Getters and Setters
+	// Getters
 	public JFrame getParentFrame() {
-		return parentFrame;
+		return this.parentFrame;
 	}
 }

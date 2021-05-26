@@ -38,15 +38,13 @@ public class NewMenuItem extends JMenuItem implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO: Add the exact implementation here
+		new UnderConstructionDialog(this.parentFrame);
 		
-		new UnderConstructionDialog(parentFrame);
-		
-		logger.info("File New button is clicked");
+		logger.info("File New Button is clicked");
 	}
 	
-	// Getters and Setters
+	// Getters
 	public JFrame getParentFrame() {
-		return parentFrame;
+		return this.parentFrame;
 	}
 }

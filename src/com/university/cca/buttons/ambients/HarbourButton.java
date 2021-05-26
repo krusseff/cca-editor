@@ -40,7 +40,7 @@ public class HarbourButton extends JButton implements ActionListener {
 		logger.info("Harbour Button is clicked");
 		
 		new CreateAmbientDialog(
-			parentFrame, 
+			this.parentFrame, 
 			"Create Harbour", 
 			"Please, enter a valid harbour information",
 			AmbientType.HARBOUR
@@ -49,6 +49,6 @@ public class HarbourButton extends JButton implements ActionListener {
 	
 	// Getters and Setters
 	public JFrame getParentFrame() {
-		return parentFrame;
+		return this.parentFrame;
 	}
 }

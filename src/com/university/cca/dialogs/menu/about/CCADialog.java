@@ -127,6 +127,7 @@ public class CCADialog extends JDialog {
 		JPanel buttonPanel = new JPanel();
 		buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
 		buttonPanel.setBackground(Constants.LIGHT_GREY);
+		
 		buttonPanel.add(new CloseDialogButton(this));
 		
 		return buttonPanel;

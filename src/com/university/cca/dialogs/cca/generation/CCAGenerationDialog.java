@@ -29,6 +29,7 @@ public class CCAGenerationDialog extends JDialog {
 	
 	private static final String TITLE = "CCA Generation Dialog";
 	private static final String CCA_GENERATOR_TITLE = "<h1 style=\"text-align: center;\"><i> CCA Generator </i></h1>";
+	private static final String FOOTER_PANEL_NOTE = "NOTE: Create the whole CCA Model and as a last step generate the CCA file!";
 	private static final String TEXT_PANE_CONTENT_TYPE = "text/html";
 	
 	private static final int HEIGHT_DIALOG = 400;
@@ -84,7 +85,7 @@ public class CCAGenerationDialog extends JDialog {
 	private JPanel footerPanel() {
 		JPanel footerPanel = new JPanel(new FlowLayout());
 
-		JLabel footherLabel = new JLabel("NOTE: Create the whole CCA Model and as a last step generate the CCA file!");
+		JLabel footherLabel = new JLabel(FOOTER_PANEL_NOTE);
 		footerPanel.add(footherLabel);
 		
 		return footerPanel;

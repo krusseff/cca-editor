@@ -1,7 +1,7 @@
 package com.university.cca.entities;
 
 /**
- * Model class that holds an information for a message between two ambients
+ * Model class that holds an information for a message between two ambients.
  * 
  * @author Konstantin Rusev
  * @version 1.0
@@ -17,7 +17,9 @@ public class Message {
 		// To be able to create an object without information for it
 	}
 	
-	public Message(String senderAmbient, String recipientAmbient, String respondToMessage, String ambientMessage) {
+	public Message(String senderAmbient, String recipientAmbient, 
+				   String respondToMessage, String ambientMessage) {
+		
 		this.senderAmbient = senderAmbient;
 		this.recipientAmbient = recipientAmbient;
 		this.respondToMessage = respondToMessage;
@@ -80,8 +82,10 @@ public class Message {
 
 	@Override
 	public String toString() {
-		return "Message [senderAmbient=" + senderAmbient + ", recipientAmbient=" + recipientAmbient
-				+ ", respondToMessage=" + respondToMessage + ", ambientMessage=" + ambientMessage + "]";
+		return "Message ["
+				+ "senderAmbient=" + senderAmbient + ", recipientAmbient=" + recipientAmbient
+				+ ", respondToMessage=" + respondToMessage + ", ambientMessage=" + ambientMessage
+				+ "]";
 	}
 
 	// Getters and Setters

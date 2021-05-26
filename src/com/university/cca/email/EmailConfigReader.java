@@ -12,6 +12,7 @@ import com.university.cca.constants.Constants;
 public class EmailConfigReader {
 
 	private static final Logger logger = LoggerFactory.getLogger(EmailConfigReader.class);
+	
 	private static final ObjectMapper objectMapper = new ObjectMapper();
 
 	private EmailConfigReader() {
@@ -42,8 +43,8 @@ public class EmailConfigReader {
 			try {
 				boolean result = file.createNewFile();
 				logger.info("The email configuration file: {} is created with status: {}", file.getAbsolutePath(), result);
-			} catch (IOException e) {
-				logger.error("Unable to create email configuration file: {}", e.getMessage());
+			} catch (IOException ex) {
+				logger.error("Unable to create email configuration file: {}", ex.getMessage());
 				logger.error("Exiting the program... :(");
 				System.exit(2);
 			}

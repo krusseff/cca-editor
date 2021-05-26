@@ -13,7 +13,7 @@ import java.awt.event.KeyEvent;
 public final class Constants {
 	
 	public static final String APPLICATION_TITLE = "CCA Editor";
-	public static final String MAIN_FRAME_NAME = "Main Frame Panel";
+	public static final String MAIN_FRAME_NAME = "CCA Editor Main Frame Panel";
 	public static final String FONT_ARIAL = "Arial";
 	public static final int FONT_SIZE_FOURTEEN = 14;
 	public static final int ICON_GAP_SIZE = 8;
@@ -114,7 +114,7 @@ public final class Constants {
 	public static final String TRAIN_ICON_PATH = "./images/ambient_buttons/train.png";
 	public static final String OTHER_ICON_PATH = "./images/ambient_buttons/other.png";
 	
-	// Menu text labels
+	// Menu Text Labels
 	public static final String FILE = "File";
 	public static final String FILE_ITEM_NEW = "New...";
 	public static final String FILE_ITEM_OPEN = "Open...";

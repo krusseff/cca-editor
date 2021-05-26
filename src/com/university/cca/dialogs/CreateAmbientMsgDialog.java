@@ -55,24 +55,24 @@ public class CreateAmbientMsgDialog extends JDialog {
         contentPanel.setLayout(getGridLayout());
         
         // first row of the dialog
-        senderAmbientsComboBox = createAmbientComboBox();
+        this.senderAmbientsComboBox = createAmbientComboBox();
         contentPanel.add(createLabel("Sender Ambient Name: "));
-        contentPanel.add(senderAmbientsComboBox);
+        contentPanel.add(this.senderAmbientsComboBox);
         
         // second row of the dialog
-        recipientAmbientsComboBox = createAmbientComboBox();
+        this.recipientAmbientsComboBox = createAmbientComboBox();
         contentPanel.add(createLabel("Recipient Ambient Name: "));
-        contentPanel.add(recipientAmbientsComboBox);
+        contentPanel.add(this.recipientAmbientsComboBox);
         
         // third row of the dialog
-        respondToComboBox = createRespondToComboBox();
+        this.respondToComboBox = createRespondToComboBox();
         contentPanel.add(createLabel("Respond To: "));
-        contentPanel.add(respondToComboBox);
+        contentPanel.add(this.respondToComboBox);
 
         // fourth row of the dialog
-        ambientMessageTextArea = createTextArea();
+        this.ambientMessageTextArea = createTextArea();
         contentPanel.add(createLabel("Ambient Message: "));
-        contentPanel.add(new JScrollPane(ambientMessageTextArea));
+        contentPanel.add(new JScrollPane(this.ambientMessageTextArea));
         
         // fifth row of the dialog
         JButton createMessageButton = CreateMessageUtil.createMessageButton();
@@ -91,10 +91,10 @@ public class CreateAmbientMsgDialog extends JDialog {
 	 * Method that validates and creates a message if the enterred data is valid.
 	 */
 	private void createMessage() {
-		Object senderAmbient = senderAmbientsComboBox.getSelectedItem();
-		Object recipientAmbient = recipientAmbientsComboBox.getSelectedItem();
-		Object respondToMessage = respondToComboBox.getSelectedItem();
-		String ambientMessage = ambientMessageTextArea.getText().replace("\n", " ").replace("\r", " ").trim();
+		Object senderAmbient = this.senderAmbientsComboBox.getSelectedItem();
+		Object recipientAmbient = this.recipientAmbientsComboBox.getSelectedItem();
+		Object respondToMessage = this.respondToComboBox.getSelectedItem();
+		String ambientMessage = this.ambientMessageTextArea.getText().replace("\n", " ").replace("\r", " ").trim();
 		
 		if (!CreateMessageUtil.isValidMessageInfo(senderAmbient, recipientAmbient, respondToMessage, ambientMessage)) {
 			logger.info("Tried to create an ambient message with invalid values");
@@ -120,10 +120,12 @@ public class CreateAmbientMsgDialog extends JDialog {
 	 */
 	private JComboBox<String> createAmbientComboBox() {
 		String[] ambientNames = AmbientCSVReader.getAmbientNamesSorted();
+		
 		JComboBox<String> ambientNamesComboBox = new JComboBox<>(ambientNames);
 		ambientNamesComboBox.setSelectedIndex(-1); // set default empty value
 		ambientNamesComboBox.setCursor(MouseCursorUtil.getMouseHand());
 		ambientNamesComboBox.setBorder(BorderFactory.createEmptyBorder(5, 0, 0, 5));
+		ambientNamesComboBox.setToolTipText("Select an ambient!");
 		
 		return ambientNamesComboBox;
 	}

@@ -20,6 +20,7 @@ public class ContactDialogUtil {
 	}
 	
 	public static void showEmailSentDialog(ContactDialog parentDialog, int emailResult) {
+		
 		switch (emailResult) {
 			case EMAIL_SUCCESS_STATUS:
 				createSuccessDialog(parentDialog);

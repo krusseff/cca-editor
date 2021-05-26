@@ -3,7 +3,7 @@ package com.university.cca.util;
 import java.awt.Cursor;
 
 /**
- * Utility methods related to the mouse cursor of the application
+ * Utility methods related to the mouse cursor of the CCA Editor application.
  * 
  * @author Konstantin Rusev
  * @version 1.0

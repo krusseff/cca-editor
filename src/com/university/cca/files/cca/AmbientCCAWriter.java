@@ -18,7 +18,8 @@ import com.university.cca.constants.Constants;
 public class AmbientCCAWriter {
 	
 	private static final Logger logger = LoggerFactory.getLogger(AmbientCCAWriter.class);
-	private static final boolean APPEND_TO_FILE = false;
+	
+	private static final boolean SHOULD_APPEND_TO_FILE = false;
 	private static final String NEW_LINE = "\n";
 
 	private AmbientCCAWriter() {
@@ -29,16 +30,20 @@ public class AmbientCCAWriter {
 		writeToFile(data);
 	}
 	
+	/**
+	 * Method that writes the data to the CCA file.
+	 * The data will be re-written on each execution in order to handle any changes.
+	 */
 	private static void writeToFile(String data) {
 		String filePath = Constants.AMBIENTS_CCA_FILE_PATH;
 		AmbientCCAUtil.createFileIfDoesNotExist(filePath);
 		
-		try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, APPEND_TO_FILE))) {
+		try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, SHOULD_APPEND_TO_FILE))) {
 			writer.write(data);
 			writer.write(NEW_LINE);
 			logger.info("The data: {} is written successfully to the CCA file", data);
-		} catch (IOException e) {
-			logger.error("Unable to write the data to the CCA file: {}", e.getMessage());
+		} catch (IOException ex) {
+			logger.error("Unable to write the data to the CCA file: {}", ex.getMessage());
 			logger.error("Exiting the program... :(");
 			System.exit(2);
 		}

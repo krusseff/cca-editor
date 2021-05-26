@@ -40,7 +40,7 @@ public class HospitalButton extends JButton implements ActionListener {
 		logger.info("Hospital Button is clicked");
 		
 		new CreateAmbientDialog(
-			parentFrame, 
+			this.parentFrame, 
 			"Create Hospital", 
 			"Please, enter a valid hospital information",
 			AmbientType.HOSPITAL
@@ -49,6 +49,6 @@ public class HospitalButton extends JButton implements ActionListener {
 
 	// Getters and Setters
 	public JFrame getParentFrame() {
-		return parentFrame;
+		return this.parentFrame;
 	}
 }

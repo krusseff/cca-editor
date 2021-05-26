@@ -40,10 +40,10 @@ public class ContactMenuItem extends JMenuItem implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		logger.info("Contact Us About item menu button is clicked");
 
-		new ContactDialog(parentFrame);
+		new ContactDialog(this.parentFrame);
 	}
 
-	// Getters and Setters
+	// Getters
 	public JFrame getParentFrame() {
 		return this.parentFrame;
 	}

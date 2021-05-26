@@ -40,10 +40,10 @@ public class CCAEditorMenuItem extends JMenuItem implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		logger.info("About CCA Editor item menu button is clicked");
 
-		new CCAEditorDialog(parentFrame);
+		new CCAEditorDialog(this.parentFrame);
 	}
 
-	// Getters and Setters
+	// Getters
 	public JFrame getParentFrame() {
 		return this.parentFrame;
 	}

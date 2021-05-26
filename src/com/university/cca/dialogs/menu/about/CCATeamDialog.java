@@ -53,17 +53,17 @@ public class CCATeamDialog extends JDialog {
 					
 				  "<li>" +
 					"Web page: " + 
-					"<u>http://web.uni-plovdiv.bg/stoyanov/</u>" +
+					"<u> http://web.uni-plovdiv.bg/stoyanov/ </u>" +
 				  "</li>" +
 				  
 				  "<li>" +
 					"Email: " + 
-					"<u>stani@uni-plovdiv.net</u>" +
+					"<u> stani@uni-plovdiv.net </u>" +
 				  "</li>" +
 					
 				  "<li>" +
 				    "More information: " + 
-				    "<u>http://delc.space/team/</u>" +
+				    "<u> http://delc.space/team/ </u>" +
 				  "</li>" +
 			  	"</ul>" + 
 			"</body>" +
@@ -97,12 +97,12 @@ public class CCATeamDialog extends JDialog {
 					
 				  "<li>" +
 					"Web page: " + 
-					"<u>https://bg.linkedin.com/in/todorka-glushkova-27092a42</u>" +
+					"<u> https://bg.linkedin.com/in/todorka-glushkova-27092a42 </u>" +
 				  "</li>" +
 				  
 				  "<li>" +
 					"Email: " + 
-					"<u>glushkova@uni-plovdiv.bg</u>" +
+					"<u> glushkova@uni-plovdiv.bg </u>" +
 				  "</li>" +
 			  	"</ul>" + 
 			"</body>" +
@@ -136,17 +136,17 @@ public class CCATeamDialog extends JDialog {
 					
 				  "<li>" +
 					"Web page: " + 
-					"<u>https://www.linkedin.com/in/konstantin-rusev-26ab87b7</u>" +
+					"<u> https://www.linkedin.com/in/konstantin-rusev-26ab87b7 </u>" +
 				  "</li>" +
 				  
 				  "<li>" +
 					"Email: " + 
-					"<u>k.russeff@uni-plovdiv.bg</u>" +
+					"<u> k.russeff@uni-plovdiv.bg </u>" +
 				  "</li>" +
 					
 				  "<li>" +
 				    "More information: " + 
-				    "<u>http://delc.space/team/</u>" +
+				    "<u> http://delc.space/team/ </u>" +
 				  "</li>" +
 			  	"</ul>" + 
 			"</body>" +
@@ -218,6 +218,7 @@ public class CCATeamDialog extends JDialog {
 	private JPanel createButtonPanel() {
 		JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
 		buttonPanel.setBackground(Constants.LIGHT_GREY);
+		
 		buttonPanel.add(new CloseDialogButton(this));
 		
 		return buttonPanel;

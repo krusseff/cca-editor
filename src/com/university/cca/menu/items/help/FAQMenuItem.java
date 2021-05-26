@@ -36,13 +36,13 @@ public class FAQMenuItem extends JMenuItem implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		logger.info("Help FAQ button is clicked");
+		logger.info("Help FAQ Button is clicked");
 		
-		new FAQDialog(parentFrame);
+		new FAQDialog(this.parentFrame);
 	}
 
-	// Getters and Setters
+	// Getters
 	public JFrame getParentFrame() {
-		return parentFrame;
+		return this.parentFrame;
 	}
 }

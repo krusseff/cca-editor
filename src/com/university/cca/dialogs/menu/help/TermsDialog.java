@@ -16,6 +16,7 @@ import com.university.cca.util.CCAUtils;
 public class TermsDialog extends JDialog {
 
 	private static final long serialVersionUID = 1L;
+	
 	private static final String TITLE_DIALOG = "Terms and Conditions";
 	private static final int HEIGHT_DIALOG = CCAUtils.getScreenSize().height / 2 + 150;
 	private static final int WIDHT_DIALOG = 800;
@@ -170,6 +171,7 @@ public class TermsDialog extends JDialog {
 		JPanel buttonPanel = new JPanel();
 		buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
 		buttonPanel.setBackground(Constants.LIGHT_GREY);
+		
 		buttonPanel.add(new CloseDialogButton(this));
 		
 		return buttonPanel;

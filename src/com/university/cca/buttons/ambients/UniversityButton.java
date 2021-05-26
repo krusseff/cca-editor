@@ -40,7 +40,7 @@ public class UniversityButton extends JButton implements ActionListener {
 		logger.info("University Button is clicked");
 		
 		new CreateAmbientDialog(
-			parentFrame, 
+			this.parentFrame, 
 			"Create University", 
 			"Please, enter a valid university information",
 			AmbientType.UNIVERSITY
@@ -49,6 +49,6 @@ public class UniversityButton extends JButton implements ActionListener {
 	
 	// Getters and Setters
 	public JFrame getParentFrame() {
-		return parentFrame;
+		return this.parentFrame;
 	}
 }

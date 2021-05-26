@@ -45,7 +45,7 @@ public class ShowMessagesCSVFile extends JMenuItem implements ActionListener {
 		new ShowMessagesCSVDialog(getParentFrame());
 	}
 
-	// Getters and Setters
+	// Getters
 	public JFrame getParentFrame() {
 		return this.parentFrame;
 	}

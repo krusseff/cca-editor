@@ -19,6 +19,7 @@ import com.university.cca.constants.CCATemplates;
 public class TemplateCCAReader {
 	
 	private static final Logger logger = LoggerFactory.getLogger(TemplateCCAReader.class);
+	
 	private static final String NEW_LINE = "\n";
 	
 	private TemplateCCAReader() {
@@ -56,6 +57,7 @@ public class TemplateCCAReader {
 		}
 	    
 	    logger.info("Successfully read all the information from the file: {}", filePath);
+	    
 	    return resultStringBuilder.toString();
 	}
 }

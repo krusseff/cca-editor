@@ -40,7 +40,7 @@ public class TaxiButton extends JButton implements ActionListener {
 		logger.info("Taxi button is clicked");
 		
 		new CreateAmbientDialog(
-			parentFrame, 
+			this.parentFrame, 
 			"Create Taxi", 
 			"Please, enter a valid taxi information",
 			AmbientType.TAXI
