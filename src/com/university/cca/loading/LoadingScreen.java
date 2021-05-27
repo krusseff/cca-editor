@@ -23,58 +23,58 @@ public class LoadingScreen {
 
 	private static final Logger logger = LoggerFactory.getLogger(LoadingScreen.class);
 	
+	private static final int WAIT_TIME_MILLIS = 2000;
+	private static final int SLEEP_TIME_MILLIS = 3000;
+	
 	private JFrame imageFrame;
 	
 	public LoadingScreen() { 
 		// Default constructor to be able to create objects of type LoadingScreen
 	}
 	
-	@SuppressWarnings("deprecation")
 	public void createImage() {
 		try {
-			Thread loadingScreenThread = new Thread(new Runnable() {
-				public void run() {
-					imageFrame = new JFrame();
-					imageFrame.setUndecorated(true);
-					imageFrame.setVisible(true);
-					imageFrame.setBounds(390, 230, 600, 300);
-					imageFrame.setLayout(null);
-						
-					JPanel imagePanel = new JPanel();
-					imagePanel.setVisible(true);
-					imagePanel.setBounds(0, 0, 600, 300);
-					imagePanel.setLayout(null);
+			Thread loadingScreenThread = new Thread(() -> {
+				imageFrame = new JFrame();
+				imageFrame.setUndecorated(true);
+				imageFrame.setVisible(true);
+				imageFrame.setBounds(390, 230, 600, 300);
+				imageFrame.setLayout(null);
 					
-					imageFrame.add(imagePanel);
-					
-				    // set icon and title
-				    ImageIcon icon = new ImageIcon(Constants.IMAGES_ICON_JPG);
-				    imageFrame.setIconImage(icon.getImage());
-				    imageFrame.setTitle(Constants.APPLICATION_TITLE);
-					
-				    JLabel imageLabel = new JLabel();
-					imageLabel.setVisible(true);
-					imageLabel.setLayout(new FlowLayout());
-					imageLabel.setBounds(0, 0, 600, 300);
-
-					imagePanel.add(imageLabel);
-					
-					// set loading screen
-					ImageIcon loadingPicture = new ImageIcon(Constants.IMAGES_LOADING_SCREEN_JPG);
-					imageLabel.setIcon(loadingPicture);
-				}
+				JPanel imagePanel = new JPanel();
+				imagePanel.setVisible(true);
+				imagePanel.setBounds(0, 0, 600, 300);
+				imagePanel.setLayout(null);
+				
+				imageFrame.add(imagePanel);
+				
+			    // set icon and title
+			    ImageIcon icon = new ImageIcon(Constants.IMAGES_ICON_JPG);
+			    imageFrame.setIconImage(icon.getImage());
+			    imageFrame.setTitle(Constants.APPLICATION_TITLE);
+				
+			    JLabel imageLabel = new JLabel();
+				imageLabel.setVisible(true);
+				imageLabel.setLayout(new FlowLayout());
+				imageLabel.setBounds(0, 0, 600, 300);
+	
+				imagePanel.add(imageLabel);
+				
+				// set loading screen
+				ImageIcon loadingPicture = new ImageIcon(Constants.IMAGES_LOADING_SCREEN_JPG);
+				imageLabel.setIcon(loadingPicture);
 			});
 			
-			synchronized(loadingScreenThread) {
-				loadingScreenThread.wait(2000);
+			synchronized (loadingScreenThread) {
+				loadingScreenThread.wait(WAIT_TIME_MILLIS);
 				loadingScreenThread.start();
-				Thread.sleep(3000);
-				loadingScreenThread.stop();
+				Thread.sleep(SLEEP_TIME_MILLIS);
 				imageFrame.setVisible(false);
 			}
-		}
-		catch(IllegalComponentStateException | InterruptedException ex) {
+			
+		} catch (IllegalComponentStateException | InterruptedException ex) {
 			logger.error("Application loading screen error occurred: {}", ex.getMessage());
+			Thread.currentThread().interrupt();
 		}
 	}
 }
