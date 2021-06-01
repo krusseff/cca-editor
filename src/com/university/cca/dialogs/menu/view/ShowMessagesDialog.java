@@ -1,5 +1,6 @@
 package com.university.cca.dialogs.menu.view;
 
+import java.awt.BorderLayout;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -55,7 +56,7 @@ public class ShowMessagesDialog extends JDialog {
 		JPanel dialogPanel = new JPanel();
         dialogPanel.setLayout(new BoxLayout(dialogPanel, BoxLayout.Y_AXIS));
         
-        dialogPanel.add(createMessagesTable());
+        dialogPanel.add(createMessagesTable(), BorderLayout.CENTER);
 
         this.getContentPane().add(dialogPanel);
 	}

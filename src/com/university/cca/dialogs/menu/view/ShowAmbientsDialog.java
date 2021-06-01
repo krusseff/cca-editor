@@ -1,5 +1,6 @@
 package com.university.cca.dialogs.menu.view;
 
+import java.awt.BorderLayout;
 import java.util.List;
 
 import javax.swing.BoxLayout;
@@ -49,7 +50,7 @@ public class ShowAmbientsDialog extends JDialog {
 		JPanel dialogPanel = new JPanel();
         dialogPanel.setLayout(new BoxLayout(dialogPanel, BoxLayout.Y_AXIS));
         
-		dialogPanel.add(createAmbientsTable());
+		dialogPanel.add(createAmbientsTable(), BorderLayout.CENTER);
 
         this.getContentPane().add(dialogPanel);
 	}
