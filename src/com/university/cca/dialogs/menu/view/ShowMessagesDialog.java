@@ -15,6 +15,7 @@ import com.university.cca.entities.Message;
 import com.university.cca.files.csv.AmbientCSVReader;
 import com.university.cca.tables.MessageTableModel;
 import com.university.cca.util.CCAUtils;
+import com.university.cca.util.TablesUtil;
 
 /**
  * The dialog that holds the information for the ambient messages.
@@ -36,7 +37,11 @@ public class ShowMessagesDialog extends JDialog {
 	private static final boolean IS_MODAL = true;
 	
 	private static final int HEIGHT_DIALOG = CCAUtils.getScreenSize().height - 100;
-	private static final int WIDHT_DIALOG = CCAUtils.getScreenSize().width;
+	private static final int WIDTH_DIALOG = CCAUtils.getScreenSize().width;
+	
+	private static final String TABLE_NAME = "Ambient Messages Table";
+	private static final int TABLE_ROWS_HEIGHT = 30;
+	private static final double[] TABLE_COLUMNS_WIDTH = {15, 15, 35, 35};
 	
 	private JFrame parentFrame;
 
@@ -46,7 +51,7 @@ public class ShowMessagesDialog extends JDialog {
         
         addDialogContent();
         
-        this.setSize(WIDHT_DIALOG, HEIGHT_DIALOG);
+        this.setSize(WIDTH_DIALOG, HEIGHT_DIALOG);
         this.setLocationRelativeTo(parentFrame);
         this.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
         this.setVisible(IS_VISIBLE);
@@ -66,6 +71,10 @@ public class ShowMessagesDialog extends JDialog {
 		
 		MessageTableModel messageTableModel = new MessageTableModel(messages);
 		JTable messageTable = new JTable(messageTableModel);
+		
+		messageTable.setName(TABLE_NAME);
+		TablesUtil.setTableRowsHeight(messageTable, TABLE_ROWS_HEIGHT);
+		TablesUtil.setTableColumnsWidth(messageTable, WIDTH_DIALOG, TABLE_COLUMNS_WIDTH);
 		
 		// enable column sorting of the ambient messages table
 		messageTable.setAutoCreateRowSorter(MessageTableModel.IS_SORT_AVAILABLE);

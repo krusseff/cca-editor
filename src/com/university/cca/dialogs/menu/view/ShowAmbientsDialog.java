@@ -14,6 +14,7 @@ import com.university.cca.entities.Ambient;
 import com.university.cca.files.csv.AmbientCSVReader;
 import com.university.cca.tables.AmbientTableModel;
 import com.university.cca.util.CCAUtils;
+import com.university.cca.util.TablesUtil;
 
 /**
  * The dialog that holds the information for the ambients into a table with an option to update their information.
@@ -30,7 +31,11 @@ public class ShowAmbientsDialog extends JDialog {
 	private static final boolean IS_MODAL = true;
 	
 	private static final int HEIGHT_DIALOG = CCAUtils.getScreenSize().height - 100;
-	private static final int WIDHT_DIALOG = CCAUtils.getScreenSize().width;
+	private static final int WIDTH_DIALOG = CCAUtils.getScreenSize().width;
+	
+	private static final String TABLE_NAME = "Ambients Table";
+	private static final int TABLE_ROWS_HEIGHT = 30;
+	private static final double[] TABLE_COLUMNS_WIDTH = {17, 15, 15, 10, 10, 8, 17, 8};
 	
 	private JFrame parentFrame;
 
@@ -40,7 +45,7 @@ public class ShowAmbientsDialog extends JDialog {
         
         addDialogContent();
         
-        this.setSize(WIDHT_DIALOG, HEIGHT_DIALOG);
+        this.setSize(WIDTH_DIALOG, HEIGHT_DIALOG);
         this.setLocationRelativeTo(parentFrame);
         this.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
         this.setVisible(IS_VISIBLE);
@@ -60,6 +65,10 @@ public class ShowAmbientsDialog extends JDialog {
 		
 		AmbientTableModel ambientTableModel = new AmbientTableModel(ambients);
 		JTable ambientTable = new JTable(ambientTableModel);
+		
+		ambientTable.setName(TABLE_NAME);
+		TablesUtil.setTableRowsHeight(ambientTable, TABLE_ROWS_HEIGHT);
+		TablesUtil.setTableColumnsWidth(ambientTable, WIDTH_DIALOG, TABLE_COLUMNS_WIDTH);
 		
 		// enable column sorting of the ambients table
 		ambientTable.setAutoCreateRowSorter(AmbientTableModel.IS_SORT_AVAILABLE);
