@@ -14,6 +14,7 @@ import com.university.cca.entities.Ambient;
 import com.university.cca.files.csv.AmbientCSVReader;
 import com.university.cca.tables.AmbientTableModel;
 import com.university.cca.util.CCAUtils;
+import com.university.cca.util.MouseCursorUtil;
 import com.university.cca.util.TablesUtil;
 
 /**
@@ -67,6 +68,7 @@ public class ShowAmbientsDialog extends JDialog {
 		JTable ambientTable = new JTable(ambientTableModel);
 		
 		ambientTable.setName(TABLE_NAME);
+		ambientTable.setCursor(MouseCursorUtil.getMouseHand());
 		TablesUtil.setTableRowsHeight(ambientTable, TABLE_ROWS_HEIGHT);
 		TablesUtil.setTableColumnsWidth(ambientTable, WIDTH_DIALOG, TABLE_COLUMNS_WIDTH);
 		

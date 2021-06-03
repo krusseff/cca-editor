@@ -15,6 +15,7 @@ import com.university.cca.entities.Message;
 import com.university.cca.files.csv.AmbientCSVReader;
 import com.university.cca.tables.MessageTableModel;
 import com.university.cca.util.CCAUtils;
+import com.university.cca.util.MouseCursorUtil;
 import com.university.cca.util.TablesUtil;
 
 /**
@@ -73,6 +74,7 @@ public class ShowMessagesDialog extends JDialog {
 		JTable messageTable = new JTable(messageTableModel);
 		
 		messageTable.setName(TABLE_NAME);
+		messageTable.setCursor(MouseCursorUtil.getMouseHand());
 		TablesUtil.setTableRowsHeight(messageTable, TABLE_ROWS_HEIGHT);
 		TablesUtil.setTableColumnsWidth(messageTable, WIDTH_DIALOG, TABLE_COLUMNS_WIDTH);
 		
