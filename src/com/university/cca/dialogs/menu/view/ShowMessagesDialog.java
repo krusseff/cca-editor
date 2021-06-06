@@ -10,13 +10,15 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.table.JTableHeader;
 
 import com.university.cca.entities.Message;
 import com.university.cca.files.csv.AmbientCSVReader;
 import com.university.cca.tables.MessageTableModel;
+import com.university.cca.tables.TableHeaderRenderer;
+import com.university.cca.tables.TablesUtil;
 import com.university.cca.util.CCAUtils;
 import com.university.cca.util.MouseCursorUtil;
-import com.university.cca.util.TablesUtil;
 
 /**
  * The dialog that holds the information for the ambient messages.
@@ -75,8 +77,14 @@ public class ShowMessagesDialog extends JDialog {
 		
 		messageTable.setName(TABLE_NAME);
 		messageTable.setCursor(MouseCursorUtil.getMouseHand());
+		
+		// set row and column size
 		TablesUtil.setTableRowsHeight(messageTable, TABLE_ROWS_HEIGHT);
 		TablesUtil.setTableColumnsWidth(messageTable, WIDTH_DIALOG, TABLE_COLUMNS_WIDTH);
+		
+		// set custom table header
+		JTableHeader tableHeader = messageTable.getTableHeader();
+		messageTable.getTableHeader().setDefaultRenderer(new TableHeaderRenderer(tableHeader.getDefaultRenderer()));
 		
 		// enable column sorting of the ambient messages table
 		messageTable.setAutoCreateRowSorter(MessageTableModel.IS_SORT_AVAILABLE);

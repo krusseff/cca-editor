@@ -9,13 +9,15 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.table.JTableHeader;
 
 import com.university.cca.entities.Ambient;
 import com.university.cca.files.csv.AmbientCSVReader;
 import com.university.cca.tables.AmbientTableModel;
+import com.university.cca.tables.TableHeaderRenderer;
+import com.university.cca.tables.TablesUtil;
 import com.university.cca.util.CCAUtils;
 import com.university.cca.util.MouseCursorUtil;
-import com.university.cca.util.TablesUtil;
 
 /**
  * The dialog that holds the information for the ambients into a table with an option to update their information.
@@ -69,8 +71,14 @@ public class ShowAmbientsDialog extends JDialog {
 		
 		ambientTable.setName(TABLE_NAME);
 		ambientTable.setCursor(MouseCursorUtil.getMouseHand());
+		
+		// set row and column size
 		TablesUtil.setTableRowsHeight(ambientTable, TABLE_ROWS_HEIGHT);
 		TablesUtil.setTableColumnsWidth(ambientTable, WIDTH_DIALOG, TABLE_COLUMNS_WIDTH);
+		
+		// set custom table header
+		JTableHeader tableHeader = ambientTable.getTableHeader();
+		ambientTable.getTableHeader().setDefaultRenderer(new TableHeaderRenderer(tableHeader.getDefaultRenderer()));
 		
 		// enable column sorting of the ambients table
 		ambientTable.setAutoCreateRowSorter(AmbientTableModel.IS_SORT_AVAILABLE);
