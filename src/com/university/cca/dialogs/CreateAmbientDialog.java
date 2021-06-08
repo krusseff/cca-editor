@@ -6,7 +6,6 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -19,6 +18,7 @@ import com.university.cca.entities.Ambient;
 import com.university.cca.enums.AmbientType;
 import com.university.cca.files.csv.AmbientCSVReader;
 import com.university.cca.files.csv.AmbientCSVWriter;
+import com.university.cca.frames.AppMainFrame;
 import com.university.cca.util.CreateAmbientUtil;
 import com.university.cca.util.MouseCursorUtil;
 
@@ -41,7 +41,7 @@ public class CreateAmbientDialog extends JDialog {
 	private JCheckBox activeCheckBox;
 	private JComboBox<String> parentAmbientsComboBox;
 	
-	public CreateAmbientDialog(JFrame parent, String title, String message, AmbientType ambientType) {
+	public CreateAmbientDialog(AppMainFrame parent, String title, String message, AmbientType ambientType) {
         super(parent, title, true);
         
         addDialogContent(message, ambientType);

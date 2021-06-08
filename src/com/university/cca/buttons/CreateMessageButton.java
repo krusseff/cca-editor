@@ -6,13 +6,13 @@ import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.university.cca.constants.Constants;
 import com.university.cca.dialogs.CreateAmbientMsgDialog;
+import com.university.cca.frames.AppMainFrame;
 import com.university.cca.util.MouseCursorUtil;
 
 /**
@@ -28,9 +28,9 @@ public class CreateMessageButton extends JButton implements ActionListener {
 	
 	private static final String BUTTON_TOOL_TIP = "Create and Send Ambient Message";
 	
-	private JFrame parentFrame;
+	private AppMainFrame parentFrame;
 	
-    public CreateMessageButton(JFrame parentFrame) {
+    public CreateMessageButton(AppMainFrame parentFrame) {
     	this.parentFrame = parentFrame;
     	
         this.setText("Send Message");
@@ -52,7 +52,7 @@ public class CreateMessageButton extends JButton implements ActionListener {
 	}
 	
 	// Getters and Setters
-	public JFrame getParentFrame() {
+	public AppMainFrame getParentFrame() {
 		return this.parentFrame;
 	}
 }

@@ -5,7 +5,6 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
 
@@ -15,6 +14,7 @@ import org.slf4j.LoggerFactory;
 
 import com.university.cca.constants.Constants;
 import com.university.cca.dialogs.UnderConstructionDialog;
+import com.university.cca.frames.AppMainFrame;
 import com.university.cca.util.MouseCursorUtil;
 
 public class TerminalMenuItem extends JMenuItem implements ActionListener {
@@ -22,9 +22,9 @@ public class TerminalMenuItem extends JMenuItem implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(TerminalMenuItem.class);
 	
-	private JFrame parentFrame;
+	private AppMainFrame parentFrame;
 	
-	public TerminalMenuItem(JFrame parentFrame) {
+	public TerminalMenuItem(AppMainFrame parentFrame) {
 		this.parentFrame = parentFrame;
 		
 		this.setText(Constants.FILE_ITEM_TERMINAL);
@@ -81,7 +81,7 @@ public class TerminalMenuItem extends JMenuItem implements ActionListener {
 	}
 	
 	// Getters
-	public JFrame getParentFrame() {
+	public AppMainFrame getParentFrame() {
 		return this.parentFrame;
 	}
 }

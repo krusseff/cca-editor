@@ -1,13 +1,14 @@
 package com.university.cca.dialogs;
 
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+
+import com.university.cca.frames.AppMainFrame;
 
 public class UnderConstructionDialog {
 
-	private JFrame parentFrame;
+	private AppMainFrame parentFrame;
 	
-	public UnderConstructionDialog(JFrame parentFrame) {
+	public UnderConstructionDialog(AppMainFrame parentFrame) {
 		this.parentFrame = parentFrame;
 		
 		String dialogContent = 
@@ -25,7 +26,7 @@ public class UnderConstructionDialog {
 	}
 
 	// Getters
-	public JFrame getParentFrame() {
+	public AppMainFrame getParentFrame() {
 		return this.parentFrame;
 	}
 }

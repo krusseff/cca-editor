@@ -5,7 +5,6 @@ import java.util.List;
 
 import javax.swing.BoxLayout;
 import javax.swing.JDialog;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -13,6 +12,7 @@ import javax.swing.table.JTableHeader;
 
 import com.university.cca.entities.Ambient;
 import com.university.cca.files.csv.AmbientCSVReader;
+import com.university.cca.frames.AppMainFrame;
 import com.university.cca.tables.AmbientTableModel;
 import com.university.cca.tables.TableHeaderRenderer;
 import com.university.cca.tables.TablesUtil;
@@ -40,9 +40,9 @@ public class ShowAmbientsDialog extends JDialog {
 	private static final int TABLE_ROWS_HEIGHT = 30;
 	private static final double[] TABLE_COLUMNS_WIDTH = {17, 15, 15, 10, 10, 8, 17, 8};
 	
-	private JFrame parentFrame;
+	private AppMainFrame parentFrame;
 
-	public ShowAmbientsDialog(JFrame parentFrame) {
+	public ShowAmbientsDialog(AppMainFrame parentFrame) {
         super(parentFrame, TITLE, IS_MODAL);
         this.parentFrame = parentFrame;
         
@@ -87,7 +87,7 @@ public class ShowAmbientsDialog extends JDialog {
 	}
 
 	// Getters
-	public JFrame getParentFrame() {
+	public AppMainFrame getParentFrame() {
 		return this.parentFrame;
 	}
 }

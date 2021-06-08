@@ -9,7 +9,6 @@ import java.io.Reader;
 
 import javax.swing.BoxLayout;
 import javax.swing.JDialog;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -23,6 +22,7 @@ import com.university.cca.buttons.SaveFileButton;
 import com.university.cca.constants.Constants;
 import com.university.cca.files.cca.AmbientCCAUtility;
 import com.university.cca.files.cca.AmbientCCAWriter;
+import com.university.cca.frames.AppMainFrame;
 import com.university.cca.util.CCAUtils;
 import com.university.cca.util.MouseCursorUtil;
 
@@ -46,7 +46,7 @@ public class ShowAmbientsCCADialog extends JDialog {
 	
 	private JTextArea textArea;
 	
-	public ShowAmbientsCCADialog(JFrame parentFrame) {
+	public ShowAmbientsCCADialog(AppMainFrame parentFrame) {
         super(parentFrame, TITLE, true);
         
         addDialogContent();

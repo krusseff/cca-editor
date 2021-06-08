@@ -9,7 +9,6 @@ import java.io.Reader;
 
 import javax.swing.BoxLayout;
 import javax.swing.JDialog;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -23,6 +22,7 @@ import com.university.cca.buttons.SaveFileButton;
 import com.university.cca.constants.Constants;
 import com.university.cca.files.cca.AmbientCCAUtility;
 import com.university.cca.files.cca.AmbientCCAWriter;
+import com.university.cca.frames.AppMainFrame;
 import com.university.cca.util.CCAUtils;
 import com.university.cca.util.MouseCursorUtil;
 
@@ -44,10 +44,10 @@ public class OpenCCAFileDialog extends JDialog {
 	private static final int HEIGHT_DIALOG = CCAUtils.getScreenSize().height / 2 + 150;
 	private static final int WIDHT_DIALOG = 800;
 	
-	private JFrame parentFrame;
+	private AppMainFrame parentFrame;
 	private JTextArea textArea;
 	
-	public OpenCCAFileDialog(JFrame parentFrame) {
+	public OpenCCAFileDialog(AppMainFrame parentFrame) {
         super(parentFrame, TITLE, true);
         this.parentFrame = parentFrame;
         
@@ -147,7 +147,7 @@ public class OpenCCAFileDialog extends JDialog {
 	}
 
 	// Getters and Setters
-	public JFrame getParentFrame() {
+	public AppMainFrame getParentFrame() {
 		return this.parentFrame;
 	}
 
