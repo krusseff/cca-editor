@@ -32,6 +32,7 @@ public final class Constants {
 	public static final String IMAGES_LOADING_SCREEN_JPG = "./images/app/loading-screen.jpg";
 	public static final String BACKGROUND_ICON_PATH = "./images/app/background_map.gif";
 	public static final String BACKGROUND_LOVECH_ICON_PATH = "./images/app/lovech_map_mini.png";
+	public static final String BACKGROUND_AGRICULTURE_ICON_PATH = "./images/app/agriculture.jpg";
 	public static final String SUCCESS_ICON_PATH = "./images/buttons/check.png";
 	public static final String CANCEL_ICON_PATH = "./images/buttons/cancel.png";
 	public static final String CLOSE_ICON_PATH = "./images/buttons/close.png";
