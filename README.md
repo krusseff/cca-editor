@@ -37,6 +37,19 @@ These instructions will get you a copy of the project up and running on your loc
 ```
 9. Now, you can try to run the application. If you have any other issues that are not described here, please contact the other team members.
 
+### Project Start Up
+It is possible to start the *CCA Editor* application in different modes that are described below. Currently, two different modes are supported (_smart city and smart agriculture_).
+
+* If you start the application without any program arguments, it will start in default *smart city* mode.
+* If you start the application with program argument equals to 0, it will start in *smart city* mode.
+* If you start the application with program argument equals to 1, it will start in *smart agriculture* mode.
+* If you start the application with program argument different than 0 or 1, it will be treated as an invalid application mode and the application will start in default *smart city* mode.
+
+You can set the program arguments on application start at least in three different ways. The *CCA Editor* application can accept any number of arguments. This allows the developer/user to specify configuration information, when the application is launched.
+* [Command-Line](https://docs.oracle.com/javase/tutorial/essential/environment/cmdLineArgs.html)
+* [Eclipse IDE](https://www.cs.colostate.edu/helpdocs/cmd.pdf)
+* [IntelliJ IDEA](https://www.jetbrains.com/help/idea/running-applications.html)
+
 ## Used Technologies
 
 * [Java 8](https://www.oracle.com/java/technologies/java8.html)
