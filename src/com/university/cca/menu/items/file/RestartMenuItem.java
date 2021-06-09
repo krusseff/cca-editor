@@ -4,7 +4,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
 
@@ -20,9 +19,9 @@ public class RestartMenuItem extends JMenuItem implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(RestartMenuItem.class);
 	
-	private JFrame parentFrame;
+	private AppMainFrame parentFrame;
 	
-	public RestartMenuItem(JFrame parentFrame) {
+	public RestartMenuItem(AppMainFrame parentFrame) {
 		this.parentFrame = parentFrame;
 		
 		this.setText(Constants.FILE_ITEM_RESTART);
@@ -42,12 +41,14 @@ public class RestartMenuItem extends JMenuItem implements ActionListener {
 		logger.info("File Restart Button is clicked");
 		logger.info("CCA Editor application re-starting... :)");
 
+		int applicationMode = this.parentFrame.getApplicationMode();
+		
 		this.parentFrame.dispose();
-		new AppMainFrame();
+		new AppMainFrame(applicationMode);
 	}
 	
 	// Getters
-	public JFrame getParentFrame() {
+	public AppMainFrame getParentFrame() {
 		return this.parentFrame;
 	}
 }

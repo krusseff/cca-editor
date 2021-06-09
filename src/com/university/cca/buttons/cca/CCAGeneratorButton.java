@@ -6,13 +6,13 @@ import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.university.cca.constants.Constants;
 import com.university.cca.dialogs.cca.generation.CCAGenerationDialog;
+import com.university.cca.frames.AppMainFrame;
 import com.university.cca.util.MouseCursorUtil;
 
 /**
@@ -29,9 +29,9 @@ public class CCAGeneratorButton extends JButton implements ActionListener {
 	private static final String BUTTON_NAME = "CCA Generator";
 	private static final String BUTTON_TOOL_TIP = "Create the whole CCA Model and as a last step generate the CCA file";
 	
-	private JFrame parentFrame;
+	private AppMainFrame parentFrame;
 	
-    public CCAGeneratorButton(JFrame parentFrame) {
+    public CCAGeneratorButton(AppMainFrame parentFrame) {
     	this.parentFrame = parentFrame;
     	
         this.setText(BUTTON_NAME);
@@ -53,7 +53,7 @@ public class CCAGeneratorButton extends JButton implements ActionListener {
 	}
 	
 	// Getters and Setters
-	public JFrame getParentFrame() {
+	public AppMainFrame getParentFrame() {
 		return this.parentFrame;
 	}
 }

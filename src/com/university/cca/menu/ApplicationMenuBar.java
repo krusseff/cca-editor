@@ -1,7 +1,8 @@
 package com.university.cca.menu;
 
-import javax.swing.JFrame;
 import javax.swing.JMenuBar;
+
+import com.university.cca.frames.AppMainFrame;
 
 /**
  * Application Main Menu Bar of the CCA Editor application
@@ -13,9 +14,9 @@ public class ApplicationMenuBar extends JMenuBar {
 
 	private static final long serialVersionUID = 1L;
 	
-	private JFrame parentFrame;
+	private AppMainFrame parentFrame;
 
-	public ApplicationMenuBar(JFrame mainFrame) {
+	public ApplicationMenuBar(AppMainFrame mainFrame) {
 		this.parentFrame = mainFrame;
 
 		addElementsToMenu();
@@ -32,7 +33,7 @@ public class ApplicationMenuBar extends JMenuBar {
 	}
 
 	// Getters
-	public JFrame getParentFrame() {
+	public AppMainFrame getParentFrame() {
 		return this.parentFrame;
 	}
 }

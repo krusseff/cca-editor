@@ -5,13 +5,13 @@ import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.university.cca.constants.Constants;
 import com.university.cca.dialogs.cca.generation.OpenCCAFileDialog;
+import com.university.cca.frames.AppMainFrame;
 import com.university.cca.util.MouseCursorUtil;
 
 /**
@@ -28,9 +28,9 @@ public class OpenCCAFileButton extends JButton implements ActionListener {
 	private static final String BUTTON_NAME = "Open CCA File";
 	private static final String BUTTON_TOOL_TIP = "Notice that you will edit the CCA file";
 	
-	private JFrame parentFrame;
+	private AppMainFrame parentFrame;
 	
-    public OpenCCAFileButton(JFrame parentFrame) {
+    public OpenCCAFileButton(AppMainFrame parentFrame) {
     	this.parentFrame = parentFrame;
     	
         this.setText(BUTTON_NAME);
@@ -51,7 +51,7 @@ public class OpenCCAFileButton extends JButton implements ActionListener {
 	}
 	
 	// Getters and Setters
-	public JFrame getParentFrame() {
+	public AppMainFrame getParentFrame() {
 		return this.parentFrame;
 	}
 }

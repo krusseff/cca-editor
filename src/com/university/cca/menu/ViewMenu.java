@@ -1,13 +1,13 @@
 package com.university.cca.menu;
 
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JMenu;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.university.cca.constants.Constants;
+import com.university.cca.frames.AppMainFrame;
 import com.university.cca.menu.items.view.ShowAmbientMessages;
 import com.university.cca.menu.items.view.ShowAmbients;
 import com.university.cca.menu.items.view.ShowAmbientsCCAFile;
@@ -20,9 +20,9 @@ public class ViewMenu extends JMenu {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(ViewMenu.class);
 
-    private JFrame parentFrame;
+    private AppMainFrame parentFrame;
     
-    public ViewMenu(JFrame parentFrame) {
+    public ViewMenu(AppMainFrame parentFrame) {
     	this.parentFrame = parentFrame;
     	
     	this.setText(Constants.VIEW);
@@ -45,7 +45,7 @@ public class ViewMenu extends JMenu {
     }
     
 	// Getters
-	public JFrame getParentFrame() {
+	public AppMainFrame getParentFrame() {
 		return this.parentFrame;
 	}
 }

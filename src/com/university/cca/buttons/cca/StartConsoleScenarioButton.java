@@ -5,13 +5,13 @@ import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.university.cca.constants.Constants;
 import com.university.cca.dialogs.UnderConstructionDialog;
+import com.university.cca.frames.AppMainFrame;
 import com.university.cca.util.MouseCursorUtil;
 
 /**
@@ -28,9 +28,9 @@ public class StartConsoleScenarioButton extends JButton implements ActionListene
 	private static final String BUTTON_NAME = "Start Console Scenario";
 	private static final String BUTTON_TOOL_TIP = "Start the CCA Scenario via console";
 	
-	private JFrame parentFrame;
+	private AppMainFrame parentFrame;
 	
-    public StartConsoleScenarioButton(JFrame parentFrame) {
+    public StartConsoleScenarioButton(AppMainFrame parentFrame) {
     	this.parentFrame = parentFrame;
     	
         this.setText(BUTTON_NAME);
@@ -53,7 +53,7 @@ public class StartConsoleScenarioButton extends JButton implements ActionListene
 	}
 	
 	// Getters and Setters
-	public JFrame getParentFrame() {
+	public AppMainFrame getParentFrame() {
 		return this.parentFrame;
 	}
 }

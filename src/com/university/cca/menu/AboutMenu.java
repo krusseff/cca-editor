@@ -1,10 +1,10 @@
 package com.university.cca.menu;
 
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JMenu;
 
 import com.university.cca.constants.Constants;
+import com.university.cca.frames.AppMainFrame;
 import com.university.cca.menu.items.about.CCAEditorMenuItem;
 import com.university.cca.menu.items.about.CCAMenuItem;
 import com.university.cca.menu.items.about.CCATeamMenuItem;
@@ -17,9 +17,9 @@ public class AboutMenu extends JMenu {
 
 	private static final long serialVersionUID = 1L;
 
-    private JFrame parentFrame;
+    private AppMainFrame parentFrame;
     
-    public AboutMenu(JFrame parentFrame) {
+    public AboutMenu(AppMainFrame parentFrame) {
     	this.parentFrame = parentFrame;
     	
     	this.setText(Constants.ABOUT);
@@ -42,7 +42,7 @@ public class AboutMenu extends JMenu {
     }
     
 	// Getters
-	public JFrame getParentFrame() {
+	public AppMainFrame getParentFrame() {
 		return this.parentFrame;
 	}
 }

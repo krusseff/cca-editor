@@ -111,6 +111,20 @@ public class AmbientTableModel extends AbstractTableModel {
         return columnResult;
     }
     
+/*    
+    public void setValueAt(Object value, int rowIndex, int columnIndex) {
+        if (columnIndex == COLUMN_STATIC_INDEX) {
+            boolean isStaticAmbient = (Boolean) value;
+            Ambient ambient = ambients.get(rowIndex);
+            ambient.setStaticAmbient(isStaticAmbient);
+           
+            // System.out.println("Now setting value of good dog to -> " + isGoodDog + " for the Dog -> " + d.getName());
+        }
+        
+        super.setValueAt(value, rowIndex, columnIndex);
+    }
+*/
+    
     @Override
     public boolean isCellEditable(int rowIndex, int columnIndex) {
         return IS_CELL_EDITABLE;

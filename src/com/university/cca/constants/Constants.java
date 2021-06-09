@@ -32,6 +32,7 @@ public final class Constants {
 	public static final String IMAGES_LOADING_SCREEN_JPG = "./images/app/loading-screen.jpg";
 	public static final String BACKGROUND_ICON_PATH = "./images/app/background_map.gif";
 	public static final String BACKGROUND_LOVECH_ICON_PATH = "./images/app/lovech_map_mini.png";
+	public static final String BACKGROUND_AGRICULTURE_ICON_PATH = "./images/app/agriculture.jpg";
 	public static final String SUCCESS_ICON_PATH = "./images/buttons/check.png";
 	public static final String CANCEL_ICON_PATH = "./images/buttons/cancel.png";
 	public static final String CLOSE_ICON_PATH = "./images/buttons/close.png";
@@ -112,6 +113,16 @@ public final class Constants {
 	public static final String TAXI_ICON_PATH = "./images/ambient_buttons/taxi.png";
 	public static final String LORRY_ICON_PATH = "./images/ambient_buttons/lorry.png";
 	public static final String TRAIN_ICON_PATH = "./images/ambient_buttons/train.png";
+	public static final String OPERATIONS_ICON_PATH = "./images/ambient_buttons/operations_center.png";
+	public static final String WEATHER_STATION_ICON_PATH = "./images/ambient_buttons/weather_station.png";
+	public static final String PUMP_STATION_ICON_PATH = "./images/ambient_buttons/pump_station.png";
+	public static final String SPRINKLER_ICON_PATH = "./images/ambient_buttons/sprinkler.png";
+	public static final String ORCHARD_ICON_PATH = "./images/ambient_buttons/orchard.png";
+	public static final String TRACTOR_ICON_PATH = "./images/ambient_buttons/tractor.png";
+	public static final String PLANTER_ICON_PATH = "./images/ambient_buttons/planter.png";
+	public static final String HARVESTER_ICON_PATH = "./images/ambient_buttons/harvester.png";
+	public static final String MOWER_ICON_PATH = "./images/ambient_buttons/mower.png";
+	public static final String DRONE_ICON_PATH = "./images/ambient_buttons/drone.png";
 	public static final String OTHER_ICON_PATH = "./images/ambient_buttons/other.png";
 	
 	// Menu Text Labels

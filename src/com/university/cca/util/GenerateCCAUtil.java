@@ -1,9 +1,9 @@
 package com.university.cca.util;
 
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import com.university.cca.constants.Constants;
+import com.university.cca.frames.AppMainFrame;
 
 /**
  * Utility methods related to the generate CCA file functionality of the application.
@@ -21,7 +21,7 @@ public class GenerateCCAUtil {
 	 * Method that shows a success dialog if the CCA file is generated successfully.
 	 * 
 	 */
-	public static void createSuccessDialog(JFrame parentFrame) {
+	public static void createSuccessDialog(AppMainFrame parentFrame) {
 		JOptionPane.showMessageDialog(
 			parentFrame,
 			"The CCA file is generated successfully! \n" +
@@ -35,7 +35,7 @@ public class GenerateCCAUtil {
 	 * Method that shows an error dialog if there is an error related to the CCA file generation.
 	 * 
 	 */
-	public static void createErrorDialog(JFrame parentFrame) {
+	public static void createErrorDialog(AppMainFrame parentFrame) {
 		JOptionPane.showMessageDialog(
 			parentFrame,
 			"The CCA file is NOT generated! \n" +

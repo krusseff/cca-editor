@@ -27,9 +27,12 @@ public class AppMainFrame extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(AppMainFrame.class);
+	
+	private int applicationMode;
 
-	public AppMainFrame() {
+	public AppMainFrame(int applicationMode) {
 		logger.info("Application main frame initializing...");
+		this.applicationMode = applicationMode;
 
 		this.setTitle(Constants.APPLICATION_TITLE);
 		this.setName(Constants.MAIN_FRAME_NAME);
@@ -48,6 +51,7 @@ public class AppMainFrame extends JFrame {
 
 	/**
 	 * Method that adds content to the main frame of the application
+	 * 
 	 */
 	private void addContentToFrame() {
 		new ApplicationMenuBar(this);
@@ -58,6 +62,7 @@ public class AppMainFrame extends JFrame {
 	
 	/**
 	 * Set the image of the main frame of the application
+	 * 
 	 */
 	private Image createMainFrameIconImage() {
 		ImageIcon image = new ImageIcon(Constants.IMAGES_ICON_JPG);
@@ -67,6 +72,7 @@ public class AppMainFrame extends JFrame {
 	
 	/**
 	 * Set the size of the main frame of the application
+	 * 
 	 */
 	private void makeFrameHalfSize() {
 	    Dimension screenSize = CCAUtils.getScreenSize();
@@ -75,11 +81,17 @@ public class AppMainFrame extends JFrame {
 	
 	/**
 	 * Set the position of the main frame of the application
+	 * 
 	 */
 	private void makeFrameCenterPosition() {
 	    Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
 	    int x = (int) ((dimension.getWidth() - this.getWidth()) / 2);
 	    int y = (int) ((dimension.getHeight() - this.getHeight()) / 2);
 	    this.setLocation(x, y);
+	}
+
+	// Getters
+	public int getApplicationMode() {
+		return this.applicationMode;
 	}
 }

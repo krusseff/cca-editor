@@ -6,7 +6,6 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -19,6 +18,7 @@ import com.university.cca.buttons.CancelDialogButton;
 import com.university.cca.entities.Message;
 import com.university.cca.files.csv.AmbientCSVReader;
 import com.university.cca.files.csv.AmbientCSVWriter;
+import com.university.cca.frames.AppMainFrame;
 import com.university.cca.util.CreateMessageUtil;
 import com.university.cca.util.MouseCursorUtil;
 
@@ -38,7 +38,7 @@ public class CreateAmbientMsgDialog extends JDialog {
 	private JComboBox<String> respondToComboBox;
 	private JTextArea ambientMessageTextArea;
 	
-	public CreateAmbientMsgDialog(JFrame parent) {
+	public CreateAmbientMsgDialog(AppMainFrame parent) {
 		super(parent, TITLE_DIALOG, true);
 		
 		addDialogContent();

@@ -5,7 +5,6 @@ import java.awt.FlowLayout;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -14,6 +13,7 @@ import javax.swing.JTextPane;
 
 import com.university.cca.buttons.CloseDialogButton;
 import com.university.cca.constants.Constants;
+import com.university.cca.frames.AppMainFrame;
 import com.university.cca.util.CCAUtils;
 import com.university.cca.util.MouseCursorUtil;
 
@@ -152,7 +152,7 @@ public class CCATeamDialog extends JDialog {
 			"</body>" +
 		"</html>";
 	
-	public CCATeamDialog(JFrame parentFrame) {
+	public CCATeamDialog(AppMainFrame parentFrame) {
 		super(parentFrame, TITLE_DIALOG, true);
 		
 		addDialogContent();

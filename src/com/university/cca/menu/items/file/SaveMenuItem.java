@@ -4,7 +4,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
 
@@ -13,6 +12,7 @@ import org.slf4j.LoggerFactory;
 
 import com.university.cca.constants.Constants;
 import com.university.cca.dialogs.UnderConstructionDialog;
+import com.university.cca.frames.AppMainFrame;
 import com.university.cca.util.MouseCursorUtil;
 
 public class SaveMenuItem extends JMenuItem implements ActionListener {
@@ -20,9 +20,9 @@ public class SaveMenuItem extends JMenuItem implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(SaveMenuItem.class);
 	
-	private JFrame parentFrame;
+	private AppMainFrame parentFrame;
 	
-	public SaveMenuItem(JFrame parentFrame) {
+	public SaveMenuItem(AppMainFrame parentFrame) {
 		this.parentFrame = parentFrame;
 		
 		this.setText(Constants.FILE_ITEM_SAVE);
@@ -44,7 +44,7 @@ public class SaveMenuItem extends JMenuItem implements ActionListener {
 	}
 	
 	// Getters
-	public JFrame getParentFrame() {
+	public AppMainFrame getParentFrame() {
 		return this.parentFrame;
 	}
 }

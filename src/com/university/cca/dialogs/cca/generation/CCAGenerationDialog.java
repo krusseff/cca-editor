@@ -5,7 +5,6 @@ import java.awt.GridLayout;
 
 import javax.swing.BoxLayout;
 import javax.swing.JDialog;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -15,6 +14,7 @@ import com.university.cca.buttons.cca.GenerateCCAButton;
 import com.university.cca.buttons.cca.OpenCCAFileButton;
 import com.university.cca.buttons.cca.StartAnimatedScenarioButton;
 import com.university.cca.buttons.cca.StartConsoleScenarioButton;
+import com.university.cca.frames.AppMainFrame;
 import com.university.cca.util.MouseCursorUtil;
 
 /**
@@ -38,9 +38,9 @@ public class CCAGenerationDialog extends JDialog {
 	private static final int GRID_ROWS = 4;
 	private static final int GRID_COLS = 1;
 	
-	private JFrame parentFrame;
+	private AppMainFrame parentFrame;
 
-	public CCAGenerationDialog(JFrame parentFrame) {
+	public CCAGenerationDialog(AppMainFrame parentFrame) {
         super(parentFrame, TITLE, true);
         this.parentFrame = parentFrame;
         
@@ -104,7 +104,7 @@ public class CCAGenerationDialog extends JDialog {
 	}
 	
 	// Getters and Setters	
-	public JFrame getParentFrame() {
+	public AppMainFrame getParentFrame() {
 		return this.parentFrame;
 	}
 }

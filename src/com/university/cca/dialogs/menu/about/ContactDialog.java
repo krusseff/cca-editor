@@ -11,7 +11,6 @@ import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -23,6 +22,7 @@ import org.slf4j.LoggerFactory;
 
 import com.university.cca.constants.Constants;
 import com.university.cca.email.EmailSender;
+import com.university.cca.frames.AppMainFrame;
 import com.university.cca.util.ContactDialogUtil;
 import com.university.cca.util.MouseCursorUtil;
 
@@ -43,7 +43,7 @@ public class ContactDialog extends JDialog {
 	private JTextField emailTextField;
 	private JTextArea messageTextArea;
 	
-	public ContactDialog(JFrame parentFrame) {
+	public ContactDialog(AppMainFrame parentFrame) {
 		super(parentFrame, TITLE_DIALOG, true);
 		
 		addDialogContent();

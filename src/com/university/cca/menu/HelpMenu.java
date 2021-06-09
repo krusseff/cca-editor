@@ -1,13 +1,13 @@
 package com.university.cca.menu;
 
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JMenu;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.university.cca.constants.Constants;
+import com.university.cca.frames.AppMainFrame;
 import com.university.cca.menu.items.help.FAQMenuItem;
 import com.university.cca.menu.items.help.ShortcutsMenuItem;
 import com.university.cca.menu.items.help.TermsMenuItem;
@@ -18,9 +18,9 @@ public class HelpMenu extends JMenu {
 	private static final long serialVersionUID = 1L;
     private static final Logger logger = LoggerFactory.getLogger(HelpMenu.class);
 
-    private JFrame parentFrame;
+    private AppMainFrame parentFrame;
     
-    public HelpMenu(JFrame parentFrame) {
+    public HelpMenu(AppMainFrame parentFrame) {
     	this.parentFrame = parentFrame;
     	
     	this.setText(Constants.HELP);
@@ -40,7 +40,7 @@ public class HelpMenu extends JMenu {
     }
     
     // Getters
-	public JFrame getParentFrame() {
+	public AppMainFrame getParentFrame() {
 		return this.parentFrame;
 	}
 }

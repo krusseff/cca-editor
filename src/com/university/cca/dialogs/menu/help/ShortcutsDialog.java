@@ -4,13 +4,13 @@ import java.awt.FlowLayout;
 
 import javax.swing.BoxLayout;
 import javax.swing.JDialog;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import com.university.cca.buttons.CloseDialogButton;
 import com.university.cca.constants.Constants;
+import com.university.cca.frames.AppMainFrame;
 import com.university.cca.util.CCAUtils;
 
 public class ShortcutsDialog extends JDialog {
@@ -71,7 +71,7 @@ public class ShortcutsDialog extends JDialog {
 			"</body>" +
 		"</html>";
 	
-	public ShortcutsDialog(JFrame parentFrame) {
+	public ShortcutsDialog(AppMainFrame parentFrame) {
 		super(parentFrame, TITLE_DIALOG, true);
 		
 		addDialogContent();

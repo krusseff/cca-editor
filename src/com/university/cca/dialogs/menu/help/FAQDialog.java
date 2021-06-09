@@ -4,13 +4,13 @@ import java.awt.FlowLayout;
 
 import javax.swing.BoxLayout;
 import javax.swing.JDialog;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import com.university.cca.buttons.CloseDialogButton;
 import com.university.cca.constants.Constants;
+import com.university.cca.frames.AppMainFrame;
 import com.university.cca.util.CCAUtils;
 
 public class FAQDialog extends JDialog {
@@ -138,7 +138,7 @@ public class FAQDialog extends JDialog {
 			"</body>" +
 		"</html>";
 
-	public FAQDialog(JFrame parentFrame) {
+	public FAQDialog(AppMainFrame parentFrame) {
 		super(parentFrame, TITLE_DIALOG, true);
 		
 		addDialogContent();

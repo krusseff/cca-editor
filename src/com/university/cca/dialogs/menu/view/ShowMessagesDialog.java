@@ -1,19 +1,24 @@
 package com.university.cca.dialogs.menu.view;
 
+import java.awt.BorderLayout;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import javax.swing.BoxLayout;
 import javax.swing.JDialog;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.table.JTableHeader;
 
 import com.university.cca.entities.Message;
 import com.university.cca.files.csv.AmbientCSVReader;
+import com.university.cca.frames.AppMainFrame;
 import com.university.cca.tables.MessageTableModel;
+import com.university.cca.tables.TableHeaderRenderer;
+import com.university.cca.tables.TablesUtil;
 import com.university.cca.util.CCAUtils;
+import com.university.cca.util.MouseCursorUtil;
 
 /**
  * The dialog that holds the information for the ambient messages.
@@ -35,17 +40,21 @@ public class ShowMessagesDialog extends JDialog {
 	private static final boolean IS_MODAL = true;
 	
 	private static final int HEIGHT_DIALOG = CCAUtils.getScreenSize().height - 100;
-	private static final int WIDHT_DIALOG = CCAUtils.getScreenSize().width;
+	private static final int WIDTH_DIALOG = CCAUtils.getScreenSize().width;
 	
-	private JFrame parentFrame;
+	private static final String TABLE_NAME = "Ambient Messages Table";
+	private static final int TABLE_ROWS_HEIGHT = 30;
+	private static final double[] TABLE_COLUMNS_WIDTH = {15, 15, 35, 35};
+	
+	private AppMainFrame parentFrame;
 
-	public ShowMessagesDialog(JFrame parentFrame) {
+	public ShowMessagesDialog(AppMainFrame parentFrame) {
         super(parentFrame, TITLE, IS_MODAL);
         this.parentFrame = parentFrame;
         
         addDialogContent();
         
-        this.setSize(WIDHT_DIALOG, HEIGHT_DIALOG);
+        this.setSize(WIDTH_DIALOG, HEIGHT_DIALOG);
         this.setLocationRelativeTo(parentFrame);
         this.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
         this.setVisible(IS_VISIBLE);
@@ -55,7 +64,7 @@ public class ShowMessagesDialog extends JDialog {
 		JPanel dialogPanel = new JPanel();
         dialogPanel.setLayout(new BoxLayout(dialogPanel, BoxLayout.Y_AXIS));
         
-        dialogPanel.add(createMessagesTable());
+        dialogPanel.add(createMessagesTable(), BorderLayout.CENTER);
 
         this.getContentPane().add(dialogPanel);
 	}
@@ -65,6 +74,17 @@ public class ShowMessagesDialog extends JDialog {
 		
 		MessageTableModel messageTableModel = new MessageTableModel(messages);
 		JTable messageTable = new JTable(messageTableModel);
+		
+		messageTable.setName(TABLE_NAME);
+		messageTable.setCursor(MouseCursorUtil.getMouseHand());
+		
+		// set row and column size
+		TablesUtil.setTableRowsHeight(messageTable, TABLE_ROWS_HEIGHT);
+		TablesUtil.setTableColumnsWidth(messageTable, WIDTH_DIALOG, TABLE_COLUMNS_WIDTH);
+		
+		// set custom table header
+		JTableHeader tableHeader = messageTable.getTableHeader();
+		messageTable.getTableHeader().setDefaultRenderer(new TableHeaderRenderer(tableHeader.getDefaultRenderer()));
 		
 		// enable column sorting of the ambient messages table
 		messageTable.setAutoCreateRowSorter(MessageTableModel.IS_SORT_AVAILABLE);
@@ -99,7 +119,7 @@ public class ShowMessagesDialog extends JDialog {
 	}
 	
 	// Getters
-	public JFrame getParentFrame() {
+	public AppMainFrame getParentFrame() {
 		return this.parentFrame;
 	}
 }

@@ -5,13 +5,13 @@ import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.university.cca.constants.Constants;
 import com.university.cca.dialogs.UnderConstructionDialog;
+import com.university.cca.frames.AppMainFrame;
 import com.university.cca.util.MouseCursorUtil;
 
 /**
@@ -28,9 +28,9 @@ public class StartAnimatedScenarioButton extends JButton implements ActionListen
 	private static final String BUTTON_NAME = "Start Animated Scenario";
 	private static final String BUTTON_TOOL_TIP = "Start the CCA Scenario via the animator";
 	
-	private JFrame parentFrame;
+	private AppMainFrame parentFrame;
 	
-    public StartAnimatedScenarioButton(JFrame parentFrame) {
+    public StartAnimatedScenarioButton(AppMainFrame parentFrame) {
     	this.parentFrame = parentFrame;
     	
         this.setText(BUTTON_NAME);
@@ -53,7 +53,7 @@ public class StartAnimatedScenarioButton extends JButton implements ActionListen
 	}
 	
 	// Getters and Setters
-	public JFrame getParentFrame() {
+	public AppMainFrame getParentFrame() {
 		return this.parentFrame;
 	}
 }
