@@ -39,6 +39,7 @@ public enum AmbientType {
 	PLANTER,
 	HARVESTER,
 	MOWER,
+	BALER,
 	DRONE,
 	OTHER
 }

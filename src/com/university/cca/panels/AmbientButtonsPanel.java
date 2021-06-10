@@ -10,6 +10,7 @@ import javax.swing.JScrollPane;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.university.cca.buttons.ambients.BalerButton;
 import com.university.cca.buttons.ambients.BusButton;
 import com.university.cca.buttons.ambients.BusStationButton;
 import com.university.cca.buttons.ambients.CarButton;
@@ -86,7 +87,6 @@ public class AmbientButtonsPanel extends JPanel {
 	
 	/**
 	 * Method that adds content to the panel with all of the ambient buttons.
-	 * 
 	 */
 	private void addContentToPanel() {
 
@@ -107,7 +107,6 @@ public class AmbientButtonsPanel extends JPanel {
 	
 	/**
 	 * Method that adds content to the panel with all of the smart city ambient buttons.
-	 * 
 	 */
 	private void addSmartCityButtonsToPanel() {
 		this.add(new PAButton(this.parentFrame));
@@ -137,7 +136,6 @@ public class AmbientButtonsPanel extends JPanel {
 	
 	/**
 	 * Method that adds content to the panel with all of the smart agriculture ambient buttons.
-	 * 
 	 */
 	private void addSmartAgricultureButtonsToPanel() {
 		this.add(new PAButton(this.parentFrame));
@@ -151,6 +149,7 @@ public class AmbientButtonsPanel extends JPanel {
 		this.add(new PlanterButton(this.parentFrame));
 		this.add(new HarvesterButton(this.parentFrame));
 		this.add(new MowerButton(this.parentFrame));
+		this.add(new BalerButton(this.parentFrame));
 		this.add(new CityButton(this.parentFrame));
 		this.add(new CountryButton(this.parentFrame));
 		this.add(new ContinentButton(this.parentFrame));

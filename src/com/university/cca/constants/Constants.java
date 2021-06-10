@@ -122,6 +122,7 @@ public final class Constants {
 	public static final String PLANTER_ICON_PATH = "./images/ambient_buttons/planter.png";
 	public static final String HARVESTER_ICON_PATH = "./images/ambient_buttons/harvester.png";
 	public static final String MOWER_ICON_PATH = "./images/ambient_buttons/mower.png";
+	public static final String BALER_ICON_PATH = "./images/ambient_buttons/baler.png";
 	public static final String DRONE_ICON_PATH = "./images/ambient_buttons/drone.png";
 	public static final String OTHER_ICON_PATH = "./images/ambient_buttons/other.png";
 	
