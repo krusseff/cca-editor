@@ -10,6 +10,7 @@ import javax.swing.JScrollPane;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.university.cca.buttons.ambients.BalerButton;
 import com.university.cca.buttons.ambients.BusButton;
 import com.university.cca.buttons.ambients.BusStationButton;
 import com.university.cca.buttons.ambients.CarButton;
@@ -18,10 +19,13 @@ import com.university.cca.buttons.ambients.CoffeeButton;
 import com.university.cca.buttons.ambients.ContinentButton;
 import com.university.cca.buttons.ambients.CountryButton;
 import com.university.cca.buttons.ambients.DroneButton;
+import com.university.cca.buttons.ambients.GardenButton;
+import com.university.cca.buttons.ambients.GreenHouseButton;
 import com.university.cca.buttons.ambients.HarbourButton;
 import com.university.cca.buttons.ambients.HarvesterButton;
 import com.university.cca.buttons.ambients.HospitalButton;
 import com.university.cca.buttons.ambients.HotelButton;
+import com.university.cca.buttons.ambients.HumidityStationButton;
 import com.university.cca.buttons.ambients.LorryButton;
 import com.university.cca.buttons.ambients.MotorbikeButton;
 import com.university.cca.buttons.ambients.MowerButton;
@@ -86,7 +90,6 @@ public class AmbientButtonsPanel extends JPanel {
 	
 	/**
 	 * Method that adds content to the panel with all of the ambient buttons.
-	 * 
 	 */
 	private void addContentToPanel() {
 
@@ -107,7 +110,6 @@ public class AmbientButtonsPanel extends JPanel {
 	
 	/**
 	 * Method that adds content to the panel with all of the smart city ambient buttons.
-	 * 
 	 */
 	private void addSmartCityButtonsToPanel() {
 		this.add(new PAButton(this.parentFrame));
@@ -137,20 +139,23 @@ public class AmbientButtonsPanel extends JPanel {
 	
 	/**
 	 * Method that adds content to the panel with all of the smart agriculture ambient buttons.
-	 * 
 	 */
 	private void addSmartAgricultureButtonsToPanel() {
 		this.add(new PAButton(this.parentFrame));
 		this.add(new OperationsCenterButton(this.parentFrame));
 		this.add(new WeatherStationButton(this.parentFrame));
+		this.add(new HumidityStationButton(this.parentFrame));
 		this.add(new PumpStationButton(this.parentFrame));
 		this.add(new WaterSprinklerButton(this.parentFrame));
 		this.add(new OrchardButton(this.parentFrame));
+		this.add(new GardenButton(this.parentFrame));
+		this.add(new GreenHouseButton(this.parentFrame));
 		this.add(new DroneButton(this.parentFrame));
 		this.add(new TractorButton(this.parentFrame));
 		this.add(new PlanterButton(this.parentFrame));
 		this.add(new HarvesterButton(this.parentFrame));
 		this.add(new MowerButton(this.parentFrame));
+		this.add(new BalerButton(this.parentFrame));
 		this.add(new CityButton(this.parentFrame));
 		this.add(new CountryButton(this.parentFrame));
 		this.add(new ContinentButton(this.parentFrame));

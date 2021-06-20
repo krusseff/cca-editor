@@ -115,13 +115,17 @@ public final class Constants {
 	public static final String TRAIN_ICON_PATH = "./images/ambient_buttons/train.png";
 	public static final String OPERATIONS_ICON_PATH = "./images/ambient_buttons/operations_center.png";
 	public static final String WEATHER_STATION_ICON_PATH = "./images/ambient_buttons/weather_station.png";
+	public static final String HUMIDITY_STATION_ICON_PATH = "./images/ambient_buttons/humidity_station.png";
 	public static final String PUMP_STATION_ICON_PATH = "./images/ambient_buttons/pump_station.png";
 	public static final String SPRINKLER_ICON_PATH = "./images/ambient_buttons/sprinkler.png";
 	public static final String ORCHARD_ICON_PATH = "./images/ambient_buttons/orchard.png";
+	public static final String GARDEN_ICON_PATH = "./images/ambient_buttons/garden.png";
+	public static final String GREENHOUSE_ICON_PATH = "./images/ambient_buttons/greenhouse.png";
 	public static final String TRACTOR_ICON_PATH = "./images/ambient_buttons/tractor.png";
 	public static final String PLANTER_ICON_PATH = "./images/ambient_buttons/planter.png";
 	public static final String HARVESTER_ICON_PATH = "./images/ambient_buttons/harvester.png";
 	public static final String MOWER_ICON_PATH = "./images/ambient_buttons/mower.png";
+	public static final String BALER_ICON_PATH = "./images/ambient_buttons/baler.png";
 	public static final String DRONE_ICON_PATH = "./images/ambient_buttons/drone.png";
 	public static final String OTHER_ICON_PATH = "./images/ambient_buttons/other.png";
 	

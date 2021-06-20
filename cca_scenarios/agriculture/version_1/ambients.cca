@@ -1,0 +1,372 @@
+AGRICULTURE_PA
+[
+	AGRICULTURE_OC::send(Hello).0|
+	AGRICULTURE_OC::recv(Hello,Welcome_can_I_help_you).0
+]
+|
+AGRICULTURE_OC
+[
+	AGRICULTURE_PA::recv(Hello).
+	AGRICULTURE_PA::send(Hello,Welcome_can_I_help_you).0
+]
+|
+AGRICULTURE_PA
+[
+	AGRICULTURE_OC::send(Do_we_need_to_start_watering_each_of_the_individual_plots).0|
+	AGRICULTURE_OC::recv(Do_we_need_to_start_watering_each_of_the_individual_plots,Will_check_and_let_you_know).0
+]
+|
+AGRICULTURE_OC
+[
+	AGRICULTURE_PA::recv(Do_we_need_to_start_watering_each_of_the_individual_plots).
+	AGRICULTURE_PA::send(Do_we_need_to_start_watering_each_of_the_individual_plots,Will_check_and_let_you_know).0
+]
+|
+AGRICULTURE_PA
+[
+	AGRICULTURE_OC::send(Great_thank_you).0|
+	AGRICULTURE_OC::recv(Great_thank_you,You_are_welcome).0
+]
+|
+AGRICULTURE_OC
+[
+	AGRICULTURE_PA::recv(Great_thank_you).
+	AGRICULTURE_PA::send(Great_thank_you,You_are_welcome).0
+]
+|
+AGRICULTURE_OC
+[
+	WEATHER_STATION::send(Are_you_available).0|
+	WEATHER_STATION::recv(Are_you_available,Yes).0
+]
+|
+WEATHER_STATION
+[
+	AGRICULTURE_OC::recv(Are_you_available).
+	AGRICULTURE_OC::send(Are_you_available,Yes).0
+]
+|
+AGRICULTURE_OC
+[
+	WEATHER_STATION::send(Is_it_going_to_rain_soon).0|
+	WEATHER_STATION::recv(Is_it_going_to_rain_soon,Unfortunately_no).0
+]
+|
+WEATHER_STATION
+[
+	AGRICULTURE_OC::recv(Is_it_going_to_rain_soon).
+	AGRICULTURE_OC::send(Is_it_going_to_rain_soon,Unfortunately_no).0
+]
+|
+AGRICULTURE_OC
+[
+	WEATHER_STATION::send(Okay_thanks).0|
+	WEATHER_STATION::recv(Okay_thanks,no_worries).0
+]
+|
+WEATHER_STATION
+[
+	AGRICULTURE_OC::recv(Okay_thanks).
+	AGRICULTURE_OC::send(Okay_thanks,no_worries).0
+]
+|
+AGRICULTURE_OC
+[
+	SMART_DRONE::send(Hey_drone_have_a_question_for_you).0|
+	SMART_DRONE::recv(Hey_drone_have_a_question_for_you,Listening_to_you).0
+]
+|
+SMART_DRONE
+[
+	AGRICULTURE_OC::recv(Hey_drone_have_a_question_for_you).
+	AGRICULTURE_OC::send(Hey_drone_have_a_question_for_you,Listening_to_you).0
+]
+|
+AGRICULTURE_OC
+[
+	SMART_DRONE::send(Can_you_tell_me_the_status_of_the_soil).0|
+	SMART_DRONE::recv(Can_you_tell_me_the_status_of_the_soil,It_seems_that_plot_1_needs_watering).0
+]
+|
+SMART_DRONE
+[
+	AGRICULTURE_OC::recv(Can_you_tell_me_the_status_of_the_soil).
+	AGRICULTURE_OC::send(Can_you_tell_me_the_status_of_the_soil,It_seems_that_plot_1_needs_watering).0
+]
+|
+AGRICULTURE_OC
+[
+	SMART_DRONE::send(thanks_we_will_keep_in_touch).0|
+	SMART_DRONE::recv(thanks_we_will_keep_in_touch,Sure).0
+]
+|
+SMART_DRONE
+[
+	AGRICULTURE_OC::recv(thanks_we_will_keep_in_touch).
+	AGRICULTURE_OC::send(thanks_we_will_keep_in_touch,Sure).0
+]
+|
+AGRICULTURE_OC
+[
+	HUMIDITY_STATION::send(Are_you_available_now).0|
+	HUMIDITY_STATION::recv(Are_you_available_now,Yes_of_course).0
+]
+|
+HUMIDITY_STATION
+[
+	AGRICULTURE_OC::recv(Are_you_available_now).
+	AGRICULTURE_OC::send(Are_you_available_now,Yes_of_course).0
+]
+|
+AGRICULTURE_OC
+[
+	HUMIDITY_STATION::send(Can_you_tell_me_status_of_the_soil_humidity).0|
+	HUMIDITY_STATION::recv(Can_you_tell_me_status_of_the_soil_humidity,Plot_1_needs_watering_as_soon_as_possible).0
+]
+|
+HUMIDITY_STATION
+[
+	AGRICULTURE_OC::recv(Can_you_tell_me_status_of_the_soil_humidity).
+	AGRICULTURE_OC::send(Can_you_tell_me_status_of_the_soil_humidity,Plot_1_needs_watering_as_soon_as_possible).0
+]
+|
+AGRICULTURE_OC
+[
+	HUMIDITY_STATION::send(Okay_please_notify_me_if_other_region_needs_to_be_watering).0|
+	HUMIDITY_STATION::recv(Okay_please_notify_me_if_other_region_needs_to_be_watering,Understood).0
+]
+|
+HUMIDITY_STATION
+[
+	AGRICULTURE_OC::recv(Okay_please_notify_me_if_other_region_needs_to_be_watering).
+	AGRICULTURE_OC::send(Okay_please_notify_me_if_other_region_needs_to_be_watering,Understood).0
+]
+|
+AGRICULTURE_OC
+[
+	PUMP_STATION::send(Hey).0|
+	PUMP_STATION::recv(Hey,Can_I_help_you_with_something).0
+]
+|
+PUMP_STATION
+[
+	AGRICULTURE_OC::recv(Hey).
+	AGRICULTURE_OC::send(Hey,Can_I_help_you_with_something).0
+]
+|
+AGRICULTURE_OC
+[
+	PUMP_STATION::send(Do_we_have_enough_water_to_start_watering_plot_1).0|
+	PUMP_STATION::recv(Do_we_have_enough_water_to_start_watering_plot_1,Yes_it_seems_that_we_have_but_we_need_to_monitor_the_consumption).0
+]
+|
+PUMP_STATION
+[
+	AGRICULTURE_OC::recv(Do_we_have_enough_water_to_start_watering_plot_1).
+	AGRICULTURE_OC::send(Do_we_have_enough_water_to_start_watering_plot_1,Yes_it_seems_that_we_have_but_we_need_to_monitor_the_consumption).0
+]
+|
+AGRICULTURE_OC
+[
+	PUMP_STATION::send(Okay__please_let_me_know_when_there_is_no_enough_water).0|
+	PUMP_STATION::recv(Okay__please_let_me_know_when_there_is_no_enough_water,Start_monitoring_it).0
+]
+|
+PUMP_STATION
+[
+	AGRICULTURE_OC::recv(Okay__please_let_me_know_when_there_is_no_enough_water).
+	AGRICULTURE_OC::send(Okay__please_let_me_know_when_there_is_no_enough_water,Start_monitoring_it).0
+]
+|
+AGRICULTURE_OC
+[
+	AGRICULTURE_PA::send(We_need_to_start_watering_plot_1_as_soon_as_possible).0|
+	AGRICULTURE_PA::recv(We_need_to_start_watering_plot_1_as_soon_as_possible,Okay_thanks_for_the_information).0
+]
+|
+AGRICULTURE_PA
+[
+	AGRICULTURE_OC::recv(We_need_to_start_watering_plot_1_as_soon_as_possible).
+	AGRICULTURE_OC::send(We_need_to_start_watering_plot_1_as_soon_as_possible,Okay_thanks_for_the_information).0
+]
+|
+AGRICULTURE_PA
+[
+	AGRICULTURE_OC::send(How_much_time_we_need_to_watering_plot_1).0|
+	AGRICULTURE_OC::recv(How_much_time_we_need_to_watering_plot_1,30_minutes_should_be_enough).0
+]
+|
+AGRICULTURE_OC
+[
+	AGRICULTURE_PA::recv(How_much_time_we_need_to_watering_plot_1).
+	AGRICULTURE_PA::send(How_much_time_we_need_to_watering_plot_1,30_minutes_should_be_enough).0
+]
+|
+AGRICULTURE_PA
+[
+	AGRICULTURE_OC::send(Please_start_the_water_sprinklers_and_after_30_minutes_you_can_stop_them).0|
+	AGRICULTURE_OC::recv(Please_start_the_water_sprinklers_and_after_30_minutes_you_can_stop_them,Okay_will_do_that).0
+]
+|
+AGRICULTURE_OC
+[
+	AGRICULTURE_PA::recv(Please_start_the_water_sprinklers_and_after_30_minutes_you_can_stop_them).
+	AGRICULTURE_PA::send(Please_start_the_water_sprinklers_and_after_30_minutes_you_can_stop_them,Okay_will_do_that).0
+]
+|
+AGRICULTURE_PA
+[
+	AGRICULTURE_OC::send(When_the_watering_is_done_start_spraying_plot_1_with_agricultural_medicines).0|
+	AGRICULTURE_OC::recv(When_the_watering_is_done_start_spraying_plot_1_with_agricultural_medicines,Okay_will_communicate_with_the_tractor_or_drone).0
+]
+|
+AGRICULTURE_OC
+[
+	AGRICULTURE_PA::recv(When_the_watering_is_done_start_spraying_plot_1_with_agricultural_medicines).
+	AGRICULTURE_PA::send(When_the_watering_is_done_start_spraying_plot_1_with_agricultural_medicines,Okay_will_communicate_with_the_tractor_or_drone).0
+]
+|
+AGRICULTURE_PA
+[
+	AGRICULTURE_OC::send(Perfect_thanks).0|
+	AGRICULTURE_OC::recv(Perfect_thanks,See_you_soon).0
+]
+|
+AGRICULTURE_OC
+[
+	AGRICULTURE_PA::recv(Perfect_thanks).
+	AGRICULTURE_PA::send(Perfect_thanks,See_you_soon).0
+]
+|
+AGRICULTURE_OC
+[
+	SMART_SPRINKLERS::send(Are_you_available_to_start_watering).0|
+	SMART_SPRINKLERS::recv(Are_you_available_to_start_watering,Yes_I_am_available).0
+]
+|
+SMART_SPRINKLERS
+[
+	AGRICULTURE_OC::recv(Are_you_available_to_start_watering).
+	AGRICULTURE_OC::send(Are_you_available_to_start_watering,Yes_I_am_available).0
+]
+|
+AGRICULTURE_OC
+[
+	SMART_SPRINKLERS::send(Start_watering_plot_1_for_30_minutes).0|
+	SMART_SPRINKLERS::recv(Start_watering_plot_1_for_30_minutes,Done).0
+]
+|
+SMART_SPRINKLERS
+[
+	AGRICULTURE_OC::recv(Start_watering_plot_1_for_30_minutes).
+	AGRICULTURE_OC::send(Start_watering_plot_1_for_30_minutes,Done).0
+]
+|
+AGRICULTURE_OC
+[
+	SMART_TRACTOR::send(Hey_there).0|
+	SMART_TRACTOR::recv(Hey_there,Can_I_help_you_with_something).0
+]
+|
+SMART_TRACTOR
+[
+	AGRICULTURE_OC::recv(Hey_there).
+	AGRICULTURE_OC::send(Hey_there,Can_I_help_you_with_something).0
+]
+|
+AGRICULTURE_OC
+[
+	SMART_TRACTOR::send(Are_you_near_to_plot_1_of_the_agricultural_region).0|
+	SMART_TRACTOR::recv(Are_you_near_to_plot_1_of_the_agricultural_region,Nope).0
+]
+|
+SMART_TRACTOR
+[
+	AGRICULTURE_OC::recv(Are_you_near_to_plot_1_of_the_agricultural_region).
+	AGRICULTURE_OC::send(Are_you_near_to_plot_1_of_the_agricultural_region,Nope).0
+]
+|
+AGRICULTURE_OC
+[
+	SMART_TRACTOR::send(How_much_time_do_you_need_to_navigate_to_plot_1).0|
+	SMART_TRACTOR::recv(How_much_time_do_you_need_to_navigate_to_plot_1,An_hour_or_more).0
+]
+|
+SMART_TRACTOR
+[
+	AGRICULTURE_OC::recv(How_much_time_do_you_need_to_navigate_to_plot_1).
+	AGRICULTURE_OC::send(How_much_time_do_you_need_to_navigate_to_plot_1,An_hour_or_more).0
+]
+|
+AGRICULTURE_OC
+[
+	SMART_TRACTOR::send(Okay_bye).0|
+	SMART_TRACTOR::recv(Okay_bye,Bye).0
+]
+|
+SMART_TRACTOR
+[
+	AGRICULTURE_OC::recv(Okay_bye).
+	AGRICULTURE_OC::send(Okay_bye,Bye).0
+]
+|
+AGRICULTURE_OC
+[
+	SMART_DRONE::send(Hey_drone_it_is_me_again).0|
+	SMART_DRONE::recv(Hey_drone_it_is_me_again,How_can_I_help_you).0
+]
+|
+SMART_DRONE
+[
+	AGRICULTURE_OC::recv(Hey_drone_it_is_me_again).
+	AGRICULTURE_OC::send(Hey_drone_it_is_me_again,How_can_I_help_you).0
+]
+|
+AGRICULTURE_OC
+[
+	SMART_DRONE::send(Are_you_near_to_plot_1).0|
+	SMART_DRONE::recv(Are_you_near_to_plot_1,Yes_I_need_10_minutes_and_will_be_there).0
+]
+|
+SMART_DRONE
+[
+	AGRICULTURE_OC::recv(Are_you_near_to_plot_1).
+	AGRICULTURE_OC::send(Are_you_near_to_plot_1,Yes_I_need_10_minutes_and_will_be_there).0
+]
+|
+AGRICULTURE_OC
+[
+	SMART_DRONE::send(Please_start_spraying_plot_1_with_agricultural_medicines_after_30_minutes).0|
+	SMART_DRONE::recv(Please_start_spraying_plot_1_with_agricultural_medicines_after_30_minutes,Sure_will_do_that).0
+]
+|
+SMART_DRONE
+[
+	AGRICULTURE_OC::recv(Please_start_spraying_plot_1_with_agricultural_medicines_after_30_minutes).
+	AGRICULTURE_OC::send(Please_start_spraying_plot_1_with_agricultural_medicines_after_30_minutes,Sure_will_do_that).0
+]
+|
+AGRICULTURE_OC
+[
+	SMART_DRONE::send(Wait_for_the_water_sprinklers_to_finish_and_then_start_spraying).0|
+	SMART_DRONE::recv(Wait_for_the_water_sprinklers_to_finish_and_then_start_spraying,Thanks_for_the_clarifications).0
+]
+|
+SMART_DRONE
+[
+	AGRICULTURE_OC::recv(Wait_for_the_water_sprinklers_to_finish_and_then_start_spraying).
+	AGRICULTURE_OC::send(Wait_for_the_water_sprinklers_to_finish_and_then_start_spraying,Thanks_for_the_clarifications).0
+]
+|
+AGRICULTURE_OC
+[
+	SMART_DRONE::send(Bye_and_let_me_know_if_there_are_some_issues).0|
+	SMART_DRONE::recv(Bye_and_let_me_know_if_there_are_some_issues,Sure_see_you).0
+]
+|
+SMART_DRONE
+[
+	AGRICULTURE_OC::recv(Bye_and_let_me_know_if_there_are_some_issues).
+	AGRICULTURE_OC::send(Bye_and_let_me_know_if_there_are_some_issues,Sure_see_you).0
+]
+
