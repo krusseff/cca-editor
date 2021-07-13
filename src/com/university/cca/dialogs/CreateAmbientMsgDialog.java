@@ -116,10 +116,10 @@ public class CreateAmbientMsgDialog extends JDialog {
 	}
 
 	/**
-	 * @return set up and return the combo box with all ambient names that are already created.
+	 * @return set up and return the combo box with all ambient names (sorted alphabetically) that are already created.
 	 */
 	private JComboBox<String> createAmbientComboBox() {
-		String[] ambientNames = AmbientCSVReader.getAmbientNamesSorted();
+		String[] ambientNames = AmbientCSVReader.getActiveAmbientNamesSorted();
 		
 		JComboBox<String> ambientNamesComboBox = new JComboBox<>(ambientNames);
 		ambientNamesComboBox.setSelectedIndex(-1); // set default empty value

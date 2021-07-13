@@ -75,15 +75,20 @@ public class AmbientCSVReader {
 	}
 	
 	/**
-	 * Method, which main responsibility is to read ambient names from the csv file as an array.
+	 * Method, which main responsibility is to read ambients from the csv file.
+	 * Returns only active ambient names sorted alphabetically.
 	 */
-	public static String[] getAmbientNamesSorted() {
-		List<String> ambients = readAmbientNamesFromCsv();
-		List<String> sortedAmbients = ambients.stream().sorted().collect(Collectors.toList());
+	public static String[] getActiveAmbientNamesSorted() {
+		List<String> sortedAmbientNames = readAmbientsFromCsv().stream()
+			.map(AmbientCsvUtil::convertToAmbient)
+			.filter(Ambient::isActiveAmbient)
+			.map(Ambient::getName)
+			.sorted()
+			.collect(Collectors.toList());
 		
-		String[] ambientNames = new String[sortedAmbients.size()];
+		String[] ambientNames = new String[sortedAmbientNames.size()];
 		
-		return sortedAmbients.toArray(ambientNames);
+		return sortedAmbientNames.toArray(ambientNames);
 	}
 	
 	/**

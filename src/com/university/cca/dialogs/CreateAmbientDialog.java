@@ -145,10 +145,10 @@ public class CreateAmbientDialog extends JDialog {
 	}
 	
 	/**
-	 * @return set up and return the combo box with all ambient names that are already created.
+	 * @return set up and return the combo box with all ambient names (sorted alphabetically) that are already created.
 	 */
 	private JComboBox<String> createComboBox() {
-		String[] parentAmbientNames = AmbientCSVReader.getAmbientNamesSorted();
+		String[] parentAmbientNames = AmbientCSVReader.getActiveAmbientNamesSorted();
 		JComboBox<String> parentsComboBox = new JComboBox<>(parentAmbientNames);
 		parentsComboBox.setCursor(MouseCursorUtil.getMouseHand());
 		
