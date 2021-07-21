@@ -1,5 +1,9 @@
 package com.university.cca.repositories;
 
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,11 +27,57 @@ public class AmbientRepository {
 	}
 	
 	/**
-	 * Method that returns parent ambient of the given ambient name
+	 * Fetch all ambients from given data source
+	 */
+	public static List<Ambient> getAllAmbients() {
+		
+		return AmbientCSVReader.getAllAmbients();
+	}
+	
+	/**
+	 * Fetch all ambients from the csv file sorted by ambient name
+	 */
+	public static List<Ambient> getAllAmbientsSortedByName() {
+	
+		return getAllAmbients()
+			.stream()
+			.sorted(Comparator.comparing(Ambient::getName))
+			.collect(Collectors.toList());
+	}
+	
+	/**
+	 * Returns all ambient names
+	 */
+	public static List<String> getAllAmbientNames() {
+		
+		return getAllAmbients()
+			.stream()
+			.map(Ambient::getName)
+			.collect(Collectors.toList());
+	}
+	
+	/**
+	 *  Returns only active ambient names sorted alphabetically
+	 */
+	public static String[] getActiveAmbientNamesSorted() {
+		List<String> sortedActiveAmbientNames = getAllAmbients()
+			.stream()
+			.filter(Ambient::isActiveAmbient)
+			.map(Ambient::getName)
+			.sorted()
+			.collect(Collectors.toList());
+		
+		String[] ambientNames = new String[sortedActiveAmbientNames.size()];
+		
+		return sortedActiveAmbientNames.toArray(ambientNames);
+	}
+	
+	/**
+	 * Returns parent ambient of the given ambient name
 	 */
 	public static String getParentAmbientName(String ambientName) {
 		
-		return AmbientCSVReader.getAllAmbients()
+		return getAllAmbients()
 			.stream()
 			.filter(ambient -> ambientName.equals(ambient.getName()))
 			.map(Ambient::getParentAmbient)

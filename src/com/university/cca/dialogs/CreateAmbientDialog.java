@@ -16,9 +16,9 @@ import org.slf4j.LoggerFactory;
 import com.university.cca.buttons.CancelDialogButton;
 import com.university.cca.entities.Ambient;
 import com.university.cca.enums.AmbientType;
-import com.university.cca.files.csv.AmbientCSVReader;
 import com.university.cca.files.csv.AmbientCSVWriter;
 import com.university.cca.frames.AppMainFrame;
+import com.university.cca.repositories.AmbientRepository;
 import com.university.cca.util.CreateAmbientUtil;
 import com.university.cca.util.MouseCursorUtil;
 
@@ -148,7 +148,7 @@ public class CreateAmbientDialog extends JDialog {
 	 * @return set up and return the combo box with all ambient names (sorted alphabetically) that are already created.
 	 */
 	private JComboBox<String> createComboBox() {
-		String[] parentAmbientNames = AmbientCSVReader.getActiveAmbientNamesSorted();
+		String[] parentAmbientNames = AmbientRepository.getActiveAmbientNamesSorted();
 		JComboBox<String> parentsComboBox = new JComboBox<>(parentAmbientNames);
 		parentsComboBox.setCursor(MouseCursorUtil.getMouseHand());
 		

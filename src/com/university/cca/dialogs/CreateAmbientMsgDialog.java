@@ -16,9 +16,10 @@ import org.slf4j.LoggerFactory;
 
 import com.university.cca.buttons.CancelDialogButton;
 import com.university.cca.entities.Message;
-import com.university.cca.files.csv.AmbientCSVReader;
 import com.university.cca.files.csv.AmbientCSVWriter;
 import com.university.cca.frames.AppMainFrame;
+import com.university.cca.repositories.AmbientRepository;
+import com.university.cca.repositories.MessageRepository;
 import com.university.cca.util.CreateMessageUtil;
 import com.university.cca.util.MouseCursorUtil;
 
@@ -119,7 +120,7 @@ public class CreateAmbientMsgDialog extends JDialog {
 	 * @return set up and return the combo box with all ambient names (sorted alphabetically) that are already created.
 	 */
 	private JComboBox<String> createAmbientComboBox() {
-		String[] ambientNames = AmbientCSVReader.getActiveAmbientNamesSorted();
+		String[] ambientNames = AmbientRepository.getActiveAmbientNamesSorted();
 		
 		JComboBox<String> ambientNamesComboBox = new JComboBox<>(ambientNames);
 		ambientNamesComboBox.setSelectedIndex(-1); // set default empty value
@@ -134,7 +135,7 @@ public class CreateAmbientMsgDialog extends JDialog {
 	 * @return set up and return the combo box with all ambient messages that are already created.
 	 */
 	private JComboBox<String> createRespondToComboBox() {
-		String[] ambientMessages = AmbientCSVReader.getAmbientMessagesSorted();
+		String[] ambientMessages = MessageRepository.getAmbientMessagesSorted();
 		
 		JComboBox<String> respondToCombo = new JComboBox<>(ambientMessages);
 		respondToCombo.setSelectedIndex(-1); // set default empty value

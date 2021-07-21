@@ -6,9 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -50,16 +48,6 @@ public class AmbientCSVReader {
 	}
 	
 	/**
-	 * Method, which main responsibility is to fetch all ambients from the csv file sorted by ambient name.
-	 */
-	public static List<Ambient> getAllAmbientsSortedByName() {
-		return getAllAmbients()
-				.stream()
-				.sorted(Comparator.comparing(Ambient::getName))
-				.collect(Collectors.toList());
-	}
-	
-	/**
 	 * Method, which main responsibility is to fetch all ambient messages from the csv file.
 	 */
 	public static List<Message> getAllMessages() {
@@ -75,66 +63,9 @@ public class AmbientCSVReader {
 	}
 	
 	/**
-	 * Method, which main responsibility is to read ambients from the csv file.
-	 * Returns only active ambient names sorted alphabetically.
+	 * Method, which main responsibility is to read ambients from the csv file
 	 */
-	public static String[] getActiveAmbientNamesSorted() {
-		List<String> sortedAmbientNames = readAmbientsFromCsv().stream()
-			.map(AmbientCsvUtil::convertToAmbient)
-			.filter(Ambient::isActiveAmbient)
-			.map(Ambient::getName)
-			.sorted()
-			.collect(Collectors.toList());
-		
-		String[] ambientNames = new String[sortedAmbientNames.size()];
-		
-		return sortedAmbientNames.toArray(ambientNames);
-	}
-	
-	/**
-	 * Method, which main responsibility is to read ambient names from the csv file.
-	 */
-	public static List<String> readAmbientNamesFromCsv() {
-		List<CsvAmbientBean> ambients = readAmbientsFromCsv();
-		List<String> parentAmbientNames = new ArrayList<>();
-		
-		for (CsvAmbientBean ambient : ambients) {
-			parentAmbientNames.add(ambient.getName());
-		}
-		
-		return parentAmbientNames;
-	}
-	
-	/**
-	 * Method, which main responsibility is to read the exact ambient messages as String from the csv file as a sorted array in alphabetical order.
-	 */
-	public static String[] getAmbientMessagesSorted() {
-		List<String> messages = readMessagesFromCsv();
-		List<String> sortedMessages = messages.stream().sorted().collect(Collectors.toList());
-		
-		String[] ambientMessages = new String[sortedMessages.size()];
-		
-		return sortedMessages.toArray(ambientMessages);
-	}
-
-	/**
-	 * Method, which main responsibility is to read exact ambient messages as String from the csv file.
-	 */
-	public static List<String> readMessagesFromCsv() {
-		List<CsvMessageBean> ambientMessages = readAmbientMessagesFromCsv();
-		List<String> stringMessages = new ArrayList<>();
-		
-		for (CsvMessageBean ambientMessage : ambientMessages) {
-			stringMessages.add(ambientMessage.getAmbientMessage());
-		}
-		
-		return stringMessages;
-	}
-	
-	/**
-	 * Method, which main responsibility is to read ambients from the csv file.
-	 */
-	public static List<CsvAmbientBean> readAmbientsFromCsv() {
+	private static List<CsvAmbientBean> readAmbientsFromCsv() {
 		List<CsvAmbientBean> ambientBeans;
 		
 		String filePath = Constants.AMBIENTS_CSV_FILE_PATH;
@@ -151,9 +82,9 @@ public class AmbientCSVReader {
 	}
 	
 	/**
-	 * Method, which main responsibility is to read ambient messages from the csv file.
+	 * Method, which main responsibility is to read ambient messages from the csv file
 	 */
-	public static List<CsvMessageBean> readAmbientMessagesFromCsv() {
+	private static List<CsvMessageBean> readAmbientMessagesFromCsv() {
 		List<CsvMessageBean> messageBeans;
 		
 		String filePath = Constants.MESSAGES_CSV_FILE_PATH;
@@ -170,7 +101,7 @@ public class AmbientCSVReader {
 	}
 
 	/**
-	 * Method, which main responsibility is to read from the csv file.
+	 * Method, which main responsibility is to read from the csv file
 	 */
 	private static <T> List<T> readCsvToBean(Path path, Class<T> clazz) throws IOException {
 		ColumnPositionMappingStrategy<T> ms = new ColumnPositionMappingStrategy<>();

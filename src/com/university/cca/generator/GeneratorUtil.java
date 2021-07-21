@@ -6,7 +6,6 @@ import java.util.stream.Collectors;
 
 import com.university.cca.entities.Message;
 import com.university.cca.exceptions.AmbientMessageNotFound;
-import com.university.cca.files.csv.AmbientCSVReader;
 import com.university.cca.repositories.AmbientRepository;
 
 /**
@@ -31,7 +30,7 @@ public class GeneratorUtil {
 	 * If it's not - the ambient message will NOT be included at the result set.
 	 */
 	protected static List<Message> getMessagesActiveAmbients(List<Message> messages) {
-		List<String> activeAmbients = Arrays.asList(AmbientCSVReader.getActiveAmbientNamesSorted());
+		List<String> activeAmbients = Arrays.asList(AmbientRepository.getActiveAmbientNamesSorted());
 		
 		return messages.stream()
 			.filter(msg -> areActiveAmbients(activeAmbients, msg))
