@@ -3,9 +3,6 @@ package com.university.cca.repositories;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import com.university.cca.entities.Message;
 import com.university.cca.files.csv.AmbientCSVReader;
 
@@ -16,8 +13,6 @@ import com.university.cca.files.csv.AmbientCSVReader;
  * @version 1.0
  */
 public class MessageRepository {
-
-	private static final Logger logger = LoggerFactory.getLogger(MessageRepository.class);
 
 	private MessageRepository() {
 		// Prevent creating an object of type MessageRepository

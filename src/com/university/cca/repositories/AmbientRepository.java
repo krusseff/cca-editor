@@ -4,9 +4,6 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import com.university.cca.entities.Ambient;
 import com.university.cca.files.csv.AmbientCSVReader;
 
@@ -18,8 +15,6 @@ import com.university.cca.files.csv.AmbientCSVReader;
  */
 public class AmbientRepository {
 
-	private static final Logger logger = LoggerFactory.getLogger(AmbientRepository.class);
-	
 	private static final String NULL_VALUE = null;
 	
 	private AmbientRepository() {
