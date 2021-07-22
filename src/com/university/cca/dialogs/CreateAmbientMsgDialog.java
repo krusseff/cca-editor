@@ -16,9 +16,11 @@ import org.slf4j.LoggerFactory;
 
 import com.university.cca.buttons.CancelDialogButton;
 import com.university.cca.entities.Message;
-import com.university.cca.files.csv.AmbientCSVReader;
 import com.university.cca.files.csv.AmbientCSVWriter;
 import com.university.cca.frames.AppMainFrame;
+import com.university.cca.repositories.AmbientRepository;
+import com.university.cca.repositories.MessageRepository;
+import com.university.cca.services.MessageService;
 import com.university.cca.util.CreateMessageUtil;
 import com.university.cca.util.MouseCursorUtil;
 
@@ -96,16 +98,16 @@ public class CreateAmbientMsgDialog extends JDialog {
 		Object respondToMessage = this.respondToComboBox.getSelectedItem();
 		String ambientMessage = this.ambientMessageTextArea.getText().replace("\n", " ").replace("\r", " ").trim();
 		
-		if (!CreateMessageUtil.isValidMessageInfo(senderAmbient, recipientAmbient, respondToMessage, ambientMessage)) {
+		if (!MessageService.isValidMessageInfo(senderAmbient, recipientAmbient, respondToMessage, ambientMessage)) {
 			logger.info("Tried to create an ambient message with invalid values");
 			String errorMsg = "Please, enter valid values for the input fields!";
 			CreateMessageUtil.createErrorDialog(getCurrentDialog(), errorMsg);
-		} else if (!CreateMessageUtil.isValidMessageLength(ambientMessage)) {
+		} else if (!MessageService.isValidMessageLength(ambientMessage)) {
 			logger.info("Tried to create an ambient message, which is lower than 0 or greater than 500");
 			String errorMsg = "The message length should be greater than 0 and lower than 500!";
 			CreateMessageUtil.createErrorDialog(getCurrentDialog(), errorMsg);
 		} else {
-			Message message = CreateMessageUtil.constructAmbient(senderAmbient, recipientAmbient, respondToMessage, ambientMessage);
+			Message message = MessageService.constructMessage(senderAmbient, recipientAmbient, respondToMessage, ambientMessage);
 
 			AmbientCSVWriter.writeMessageToCsv(message);
 			
@@ -116,10 +118,10 @@ public class CreateAmbientMsgDialog extends JDialog {
 	}
 
 	/**
-	 * @return set up and return the combo box with all ambient names that are already created.
+	 * @return set up and return the combo box with all ambient names (sorted alphabetically) that are already created.
 	 */
 	private JComboBox<String> createAmbientComboBox() {
-		String[] ambientNames = AmbientCSVReader.getAmbientNamesSorted();
+		String[] ambientNames = AmbientRepository.getActiveAmbientNamesSorted();
 		
 		JComboBox<String> ambientNamesComboBox = new JComboBox<>(ambientNames);
 		ambientNamesComboBox.setSelectedIndex(-1); // set default empty value
@@ -134,7 +136,7 @@ public class CreateAmbientMsgDialog extends JDialog {
 	 * @return set up and return the combo box with all ambient messages that are already created.
 	 */
 	private JComboBox<String> createRespondToComboBox() {
-		String[] ambientMessages = AmbientCSVReader.getAmbientMessagesSorted();
+		String[] ambientMessages = MessageRepository.getAmbientMessagesSorted();
 		
 		JComboBox<String> respondToCombo = new JComboBox<>(ambientMessages);
 		respondToCombo.setSelectedIndex(-1); // set default empty value

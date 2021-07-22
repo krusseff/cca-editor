@@ -8,3 +8,6 @@
 "DRONE","SMART_DRONE","Bulgaria","41.11","19.11","false","Bulgaria","true"
 "ORCHARD","ORCHARD_PLOT_1","Bulgaria","41.11","19.11","true","Bulgaria","true"
 "HUMIDITY_STATION","HUMIDITY_STATION","Bulgaria","41.4243","23.4234","true","Bulgaria","true"
+"OTHER","TEST_INACTIVE_AMBIENT","Bulgaria","43.4234","21.1434","true","Bulgaria","false"
+"OTHER","IN_ACTIVE_AMBIENT","Bulgaria","43.4234","21.4234","true","Bulgaria","false"
+"ORCHARD","ORCHARD_INACTIVE","Bulgaria","34.3244","23.2342","true","Bulgaria","false"

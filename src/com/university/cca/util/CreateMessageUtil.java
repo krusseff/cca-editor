@@ -4,12 +4,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import com.university.cca.constants.Constants;
 import com.university.cca.dialogs.CreateAmbientMsgDialog;
-import com.university.cca.entities.Message;
 
 /**
  * Utility methods related to the create ambient message functionality of the application.
@@ -19,10 +15,6 @@ import com.university.cca.entities.Message;
  */
 public class CreateMessageUtil {
 	
-    private static final Logger logger = LoggerFactory.getLogger(CreateMessageUtil.class);
-	
-	private static final int MESSAGE_MIN_LENGTH = 0;
-	private static final int MESSAGE_MAX_LENGTH = 500;
 	private static final String BUTTON_NAME = "Create Message";
 
 	private CreateMessageUtil() {
@@ -79,62 +71,5 @@ public class CreateMessageUtil {
 			"Validation Error",
             JOptionPane.ERROR_MESSAGE
 		);
-	}
-	
-	/**
-	 * Method that creates and returns a message object.
-	 * 
-	 */
-	public static Message constructAmbient(Object senderAmbient, 
-										   Object recipientAmbient,
-										   Object respondToMessage,
-										   String ambientMessage) {
-		String sender = String.valueOf(senderAmbient);
-		String recipient = String.valueOf(recipientAmbient);
-		String respondToMsg = String.valueOf(respondToMessage);
-		
-		Message message = new Message(sender, recipient, respondToMsg, ambientMessage);
-		
-		logger.info("Ambient Message constructed: {}", message);
-		
-		return message;
-	}
-	
-	/**
-	 * Method that validates the fields of the newly created ambient message object.
-	 * 
-	 */
-	public static boolean isValidMessageInfo(Object senderAmbient,
-											 Object recipientAmbient,
-											 Object respondToMessage,
-											 String ambientMessage) {
-		boolean isValidSender = (senderAmbient != null);
-		boolean isValidRecipient = (recipientAmbient != null);
-		boolean isValidRespondToMessage = isValidRespondToMsg(respondToMessage);
-		boolean isValidMessage = (ambientMessage != null && !ambientMessage.isEmpty());
-		
-		return isValidSender && isValidRecipient && isValidRespondToMessage && isValidMessage;
-	}
-	
-	/**
-	 * Method that validates the message of the newly created ambient message.
-	 * 
-	 */
-	public static boolean isValidMessageLength(String ambientMessage) {
-		int messageLength = ambientMessage.length();
-		
-	    return messageLength > MESSAGE_MIN_LENGTH && messageLength <= MESSAGE_MAX_LENGTH;
-	}
-	
-	/**
-	 * Method that validates the respond to message of the newly created ambient message.
-	 * 
-	 */
-	private static boolean isValidRespondToMsg(Object respondToMessage) {
-		if (respondToMessage == null) {
-			return true;
-		} else {
-			return respondToMessage.toString().length() > MESSAGE_MIN_LENGTH;
-		}
 	}
 }

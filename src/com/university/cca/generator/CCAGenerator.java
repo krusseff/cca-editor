@@ -32,7 +32,8 @@ public class CCAGenerator {
 	
 	public static int generate() {
 		StringBuilder builder = new StringBuilder();
-		List<Message> messages = AmbientCSVReader.getAllMessages();
+		List<Message> allMessages = AmbientCSVReader.getAllMessages();
+		List<Message> messages = GeneratorUtil.getMessagesActiveAmbients(allMessages);
 
 		for (Message message : messages) {
 			logger.info("Ambient Message retrieved: {}", message);

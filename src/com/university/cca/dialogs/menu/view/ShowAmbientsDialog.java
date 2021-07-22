@@ -11,8 +11,8 @@ import javax.swing.JTable;
 import javax.swing.table.JTableHeader;
 
 import com.university.cca.entities.Ambient;
-import com.university.cca.files.csv.AmbientCSVReader;
 import com.university.cca.frames.AppMainFrame;
+import com.university.cca.repositories.AmbientRepository;
 import com.university.cca.tables.AmbientTableModel;
 import com.university.cca.tables.TableHeaderRenderer;
 import com.university.cca.tables.TablesUtil;
@@ -64,7 +64,7 @@ public class ShowAmbientsDialog extends JDialog {
 	}
 	
 	private JScrollPane createAmbientsTable() {
-		List<Ambient> ambients = AmbientCSVReader.getAllAmbientsSortedByName();
+		List<Ambient> ambients = AmbientRepository.getAllAmbientsSortedByName();
 		
 		AmbientTableModel ambientTableModel = new AmbientTableModel(ambients);
 		JTable ambientTable = new JTable(ambientTableModel);

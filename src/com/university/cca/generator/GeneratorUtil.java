@@ -1,9 +1,12 @@
 package com.university.cca.generator;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.university.cca.entities.Message;
 import com.university.cca.exceptions.AmbientMessageNotFound;
+import com.university.cca.repositories.AmbientRepository;
 
 /**
  * Utility class related to the generation of the CCA file
@@ -19,6 +22,19 @@ public class GeneratorUtil {
 
 	private GeneratorUtil() {
 		// Prevent creating an object of type GeneratorUtil
+	}
+
+	/**
+	 * Returns a list with messages that are sent or received from/to active ambient.
+	 * The parent of the sender and recipient should be active as well.
+	 * If it's not - the ambient message will NOT be included at the result set.
+	 */
+	protected static List<Message> getMessagesActiveAmbients(List<Message> messages) {
+		List<String> activeAmbients = Arrays.asList(AmbientRepository.getActiveAmbientNamesSorted());
+		
+		return messages.stream()
+			.filter(msg -> areActiveAmbients(activeAmbients, msg))
+			.collect(Collectors.toList());
 	}
 	
 	/**
@@ -82,5 +98,24 @@ public class GeneratorUtil {
 												  Message currentMessage) {
 		
 		return currentMessage != ambientMessages.get(ambientMessages.size() - 1);
+	}
+	
+	/**
+	 * Checks for active sender and recipient of given ambient message from the active ambients collection.
+	 * The parent of the sender and recipient should be active as well.
+	 * If it's not - the method will return a value of <code>false</code>.
+	 */
+	private static boolean areActiveAmbients(List<String> activeAmbients, Message msg) {
+		boolean isActiveSender = activeAmbients.contains(msg.getSenderAmbient());
+		boolean isActiveRecipient = activeAmbients.contains(msg.getRecipientAmbient());
+		
+		String senderParent = AmbientRepository.getParentAmbientName(msg.getSenderAmbient());
+		String recipientParent = AmbientRepository.getParentAmbientName(msg.getRecipientAmbient());
+		
+		boolean isActiveSenderParent = senderParent != null && activeAmbients.contains(senderParent);
+		boolean isActiveRecipientParent = recipientParent != null && activeAmbients.contains(recipientParent);
+		
+		return isActiveSender && isActiveRecipient && 
+			   isActiveSenderParent && isActiveRecipientParent;
 	}
 }
