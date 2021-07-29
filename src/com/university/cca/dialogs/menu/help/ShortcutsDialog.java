@@ -67,6 +67,8 @@ public class ShortcutsDialog extends JDialog {
 				  "<li> To see all ambients open the View menu and click <i>'Show Ambients'</i> or press <i>'CTRL + 8'</i> </li>" +
 				  "<li> To see all ambient messages open the View menu and click <i>'Show Messages'</i> or press <i>'CTRL + 9'</i> </li>" +
 				  "<li> To see all ambients in CCA open the View menu and click <i>'Show Ambients CCA File'</i> or press <i>'CTRL + A'</i> </li>" +
+				  "<li> To see ambients stats open the View menu and click <i>'Show Ambients Statistics'</i> or press <i>'CTRL + ALT + S'</i> </li>" +
+				  "<li> To see messages stats open the View menu and click <i>'Show Messages Statistics'</i> or press <i>'CTRL + SHIFT + S'</i> </li>" +
 			  	"</ul>" + 
 			"</body>" +
 		"</html>";

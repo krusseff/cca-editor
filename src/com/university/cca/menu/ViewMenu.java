@@ -8,11 +8,13 @@ import org.slf4j.LoggerFactory;
 
 import com.university.cca.constants.Constants;
 import com.university.cca.frames.AppMainFrame;
-import com.university.cca.menu.items.view.ShowAmbientMessages;
 import com.university.cca.menu.items.view.ShowAmbients;
 import com.university.cca.menu.items.view.ShowAmbientsCCAFile;
 import com.university.cca.menu.items.view.ShowAmbientsCSVFile;
+import com.university.cca.menu.items.view.ShowAmbientsStatistics;
+import com.university.cca.menu.items.view.ShowMessages;
 import com.university.cca.menu.items.view.ShowMessagesCSVFile;
+import com.university.cca.menu.items.view.ShowMessagesStatistics;
 import com.university.cca.util.MouseCursorUtil;
 
 public class ViewMenu extends JMenu {
@@ -41,7 +43,10 @@ public class ViewMenu extends JMenu {
     	this.add(new ShowAmbientsCCAFile(getParentFrame()));
     	this.addSeparator();
     	this.add(new ShowAmbients(getParentFrame()));
-    	this.add(new ShowAmbientMessages(getParentFrame()));
+    	this.add(new ShowMessages(getParentFrame()));
+    	this.addSeparator();
+    	this.add(new ShowAmbientsStatistics(getParentFrame()));
+    	this.add(new ShowMessagesStatistics(getParentFrame()));
     }
     
 	// Getters

@@ -76,6 +76,7 @@ public final class Constants {
 	public static final String SHOW_CSV_ICON_PATH = "./images/menu/view/show_csv.png";
 	public static final String SHOW_CCA_ICON_PATH = "./images/menu/view/show_ambients_cca.png";
 	public static final String SHOW_AMBIENTS_INFO_ICON_PATH = "./images/menu/view/show_ambients_info.png";
+	public static final String SHOW_AMBIENTS_STATS_ICON_PATH = "./images/menu/view/show_statistics.png";
 	
 	// About menu images paths
 	public static final String ABOUT_ICON_PATH = "./images/menu/about/about.png";
@@ -153,6 +154,8 @@ public final class Constants {
 	public static final String VIEW_ITEM_AMBIENTS_CCA = "Show Ambients CCA File";
 	public static final String VIEW_ITEM_AMBIENTS = "Show Ambients";
 	public static final String VIEW_ITEM_MESSAGES = "Show Messages";
+	public static final String VIEW_ITEM_AMBIENTS_STATS = "Show Ambients Statistics";
+	public static final String VIEW_ITEM_MESSAGES_STATS = "Show Messages Statistics";
 	
 	public static final String HELP = "Help";
 	public static final String HELP_ITEM_FAQ = "FAQs";
@@ -169,6 +172,10 @@ public final class Constants {
 	
 	// Shortcuts
 	public static final int CTRL_SHORTCUT = ActionEvent.CTRL_MASK;
+	public static final int ALT_SHORTCUT = ActionEvent.ALT_MASK;
+	public static final int SHIFT_SHORTCUT = ActionEvent.SHIFT_MASK;
+	public static final int CTRL_ALT_SHORTCUT = CTRL_SHORTCUT + ALT_SHORTCUT;
+	public static final int CTRL_SHIFT_SHORTCUT = CTRL_SHORTCUT + SHIFT_SHORTCUT;
 	
 	// File menu shortcuts
 	public static final int NEW_SHORTCUT = KeyEvent.VK_N;
@@ -199,6 +206,8 @@ public final class Constants {
 	public static final int SHOW_AMBIENTS_SHORTCUT = KeyEvent.VK_8;
 	public static final int SHOW_MESSAGES_SHORTCUT = KeyEvent.VK_9;
 	public static final int SHOW_AMBIENTS_CCA_SHORTCUT = KeyEvent.VK_A;
+	public static final int SHOW_AMBIENTS_STATS_SHORTCUT = KeyEvent.VK_S;
+	public static final int SHOW_MESSAGES_STATS_SHORTCUT = KeyEvent.VK_S;
 	
 	private Constants() {
 		// private constructor to hide the implicit public one

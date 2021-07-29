@@ -15,14 +15,14 @@ import com.university.cca.dialogs.menu.view.ShowMessagesDialog;
 import com.university.cca.frames.AppMainFrame;
 import com.university.cca.util.MouseCursorUtil;
 
-public class ShowAmbientMessages extends JMenuItem implements ActionListener {
+public class ShowMessages extends JMenuItem implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
-	private static final Logger logger = LoggerFactory.getLogger(ShowAmbientMessages.class);
+	private static final Logger logger = LoggerFactory.getLogger(ShowMessages.class);
 	
 	private AppMainFrame parentFrame;
 	
-	public ShowAmbientMessages(AppMainFrame parentFrame) {
+	public ShowMessages(AppMainFrame parentFrame) {
 		this.parentFrame = parentFrame;
 		
 		this.setText(Constants.VIEW_ITEM_MESSAGES);
