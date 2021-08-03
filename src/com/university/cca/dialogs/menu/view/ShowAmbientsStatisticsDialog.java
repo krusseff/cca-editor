@@ -1,7 +1,6 @@
 package com.university.cca.dialogs.menu.view;
 
 import java.awt.BorderLayout;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.BoxLayout;
@@ -15,6 +14,7 @@ import javax.swing.table.JTableHeader;
 
 import com.university.cca.entities.AmbientStatistics;
 import com.university.cca.frames.AppMainFrame;
+import com.university.cca.services.AmbientStatisticsService;
 import com.university.cca.tables.AmbientStatsTableModel;
 import com.university.cca.tables.TableHeaderRenderer;
 import com.university.cca.tables.TablesUtil;
@@ -72,12 +72,9 @@ public class ShowAmbientsStatisticsDialog extends JDialog {
 	}
 	
 	private JScrollPane createStatsTable() {
-		// List<Ambient> ambients = AmbientRepository.getAllAmbientsSortedByName();
-		// TODO: Populate the list with values
-		List<AmbientStatistics> ambientStatistics = new ArrayList<>();
-		ambientStatistics.add(new AmbientStatistics(10, 3, 4, 1, 5)); // mock data
+		List<AmbientStatistics> ambientStats = AmbientStatisticsService.getAllAmbientStatistics();
 		
-		AmbientStatsTableModel ambientStatsTableModel = new AmbientStatsTableModel(ambientStatistics);
+		AmbientStatsTableModel ambientStatsTableModel = new AmbientStatsTableModel(ambientStats);
 		JTable ambientStatsTable = new JTable(ambientStatsTableModel);
 		
 		ambientStatsTable.setName(TABLE_NAME);
