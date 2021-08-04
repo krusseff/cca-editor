@@ -13,6 +13,7 @@
   	<junit.version>4.13.1</junit.version>
   	<mail.version>1.6.2</mail.version>
   	<jackson.version>2.12.2</jackson.version>
+  	<jfreechart.version>1.0.13</jfreechart.version>
   </properties>
   
   <dependencies>
@@ -45,6 +46,12 @@
 	    <groupId>com.fasterxml.jackson.core</groupId>
 	    <artifactId>jackson-databind</artifactId>
 	    <version>${jackson.version}</version>
+	</dependency>
+	
+	<dependency>
+    	<groupId>jfree</groupId>
+    	<artifactId>jfreechart</artifactId>
+    	<version>${jfreechart.version}</version>
 	</dependency>
 
   </dependencies>

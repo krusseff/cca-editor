@@ -59,6 +59,7 @@ You can set the program arguments on application start at least in three differe
 * [SLF4J 1.7.30](http://www.slf4j.org/)
 * [OpenCSV 5.3](http://opencsv.sourceforge.net)
 * [Jackson 2.12.2](https://en.wikipedia.org/wiki/Jackson_(API))
+* [JFree Chart 1.0.13](https://www.jfree.org/jfreechart/)
 * [JUnit 4.13.1](https://junit.org/junit4)
 * [Maven](https://maven.apache.org/)
 * [Eclipse](https://www.eclipse.org/)
