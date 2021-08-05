@@ -82,6 +82,11 @@ public class TechnologiesDialog extends JDialog {
 				  "</li>" +
 					
 				  "<li>" +
+				    "JFree Chart 1.0.13: " + 
+				    "<u>https://www.jfree.org/jfreechart/</u>" +
+				  "</li>" +
+					
+				  "<li>" +
 					"JUnit 4.13.1: " + 
 					"<u>https://junit.org/junit4</u>" +
 				  "</li>" +

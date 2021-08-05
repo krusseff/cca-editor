@@ -11,7 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.university.cca.constants.Constants;
-import com.university.cca.dialogs.UnderConstructionDialog;
+import com.university.cca.dialogs.menu.view.ShowAmbientsStatisticsDialog;
 import com.university.cca.frames.AppMainFrame;
 import com.university.cca.util.MouseCursorUtil;
 
@@ -41,8 +41,7 @@ public class ShowAmbientsStatistics extends JMenuItem implements ActionListener 
 	public void actionPerformed(ActionEvent e) {
 		logger.info("View Show Ambients Statistics button is clicked");
 		
-		// TODO: new ShowAmbientsStatsDialog(getParentFrame());
-		new UnderConstructionDialog(getParentFrame());
+		new ShowAmbientsStatisticsDialog(getParentFrame());
 	}
 
 	// Getters
