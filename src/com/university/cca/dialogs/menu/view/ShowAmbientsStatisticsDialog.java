@@ -12,8 +12,13 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.JTableHeader;
 
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+
+import com.university.cca.charts.AmbientStatsPieChart;
 import com.university.cca.entities.AmbientStatistics;
 import com.university.cca.frames.AppMainFrame;
+import com.university.cca.repositories.AmbientStatisticsRepository;
 import com.university.cca.services.AmbientStatisticsService;
 import com.university.cca.tables.AmbientStatsTableModel;
 import com.university.cca.tables.TableHeaderRenderer;
@@ -35,8 +40,8 @@ public class ShowAmbientsStatisticsDialog extends JDialog {
 	private static final boolean IS_VISIBLE = true;
 	private static final boolean IS_MODAL = true;
 	
-	private static final int HEIGHT_DIALOG = CCAUtils.getScreenSize().height - 100;
-	private static final int WIDTH_DIALOG = CCAUtils.getScreenSize().width;
+	private static final int HEIGHT_DIALOG = (int) (CCAUtils.getScreenSize().height / 1.2);
+	private static final int WIDTH_DIALOG = (int) (CCAUtils.getScreenSize().width / 1.4);
 	
 	private static final String TABLE_NAME = "Ambients Statistics Table";
 	private static final int TABLE_ROWS_HEIGHT = 35;
@@ -60,10 +65,11 @@ public class ShowAmbientsStatisticsDialog extends JDialog {
 		JPanel dialogPanel = createPanel();
         
         JPanel tablePanel = createPanel();
-        tablePanel.add(createStatsTable(), BorderLayout.CENTER);
+        // TODO: tablePanel.add(new JButton("Export to CSV"), BorderLayout.LINE_END);
+        tablePanel.add(createStatisticsTable(), BorderLayout.CENTER);
         
         JPanel diagramPanel = createPanel();
-        // TODO: diagramPanel.add(createStatsDiagram(), BorderLayout.CENTER);
+        diagramPanel.add(createStatisticsDiagram(), BorderLayout.CENTER);
         
         dialogPanel.add(tablePanel, BorderLayout.CENTER);
         dialogPanel.add(diagramPanel, BorderLayout.CENTER);
@@ -71,7 +77,7 @@ public class ShowAmbientsStatisticsDialog extends JDialog {
         this.getContentPane().add(dialogPanel);
 	}
 	
-	private JScrollPane createStatsTable() {
+	private JScrollPane createStatisticsTable() {
 		List<AmbientStatistics> ambientStats = AmbientStatisticsService.getAllAmbientStatistics();
 		
 		AmbientStatsTableModel ambientStatsTableModel = new AmbientStatsTableModel(ambientStats);
@@ -94,6 +100,14 @@ public class ShowAmbientsStatisticsDialog extends JDialog {
 		ambientStatsTable.setDefaultRenderer(Integer.class, centerRenderer);
 		
 		return new JScrollPane(ambientStatsTable);
+	}
+
+	private JPanel createStatisticsDiagram() {
+		AmbientStatistics ambientStats = AmbientStatisticsRepository.getAmbientStatistics();
+
+		JFreeChart ambientStatsChart = AmbientStatsPieChart.createChart(ambientStats);
+		
+		return new ChartPanel(ambientStatsChart); 
 	}
 	
 	private JPanel createPanel() {

@@ -34,7 +34,10 @@ public class ShowMessages extends JMenuItem implements ActionListener {
 		
 		// Open View Menu and click on Show Messages or press 'CTRL + 9'
 	    this.setAccelerator(KeyStroke.getKeyStroke(Constants.SHOW_MESSAGES_SHORTCUT, Constants.CTRL_SHORTCUT));
-
+	    
+	    // TODO: Remove when the functionality is ready
+	    this.setEnabled(false);
+	    
 		this.addActionListener(this);
 	}
 	

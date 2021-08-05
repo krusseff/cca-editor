@@ -35,6 +35,9 @@ public class ShowAmbients extends JMenuItem implements ActionListener {
 		// Open View Menu and click on Show Ambients or press 'CTRL + 8'
 	    this.setAccelerator(KeyStroke.getKeyStroke(Constants.SHOW_AMBIENTS_SHORTCUT, Constants.CTRL_SHORTCUT));
 
+	    // TODO: Remove when the functionality is ready
+	    this.setEnabled(false);
+	    
 		this.addActionListener(this);
 	}
 	
