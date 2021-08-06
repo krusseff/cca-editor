@@ -39,6 +39,7 @@ public final class Constants {
 	public static final String SEND_ICON_PATH = "./images/buttons/send.png";
 	public static final String MESSAGE_ICON_PATH = "./images/buttons/message.png";
 	public static final String SAVE_BUTTON_ICON_PATH = "./images/buttons/save.png";
+	public static final String EXPORT_CSV_BUTTON_ICON_PATH = "./images/buttons/export_csv.png";
 	
 	// CCA related images paths
 	public static final String GENERATOR_CCA_ICON_PATH = "./images/cca_buttons/generator_cca.png";

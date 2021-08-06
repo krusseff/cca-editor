@@ -34,7 +34,11 @@ public class ShowMessagesStatistics extends JMenuItem implements ActionListener 
 		
 		// Open View Menu and click on Show Messages Statistics or press 'CTRL + SHIFT + S'
 	    this.setAccelerator(KeyStroke.getKeyStroke(Constants.SHOW_MESSAGES_STATS_SHORTCUT, Constants.CTRL_SHIFT_SHORTCUT));
-		this.addActionListener(this);
+		
+	    // TODO: Remove when the functionality is ready
+	    this.setEnabled(false);
+	    
+	    this.addActionListener(this);
 	}
 	
 	@Override
