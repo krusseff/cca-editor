@@ -86,20 +86,24 @@ public class ShowAmbientsStatisticsDialog extends JDialog {
 	
 	private JButton createExportToCSVButton() {
 		ExportToCSVButton exportButton = new ExportToCSVButton(getParentFrame());
-		exportButton.setEnabled(false); // TODO: Remove
+		AmbientStatistics ambientStats = AmbientStatisticsService.getAmbientStatistics();
 		
-		// TODO
+		exportButton.setEnabled(ExportToCSVButton.BUTTON_DISABLED); // TODO: Remove
+		
+		// If the total count is zero, then there are no statistics to export
+		if (!AmbientStatisticsService.hasStatistics(ambientStats)) {
+			exportButton.setEnabled(ExportToCSVButton.BUTTON_DISABLED);
+			exportButton.setToolTipText(ExportToCSVButton.BUTTON_TOOL_TIP_DISABLED);
+		}
+
 		exportButton.addActionListener(event -> {
-			// 1. Fetch all statistics
-			// AmbientStatistics ambientStats = AmbientStatisticsService.getAmbientStatistics();
-			
+			// [DONE] 1. Fetch all statistics: already fetched above
+
 			// 2. Convert them to CSV Bean
 			
 			// 3. Write them to the CSV file
 			
 			// AmbientCCAWriter.write(ccaFileContent);
-			
-			// this.dispose();
 			
 			// Last step: Display successful dialog when everything finished successfully
 		});
