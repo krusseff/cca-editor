@@ -1,5 +1,6 @@
 package com.university.cca.dialogs.menu.view;
 
+import java.io.File;
 import java.util.List;
 
 import javax.swing.BorderFactory;
@@ -7,6 +8,7 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JDialog;
+import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -16,6 +18,8 @@ import javax.swing.table.JTableHeader;
 
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.university.cca.buttons.ExportToCSVButton;
 import com.university.cca.charts.AmbientStatsPieChart;
@@ -38,7 +42,9 @@ import com.university.cca.util.MouseCursorUtil;
 public class ShowAmbientsStatisticsDialog extends JDialog {
 
 	private static final long serialVersionUID = 1L;
+	private static final Logger logger = LoggerFactory.getLogger(ShowAmbientsStatisticsDialog.class);
 
+	private static final String EXPORT_CSV_FILE_NAME = "export.csv";
 	private static final String TITLE = "Show Ambients Statistics Dialog";
 	private static final boolean IS_VISIBLE 		 = true;
 	private static final boolean IS_MODAL 			 = true;
@@ -88,8 +94,6 @@ public class ShowAmbientsStatisticsDialog extends JDialog {
 		ExportToCSVButton exportButton = new ExportToCSVButton(getParentFrame());
 		AmbientStatistics ambientStats = AmbientStatisticsService.getAmbientStatistics();
 		
-		exportButton.setEnabled(ExportToCSVButton.BUTTON_DISABLED); // TODO: Remove
-		
 		// If the total count is zero, then there are no statistics to export
 		if (!AmbientStatisticsService.hasStatistics(ambientStats)) {
 			exportButton.setEnabled(ExportToCSVButton.BUTTON_DISABLED);
@@ -97,6 +101,18 @@ public class ShowAmbientsStatisticsDialog extends JDialog {
 		}
 
 		exportButton.addActionListener(event -> {
+			JFileChooser fileChooser = createFileSaveUsDialog();
+			int userSelection = fileChooser.showSaveDialog(this);
+			
+			if (userSelection == JFileChooser.APPROVE_OPTION) {
+				File file = fileChooser.getSelectedFile();
+				// file.getName(); file.getPath(); file.getAbsolutePath();
+
+				logger.info("Ambient Statistics Exported! User selected option: {}. File: {}", userSelection, file.getAbsolutePath());
+	        } else {
+	        	logger.info("Ambient Statistics File Save Us Dialog is closed without saving a file. User selected option: {}", userSelection);
+	        }
+			
 			// [DONE] 1. Fetch all statistics: already fetched above
 
 			// 2. Convert them to CSV Bean
@@ -160,6 +176,20 @@ public class ShowAmbientsStatisticsDialog extends JDialog {
         panel.add(Box.createHorizontalGlue());
         
         return panel;
+	}
+	
+	private JFileChooser createFileSaveUsDialog() {
+		JFileChooser fileChooser = new JFileChooser();
+		fileChooser.setCursor(MouseCursorUtil.getMouseHand());
+
+		fileChooser.setDialogTitle("Specify a file to save the ambient statistics"); 
+		fileChooser.setApproveButtonToolTipText("Click here to save the file");
+		fileChooser.setToolTipText("File save us dialog");
+		
+		// predefine the file name of the file save us dialog
+		fileChooser.setSelectedFile(new File(EXPORT_CSV_FILE_NAME));
+		
+		return fileChooser;
 	}
 	
 	// Getters and Setters
