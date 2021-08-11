@@ -24,6 +24,7 @@ import org.slf4j.LoggerFactory;
 import com.university.cca.buttons.ExportToCSVButton;
 import com.university.cca.charts.AmbientStatsPieChart;
 import com.university.cca.entities.AmbientStatistics;
+import com.university.cca.files.csv.AmbientCSVWriter;
 import com.university.cca.frames.AppMainFrame;
 import com.university.cca.repositories.AmbientStatisticsRepository;
 import com.university.cca.services.AmbientStatisticsService;
@@ -31,6 +32,7 @@ import com.university.cca.tables.AmbientStatsTableModel;
 import com.university.cca.tables.TableHeaderRenderer;
 import com.university.cca.tables.TablesUtil;
 import com.university.cca.util.CCAUtils;
+import com.university.cca.util.FilesUtil;
 import com.university.cca.util.MouseCursorUtil;
 
 /**
@@ -106,22 +108,18 @@ public class ShowAmbientsStatisticsDialog extends JDialog {
 			
 			if (userSelection == JFileChooser.APPROVE_OPTION) {
 				File file = fileChooser.getSelectedFile();
-				// file.getName(); file.getPath(); file.getAbsolutePath();
 
-				logger.info("Ambient Statistics Exported! User selected option: {}. File: {}", userSelection, file.getAbsolutePath());
+				if (file.exists()) {					
+					FilesUtil.createErrorDialog(this);
+					logger.error("Export ambient statistics file with that name already exists. File: {}", file.getPath());
+				} else {
+					AmbientCSVWriter.writeAmbientStatisticsToCsv(ambientStats, file.getPath());
+					FilesUtil.createSuccessDialog(this, file.getPath());
+					logger.info("Ambient Statistics Exported! User selected option: {}. File: {}", userSelection, file.getPath());					
+				}
 	        } else {
 	        	logger.info("Ambient Statistics File Save Us Dialog is closed without saving a file. User selected option: {}", userSelection);
 	        }
-			
-			// [DONE] 1. Fetch all statistics: already fetched above
-
-			// 2. Convert them to CSV Bean
-			
-			// 3. Write them to the CSV file
-			
-			// AmbientCCAWriter.write(ccaFileContent);
-			
-			// Last step: Display successful dialog when everything finished successfully
 		});
 		
 		return exportButton;
