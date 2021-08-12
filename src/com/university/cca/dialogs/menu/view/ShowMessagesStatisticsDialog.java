@@ -1,11 +1,13 @@
 package com.university.cca.dialogs.menu.view;
 
+import java.io.File;
 import java.util.List;
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JDialog;
+import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -125,6 +127,20 @@ public class ShowMessagesStatisticsDialog extends JDialog {
         panel.add(Box.createHorizontalGlue());
         
         return panel;
+	}
+	
+	private JFileChooser createFileSaveUsDialog() {
+		JFileChooser fileChooser = new JFileChooser();
+		fileChooser.setCursor(MouseCursorUtil.getMouseHand());
+
+		fileChooser.setDialogTitle("Specify a file to save the message statistics"); 
+		fileChooser.setApproveButtonToolTipText("Click here to save the file");
+		fileChooser.setToolTipText("File save us dialog");
+		
+		// predefine the file name of the file save us dialog
+		fileChooser.setSelectedFile(new File(EXPORT_CSV_FILE_NAME));
+		
+		return fileChooser;
 	}
 	
 	// Getters and Setters
