@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.university.cca.entities.Ambient;
+import com.university.cca.entities.AmbientStatistics;
 import com.university.cca.entities.Message;
 
 /**
@@ -113,5 +114,19 @@ public class AmbientCsvUtil {
 		messageBean.setAmbientMessage(ambientMessage.getMessage());
 		
 		return messageBean;
+	}
+
+	/**
+	 * Method that converts from AmbientStatistics to CsvAmbientStatisticsBean
+	 */
+	public static CsvAmbientStatisticsBean convertToCsvAmbientStatisticsBean(AmbientStatistics ambientStats) {
+		CsvAmbientStatisticsBean ambientStatsBean = new CsvAmbientStatisticsBean();
+		ambientStatsBean.setTotalCount(ambientStats.getTotalCount());
+		ambientStatsBean.setStaticCount(ambientStats.getStaticCount());
+		ambientStatsBean.setNonStaticCount(ambientStats.getNonStaticCount());
+		ambientStatsBean.setActiveCount(ambientStats.getActiveCount());
+		ambientStatsBean.setInactiveCount(ambientStats.getInactiveCount());
+		
+		return ambientStatsBean;
 	}
 }
