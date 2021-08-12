@@ -11,7 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.university.cca.constants.Constants;
-import com.university.cca.dialogs.UnderConstructionDialog;
+import com.university.cca.dialogs.menu.view.ShowMessagesStatisticsDialog;
 import com.university.cca.frames.AppMainFrame;
 import com.university.cca.util.MouseCursorUtil;
 
@@ -34,9 +34,6 @@ public class ShowMessagesStatistics extends JMenuItem implements ActionListener 
 		
 		// Open View Menu and click on Show Messages Statistics or press 'CTRL + SHIFT + S'
 	    this.setAccelerator(KeyStroke.getKeyStroke(Constants.SHOW_MESSAGES_STATS_SHORTCUT, Constants.CTRL_SHIFT_SHORTCUT));
-		
-	    // TODO: Remove when the functionality is ready
-	    this.setEnabled(false);
 	    
 	    this.addActionListener(this);
 	}
@@ -45,8 +42,7 @@ public class ShowMessagesStatistics extends JMenuItem implements ActionListener 
 	public void actionPerformed(ActionEvent e) {
 		logger.info("View Show Messages Statistics button is clicked");
 		
-		// TODO: new ShowMessagesStatsDialog(getParentFrame());
-		new UnderConstructionDialog(getParentFrame());
+		new ShowMessagesStatisticsDialog(getParentFrame());
 	}
 
 	// Getters
