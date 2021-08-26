@@ -86,7 +86,7 @@ public class ShowMessagesStatisticsDialog extends JDialog {
 	}
 	
 	private JScrollPane createStatisticsTable() {
-		List<MessageStatistics> messageStats = MessageStatisticsService.getAllMessageStatistics();
+		List<MessageStatistics> messageStats = MessageStatisticsService.getMessageStatisticsSortedByAmbientName();
 		
 		MessageStatsTableModel messageStatsTableModel = new MessageStatsTableModel(messageStats);
 		JTable messageStatsTable = new JTable(messageStatsTableModel);
