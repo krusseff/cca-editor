@@ -1,8 +1,11 @@
 package com.university.cca.repositories;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.university.cca.entities.Message;
+import com.university.cca.entities.MessageStatistics;
 import com.university.cca.files.csv.AmbientCSVReader;
 
 /**
@@ -18,15 +21,17 @@ public class MessageStatisticsRepository {
 	}
 	
 	/**
-	 * Fetches and calculates all message statistics
+	 * Fetches and calculates all message statistics and return them as a map
 	 */
-	public static void getMessageStatistics() { // TODO: Change return type
+	public static Map<String, MessageStatistics> getMessageStatistics() {
+		Map<String, MessageStatistics> messageStatistics = new HashMap<>();
 
 		// TODO: implement the logic for calculating statistics
 		for (Message message : getAllMessages()) {
 			
 		}
 		
+		return messageStatistics;
 	}
 
 	/**

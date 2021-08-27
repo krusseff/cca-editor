@@ -1,9 +1,12 @@
 package com.university.cca.services;
 
-import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 import com.university.cca.entities.MessageStatistics;
+import com.university.cca.repositories.MessageStatisticsRepository;
 
 /**
  * Holds methods for fetching message statistics.
@@ -18,16 +21,22 @@ public class MessageStatisticsService {
 	}
 	
 	/**
-	 * Fetches all message statistics as a list
+	 * Fetches all message statistics, sort them by ambient name and return them as list
 	 */
-	public static List<MessageStatistics> getAllMessageStatistics() {
+	public static List<MessageStatistics> getMessageStatisticsSortedByAmbientName() {
 		
-		// TODO: Mocked data
-		List<MessageStatistics> messageStatistics = new ArrayList<>();
-		messageStatistics.add(new MessageStatistics("PERSONAL ASSISTANT", 2, 5));
-		messageStatistics.add(new MessageStatistics("UNIVERSITY", 7, 4));
-		messageStatistics.add(new MessageStatistics("BUS STATION", 10, 1));
+		return getMessageStatistics()
+				.values()
+				.stream()
+				.sorted(Comparator.comparing(MessageStatistics::getAmbientName))
+				.collect(Collectors.toList());
+	}
+	
+	/**
+	 * Fetches all message statistics and return them as a hash map
+	 */
+	public static Map<String, MessageStatistics> getMessageStatistics() {
 		
-		return messageStatistics;
+		return MessageStatisticsRepository.getMessageStatistics();
 	}
 }
