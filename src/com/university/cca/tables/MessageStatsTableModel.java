@@ -20,6 +20,7 @@ public class MessageStatsTableModel extends AbstractTableModel {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(MessageStatsTableModel.class);
 	
+	public static final boolean IS_SORT_AVAILABLE = true;
 	private static final boolean IS_CELL_EDITABLE = false;
 	
 	private static final int COLUMN_AMBIENT_NAME_INDEX 	 = 0;
