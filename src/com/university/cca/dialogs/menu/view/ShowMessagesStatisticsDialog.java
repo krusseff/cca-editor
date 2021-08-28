@@ -116,6 +116,9 @@ public class ShowMessagesStatisticsDialog extends JDialog {
 		JScrollPane messageStatsScrollPane = new JScrollPane(messageStatsTable);
 		// TODO: ambientStatsScrollPane.setPreferredSize(ambientStatsTable.getPreferredSize());
 		
+		// TODO: 
+		// Implement sorting on each column of the table
+		
 		return messageStatsScrollPane;
 	}
 	
