@@ -40,7 +40,7 @@ public class AmbientCSVReader {
 		List<Ambient> ambients = new ArrayList<>();
 		
 		for (CsvAmbientBean ambientBean : ambientBeans) {
-			Ambient ambient = AmbientCsvUtil.convertToAmbient(ambientBean);
+			Ambient ambient = CsvUtil.convertToAmbient(ambientBean);
 			ambients.add(ambient);
 		}
 		
@@ -55,7 +55,7 @@ public class AmbientCSVReader {
 		List<Message> messages = new ArrayList<>();
 		
 		for (CsvMessageBean messageBean : messageBeans) {
-			Message message = AmbientCsvUtil.convertToMessage(messageBean);
+			Message message = CsvUtil.convertToMessage(messageBean);
 			messages.add(message);
 		}
 		
