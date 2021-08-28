@@ -15,6 +15,8 @@ import com.university.cca.repositories.MessageStatisticsRepository;
  * @version 1.0
  */
 public class MessageStatisticsService {
+	
+	private static final int ZERO_VALUE = 0;
 
 	private MessageStatisticsService() {
 		// Prevent creating an object of type MessageStatisticsService
@@ -38,5 +40,16 @@ public class MessageStatisticsService {
 	public static Map<String, MessageStatistics> getMessageStatistics() {
 		
 		return MessageStatisticsRepository.getMessageStatistics();
+	}
+	
+	/**
+	 * Checks for available message statistics.
+	 * 
+	 * @return false - If the size of the statistics is zero, then there are no available statistics.
+	 * 		   true - If the size of the statistics is greater than zero, then there are available statistics.
+	 */
+	public static boolean hasStatistics(List<MessageStatistics> statistics) {
+		
+		return statistics.size() > ZERO_VALUE;
 	}
 }
