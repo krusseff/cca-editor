@@ -32,7 +32,7 @@ public class AmbientTableModel extends AbstractTableModel {
     private static final int COLUMN_PARENT_INDEX 	= 6;
     private static final int COLUMN_ACTIVE_INDEX 	= 7;
 
-	private final List<Ambient> ambients;
+	private final transient List<Ambient> ambients;
 	
 	private static final String[] columnNames = new String[] {
 		"Name", 
