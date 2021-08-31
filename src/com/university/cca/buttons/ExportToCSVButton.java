@@ -21,7 +21,7 @@ public class ExportToCSVButton extends JButton {
 	private static final long serialVersionUID = 1L;
 	
 	private static final String BUTTON_TOOL_TIP = "Export to CSV File";
-	public static final String BUTTON_TOOL_TIP_DISABLED = "Not available statistics to exprot";
+	public static final String BUTTON_TOOL_TIP_DISABLED = "Not available statistics to export";
 	
 	private static final boolean IS_FOCUSABLE 	= false;
 	public static final boolean BUTTON_DISABLED = false;

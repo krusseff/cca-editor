@@ -21,7 +21,7 @@ import com.university.cca.buttons.CloseDialogButton;
 import com.university.cca.buttons.SaveFileButton;
 import com.university.cca.constants.Constants;
 import com.university.cca.files.csv.AmbientCSVWriter;
-import com.university.cca.files.csv.AmbientCsvUtil;
+import com.university.cca.files.csv.CsvUtil;
 import com.university.cca.frames.AppMainFrame;
 import com.university.cca.util.CCAUtils;
 import com.university.cca.util.MouseCursorUtil;
@@ -116,7 +116,7 @@ public class ShowMessagesCSVDialog extends JDialog {
 		SaveFileButton saveButton = new SaveFileButton(this);
 		
 		// If the CSV file does not exist the SAVE button will be disabled
-		if (!AmbientCsvUtil.isFileCreated(Constants.MESSAGES_CSV_FILE_PATH)) {
+		if (!CsvUtil.isFileCreated(Constants.MESSAGES_CSV_FILE_PATH)) {
 			saveButton.setEnabled(SaveFileButton.BUTTON_DISABLED);
 			saveButton.setToolTipText(SaveFileButton.BUTTON_TOOL_TIP_DISABLED);
 		}

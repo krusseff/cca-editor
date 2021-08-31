@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import com.university.cca.entities.Ambient;
 import com.university.cca.entities.AmbientStatistics;
 import com.university.cca.entities.Message;
+import com.university.cca.entities.MessageStatistics;
 
 /**
  * Utility methods related to the functionality that reads and writes from/to CSV file.
@@ -16,11 +17,11 @@ import com.university.cca.entities.Message;
  * @author Konstantin Rusev
  * @version 1.0
  */
-public class AmbientCsvUtil {
+public class CsvUtil {
 	
-	private static final Logger logger = LoggerFactory.getLogger(AmbientCsvUtil.class);
+	private static final Logger logger = LoggerFactory.getLogger(CsvUtil.class);
 	
-	private AmbientCsvUtil() {
+	private CsvUtil() {
 		// Prevent creating an object of type AmbientCsvUtil
 	}
 	
@@ -128,5 +129,17 @@ public class AmbientCsvUtil {
 		ambientStatsBean.setInactiveCount(ambientStats.getInactiveCount());
 		
 		return ambientStatsBean;
+	}
+	
+	/**
+	 * Method that converts from MessageStatistics to CsvMessageStatisticsBean
+	 */
+	public static CsvMessageStatisticsBean convertToCsvMessageStatisticsBean(MessageStatistics messageStats) {
+		CsvMessageStatisticsBean messageStatsBean = new CsvMessageStatisticsBean();
+		messageStatsBean.setAmbientName(messageStats.getAmbientName());
+		messageStatsBean.setSentMessages(messageStats.getSentCount());
+		messageStatsBean.setReceivedMessages(messageStats.getReceivedCount());
+		
+		return messageStatsBean;
 	}
 }

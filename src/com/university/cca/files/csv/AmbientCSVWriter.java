@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.Writer;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,6 +20,7 @@ import com.university.cca.constants.Constants;
 import com.university.cca.entities.Ambient;
 import com.university.cca.entities.AmbientStatistics;
 import com.university.cca.entities.Message;
+import com.university.cca.entities.MessageStatistics;
 
 /**
  * Utility methods related to the writting an ambient information to the CSV file.
@@ -44,7 +46,7 @@ public class AmbientCSVWriter {
 	 */
 	public static void writeToCsv(String data, String filePath) {
 		boolean shouldAppendToFile = false;
-		AmbientCsvUtil.createFileIfDoesNotExist(filePath);
+		CsvUtil.createFileIfDoesNotExist(filePath);
 		
 		try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, shouldAppendToFile))) {
 			writer.write(data);
@@ -62,11 +64,11 @@ public class AmbientCSVWriter {
 	 */
 	public static void writeAmbientToCsv(Ambient ambient) {
 		String filePath = Constants.AMBIENTS_CSV_FILE_PATH;
-		AmbientCsvUtil.createFileIfDoesNotExist(filePath);
+		CsvUtil.createFileIfDoesNotExist(filePath);
 		Path path = Paths.get(filePath);
 
 		try {
-			writeCsvFromBean(path, AmbientCsvUtil.convertToCsvAmbientBean(ambient));
+			writeCsvFromBean(path, CsvUtil.convertToCsvAmbientBean(ambient));
 		} catch (CsvDataTypeMismatchException | CsvRequiredFieldEmptyException | IOException ex) {
 			logger.error("Unable to write the data to the CSV file: {}", ex.getMessage());
 			logger.error("Exiting the program... :(");
@@ -79,11 +81,11 @@ public class AmbientCSVWriter {
 	 */
 	public static void writeMessageToCsv(Message ambientMessage) {
 		String filePath = Constants.MESSAGES_CSV_FILE_PATH;
-		AmbientCsvUtil.createFileIfDoesNotExist(filePath);
+		CsvUtil.createFileIfDoesNotExist(filePath);
 		Path path = Paths.get(filePath);
 
 		try {
-			writeCsvFromBean(path, AmbientCsvUtil.convertToCsvMessageBean(ambientMessage));
+			writeCsvFromBean(path, CsvUtil.convertToCsvMessageBean(ambientMessage));
 		} catch (CsvDataTypeMismatchException | CsvRequiredFieldEmptyException | IOException ex) {
 			logger.error("Unable to write the data to the CSV file: {}", ex.getMessage());
 			logger.error("Exiting the program... :(");
@@ -96,11 +98,31 @@ public class AmbientCSVWriter {
 	 */
 	public static void writeAmbientStatisticsToCsv(AmbientStatistics ambientStats, 
 												   String filePath) {
-		AmbientCsvUtil.createFileIfDoesNotExist(filePath);
+		CsvUtil.createFileIfDoesNotExist(filePath);
 		Path path = Paths.get(filePath);
 
 		try {
-			writeCsvFromBean(path, AmbientCsvUtil.convertToCsvAmbientStatisticsBean(ambientStats));
+			writeCsvFromBean(path, CsvUtil.convertToCsvAmbientStatisticsBean(ambientStats));
+		} catch (CsvDataTypeMismatchException | CsvRequiredFieldEmptyException | IOException ex) {
+			logger.error("Unable to write the data to the CSV file: {}", ex.getMessage());
+			logger.error("Exiting the program... :(");
+			System.exit(2);
+		}
+	}
+	
+	/**
+	 * Method, which main responsibility is to write message statistics to the csv file.
+	 */
+	public static void writeMessageStatisticsToCsv(List<MessageStatistics> statistics, 
+												   String filePath) {
+		CsvUtil.createFileIfDoesNotExist(filePath);
+		Path path = Paths.get(filePath);
+
+		try {
+			for (MessageStatistics messageStats : statistics) {
+				CsvMessageStatisticsBean bean = CsvUtil.convertToCsvMessageStatisticsBean(messageStats);
+				writeCsvFromBean(path, bean);
+			}
 		} catch (CsvDataTypeMismatchException | CsvRequiredFieldEmptyException | IOException ex) {
 			logger.error("Unable to write the data to the CSV file: {}", ex.getMessage());
 			logger.error("Exiting the program... :(");

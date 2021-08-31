@@ -6,6 +6,7 @@ import java.util.List;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
@@ -18,13 +19,16 @@ import javax.swing.table.JTableHeader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.university.cca.buttons.ExportToCSVButton;
 import com.university.cca.entities.MessageStatistics;
+import com.university.cca.files.csv.AmbientCSVWriter;
 import com.university.cca.frames.AppMainFrame;
 import com.university.cca.services.MessageStatisticsService;
 import com.university.cca.tables.MessageStatsTableModel;
 import com.university.cca.tables.TableHeaderRenderer;
 import com.university.cca.tables.TablesUtil;
 import com.university.cca.util.CCAUtils;
+import com.university.cca.util.FilesUtil;
 import com.university.cca.util.MouseCursorUtil;
 
 /**
@@ -42,7 +46,7 @@ public class ShowMessagesStatisticsDialog extends JDialog {
 	private static final String TITLE = "Show Messages Statistics Dialog";
 	private static final boolean IS_VISIBLE 		 = true;
 	private static final boolean IS_MODAL 			 = true;
-	private static final boolean IS_VIEWPORT_ENABLED = true;
+	// TODO: private static final boolean IS_VIEWPORT_ENABLED = true;
 
 	// TODO: Working to find the perfect size for this dialog
 	private static final int HEIGHT_DIALOG = (int) (CCAUtils.getScreenSize().height / 1.2);
@@ -70,7 +74,7 @@ public class ShowMessagesStatisticsDialog extends JDialog {
 		JPanel dialogPanel = createPanel();
 		
 		JPanel buttonPanel = createPanel();
-		// TODO: buttonPanel.add(createExportToCSVButton());
+		buttonPanel.add(createExportToCSVButton());
         
         JPanel tablePanel = createPanel();
         tablePanel.add(createStatisticsTable());
@@ -83,6 +87,39 @@ public class ShowMessagesStatisticsDialog extends JDialog {
         dialogPanel.add(diagramPanel);
 
         this.getContentPane().add(dialogPanel);
+	}
+	
+	private JButton createExportToCSVButton() {
+		ExportToCSVButton exportButton = new ExportToCSVButton(getParentFrame());
+		List<MessageStatistics> messageStats = MessageStatisticsService.getMessageStatisticsSortedByAmbientName();
+
+		// If the size of the statistics is zero, then there are no statistics to export
+		if (!MessageStatisticsService.hasStatistics(messageStats)) {
+			exportButton.setEnabled(ExportToCSVButton.BUTTON_DISABLED);
+			exportButton.setToolTipText(ExportToCSVButton.BUTTON_TOOL_TIP_DISABLED);
+		}
+		
+		exportButton.addActionListener(event -> {
+			JFileChooser fileChooser = createFileSaveUsDialog();
+			int userSelection = fileChooser.showSaveDialog(this);
+						
+			if (userSelection == JFileChooser.APPROVE_OPTION) {
+				File file = fileChooser.getSelectedFile();
+
+				if (file.exists()) {					
+					FilesUtil.createErrorDialog(this);
+					logger.error("Export message statistics file with that name already exists. File: {}", file.getPath());
+				} else {
+					AmbientCSVWriter.writeMessageStatisticsToCsv(messageStats, file.getPath());
+					FilesUtil.createSuccessDialog(this, file.getPath());
+					logger.info("Message Statistics Exported! User selected option: {}. File: {}", userSelection, file.getPath());					
+				}
+	        } else {
+	        	logger.info("Message Statistics File Save Us Dialog is closed without saving a file. User selected option: {}", userSelection);
+	        }
+		});
+		
+		return exportButton;
 	}
 	
 	private JScrollPane createStatisticsTable() {
@@ -114,7 +151,10 @@ public class ShowMessagesStatisticsDialog extends JDialog {
 		
 		// create and customize the scroll panel of the table
 		JScrollPane messageStatsScrollPane = new JScrollPane(messageStatsTable);
-		// TODO: ambientStatsScrollPane.setPreferredSize(ambientStatsTable.getPreferredSize());
+		// TODO: messageStatsScrollPane.setPreferredSize(messageStatsTable.getPreferredSize());
+		
+		// enable column sorting of the message statistics table
+		messageStatsTable.setAutoCreateRowSorter(MessageStatsTableModel.IS_SORT_AVAILABLE);
 		
 		return messageStatsScrollPane;
 	}
