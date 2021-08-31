@@ -26,7 +26,6 @@ import com.university.cca.charts.AmbientStatsPieChart;
 import com.university.cca.entities.AmbientStatistics;
 import com.university.cca.files.csv.AmbientCSVWriter;
 import com.university.cca.frames.AppMainFrame;
-import com.university.cca.repositories.AmbientStatisticsRepository;
 import com.university.cca.services.AmbientStatisticsService;
 import com.university.cca.tables.AmbientStatsTableModel;
 import com.university.cca.tables.TableHeaderRenderer;
@@ -159,7 +158,7 @@ public class ShowAmbientsStatisticsDialog extends JDialog {
 	}
 
 	private JPanel createStatisticsDiagram() {
-		AmbientStatistics ambientStats = AmbientStatisticsRepository.getAmbientStatistics();
+		AmbientStatistics ambientStats = AmbientStatisticsService.getAmbientStatistics();
 
 		JFreeChart ambientStatsChart = AmbientStatsPieChart.createChart(ambientStats);
 		
