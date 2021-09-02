@@ -16,10 +16,13 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.JTableHeader;
 
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.university.cca.buttons.ExportToCSVButton;
+import com.university.cca.charts.MessageStatsBarChart;
 import com.university.cca.entities.MessageStatistics;
 import com.university.cca.files.csv.AmbientCSVWriter;
 import com.university.cca.frames.AppMainFrame;
@@ -48,9 +51,8 @@ public class ShowMessagesStatisticsDialog extends JDialog {
 	private static final boolean IS_MODAL 			 = true;
 	// TODO: private static final boolean IS_VIEWPORT_ENABLED = true;
 
-	// TODO: Working to find the perfect size for this dialog
-	private static final int HEIGHT_DIALOG = (int) (CCAUtils.getScreenSize().height / 1.2);
-	private static final int WIDTH_DIALOG  = (int) (CCAUtils.getScreenSize().width / 1.4);
+	private static final int HEIGHT_DIALOG = (int)(CCAUtils.getScreenSize().height / 1.2);
+	private static final int WIDTH_DIALOG  = (int)(CCAUtils.getScreenSize().width / 1.4);
 	
 	private static final String TABLE_NAME = "Messages Statistics Table";
 	private static final int TABLE_ROWS_HEIGHT = 30;
@@ -80,7 +82,7 @@ public class ShowMessagesStatisticsDialog extends JDialog {
         tablePanel.add(createStatisticsTable());
         
         JPanel diagramPanel = createPanel();
-        // TODO: diagramPanel.add(createStatisticsDiagram());
+        diagramPanel.add(createStatisticsDiagram());
         
         dialogPanel.add(buttonPanel);
         dialogPanel.add(tablePanel);
@@ -145,18 +147,26 @@ public class ShowMessagesStatisticsDialog extends JDialog {
 		messageStatsTable.setDefaultRenderer(String.class, centerRenderer);
 		messageStatsTable.setDefaultRenderer(Integer.class, centerRenderer);
 		
+		// enable column sorting of the message statistics table
+		messageStatsTable.setAutoCreateRowSorter(MessageStatsTableModel.IS_SORT_AVAILABLE);
+		
 		// set the preferred scrollable size of the table
-		// TODO: ambientStatsTable.setPreferredScrollableViewportSize(ambientStatsTable.getPreferredSize());
-		// TODO: ambientStatsTable.setFillsViewportHeight(IS_VIEWPORT_ENABLED);
+		// TODO: messageStatsTable.setPreferredScrollableViewportSize(messageStatsTable.getPreferredSize());
+		// TODO: messageStatsTable.setFillsViewportHeight(IS_VIEWPORT_ENABLED);
 		
 		// create and customize the scroll panel of the table
 		JScrollPane messageStatsScrollPane = new JScrollPane(messageStatsTable);
 		// TODO: messageStatsScrollPane.setPreferredSize(messageStatsTable.getPreferredSize());
-		
-		// enable column sorting of the message statistics table
-		messageStatsTable.setAutoCreateRowSorter(MessageStatsTableModel.IS_SORT_AVAILABLE);
-		
+				
 		return messageStatsScrollPane;
+	}
+	
+	private JPanel createStatisticsDiagram() {
+		List<MessageStatistics> stats = MessageStatisticsService.getMessageStatisticsSortedByAmbientName();
+		
+		JFreeChart messageStatsChart = MessageStatsBarChart.createChart(stats);
+		
+		return new ChartPanel(messageStatsChart); 
 	}
 	
 	private JPanel createPanel() {
