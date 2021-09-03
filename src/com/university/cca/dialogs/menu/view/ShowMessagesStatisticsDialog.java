@@ -46,16 +46,16 @@ public class ShowMessagesStatisticsDialog extends JDialog {
 	private static final Logger logger = LoggerFactory.getLogger(ShowMessagesStatisticsDialog.class);
 
 	private static final String EXPORT_CSV_FILE_NAME = "export.csv";
-	private static final String TITLE = "Show Messages Statistics Dialog";
+	private static final String TITLE 				 = "Show Messages Statistics Dialog";
 	private static final boolean IS_VISIBLE 		 = true;
 	private static final boolean IS_MODAL 			 = true;
-	// TODO: private static final boolean IS_VIEWPORT_ENABLED = true;
+	private static final boolean IS_VIEWPORT_ENABLED = true;
 
 	private static final int HEIGHT_DIALOG = (int)(CCAUtils.getScreenSize().height / 1.2);
 	private static final int WIDTH_DIALOG  = (int)(CCAUtils.getScreenSize().width / 1.4);
 	
-	private static final String TABLE_NAME = "Messages Statistics Table";
-	private static final int TABLE_ROWS_HEIGHT = 30;
+	private static final String TABLE_NAME 			  = "Messages Statistics Table";
+	private static final int TABLE_ROWS_HEIGHT 		  = 30;
 	private static final double[] TABLE_COLUMNS_WIDTH = {50, 25, 25};
 	
 	private AppMainFrame parentFrame;
@@ -151,13 +151,13 @@ public class ShowMessagesStatisticsDialog extends JDialog {
 		messageStatsTable.setAutoCreateRowSorter(MessageStatsTableModel.IS_SORT_AVAILABLE);
 		
 		// set the preferred scrollable size of the table
-		// TODO: messageStatsTable.setPreferredScrollableViewportSize(messageStatsTable.getPreferredSize());
-		// TODO: messageStatsTable.setFillsViewportHeight(IS_VIEWPORT_ENABLED);
+		messageStatsTable.setPreferredScrollableViewportSize(messageStatsTable.getPreferredSize());
+		messageStatsTable.setFillsViewportHeight(IS_VIEWPORT_ENABLED);
 		
 		// create and customize the scroll panel of the table
 		JScrollPane messageStatsScrollPane = new JScrollPane(messageStatsTable);
-		// TODO: messageStatsScrollPane.setPreferredSize(messageStatsTable.getPreferredSize());
-				
+		messageStatsScrollPane.setPreferredSize(messageStatsTable.getPreferredSize());
+
 		return messageStatsScrollPane;
 	}
 	
