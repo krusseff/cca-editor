@@ -1,0 +1,72 @@
+PLOVDIV_UNIVERSITY
+[
+	STUDENT_PA::send(Hello_student_you_have_an_exam_tomorrow).0|
+	STUDENT_PA::recv(Hello_student_you_have_an_exam_tomorrow,Thanks_for_the_information).0
+]
+|
+STUDENT_PA
+[
+	PLOVDIV_UNIVERSITY::recv(Hello_student_you_have_an_exam_tomorrow).
+	PLOVDIV_UNIVERSITY::send(Hello_student_you_have_an_exam_tomorrow,Thanks_for_the_information).0
+]
+|
+PLOVDIV_UNIVERSITY
+[
+	STUDENT_PA::send(Sending_the_exam).0|
+	STUDENT_PA::recv(Sending_the_exam,I_am_done_here_are_my_answers_of_the_questions).0
+]
+|
+STUDENT_PA
+[
+	PLOVDIV_UNIVERSITY::recv(Sending_the_exam).
+	PLOVDIV_UNIVERSITY::send(Sending_the_exam,I_am_done_here_are_my_answers_of_the_questions).0
+]
+|
+STUDENT_PA
+[
+	PLOVDIV_UNIVERSITY::send(What_is_my_grade).0|
+	PLOVDIV_UNIVERSITY::recv(What_is_my_grade,You_have_POOR_2).0
+]
+|
+PLOVDIV_UNIVERSITY
+[
+	STUDENT_PA::recv(What_is_my_grade).
+	STUDENT_PA::send(What_is_my_grade,You_have_POOR_2).0
+]
+|
+STUDENT_PA
+[
+	PLOVDIV_UNIVERSITY::send(What_is_the_next_date_of_the_exam).0|
+	PLOVDIV_UNIVERSITY::recv(What_is_the_next_date_of_the_exam,You_can_check_that_into_the_web_site_of_the_university).0
+]
+|
+PLOVDIV_UNIVERSITY
+[
+	STUDENT_PA::recv(What_is_the_next_date_of_the_exam).
+	STUDENT_PA::send(What_is_the_next_date_of_the_exam,You_can_check_that_into_the_web_site_of_the_university).0
+]
+|
+STUDENT_PA
+[
+	PLOVDIV_UNIVERSITY::send(Thanks_for_the_information).0|
+	PLOVDIV_UNIVERSITY::recv(Thanks_for_the_information,You_are_welcome).0
+]
+|
+PLOVDIV_UNIVERSITY
+[
+	STUDENT_PA::recv(Thanks_for_the_information).
+	STUDENT_PA::send(Thanks_for_the_information,You_are_welcome).0
+]
+|
+STUDENT_PA
+[
+	PLOVDIV_UNIVERSITY::send(Bye).0|
+	PLOVDIV_UNIVERSITY::recv(Bye,See_you_soon).0
+]
+|
+PLOVDIV_UNIVERSITY
+[
+	STUDENT_PA::recv(Bye).
+	STUDENT_PA::send(Bye,See_you_soon).0
+]
+

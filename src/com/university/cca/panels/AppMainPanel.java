@@ -30,7 +30,7 @@ public class AppMainPanel extends JPanel {
     private static final Logger logger = LoggerFactory.getLogger(AppMainPanel.class);
     
     // Start the application with the map of Lovech
-    private static final boolean IS_SMART_CITY_LOVECH = true;
+    private static final boolean IS_SMART_CITY_LOVECH = false;
 
     // This is the size of the background image with the Plovdiv map
     private static final int PANEL_WIDTH_PLOVDIV = 1697;
