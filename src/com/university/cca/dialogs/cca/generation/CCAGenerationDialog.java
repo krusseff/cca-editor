@@ -85,8 +85,8 @@ public class CCAGenerationDialog extends JDialog {
 	private JPanel footerPanel() {
 		JPanel footerPanel = new JPanel(new FlowLayout());
 
-		JLabel footherLabel = new JLabel(FOOTER_PANEL_NOTE);
-		footerPanel.add(footherLabel);
+		JLabel footerLabel = new JLabel(FOOTER_PANEL_NOTE);
+		footerPanel.add(footerLabel);
 		
 		return footerPanel;
 	}
