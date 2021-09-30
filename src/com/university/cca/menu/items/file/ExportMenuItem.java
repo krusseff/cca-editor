@@ -11,7 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.university.cca.constants.Constants;
-import com.university.cca.dialogs.UnderConstructionDialog;
+import com.university.cca.dialogs.menu.file.ExportDialog;
 import com.university.cca.frames.AppMainFrame;
 import com.university.cca.util.MouseCursorUtil;
 
@@ -38,9 +38,9 @@ public class ExportMenuItem extends JMenuItem implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		new UnderConstructionDialog(this.parentFrame);
+		new ExportDialog(getParentFrame());
 		
-		logger.info("File Export Button is clicked");
+		logger.info("File Menu Export Button is clicked");
 	}
 	
 	// Getters
