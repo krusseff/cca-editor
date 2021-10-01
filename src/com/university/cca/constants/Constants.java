@@ -64,6 +64,7 @@ public final class Constants {
 	public static final String REFRESH_ICON_PATH = "./images/menu/file/refresh.png";
 	public static final String RESTART_ICON_PATH = "./images/menu/file/restart.png";
 	public static final String TERMINAL_ICON_PATH = "./images/menu/file/terminal.png";
+	public static final String EXPORT_BUTTON_ICON_PATH = "./images/buttons/export.png";
 	
 	// Edit menu images paths
 	public static final String EDIT_ICON_PATH = "./images/menu/edit/edit.png";
