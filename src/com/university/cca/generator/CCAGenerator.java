@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
 
 import com.university.cca.constants.CCATemplates;
 import com.university.cca.entities.Message;
-import com.university.cca.exceptions.AmbientMessageNotFound;
+import com.university.cca.exceptions.AmbientMessageNotFoundException;
 import com.university.cca.files.cca.AmbientCCAWriter;
 import com.university.cca.files.cca.TemplateCCAReader;
 import com.university.cca.files.csv.AmbientCSVReader;
@@ -46,7 +46,7 @@ public class CCAGenerator {
 					String sendReceiveOneAmbient = generateSendReceiveOneAmbient(messages, message);
 					logger.info("Send-Receive One Ambient CCA Item generated: {}", sendReceiveOneAmbient);
 					builder.append(sendReceiveOneAmbient);
-				} catch (AmbientMessageNotFound ex) {
+				} catch (AmbientMessageNotFoundException ex) {
 					logger.error("An error occurred during the generation of the CCA file: {}", ex);
 					return CCA_STATUS_FAILURE;
 				}
@@ -76,7 +76,7 @@ public class CCAGenerator {
 	 * Generate send-receive one ambient based on the send_receive_one_ambient.cca template
 	 */
 	private static String generateSendReceiveOneAmbient(List<Message> messages, 
-														Message ambientMessage) throws AmbientMessageNotFound {
+														Message ambientMessage) throws AmbientMessageNotFoundException {
 		String sendReceiveOneAmbientTemplate = TemplateCCAReader.readSendReceiveOneAmbientTemplate();
 		
 		Message recipientMsg = GeneratorUtil.findMessageRecipient(messages, ambientMessage);
