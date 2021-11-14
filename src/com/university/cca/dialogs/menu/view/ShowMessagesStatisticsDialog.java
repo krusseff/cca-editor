@@ -109,11 +109,11 @@ public class ShowMessagesStatisticsDialog extends JDialog {
 				File file = fileChooser.getSelectedFile();
 
 				if (file.exists()) {					
-					FilesUtil.createErrorDialog(this);
+					FilesUtil.createFileExistsDialog(this);
 					logger.error("Export message statistics file with that name already exists. File: {}", file.getPath());
 				} else {
 					AmbientCSVWriter.writeMessageStatisticsToCsv(messageStats, file.getPath());
-					FilesUtil.createSuccessDialog(this, file.getPath());
+					FilesUtil.createFileSavedDialog(this, file.getPath());
 					logger.info("Message Statistics Exported! User selected option: {}. File: {}", userSelection, file.getPath());					
 				}
 	        } else {
