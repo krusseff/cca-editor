@@ -40,7 +40,7 @@ public class FilesUtil {
 		JOptionPane.showMessageDialog(
 			parentDialog,
 			message, 
-			"File Not Found",
+			"Not Found",
 			JOptionPane.ERROR_MESSAGE
 		);
 	}
