@@ -12,6 +12,7 @@ import javax.swing.JTextPane;
 
 import com.university.cca.buttons.export.ExportAmbientsCSVButton;
 import com.university.cca.buttons.export.ExportCCAFileButton;
+import com.university.cca.buttons.export.ExportMessagesCSVButton;
 import com.university.cca.frames.AppMainFrame;
 import com.university.cca.util.MouseCursorUtil;
 
@@ -76,7 +77,8 @@ public class ExportDialog extends JDialog {
 		JPanel contentPanel = new JPanel(new GridLayout(GRID_ROWS, GRID_COLS));
 		contentPanel.add(new ExportCCAFileButton(getParentFrame(), this));
 		contentPanel.add(new ExportAmbientsCSVButton(getParentFrame(), this));
-
+		contentPanel.add(new ExportMessagesCSVButton(getParentFrame(), this));
+		
 		panel.add(titlePanel);
 		panel.add(contentPanel);
 		
