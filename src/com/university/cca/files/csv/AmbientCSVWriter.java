@@ -95,7 +95,24 @@ public class AmbientCSVWriter {
 	}
 	
 	/**
-	 * Method, which main responsibility is to write ambient messages to the csv file.
+	 * Method, which main responsibility is to write ambient messages to the specified csv file.
+	 */
+	public static void writeMessagesToCsv(String filePath, List<Message> messages) {
+		CsvUtil.createFileIfDoesNotExist(filePath);
+		Path path = Paths.get(filePath);
+
+		for (Message message : messages) {
+			try {
+				writeCsvFromBean(path, CsvUtil.convertToCsvMessageBean(message));
+			} catch (CsvDataTypeMismatchException | CsvRequiredFieldEmptyException | IOException ex) {
+				logger.error("Unable to write the message: {} to the CSV file: {}", message, ex.getMessage());
+				logger.error("Skip the record: {} and continue with the next one.", message);
+			}
+		}
+	}
+	
+	/**
+	 * Method, which main responsibility is to write ambient message to the csv file.
 	 */
 	public static void writeMessageToCsv(Message ambientMessage) {
 		String filePath = Constants.MESSAGES_CSV_FILE_PATH;
