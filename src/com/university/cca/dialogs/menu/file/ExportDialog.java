@@ -10,8 +10,11 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
 
+import com.university.cca.buttons.CloseDialogButton;
+import com.university.cca.buttons.export.ExportAmbientStatisticsCSVButton;
 import com.university.cca.buttons.export.ExportAmbientsCSVButton;
 import com.university.cca.buttons.export.ExportCCAFileButton;
+import com.university.cca.buttons.export.ExportMessageStatisticsCSVButton;
 import com.university.cca.buttons.export.ExportMessagesCSVButton;
 import com.university.cca.frames.AppMainFrame;
 import com.university.cca.util.MouseCursorUtil;
@@ -39,7 +42,7 @@ public class ExportDialog extends JDialog {
 	private static final int WIDHT_DIALOG = 600;
 	
 	// Dialog content grid size
-	private static final int GRID_ROWS = 5;
+	private static final int GRID_ROWS = 6;
 	private static final int GRID_COLS = 1;
 	
 	private AppMainFrame parentFrame;
@@ -78,6 +81,9 @@ public class ExportDialog extends JDialog {
 		contentPanel.add(new ExportCCAFileButton(getParentFrame(), this));
 		contentPanel.add(new ExportAmbientsCSVButton(getParentFrame(), this));
 		contentPanel.add(new ExportMessagesCSVButton(getParentFrame(), this));
+		contentPanel.add(new ExportAmbientStatisticsCSVButton(getParentFrame(), this));
+		contentPanel.add(new ExportMessageStatisticsCSVButton(getParentFrame(), this));
+		contentPanel.add(new CloseDialogButton(this));
 		
 		panel.add(titlePanel);
 		panel.add(contentPanel);
