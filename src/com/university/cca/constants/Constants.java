@@ -14,6 +14,7 @@ public final class Constants {
 	
 	public static final String APPLICATION_TITLE = "CCA Editor";
 	public static final String MAIN_FRAME_NAME = "CCA Editor Main Frame Panel";
+	public static final String USER_DEFAULT_DIR = System.getProperty("user.home") +"/Desktop";
 	public static final String FONT_ARIAL = "Arial";
 	public static final int FONT_SIZE_FOURTEEN = 14;
 	public static final int ICON_GAP_SIZE = 8;
@@ -64,6 +65,7 @@ public final class Constants {
 	public static final String REFRESH_ICON_PATH = "./images/menu/file/refresh.png";
 	public static final String RESTART_ICON_PATH = "./images/menu/file/restart.png";
 	public static final String TERMINAL_ICON_PATH = "./images/menu/file/terminal.png";
+	public static final String EXPORT_BUTTON_ICON_PATH = "./images/buttons/export.png";
 	
 	// Edit menu images paths
 	public static final String EDIT_ICON_PATH = "./images/menu/edit/edit.png";

@@ -109,11 +109,11 @@ public class ShowAmbientsStatisticsDialog extends JDialog {
 				File file = fileChooser.getSelectedFile();
 
 				if (file.exists()) {					
-					FilesUtil.createErrorDialog(this);
+					FilesUtil.createFileExistsDialog(this);
 					logger.error("Export ambient statistics file with that name already exists. File: {}", file.getPath());
 				} else {
 					AmbientCSVWriter.writeAmbientStatisticsToCsv(ambientStats, file.getPath());
-					FilesUtil.createSuccessDialog(this, file.getPath());
+					FilesUtil.createFileSavedDialog(this, file.getPath());
 					logger.info("Ambient Statistics Exported! User selected option: {}. File: {}", userSelection, file.getPath());					
 				}
 	        } else {

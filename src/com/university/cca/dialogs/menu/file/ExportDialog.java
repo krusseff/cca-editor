@@ -1,4 +1,4 @@
-package com.university.cca.dialogs.cca.generation;
+package com.university.cca.dialogs.menu.file;
 
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
@@ -10,38 +10,45 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
 
-import com.university.cca.buttons.cca.GenerateCCAButton;
-import com.university.cca.buttons.cca.OpenCCAFileButton;
-import com.university.cca.buttons.cca.StartAnimatedScenarioButton;
-import com.university.cca.buttons.cca.StartConsoleScenarioButton;
+import com.university.cca.buttons.CloseDialogButton;
+import com.university.cca.buttons.export.ExportAmbientStatisticsCSVButton;
+import com.university.cca.buttons.export.ExportAmbientsCSVButton;
+import com.university.cca.buttons.export.ExportCCAFileButton;
+import com.university.cca.buttons.export.ExportMessageStatisticsCSVButton;
+import com.university.cca.buttons.export.ExportMessagesCSVButton;
 import com.university.cca.frames.AppMainFrame;
 import com.university.cca.util.MouseCursorUtil;
 
 /**
- * The dialog that holds the buttons that are related to the generation of the CCA file.
+ * The dialog that holds the buttons that are related to the export functionality of the application.
  * 
  * @author Konstantin Rusev
  * @version 1.0
  */
-public class CCAGenerationDialog extends JDialog {
+public class ExportDialog extends JDialog {
 	
 	private static final long serialVersionUID = 1L;
 	
-	private static final String TITLE = "CCA Generation Dialog";
-	private static final String CCA_GENERATOR_TITLE = "<h1 style=\"text-align: center;\"><i> CCA Generator </i></h1>";
-	private static final String FOOTER_PANEL_NOTE = "NOTE: Create the whole CCA Model and as a last step generate the CCA file!";
+	// Constants related to the content of the dialog
 	private static final String TEXT_PANE_CONTENT_TYPE = "text/html";
+	private static final String DIALOG_TITLE = "Export Dialog";
+	private static final String EXPORT_TITLE = "<h1 style=\"text-align: center;\"><i> Export Section </i></h1>";
+	private static final String FOOTER_NOTE  = "NOTE: Please select a button and export the data that you want to analyze!";
+	private static final boolean IS_DIALOG_MODAL   = true;
+	private static final boolean IS_DIALOG_VISIBLE = true;
 	
+	// Constants with the size of the dialog
 	private static final int HEIGHT_DIALOG = 400;
 	private static final int WIDHT_DIALOG = 600;
 	
-	private static final int GRID_ROWS = 4;
+	// Dialog content grid size
+	private static final int GRID_ROWS = 6;
 	private static final int GRID_COLS = 1;
 	
 	private AppMainFrame parentFrame;
-
-	public CCAGenerationDialog(AppMainFrame parentFrame) {
-        super(parentFrame, TITLE, true);
+	
+	public ExportDialog(AppMainFrame parentFrame) {
+        super(parentFrame, DIALOG_TITLE, IS_DIALOG_MODAL);
         this.parentFrame = parentFrame;
         
         addDialogContent();
@@ -50,7 +57,7 @@ public class CCAGenerationDialog extends JDialog {
         this.setLocationRelativeTo(parentFrame);
 
         this.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-        this.setVisible(true);
+        this.setVisible(IS_DIALOG_VISIBLE);
 	}
 	
 	private void addDialogContent() {
@@ -58,7 +65,7 @@ public class CCAGenerationDialog extends JDialog {
         dialogPanel.setLayout(new BoxLayout(dialogPanel, BoxLayout.Y_AXIS));
         
 		dialogPanel.add(createContentPanel());
-		dialogPanel.add(footerPanel());
+		dialogPanel.add(createFooterPanel());
 
         this.getContentPane().add(dialogPanel);
 	}
@@ -68,25 +75,25 @@ public class CCAGenerationDialog extends JDialog {
 		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 		
 		JPanel titlePanel = new JPanel(new FlowLayout());
-		titlePanel.add(createTextPane(CCA_GENERATOR_TITLE));
+		titlePanel.add(createTextPane(EXPORT_TITLE));
 		
 		JPanel contentPanel = new JPanel(new GridLayout(GRID_ROWS, GRID_COLS));
-		contentPanel.add(new GenerateCCAButton(getParentFrame()));
-		contentPanel.add(new StartConsoleScenarioButton(getParentFrame()));
-		contentPanel.add(new StartAnimatedScenarioButton(getParentFrame()));
-		contentPanel.add(new OpenCCAFileButton(getParentFrame()));
-
+		contentPanel.add(new ExportCCAFileButton(getParentFrame(), this));
+		contentPanel.add(new ExportAmbientsCSVButton(getParentFrame(), this));
+		contentPanel.add(new ExportMessagesCSVButton(getParentFrame(), this));
+		contentPanel.add(new ExportAmbientStatisticsCSVButton(getParentFrame(), this));
+		contentPanel.add(new ExportMessageStatisticsCSVButton(getParentFrame(), this));
+		contentPanel.add(new CloseDialogButton(this));
+		
 		panel.add(titlePanel);
 		panel.add(contentPanel);
 		
 		return new JScrollPane(panel);
 	}
 	
-	private JPanel footerPanel() {
+	private JPanel createFooterPanel() {
 		JPanel footerPanel = new JPanel(new FlowLayout());
-
-		JLabel footerLabel = new JLabel(FOOTER_PANEL_NOTE);
-		footerPanel.add(footerLabel);
+		footerPanel.add(new JLabel(FOOTER_NOTE));
 		
 		return footerPanel;
 	}

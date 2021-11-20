@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.university.cca.entities.Message;
-import com.university.cca.exceptions.AmbientMessageNotFound;
+import com.university.cca.exceptions.AmbientMessageNotFoundException;
 import com.university.cca.repositories.AmbientRepository;
 
 /**
@@ -41,7 +41,7 @@ public class GeneratorUtil {
 	 * Finds recipient ambient message from the file with all available messages
 	 */
 	protected static Message findMessageRecipient(List<Message> ambientMessages,
-									 			  Message message) throws AmbientMessageNotFound {
+									 			  Message message) throws AmbientMessageNotFoundException {
 		String errorMsg = "Ambient message not found! Message: " + message.toString();
 		
 		return ambientMessages
@@ -52,7 +52,7 @@ public class GeneratorUtil {
 				msg.getRespondToMessage().equals(message.getMessage())
 			)
 			.findFirst()
-			.orElseThrow(() -> new AmbientMessageNotFound(errorMsg));
+			.orElseThrow(() -> new AmbientMessageNotFoundException(errorMsg));
 	}
 	
 	/**

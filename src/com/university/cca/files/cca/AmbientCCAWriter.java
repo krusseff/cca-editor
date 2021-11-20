@@ -27,23 +27,26 @@ public class AmbientCCAWriter {
 	}
 	
 	public static void write(String data) {
-		writeToFile(data);
+		writeToFile(Constants.AMBIENTS_CCA_FILE_PATH, data);
+	}
+	
+	public static void write(String filePath, String data) {
+		writeToFile(filePath, data);
 	}
 	
 	/**
-	 * Method that writes the data to the CCA file.
+	 * Method that writes the data to the specified file with .cca extension.
 	 * The data will be re-written on each execution in order to handle any changes.
 	 */
-	private static void writeToFile(String data) {
-		String filePath = Constants.AMBIENTS_CCA_FILE_PATH;
+	private static void writeToFile(String filePath, String data) {
 		AmbientCCAUtility.createFileIfDoesNotExist(filePath);
 		
 		try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, SHOULD_APPEND_TO_FILE))) {
 			writer.write(data);
 			writer.write(NEW_LINE);
-			logger.info("The data: {} is written successfully to the CCA file", data);
+			logger.info("The data: {} is written successfully to the CCA file: {}", data, filePath);
 		} catch (IOException ex) {
-			logger.error("Unable to write the data to the CCA file: {}", ex.getMessage());
+			logger.error("Unable to write the data to the CCA file: {}, Exception: {}", filePath, ex.getMessage());
 			logger.error("Exiting the program... :(");
 			System.exit(2);
 		}

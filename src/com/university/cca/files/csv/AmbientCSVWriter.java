@@ -33,6 +33,7 @@ public class AmbientCSVWriter {
 	private static final Logger logger = LoggerFactory.getLogger(AmbientCSVWriter.class);
 	
 	private static final String NEW_LINE = "\n";
+	private static final int EXIT_STATUS_2 = 2;
 	
 	private AmbientCSVWriter() {
 		// Prevent creating an object of type AmbientCSVWriter
@@ -54,13 +55,30 @@ public class AmbientCSVWriter {
 			logger.info("The data: \n{} \nis written successfully to the CSV file: {}", data, filePath);
 		} catch (IOException ex) {
 			logger.error("Unable to write the data to the CSV file: {}", ex.getMessage());
-			logger.error("Exiting the program... :(");
-			System.exit(2);
+			logger.error("Exiting the program with exit status: {}.", EXIT_STATUS_2);
+			System.exit(EXIT_STATUS_2);
+		}
+	}
+	
+	/**
+	 * Method, which main responsibility is to write ambients to a specified csv file.
+	 */
+	public static void writeAmbientsToCsv(String filePath, List<Ambient> ambients) {
+		CsvUtil.createFileIfDoesNotExist(filePath);
+		Path path = Paths.get(filePath);
+		
+		for (Ambient ambient : ambients) {
+			try {
+				writeCsvFromBean(path, CsvUtil.convertToCsvAmbientBean(ambient));
+			} catch (CsvDataTypeMismatchException | CsvRequiredFieldEmptyException | IOException ex) {
+				logger.error("Unable to write the ambient: {} to the CSV file: {}, Exception: {}", ambient, filePath, ex.getMessage());
+				logger.error("Skip the record: {} and continue with the next one.", ambient);
+			}
 		}
 	}
 
 	/**
-	 * Method, which main responsibility is to write ambients to the csv file.
+	 * Method, which main responsibility is to write ambient to the csv file.
 	 */
 	public static void writeAmbientToCsv(Ambient ambient) {
 		String filePath = Constants.AMBIENTS_CSV_FILE_PATH;
@@ -72,12 +90,29 @@ public class AmbientCSVWriter {
 		} catch (CsvDataTypeMismatchException | CsvRequiredFieldEmptyException | IOException ex) {
 			logger.error("Unable to write the data to the CSV file: {}", ex.getMessage());
 			logger.error("Exiting the program... :(");
-			System.exit(2);
+			System.exit(EXIT_STATUS_2);
 		}
 	}
 	
 	/**
-	 * Method, which main responsibility is to write ambient messages to the csv file.
+	 * Method, which main responsibility is to write ambient messages to the specified csv file.
+	 */
+	public static void writeMessagesToCsv(String filePath, List<Message> messages) {
+		CsvUtil.createFileIfDoesNotExist(filePath);
+		Path path = Paths.get(filePath);
+
+		for (Message message : messages) {
+			try {
+				writeCsvFromBean(path, CsvUtil.convertToCsvMessageBean(message));
+			} catch (CsvDataTypeMismatchException | CsvRequiredFieldEmptyException | IOException ex) {
+				logger.error("Unable to write the message: {} to the CSV file: {}", message, ex.getMessage());
+				logger.error("Skip the record: {} and continue with the next one.", message);
+			}
+		}
+	}
+	
+	/**
+	 * Method, which main responsibility is to write ambient message to the csv file.
 	 */
 	public static void writeMessageToCsv(Message ambientMessage) {
 		String filePath = Constants.MESSAGES_CSV_FILE_PATH;
@@ -89,7 +124,7 @@ public class AmbientCSVWriter {
 		} catch (CsvDataTypeMismatchException | CsvRequiredFieldEmptyException | IOException ex) {
 			logger.error("Unable to write the data to the CSV file: {}", ex.getMessage());
 			logger.error("Exiting the program... :(");
-			System.exit(2);
+			System.exit(EXIT_STATUS_2);
 		}
 	}
 	
@@ -106,7 +141,7 @@ public class AmbientCSVWriter {
 		} catch (CsvDataTypeMismatchException | CsvRequiredFieldEmptyException | IOException ex) {
 			logger.error("Unable to write the data to the CSV file: {}", ex.getMessage());
 			logger.error("Exiting the program... :(");
-			System.exit(2);
+			System.exit(EXIT_STATUS_2);
 		}
 	}
 	
@@ -126,7 +161,7 @@ public class AmbientCSVWriter {
 		} catch (CsvDataTypeMismatchException | CsvRequiredFieldEmptyException | IOException ex) {
 			logger.error("Unable to write the data to the CSV file: {}", ex.getMessage());
 			logger.error("Exiting the program... :(");
-			System.exit(2);
+			System.exit(EXIT_STATUS_2);
 		}
 	}
 
