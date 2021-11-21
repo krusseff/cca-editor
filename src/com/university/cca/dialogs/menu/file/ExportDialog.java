@@ -39,7 +39,7 @@ public class ExportDialog extends JDialog {
 	
 	// Constants with the size of the dialog
 	private static final int HEIGHT_DIALOG = 400;
-	private static final int WIDHT_DIALOG = 600;
+	private static final int WIDHT_DIALOG  = 600;
 	
 	// Dialog content grid size
 	private static final int GRID_ROWS = 6;
