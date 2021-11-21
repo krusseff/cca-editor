@@ -1,6 +1,6 @@
 package com.university.cca.files.csv;
 
-import com.opencsv.bean.CsvBindByName;
+import com.opencsv.bean.CsvBindByPosition;
 
 /**
  * CSV Positioned bean class that holds an information for message statistics.
@@ -10,13 +10,13 @@ import com.opencsv.bean.CsvBindByName;
  */
 public class CsvMessageStatisticsBean {
 
-	@CsvBindByName(column = "ambient_name")
+	@CsvBindByPosition(position = 0)
 	private String ambientName;
 	
-	@CsvBindByName(column = "sent_messages")
+	@CsvBindByPosition(position = 1)
 	private int sentMessages;
 	
-	@CsvBindByName(column = "received_messages")
+	@CsvBindByPosition(position = 2)
 	private int receivedMessages;
 	
 	public CsvMessageStatisticsBean() {
