@@ -5,7 +5,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.university.cca.constants.CCATemplates;
+import com.university.cca.constants.CCAConstants;
 import com.university.cca.entities.Message;
 import com.university.cca.exceptions.AmbientMessageNotFoundException;
 import com.university.cca.files.cca.AmbientCCAWriter;
@@ -22,10 +22,6 @@ public class CCAGenerator {
 
 	private static final Logger logger = LoggerFactory.getLogger(CCAGenerator.class);
 	
-	private static final String MSG_RESPOND_TO_NULL = "null";
-	private static final int CCA_STATUS_SUCCESS = 0;
-	private static final int CCA_STATUS_FAILURE = 1;
-	
 	private CCAGenerator() {
 		// Prevent creating an object of type CCAGenerator
 	}
@@ -38,7 +34,7 @@ public class CCAGenerator {
 		for (Message message : messages) {
 			logger.info("Ambient Message retrieved: {}", message);
 			
-			if (message.getRespondToMessage().equalsIgnoreCase(MSG_RESPOND_TO_NULL)) {
+			if (message.getRespondToMessage().equalsIgnoreCase(CCAConstants.MSG_RESPOND_TO_NULL)) {
 				
 				try {
 					
@@ -48,10 +44,10 @@ public class CCAGenerator {
 					builder.append(sendReceiveOneAmbient);
 				} catch (AmbientMessageNotFoundException ex) {
 					logger.error("An error occurred during the generation of the CCA file: {}", ex);
-					return CCA_STATUS_FAILURE;
+					return CCAConstants.CCA_STATUS_FAILURE;
 				}
 				
-			} else if (!message.getRespondToMessage().equalsIgnoreCase(MSG_RESPOND_TO_NULL)) {
+			} else if (!message.getRespondToMessage().equalsIgnoreCase(CCAConstants.MSG_RESPOND_TO_NULL)) {
 
 				// process receive-send one ambient template
 				String receiveSendOneAmbient = generateReceiveSendOneAmbient(message);
@@ -69,7 +65,7 @@ public class CCAGenerator {
 		}
 		
 		AmbientCCAWriter.write(builder.toString());		
-		return CCA_STATUS_SUCCESS;
+		return CCAConstants.CCA_STATUS_SUCCESS;
 	}
 	
 	/**
@@ -89,10 +85,10 @@ public class CCAGenerator {
 		);
 		
 		return sendReceiveOneAmbientTemplate
-			.replace(CCATemplates.AMBIENT_SENDER_PLACEHOLDER, convertedMsg.getSenderAmbient())
-			.replace(CCATemplates.AMBIENT_RECEIPIENT_PLACEHOLDER, convertedMsg.getRecipientAmbient())
-			.replace(CCATemplates.SEND_PARAMETERS_PLACEHOLDER, convertedMsg.getMessage())
-			.replace(CCATemplates.RECEIVE_PARAMETERS_PLACEHOLDER, receiveParameters);
+			.replace(CCAConstants.AMBIENT_SENDER_PLACEHOLDER, convertedMsg.getSenderAmbient())
+			.replace(CCAConstants.AMBIENT_RECEIPIENT_PLACEHOLDER, convertedMsg.getRecipientAmbient())
+			.replace(CCAConstants.SEND_PARAMETERS_PLACEHOLDER, convertedMsg.getMessage())
+			.replace(CCAConstants.RECEIVE_PARAMETERS_PLACEHOLDER, receiveParameters);
 	}
 
 	/**
@@ -109,9 +105,9 @@ public class CCAGenerator {
 		);
 		
 		return receiveSendOneAmbientTemplate
-			.replace(CCATemplates.AMBIENT_SENDER_PLACEHOLDER, message.getSenderAmbient())
-			.replace(CCATemplates.AMBIENT_RECEIPIENT_PLACEHOLDER, message.getRecipientAmbient())
-			.replace(CCATemplates.SEND_PARAMETERS_PLACEHOLDER, message.getRespondToMessage())
-			.replace(CCATemplates.RECEIVE_PARAMETERS_PLACEHOLDER, receiveParameters);
+			.replace(CCAConstants.AMBIENT_SENDER_PLACEHOLDER, message.getSenderAmbient())
+			.replace(CCAConstants.AMBIENT_RECEIPIENT_PLACEHOLDER, message.getRecipientAmbient())
+			.replace(CCAConstants.SEND_PARAMETERS_PLACEHOLDER, message.getRespondToMessage())
+			.replace(CCAConstants.RECEIVE_PARAMETERS_PLACEHOLDER, receiveParameters);
 	}
 }
