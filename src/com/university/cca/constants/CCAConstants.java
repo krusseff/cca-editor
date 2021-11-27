@@ -10,8 +10,8 @@ public class CCAConstants {
 	
 	// CCA Generation constants
 	public static final String MSG_RESPOND_TO_NULL = "null";
-	public static final int CCA_STATUS_SUCCESS = 0;
-	public static final int CCA_STATUS_FAILURE = 1;
+	public static final int CCA_STATUS_SUCCESS 	   = 0;
+	public static final int CCA_STATUS_FAILURE 	   = 1;
 	
 	// CCA Templates files paths version 1
 	public static final String AMBIENTS_DELIMITER_FILE_PATH 	  = "./files/cca_templates/ambients_delimiter.cca";
