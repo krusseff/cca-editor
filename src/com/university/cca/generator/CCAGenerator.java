@@ -55,7 +55,7 @@ public class CCAGenerator {
 				builder.append(receiveSendOneAmbient);
 			} else {
 				// Do nothing here, at least for now
-				logger.error("Unsupported ambient operation has found!");
+				logger.error("CCA Generator V1: Unsupported ambient operation has found!");
 			}
 			
 			// Do not add an ambient delimiter after the last element
