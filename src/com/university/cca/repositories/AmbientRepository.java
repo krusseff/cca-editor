@@ -50,15 +50,24 @@ public class AmbientRepository {
 			.map(Ambient::getName)
 			.collect(Collectors.toList());
 	}
+
+	/**
+	 *  Returns only active ambient names
+	 */
+	public static List<String> getActiveAmbientNames() {
+		return getAllAmbients()
+			.stream()
+			.filter(Ambient::isActiveAmbient)
+			.map(Ambient::getName)
+			.collect(Collectors.toList());
+	}
 	
 	/**
 	 *  Returns only active ambient names sorted alphabetically
 	 */
 	public static String[] getActiveAmbientNamesSorted() {
-		List<String> sortedActiveAmbientNames = getAllAmbients()
+		List<String> sortedActiveAmbientNames = getActiveAmbientNames()
 			.stream()
-			.filter(Ambient::isActiveAmbient)
-			.map(Ambient::getName)
 			.sorted()
 			.collect(Collectors.toList());
 		

@@ -2,6 +2,8 @@ package com.university.cca.generator;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 import com.university.cca.entities.Message;
@@ -34,6 +36,20 @@ public class GeneratorUtil {
 		
 		return messages.stream()
 			.filter(msg -> areActiveAmbients(activeAmbients, msg))
+			.collect(Collectors.toList());
+	}
+	
+	/**
+	 * Returns messages by given ambient name
+	 * Messages where the ambient name is sender or recipient
+	 */
+	protected static List<Message> getMessagesByAmbient(String ambient, List<Message> messages) {
+		Predicate<Message> senderPredicate = msg -> ambient.equals(msg.getSenderAmbient());
+		Predicate<Message> recipientPredicate = msg -> ambient.equals(msg.getRecipientAmbient());
+		
+		return messages
+			.stream()
+			.filter(senderPredicate.or(recipientPredicate))
 			.collect(Collectors.toList());
 	}
 	
@@ -98,6 +114,22 @@ public class GeneratorUtil {
 												  Message currentMessage) {
 		
 		return currentMessage != ambientMessages.get(ambientMessages.size() - 1);
+	}
+
+	/**
+	 * Remove the specified last character from given string,
+	 * if it's present on the last position of the provided string.
+	 * The provided string is trimmed before and after the remove operation.
+	 */
+	protected static String removeLastChar(String expression, String charToRemove) {
+		
+		return Optional.ofNullable(expression)
+			.filter(str -> str.length() != 0)
+			.map(String::trim)
+			.filter(str -> str.charAt(str.length() - 1) == charToRemove.charAt(0))
+			.map(str -> str.substring(0, str.length() - 1))
+			.map(String::trim)
+			.orElse(expression);
 	}
 	
 	/**
