@@ -11,29 +11,29 @@ import org.slf4j.LoggerFactory;
 
 import com.university.cca.constants.Constants;
 import com.university.cca.frames.AppMainFrame;
-import com.university.cca.generator.CCAGenerator;
+import com.university.cca.generator.CCAGeneratorV1;
 import com.university.cca.util.GenerateCCAUtil;
 import com.university.cca.util.MouseCursorUtil;
 
 /**
- * The button that starts the generation of the CCA file
+ * The button that starts the generation of the CCA file (Version 1)
  * 
  * @author Konstantin Rusev
  * @version 1.0
  */
-public class GenerateCCAButton extends JButton implements ActionListener {
+public class GenerateCCAButtonV1 extends JButton implements ActionListener {
 	
 	private static final long serialVersionUID = 1L;
-	private static final Logger logger = LoggerFactory.getLogger(GenerateCCAButton.class);
+	private static final Logger logger = LoggerFactory.getLogger(GenerateCCAButtonV1.class);
 	
 	private static final int CCA_STATUS_SUCCESS = 0;
 	private static final int CCA_STATUS_FAILURE = 1;
-	private static final String BUTTON_NAME = "Generate CCA";
-	private static final String BUTTON_TOOL_TIP = "Create the whole CCA Model and as a last step generate the CCA file";
+	private static final String BUTTON_NAME = "Generate CCA (Version 1)";
+	private static final String BUTTON_TOOL_TIP = "Create the whole CCA Model and as a last step generate the CCA file (Version 1)";
 	
 	private AppMainFrame parentFrame;
 	
-    public GenerateCCAButton(AppMainFrame parentFrame) {
+    public GenerateCCAButtonV1(AppMainFrame parentFrame) {
     	this.parentFrame = parentFrame;
     	
         this.setText(BUTTON_NAME);
@@ -48,16 +48,16 @@ public class GenerateCCAButton extends JButton implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		logger.info("Generate CCA Button is clicked and generating CCA file is triggered");
+		logger.info("Generate CCA Button (Version 1) is clicked and generating CCA file is triggered");
 		
-		triggerCCAGeneration();
+		triggerCCAGenerationV1();
 	}
 	
 	/**
-	 * Triggers the generation of the CCA File and returns a result of that
+	 * Triggers the generation of the CCA File (Version 1) and returns a result of that
 	 */
-	private void triggerCCAGeneration() {
-		int generationResult = CCAGenerator.generate();
+	private void triggerCCAGenerationV1() {
+		int generationResult = CCAGeneratorV1.generate();
 		
 		switch (generationResult) {
 			case CCA_STATUS_SUCCESS:

@@ -13,16 +13,16 @@ import com.university.cca.files.cca.TemplateCCAReader;
 import com.university.cca.files.csv.AmbientCSVReader;
 
 /**
- * Class that has the responsibility to generate the CCA file with the valid specific syntax
+ * Class that has the responsibility to generate the CCA file (Version 1) with the valid specific syntax
  * 
  * @author Konstantin Rusev
  * @version 1.0
  */
-public class CCAGenerator {
+public class CCAGeneratorV1 {
 
-	private static final Logger logger = LoggerFactory.getLogger(CCAGenerator.class);
+	private static final Logger logger = LoggerFactory.getLogger(CCAGeneratorV1.class);
 	
-	private CCAGenerator() {
+	private CCAGeneratorV1() {
 		// Prevent creating an object of type CCAGenerator
 	}
 	

@@ -6,6 +6,7 @@ import java.util.Optional;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
+import com.university.cca.constants.CCAConstants;
 import com.university.cca.entities.Message;
 import com.university.cca.exceptions.AmbientMessageNotFoundException;
 import com.university.cca.repositories.AmbientRepository;
@@ -51,6 +52,18 @@ public class GeneratorUtil {
 			.stream()
 			.filter(senderPredicate.or(recipientPredicate))
 			.collect(Collectors.toList());
+	}
+	
+	/**
+	 * Checks whether an ambient is sender or recipient of at least one message.
+	 * 
+	 * @return <code>true</code>  - if the ambient has messages.
+	 * 		   <code>false</code> - if the ambient does not have messages.
+	 */
+	protected static boolean hasMessages(List<Message> messages, String ambient) {
+		List<Message> ambientMessages = getMessagesByAmbient(ambient, messages);
+		
+		return !ambientMessages.isEmpty();
 	}
 	
 	/**
@@ -130,6 +143,22 @@ public class GeneratorUtil {
 			.map(str -> str.substring(0, str.length() - 1))
 			.map(String::trim)
 			.orElse(expression);
+	}
+	
+	/**
+	 * Checks whether a specific ambient (senderKey) is sender of the given message
+	 */
+	protected static boolean isSender(String sender, String senderKey, String respondTo) {
+		return sender.equals(senderKey) &&
+			   respondTo.equalsIgnoreCase(CCAConstants.MSG_RESPOND_TO_NULL);
+	}
+	
+	/**
+	 * Checks whether a specific ambient (recipientKey) is recipient of the given message
+	 */
+	protected static boolean isRecipient(String recipient, String recipientKey, String respondTo) {
+		return recipient.equals(recipientKey) &&
+			   !respondTo.equalsIgnoreCase(CCAConstants.MSG_RESPOND_TO_NULL);
 	}
 	
 	/**
