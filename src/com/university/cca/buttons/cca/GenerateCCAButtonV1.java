@@ -50,13 +50,13 @@ public class GenerateCCAButtonV1 extends JButton implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		logger.info("Generate CCA Button (Version 1) is clicked and generating CCA file is triggered");
 		
-		triggerCCAGeneration();
+		triggerCCAGenerationV1();
 	}
 	
 	/**
 	 * Triggers the generation of the CCA File (Version 1) and returns a result of that
 	 */
-	private void triggerCCAGeneration() {
+	private void triggerCCAGenerationV1() {
 		int generationResult = CCAGeneratorV1.generate();
 		
 		switch (generationResult) {
