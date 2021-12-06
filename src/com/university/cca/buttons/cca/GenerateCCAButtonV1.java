@@ -9,6 +9,7 @@ import javax.swing.JButton;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.university.cca.constants.CCAConstants;
 import com.university.cca.constants.Constants;
 import com.university.cca.frames.AppMainFrame;
 import com.university.cca.generator.CCAGeneratorV1;
@@ -26,9 +27,7 @@ public class GenerateCCAButtonV1 extends JButton implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(GenerateCCAButtonV1.class);
 	
-	private static final int CCA_STATUS_SUCCESS = 0;
-	private static final int CCA_STATUS_FAILURE = 1;
-	private static final String BUTTON_NAME = "Generate CCA (Version 1)";
+	private static final String BUTTON_NAME 	= "Generate CCA (Version 1)";
 	private static final String BUTTON_TOOL_TIP = "Create the whole CCA Model and as a last step generate the CCA file (Version 1)";
 	
 	private AppMainFrame parentFrame;
@@ -60,12 +59,12 @@ public class GenerateCCAButtonV1 extends JButton implements ActionListener {
 		int generationResult = CCAGeneratorV1.generate();
 		
 		switch (generationResult) {
-			case CCA_STATUS_SUCCESS:
+			case CCAConstants.CCA_STATUS_SUCCESS:
 				GenerateCCAUtil.createSuccessDialog(this.parentFrame);
 				logger.info("The CCA file is generated successfully! Exit code: {}", generationResult);
 				break;
 				
-			case CCA_STATUS_FAILURE:
+			case CCAConstants.CCA_STATUS_FAILURE:
 				GenerateCCAUtil.createErrorDialog(this.parentFrame);
 				logger.error("The CCA file is NOT generated! Exit code: {}", generationResult);
 				break;

@@ -10,7 +10,9 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
 
+import com.university.cca.buttons.CloseDialogButton;
 import com.university.cca.buttons.cca.GenerateCCAButtonV1;
+import com.university.cca.buttons.cca.GenerateCCAButtonV2;
 import com.university.cca.buttons.cca.OpenCCAFileButton;
 import com.university.cca.buttons.cca.StartAnimatedScenarioButton;
 import com.university.cca.buttons.cca.StartConsoleScenarioButton;
@@ -32,16 +34,19 @@ public class CCAGenerationDialog extends JDialog {
 	private static final String FOOTER_PANEL_NOTE = "NOTE: Create the whole CCA Model and as a last step generate the CCA file!";
 	private static final String TEXT_PANE_CONTENT_TYPE = "text/html";
 	
-	private static final int HEIGHT_DIALOG = 400;
-	private static final int WIDHT_DIALOG = 600;
+	private static final boolean IS_MODAL 	= true;
+	private static final boolean IS_VISIBLE = true;
 	
-	private static final int GRID_ROWS = 4;
+	private static final int HEIGHT_DIALOG = 400;
+	private static final int WIDHT_DIALOG  = 600;
+	
+	private static final int GRID_ROWS = 6;
 	private static final int GRID_COLS = 1;
 	
 	private AppMainFrame parentFrame;
 
 	public CCAGenerationDialog(AppMainFrame parentFrame) {
-        super(parentFrame, TITLE, true);
+        super(parentFrame, TITLE, IS_MODAL);
         this.parentFrame = parentFrame;
         
         addDialogContent();
@@ -50,7 +55,7 @@ public class CCAGenerationDialog extends JDialog {
         this.setLocationRelativeTo(parentFrame);
 
         this.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-        this.setVisible(true);
+        this.setVisible(IS_VISIBLE);
 	}
 	
 	private void addDialogContent() {
@@ -72,10 +77,11 @@ public class CCAGenerationDialog extends JDialog {
 		
 		JPanel contentPanel = new JPanel(new GridLayout(GRID_ROWS, GRID_COLS));
 		contentPanel.add(new GenerateCCAButtonV1(getParentFrame()));
-		// TODO: add the new button for version 2
+		contentPanel.add(new GenerateCCAButtonV2(getParentFrame()));
 		contentPanel.add(new StartConsoleScenarioButton(getParentFrame()));
 		contentPanel.add(new StartAnimatedScenarioButton(getParentFrame()));
 		contentPanel.add(new OpenCCAFileButton(getParentFrame()));
+		contentPanel.add(new CloseDialogButton(this));
 
 		panel.add(titlePanel);
 		panel.add(contentPanel);
