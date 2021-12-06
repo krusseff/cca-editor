@@ -19,7 +19,6 @@ public class GenerateCCAUtil {
 	
 	/**
 	 * Method that shows a success dialog if the CCA file is generated successfully.
-	 * 
 	 */
 	public static void createSuccessDialog(AppMainFrame parentFrame) {
 		JOptionPane.showMessageDialog(
@@ -33,7 +32,6 @@ public class GenerateCCAUtil {
 	
 	/**
 	 * Method that shows an error dialog if there is an error related to the CCA file generation.
-	 * 
 	 */
 	public static void createErrorDialog(AppMainFrame parentFrame) {
 		JOptionPane.showMessageDialog(
