@@ -20,6 +20,8 @@ public class ShowMessages extends JMenuItem implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(ShowMessages.class);
 	
+	private static final String TOOL_TIP = "Show All Ambient Messages";
+	
 	private AppMainFrame parentFrame;
 	
 	public ShowMessages(AppMainFrame parentFrame) {
@@ -28,7 +30,7 @@ public class ShowMessages extends JMenuItem implements ActionListener {
 		this.setText(Constants.VIEW_ITEM_MESSAGES);
 		this.setIcon(new ImageIcon(Constants.SHOW_AMBIENTS_INFO_ICON_PATH));
 		
-		this.setToolTipText("Show All Ambient Messages");
+		this.setToolTipText(TOOL_TIP);
 		this.setCursor(MouseCursorUtil.getMouseHand());
 		this.setIconTextGap(Constants.ICON_GAP_SIZE);
 		

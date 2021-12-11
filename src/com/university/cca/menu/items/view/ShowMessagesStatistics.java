@@ -20,6 +20,8 @@ public class ShowMessagesStatistics extends JMenuItem implements ActionListener 
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(ShowMessagesStatistics.class);
 	
+	private static final String TOOL_TIP = "Show Messages Statistics";
+	
 	private AppMainFrame parentFrame;
 	
 	public ShowMessagesStatistics(AppMainFrame parentFrame) {
@@ -28,7 +30,7 @@ public class ShowMessagesStatistics extends JMenuItem implements ActionListener 
 		this.setText(Constants.VIEW_ITEM_MESSAGES_STATS);
 		this.setIcon(new ImageIcon(Constants.SHOW_AMBIENTS_STATS_ICON_PATH));
 		
-		this.setToolTipText("Show Messages Statistics");
+		this.setToolTipText(TOOL_TIP);
 		this.setCursor(MouseCursorUtil.getMouseHand());
 		this.setIconTextGap(Constants.ICON_GAP_SIZE);
 		

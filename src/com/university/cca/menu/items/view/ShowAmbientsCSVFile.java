@@ -20,6 +20,8 @@ public class ShowAmbientsCSVFile extends JMenuItem implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(ShowAmbientsCSVFile.class);
 	
+	private static final String TOOL_TIP = "Show All Ambients CSV File";
+	
 	private AppMainFrame parentFrame;
 	
 	public ShowAmbientsCSVFile(AppMainFrame parentFrame) {
@@ -28,7 +30,7 @@ public class ShowAmbientsCSVFile extends JMenuItem implements ActionListener {
 		this.setText(Constants.VIEW_ITEM_AMBIENTS_CSV);
 		this.setIcon(new ImageIcon(Constants.SHOW_CSV_ICON_PATH));
 		
-		this.setToolTipText("Show All Ambients CSV File");
+		this.setToolTipText(TOOL_TIP);
 		this.setCursor(MouseCursorUtil.getMouseHand());
 		this.setIconTextGap(Constants.ICON_GAP_SIZE);
 		
