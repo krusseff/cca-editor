@@ -21,12 +21,16 @@ public class CountryButton extends JButton implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(CountryButton.class);
 	
+	private static final String BUTTON_NAME 	= "Country";
+	private static final String BUTTON_TOOL_TIP = "Create country";
+	
 	private AppMainFrame parentFrame;
 	
     public CountryButton(AppMainFrame parentFrame) {
     	this.parentFrame = parentFrame;
     	
-        this.setText("Country");
+        this.setText(BUTTON_NAME);
+        this.setToolTipText(BUTTON_TOOL_TIP);
         this.setIcon(new ImageIcon(Constants.COUNTRY_ICON_PATH));
         this.setPreferredSize(new Dimension(80, 40));
         this.setCursor(MouseCursorUtil.getMouseHand());
@@ -40,8 +44,8 @@ public class CountryButton extends JButton implements ActionListener {
 		logger.info("Country Button is clicked");
 		
 		new CreateAmbientDialog(
-			this.parentFrame, 
-			"Create Country", 
+			getParentFrame(), 
+			"Create Smart Country", 
 			"Please, enter a valid country information",
 			AmbientType.COUNTRY
 		);

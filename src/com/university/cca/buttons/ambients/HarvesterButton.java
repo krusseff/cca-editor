@@ -21,12 +21,16 @@ public class HarvesterButton extends JButton implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(HarvesterButton.class);
 
+	private static final String BUTTON_NAME 	= "Harvester";
+	private static final String BUTTON_TOOL_TIP = "Create harvester";
+	
 	private AppMainFrame parentFrame;
 
     public HarvesterButton(AppMainFrame parentFrame) {
     	this.parentFrame = parentFrame;
     	
-        this.setText("Harvester");
+        this.setText(BUTTON_NAME);
+        this.setToolTipText(BUTTON_TOOL_TIP);
         this.setIcon(new ImageIcon(Constants.HARVESTER_ICON_PATH));
         this.setPreferredSize(new Dimension(80, 40));
         this.setCursor(MouseCursorUtil.getMouseHand());
@@ -40,7 +44,7 @@ public class HarvesterButton extends JButton implements ActionListener {
 		logger.info("Harvester button is clicked");
 		
 		new CreateAmbientDialog(
-			this.parentFrame, 
+			getParentFrame(), 
 			"Create Smart Harvester", 
 			"Please, enter a valid harvester information",
 			AmbientType.HARVESTER

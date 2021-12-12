@@ -21,12 +21,16 @@ public class MotorbikeButton extends JButton implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(MotorbikeButton.class);
 	
+	private static final String BUTTON_NAME 	= "Motorbike";
+	private static final String BUTTON_TOOL_TIP = "Create motorbike";
+	
 	private AppMainFrame parentFrame;
 	
     public MotorbikeButton(AppMainFrame parentFrame) {
     	this.parentFrame = parentFrame;
     	
-        this.setText("Motorbike");
+        this.setText(BUTTON_NAME);
+        this.setToolTipText(BUTTON_TOOL_TIP);
         this.setIcon(new ImageIcon(Constants.MOTORBIKE_ICON_PATH));
         this.setPreferredSize(new Dimension(80, 40));
         this.setCursor(MouseCursorUtil.getMouseHand());
@@ -40,8 +44,8 @@ public class MotorbikeButton extends JButton implements ActionListener {
 		logger.info("Motorbike Button is clicked");
 		
 		new CreateAmbientDialog(
-			this.parentFrame, 
-			"Create Motorbike", 
+			getParentFrame(), 
+			"Create Smart Motorbike", 
 			"Please, enter a valid motorbike information",
 			AmbientType.MOTORBIKE
 		);

@@ -21,12 +21,16 @@ public class WaterSprinklerButton extends JButton implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(WaterSprinklerButton.class);
 
+	private static final String BUTTON_NAME 	= "Water Sprinkler";
+	private static final String BUTTON_TOOL_TIP = "Create water sprinkler";
+	
 	private AppMainFrame parentFrame;
 
     public WaterSprinklerButton(AppMainFrame parentFrame) {
     	this.parentFrame = parentFrame;
     	
-        this.setText("Water Sprinkler");
+        this.setText(BUTTON_NAME);
+        this.setToolTipText(BUTTON_TOOL_TIP);
         this.setIcon(new ImageIcon(Constants.SPRINKLER_ICON_PATH));
         this.setPreferredSize(new Dimension(80, 40));
         this.setCursor(MouseCursorUtil.getMouseHand());
@@ -40,8 +44,8 @@ public class WaterSprinklerButton extends JButton implements ActionListener {
 		logger.info("Water Sprinkler button is clicked");
 		
 		new CreateAmbientDialog(
-			this.parentFrame, 
-			"Create Water Sprinkler", 
+			getParentFrame(), 
+			"Create Smart Water Sprinkler", 
 			"Please, enter a valid water sprinklers information",
 			AmbientType.WATER_SPRINKLER
 		);

@@ -21,12 +21,16 @@ public class CoffeeButton extends JButton implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(CoffeeButton.class);
 	
+	private static final String BUTTON_NAME 	= "Caffeteria";
+	private static final String BUTTON_TOOL_TIP = "Create caffeteria";
+	
 	private AppMainFrame parentFrame;
 	
     public CoffeeButton(AppMainFrame parentFrame) {
     	this.parentFrame = parentFrame;
     	
-        this.setText("Caffeteria");
+        this.setText(BUTTON_NAME);
+        this.setToolTipText(BUTTON_TOOL_TIP);
         this.setIcon(new ImageIcon(Constants.COFFEE_ICON_PATH));
         this.setPreferredSize(new Dimension(80, 40));
         this.setCursor(MouseCursorUtil.getMouseHand());
@@ -40,7 +44,7 @@ public class CoffeeButton extends JButton implements ActionListener {
 		logger.info("Caffeteria Button is clicked");
 		
 		new CreateAmbientDialog(
-			this.parentFrame, 
+			getParentFrame(), 
 			"Create Caffeteria", 
 			"Please, enter a valid caffeteria information",
 			AmbientType.COFFEE

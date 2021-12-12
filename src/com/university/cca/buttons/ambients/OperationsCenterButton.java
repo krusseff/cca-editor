@@ -21,12 +21,16 @@ public class OperationsCenterButton extends JButton implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(OperationsCenterButton.class);
 
+	private static final String BUTTON_NAME 	= "Operations Center";
+	private static final String BUTTON_TOOL_TIP = "Create operations center";
+	
 	private AppMainFrame parentFrame;
 
     public OperationsCenterButton(AppMainFrame parentFrame) {
     	this.parentFrame = parentFrame;
     	
-        this.setText("Operations Center");
+        this.setText(BUTTON_NAME);
+        this.setToolTipText(BUTTON_TOOL_TIP);
         this.setIcon(new ImageIcon(Constants.OPERATIONS_ICON_PATH));
         this.setPreferredSize(new Dimension(80, 40));
         this.setCursor(MouseCursorUtil.getMouseHand());
@@ -40,8 +44,8 @@ public class OperationsCenterButton extends JButton implements ActionListener {
 		logger.info("Operations Center button is clicked");
 		
 		new CreateAmbientDialog(
-			this.parentFrame, 
-			"Create Operations Center", 
+			getParentFrame(), 
+			"Create Smart Operations Center", 
 			"Please, enter a valid operations center information",
 			AmbientType.OPERATIONS_CENTER
 		);

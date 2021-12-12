@@ -21,12 +21,16 @@ public class ParkingButton extends JButton implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(ParkingButton.class);
 	
+	private static final String BUTTON_NAME 	= "Car Parking";
+	private static final String BUTTON_TOOL_TIP = "Create car parking";
+	
 	private AppMainFrame parentFrame;
 	
     public ParkingButton(AppMainFrame parentFrame) {
     	this.parentFrame = parentFrame;
     	
-        this.setText("Car Parking");
+        this.setText(BUTTON_NAME);
+        this.setToolTipText(BUTTON_TOOL_TIP);
         this.setIcon(new ImageIcon(Constants.PARKING_ICON_PATH));
         this.setPreferredSize(new Dimension(80, 40));
         this.setCursor(MouseCursorUtil.getMouseHand());
@@ -40,7 +44,7 @@ public class ParkingButton extends JButton implements ActionListener {
 		logger.info("Car Parking Button is clicked");
 		
 		new CreateAmbientDialog(
-			this.parentFrame, 
+			getParentFrame(), 
 			"Create Car Parking", 
 			"Please, enter a valid car parking information",
 			AmbientType.PARKING

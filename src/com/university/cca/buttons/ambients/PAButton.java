@@ -21,12 +21,16 @@ public class PAButton extends JButton implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(PAButton.class);
 	
+	private static final String BUTTON_NAME 	= "Personal Assistant";
+	private static final String BUTTON_TOOL_TIP = "Create personal assistant";
+	
 	private AppMainFrame parentFrame;
 	
     public PAButton(AppMainFrame parentFrame) {
     	this.parentFrame = parentFrame;
     	
-        this.setText("Personal Assistant");
+        this.setText(BUTTON_NAME);
+        this.setToolTipText(BUTTON_TOOL_TIP);
         this.setIcon(new ImageIcon(Constants.PA_ICON_PATH));
         this.setPreferredSize(new Dimension(80, 40));
         this.setCursor(MouseCursorUtil.getMouseHand());
@@ -39,8 +43,8 @@ public class PAButton extends JButton implements ActionListener {
 		logger.info("Personal Assitant Ambient Button is clicked");
 		
 		new CreateAmbientDialog(
-			this.parentFrame, 
-			"Create Personal Assistant", 
+			getParentFrame(), 
+			"Create Smart Personal Assistant", 
 			"Please, enter a valid personal assistant information",
 			AmbientType.PERSONAL_ASSISTANT
 		);

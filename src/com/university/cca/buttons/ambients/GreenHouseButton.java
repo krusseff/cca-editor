@@ -21,12 +21,16 @@ public class GreenHouseButton extends JButton implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(GreenHouseButton.class);
 	
+	private static final String BUTTON_NAME 	= "Solar Greenhouse";
+	private static final String BUTTON_TOOL_TIP = "Create solar greenhouse";
+	
 	private AppMainFrame parentFrame;
 
     public GreenHouseButton(AppMainFrame parentFrame) {
     	this.parentFrame = parentFrame;
     	
-        this.setText("Solar Greenhouse");
+        this.setText(BUTTON_NAME);
+        this.setToolTipText(BUTTON_TOOL_TIP);
         this.setIcon(new ImageIcon(Constants.GREENHOUSE_ICON_PATH));
         this.setPreferredSize(new Dimension(80, 40));
         this.setCursor(MouseCursorUtil.getMouseHand());
@@ -40,8 +44,8 @@ public class GreenHouseButton extends JButton implements ActionListener {
 		logger.info("Solar Greenhouse button is clicked");
 		
 		new CreateAmbientDialog(
-			this.parentFrame, 
-			"Create Solar Greenhouse", 
+			getParentFrame(), 
+			"Create Smart Solar Greenhouse", 
 			"Please, enter a valid solar greenhouse information",
 			AmbientType.GREENHOUSE
 		);

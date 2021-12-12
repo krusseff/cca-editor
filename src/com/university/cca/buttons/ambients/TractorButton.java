@@ -21,12 +21,16 @@ public class TractorButton extends JButton implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(TractorButton.class);
 
+	private static final String BUTTON_NAME 	= "Tractor";
+	private static final String BUTTON_TOOL_TIP = "Create tractor";
+	
 	private AppMainFrame parentFrame;
 
     public TractorButton(AppMainFrame parentFrame) {
     	this.parentFrame = parentFrame;
     	
-        this.setText("Tractor");
+        this.setText(BUTTON_NAME);
+        this.setToolTipText(BUTTON_TOOL_TIP);
         this.setIcon(new ImageIcon(Constants.TRACTOR_ICON_PATH));
         this.setPreferredSize(new Dimension(80, 40));
         this.setCursor(MouseCursorUtil.getMouseHand());
@@ -40,7 +44,7 @@ public class TractorButton extends JButton implements ActionListener {
 		logger.info("Smart Tractor button is clicked");
 		
 		new CreateAmbientDialog(
-			this.parentFrame, 
+			getParentFrame(), 
 			"Create Smart Tractor", 
 			"Please, enter a valid tractor information",
 			AmbientType.TRACTOR

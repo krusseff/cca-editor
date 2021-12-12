@@ -21,12 +21,16 @@ public class BusButton extends JButton implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(BusButton.class);
 	
+	private static final String BUTTON_NAME 	= "Bus";
+	private static final String BUTTON_TOOL_TIP = "Create bus";
+	
 	private AppMainFrame parentFrame;
 	
     public BusButton(AppMainFrame parentFrame) {
     	this.parentFrame = parentFrame;
     	
-        this.setText("Bus");
+        this.setText(BUTTON_NAME);
+        this.setToolTipText(BUTTON_TOOL_TIP);
         this.setIcon(new ImageIcon(Constants.BUS_ICON_PATH));
         this.setPreferredSize(new Dimension(80, 40));
         this.setCursor(MouseCursorUtil.getMouseHand());
@@ -40,8 +44,8 @@ public class BusButton extends JButton implements ActionListener {
 		logger.info("Bus button is clicked");
 		
 		new CreateAmbientDialog(
-			this.parentFrame, 
-			"Create Bus", 
+			getParentFrame(), 
+			"Create Smart Bus", 
 			"Please, enter a valid bus information",
 			AmbientType.BUS
 		);

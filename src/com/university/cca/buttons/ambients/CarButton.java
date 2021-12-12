@@ -21,12 +21,16 @@ public class CarButton extends JButton implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(CarButton.class);
 	
+	private static final String BUTTON_NAME 	= "Car";
+	private static final String BUTTON_TOOL_TIP = "Create car";
+	
 	private AppMainFrame parentFrame;
 	
     public CarButton(AppMainFrame parentFrame) {
     	this.parentFrame = parentFrame;
     	
-        this.setText("Car");
+        this.setText(BUTTON_NAME);
+        this.setToolTipText(BUTTON_TOOL_TIP);
         this.setIcon(new ImageIcon(Constants.CAR_ICON_PATH));
         this.setPreferredSize(new Dimension(80, 40));
         this.setCursor(MouseCursorUtil.getMouseHand());
@@ -40,8 +44,8 @@ public class CarButton extends JButton implements ActionListener {
 		logger.info("Car button is clicked");
 		
 		new CreateAmbientDialog(
-			this.parentFrame, 
-			"Create Car", 
+			getParentFrame(), 
+			"Create Smart Car", 
 			"Please, enter a valid car information",
 			AmbientType.CAR
 		);

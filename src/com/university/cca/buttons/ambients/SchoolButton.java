@@ -21,12 +21,16 @@ public class SchoolButton extends JButton implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(SchoolButton.class);
 
+	private static final String BUTTON_NAME 	= "School";
+	private static final String BUTTON_TOOL_TIP = "Create school";
+	
 	private AppMainFrame parentFrame;
 	
     public SchoolButton(AppMainFrame parentFrame) {
     	this.parentFrame = parentFrame;
     	
-        this.setText("School");
+        this.setText(BUTTON_NAME);
+        this.setToolTipText(BUTTON_TOOL_TIP);
         this.setIcon(new ImageIcon(Constants.SCHOOL_ICON_PATH));
         this.setPreferredSize(new Dimension(80, 40));
         this.setCursor(MouseCursorUtil.getMouseHand());
@@ -40,7 +44,7 @@ public class SchoolButton extends JButton implements ActionListener {
 		logger.info("School Button is clicked");
 		
 		new CreateAmbientDialog(
-			this.parentFrame, 
+			getParentFrame(), 
 			"Create School", 
 			"Please, enter a valid school information",
 			AmbientType.SCHOOL

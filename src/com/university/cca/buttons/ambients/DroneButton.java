@@ -20,13 +20,17 @@ public class DroneButton extends JButton implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(DroneButton.class);
+	
+	private static final String BUTTON_NAME 	= "Drone";
+	private static final String BUTTON_TOOL_TIP = "Create drone";
 
 	private AppMainFrame parentFrame;
 
     public DroneButton(AppMainFrame parentFrame) {
     	this.parentFrame = parentFrame;
     	
-        this.setText("Drone");
+        this.setText(BUTTON_NAME);
+        this.setToolTipText(BUTTON_TOOL_TIP);
         this.setIcon(new ImageIcon(Constants.DRONE_ICON_PATH));
         this.setPreferredSize(new Dimension(80, 40));
         this.setCursor(MouseCursorUtil.getMouseHand());
@@ -40,7 +44,7 @@ public class DroneButton extends JButton implements ActionListener {
 		logger.info("Smart Drone button is clicked");
 		
 		new CreateAmbientDialog(
-			this.parentFrame, 
+			getParentFrame(), 
 			"Create Smart Drone", 
 			"Please, enter a valid drone information",
 			AmbientType.DRONE

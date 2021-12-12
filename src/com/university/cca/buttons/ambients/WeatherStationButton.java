@@ -21,12 +21,16 @@ public class WeatherStationButton extends JButton implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(WeatherStationButton.class);
 
+	private static final String BUTTON_NAME 	= "Weather Station";
+	private static final String BUTTON_TOOL_TIP = "Create weather station";
+
 	private AppMainFrame parentFrame;
 
     public WeatherStationButton(AppMainFrame parentFrame) {
     	this.parentFrame = parentFrame;
     	
-        this.setText("Weather Station");
+        this.setText(BUTTON_NAME);
+        this.setToolTipText(BUTTON_TOOL_TIP);
         this.setIcon(new ImageIcon(Constants.WEATHER_STATION_ICON_PATH));
         this.setPreferredSize(new Dimension(80, 40));
         this.setCursor(MouseCursorUtil.getMouseHand());
@@ -40,8 +44,8 @@ public class WeatherStationButton extends JButton implements ActionListener {
 		logger.info("Weather Station button is clicked");
 		
 		new CreateAmbientDialog(
-			this.parentFrame, 
-			"Create Weather Station", 
+			getParentFrame(), 
+			"Create Smart Weather Station", 
 			"Please, enter a valid weather station information",
 			AmbientType.WEATHER_STATION
 		);
