@@ -38,7 +38,7 @@ public class TermsMenuItem extends JMenuItem implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		logger.info("Help Terms and Conditions Button is clicked");
 		
-		new TermsDialog(this.parentFrame);
+		new TermsDialog(getParentFrame());
 	}
 
 	// Getters

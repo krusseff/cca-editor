@@ -38,7 +38,7 @@ public class ShortcutsMenuItem extends JMenuItem implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		logger.info("Help Tips and Tricks Button is clicked");
 		
-		new ShortcutsDialog(this.parentFrame);
+		new ShortcutsDialog(getParentFrame());
 	}
 
 	// Getters
