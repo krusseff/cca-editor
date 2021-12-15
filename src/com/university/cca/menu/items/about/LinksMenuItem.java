@@ -40,7 +40,7 @@ public class LinksMenuItem extends JMenuItem implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		logger.info("Useful Links About item menu button is clicked");
 		
-		new LinksDialog(this.parentFrame);
+		new LinksDialog(getParentFrame());
 	}
 
 	// Getters
