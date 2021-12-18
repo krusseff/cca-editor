@@ -54,7 +54,7 @@ public class TerminalMenuItem extends JMenuItem implements ActionListener {
 			if (openTerminalCommand != null) {
 				Runtime.getRuntime().exec(openTerminalCommand);
 			} else {
-				new UnderConstructionDialog(this.parentFrame);
+				new UnderConstructionDialog(getParentFrame());
 			}
 			
 		} catch (IOException ex) {
