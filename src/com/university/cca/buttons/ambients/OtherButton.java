@@ -21,12 +21,16 @@ public class OtherButton extends JButton implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(OtherButton.class);
 
+	private static final String BUTTON_NAME 	= "Other";
+	private static final String BUTTON_TOOL_TIP = "Create other";
+	
 	private AppMainFrame parentFrame;
 	
     public OtherButton(AppMainFrame parentFrame) {
     	this.parentFrame = parentFrame;
     	
-        this.setText("Other");
+        this.setText(BUTTON_NAME);
+        this.setToolTipText(BUTTON_TOOL_TIP);
         this.setIcon(new ImageIcon(Constants.OTHER_ICON_PATH));
         this.setPreferredSize(new Dimension(80, 40));
         this.setCursor(MouseCursorUtil.getMouseHand());
@@ -40,8 +44,8 @@ public class OtherButton extends JButton implements ActionListener {
 		logger.info("Create Other Ambient Button is clicked");
 		
 		new CreateAmbientDialog(
-			this.parentFrame, 
-			"Create Ambient", 
+			getParentFrame(), 
+			"Create Smart Ambient", 
 			"Please, enter a valid ambient information",
 			AmbientType.OTHER
 		);

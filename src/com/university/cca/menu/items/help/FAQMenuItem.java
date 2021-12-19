@@ -38,7 +38,7 @@ public class FAQMenuItem extends JMenuItem implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		logger.info("Help FAQ Button is clicked");
 		
-		new FAQDialog(this.parentFrame);
+		new FAQDialog(getParentFrame());
 	}
 
 	// Getters

@@ -38,7 +38,7 @@ public class OpenMenuItem extends JMenuItem implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		new UnderConstructionDialog(this.parentFrame);
+		new UnderConstructionDialog(getParentFrame());
 		
 		logger.info("File Open Button is clicked");
 	}

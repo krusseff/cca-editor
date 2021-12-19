@@ -21,12 +21,16 @@ public class TrainButton extends JButton implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(TrainButton.class);
 	
+	private static final String BUTTON_NAME 	= "Train";
+	private static final String BUTTON_TOOL_TIP = "Create train";
+	
 	private AppMainFrame parentFrame;
 	
     public TrainButton(AppMainFrame parentFrame) {
     	this.parentFrame = parentFrame;
     	
-        this.setText("Train");
+        this.setText(BUTTON_NAME);
+        this.setToolTipText(BUTTON_TOOL_TIP);
         this.setIcon(new ImageIcon(Constants.TRAIN_ICON_PATH));
         this.setPreferredSize(new Dimension(80, 40));
         this.setCursor(MouseCursorUtil.getMouseHand());
@@ -40,8 +44,8 @@ public class TrainButton extends JButton implements ActionListener {
 		logger.info("Train button is clicked");
 		
 		new CreateAmbientDialog(
-			this.parentFrame, 
-			"Create Train", 
+			getParentFrame(), 
+			"Create Smart Train", 
 			"Please, enter a valid train information",
 			AmbientType.TRAIN
 		);

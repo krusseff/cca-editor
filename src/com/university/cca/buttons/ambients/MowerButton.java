@@ -21,12 +21,16 @@ public class MowerButton extends JButton implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(MowerButton.class);
 
+	private static final String BUTTON_NAME 	= "Mower";
+	private static final String BUTTON_TOOL_TIP = "Create mower";
+	
 	private AppMainFrame parentFrame;
 
     public MowerButton(AppMainFrame parentFrame) {
     	this.parentFrame = parentFrame;
     	
-        this.setText("Mower");
+        this.setText(BUTTON_NAME);
+        this.setToolTipText(BUTTON_TOOL_TIP);
         this.setIcon(new ImageIcon(Constants.MOWER_ICON_PATH));
         this.setPreferredSize(new Dimension(80, 40));
         this.setCursor(MouseCursorUtil.getMouseHand());
@@ -40,7 +44,7 @@ public class MowerButton extends JButton implements ActionListener {
 		logger.info("Mower button is clicked");
 		
 		new CreateAmbientDialog(
-			this.parentFrame, 
+			getParentFrame(), 
 			"Create Smart Mower", 
 			"Please, enter a valid mower information",
 			AmbientType.MOWER

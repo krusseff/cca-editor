@@ -14,7 +14,7 @@ import com.university.cca.loading.LoadingScreen;
 public class CCAUtils {
 	
 	private CCAUtils() {
-		// Constructor that prevents creating an object of type CCAUtils
+		// Constructor that prevents creating an object of type CCAUtils class
 	}
 	
 	public static void createLoadingScreen() {

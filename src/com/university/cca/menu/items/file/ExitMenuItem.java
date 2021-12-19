@@ -20,7 +20,8 @@ public class ExitMenuItem extends JMenuItem implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(ExitMenuItem.class);
 	
-	public static final int YES_OPTION = 0;
+	public static final int YES_OPTION   = 0;
+	private static final int EXIT_CODE_0 = 0;
 	
 	private AppMainFrame parentFrame;
 	
@@ -46,7 +47,7 @@ public class ExitMenuItem extends JMenuItem implements ActionListener {
 		
 		if (createConfirmationDialog() == YES_OPTION) {
 			logger.info("Exiting the application... :)");
-			System.exit(0);
+			System.exit(EXIT_CODE_0);
 		}
 	}
 	

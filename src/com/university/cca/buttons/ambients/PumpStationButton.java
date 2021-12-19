@@ -21,12 +21,16 @@ public class PumpStationButton extends JButton implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(PumpStationButton.class);
 
+	private static final String BUTTON_NAME 	= "Pump Station";
+	private static final String BUTTON_TOOL_TIP = "Create pump station";
+	
 	private AppMainFrame parentFrame;
 
     public PumpStationButton(AppMainFrame parentFrame) {
     	this.parentFrame = parentFrame;
     	
-        this.setText("Pump Station");
+        this.setText(BUTTON_NAME);
+        this.setToolTipText(BUTTON_TOOL_TIP);
         this.setIcon(new ImageIcon(Constants.PUMP_STATION_ICON_PATH));
         this.setPreferredSize(new Dimension(80, 40));
         this.setCursor(MouseCursorUtil.getMouseHand());
@@ -40,8 +44,8 @@ public class PumpStationButton extends JButton implements ActionListener {
 		logger.info("Pump Station button is clicked");
 		
 		new CreateAmbientDialog(
-			this.parentFrame, 
-			"Create Pump Station", 
+			getParentFrame(), 
+			"Create Smart Pump Station", 
 			"Please, enter a valid pump station information",
 			AmbientType.PUMP_STATION
 		);

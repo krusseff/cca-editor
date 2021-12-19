@@ -40,7 +40,7 @@ public class RefreshMenuItem extends JMenuItem implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		logger.info("File Refresh Button is clicked");
 		
-		SwingUtilities.updateComponentTreeUI(this.parentFrame);
+		SwingUtilities.updateComponentTreeUI(getParentFrame());
 	}
 	
 	// Getters

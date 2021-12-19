@@ -21,12 +21,16 @@ public class HospitalButton extends JButton implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(HospitalButton.class);
 	
+	private static final String BUTTON_NAME 	= "Hospital";
+	private static final String BUTTON_TOOL_TIP = "Create hospital";
+	
 	private AppMainFrame parentFrame;
 	
     public HospitalButton(AppMainFrame parentFrame) {
     	this.parentFrame = parentFrame;
     	
-        this.setText("Hospital");
+        this.setText(BUTTON_NAME);
+        this.setToolTipText(BUTTON_TOOL_TIP);
         this.setIcon(new ImageIcon(Constants.HOSPITAL_ICON_PATH));
         this.setPreferredSize(new Dimension(80, 40));
         this.setCursor(MouseCursorUtil.getMouseHand());
@@ -40,8 +44,8 @@ public class HospitalButton extends JButton implements ActionListener {
 		logger.info("Hospital Button is clicked");
 		
 		new CreateAmbientDialog(
-			this.parentFrame, 
-			"Create Hospital", 
+			getParentFrame(), 
+			"Create Smart Hospital", 
 			"Please, enter a valid hospital information",
 			AmbientType.HOSPITAL
 		);

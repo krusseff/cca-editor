@@ -21,12 +21,16 @@ public class HumidityStationButton extends JButton implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(HumidityStationButton.class);
 
+	private static final String BUTTON_NAME 	= "Humidity Station";
+	private static final String BUTTON_TOOL_TIP = "Create humidity station";
+	
 	private AppMainFrame parentFrame;
 
     public HumidityStationButton(AppMainFrame parentFrame) {
     	this.parentFrame = parentFrame;
     	
-        this.setText("Humidity Station");
+        this.setText(BUTTON_NAME);
+        this.setToolTipText(BUTTON_TOOL_TIP);
         this.setIcon(new ImageIcon(Constants.HUMIDITY_STATION_ICON_PATH));
         this.setPreferredSize(new Dimension(80, 40));
         this.setCursor(MouseCursorUtil.getMouseHand());
@@ -40,7 +44,7 @@ public class HumidityStationButton extends JButton implements ActionListener {
 		logger.info("Soil Humidity Station button is clicked");
 		
 		new CreateAmbientDialog(
-			this.parentFrame, 
+			getParentFrame(), 
 			"Create Soil Humidity Station", 
 			"Please, enter a valid humidity station information",
 			AmbientType.HUMIDITY_STATION

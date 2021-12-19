@@ -18,7 +18,7 @@ public class AppModeUtil {
 	private static final Logger logger = LoggerFactory.getLogger(AppModeUtil.class);
 	
 	private AppModeUtil() {
-		// Constructor that prevents creating an object of type AppModeUtil
+		// Constructor that prevents creating an object of type AppModeUtil class
 	}
 	
 	public static int findApplicationMode(String[] appArguments) {

@@ -21,12 +21,16 @@ public class PharmacyButton extends JButton implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(PharmacyButton.class);
 
+	private static final String BUTTON_NAME 	= "Pharmacy";
+	private static final String BUTTON_TOOL_TIP = "Create pharmacy";
+	
 	private AppMainFrame parentFrame;
 	
     public PharmacyButton(AppMainFrame parentFrame) {
     	this.parentFrame = parentFrame;
     	
-        this.setText("Pharmacy");
+        this.setText(BUTTON_NAME);
+        this.setToolTipText(BUTTON_TOOL_TIP);
         this.setIcon(new ImageIcon(Constants.PHARMACY_ICON_PATH));
         this.setPreferredSize(new Dimension(80, 40));
         this.setCursor(MouseCursorUtil.getMouseHand());
@@ -40,8 +44,8 @@ public class PharmacyButton extends JButton implements ActionListener {
 		logger.info("Pharmacy Button is clicked");
 		
 		new CreateAmbientDialog(
-			this.parentFrame, 
-			"Create Pharmacy", 
+			getParentFrame(), 
+			"Create Smart Pharmacy", 
 			"Please, enter a valid pharmacy information",
 			AmbientType.PHARMACY
 		);

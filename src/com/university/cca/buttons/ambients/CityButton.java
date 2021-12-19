@@ -21,12 +21,16 @@ public class CityButton extends JButton implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(CityButton.class);
 	
+	private static final String BUTTON_NAME 	= "City/Town";
+	private static final String BUTTON_TOOL_TIP = "Create city/town";
+	
 	private AppMainFrame parentFrame;
 	
     public CityButton(AppMainFrame parentFrame) {
     	this.parentFrame = parentFrame;
     	
-        this.setText("City/Town");
+        this.setText(BUTTON_NAME);
+        this.setToolTipText(BUTTON_TOOL_TIP);
         this.setIcon(new ImageIcon(Constants.CITY_ICON_PATH));
         this.setPreferredSize(new Dimension(80, 40));
         this.setCursor(MouseCursorUtil.getMouseHand());
@@ -40,8 +44,8 @@ public class CityButton extends JButton implements ActionListener {
 		logger.info("City Button is clicked");
 		
 		new CreateAmbientDialog(
-			this.parentFrame, 
-			"Create City/Town", 
+			getParentFrame(), 
+			"Create Smart City/Town", 
 			"Please, enter a valid city/town information",
 			AmbientType.CITY
 		);

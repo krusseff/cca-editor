@@ -21,12 +21,16 @@ public class HotelButton extends JButton implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(HotelButton.class);
 
+	private static final String BUTTON_NAME 	= "Hotel";
+	private static final String BUTTON_TOOL_TIP = "Create hotel";
+	
 	private AppMainFrame parentFrame;
 	
     public HotelButton(AppMainFrame parentFrame) {
     	this.parentFrame = parentFrame;
     	
-        this.setText("Hotel");
+        this.setText(BUTTON_NAME);
+        this.setToolTipText(BUTTON_TOOL_TIP);
         this.setIcon(new ImageIcon(Constants.HOTEL_ICON_PATH));
         this.setPreferredSize(new Dimension(80, 40));
         this.setCursor(MouseCursorUtil.getMouseHand());
@@ -40,8 +44,8 @@ public class HotelButton extends JButton implements ActionListener {
 		logger.info("Hotel Button is clicked");
 		
 		new CreateAmbientDialog(
-			this.parentFrame, 
-			"Create Hotel", 
+			getParentFrame(), 
+			"Create Smart Hotel", 
 			"Please, enter a valid hotel information",
 			AmbientType.HOTEL
 		);

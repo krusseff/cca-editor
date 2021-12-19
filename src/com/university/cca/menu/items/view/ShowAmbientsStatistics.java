@@ -20,6 +20,8 @@ public class ShowAmbientsStatistics extends JMenuItem implements ActionListener 
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(ShowAmbientsStatistics.class);
 	
+	private static final String TOOL_TIP = "Show Ambients Statistics";
+	
 	private AppMainFrame parentFrame;
 	
 	public ShowAmbientsStatistics(AppMainFrame parentFrame) {
@@ -28,7 +30,7 @@ public class ShowAmbientsStatistics extends JMenuItem implements ActionListener 
 		this.setText(Constants.VIEW_ITEM_AMBIENTS_STATS);
 		this.setIcon(new ImageIcon(Constants.SHOW_AMBIENTS_STATS_ICON_PATH));
 		
-		this.setToolTipText("Show Ambients Statistics");
+		this.setToolTipText(TOOL_TIP);
 		this.setCursor(MouseCursorUtil.getMouseHand());
 		this.setIconTextGap(Constants.ICON_GAP_SIZE);
 		

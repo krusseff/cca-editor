@@ -21,12 +21,16 @@ public class OrchardButton extends JButton implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(OrchardButton.class);
 	
+	private static final String BUTTON_NAME 	= "Orchard";
+	private static final String BUTTON_TOOL_TIP = "Create orchard";
+	
 	private AppMainFrame parentFrame;
 
     public OrchardButton(AppMainFrame parentFrame) {
     	this.parentFrame = parentFrame;
     	
-        this.setText("Orchard");
+        this.setText(BUTTON_NAME);
+        this.setToolTipText(BUTTON_TOOL_TIP);
         this.setIcon(new ImageIcon(Constants.ORCHARD_ICON_PATH));
         this.setPreferredSize(new Dimension(80, 40));
         this.setCursor(MouseCursorUtil.getMouseHand());
@@ -40,8 +44,8 @@ public class OrchardButton extends JButton implements ActionListener {
 		logger.info("Orchard button is clicked");
 		
 		new CreateAmbientDialog(
-			this.parentFrame, 
-			"Create Agriculture Orchard", 
+			getParentFrame(), 
+			"Create Smart Agriculture Orchard", 
 			"Please, enter a valid orchard information",
 			AmbientType.ORCHARD
 		);

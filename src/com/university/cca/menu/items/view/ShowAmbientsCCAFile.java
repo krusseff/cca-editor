@@ -20,6 +20,8 @@ public class ShowAmbientsCCAFile extends JMenuItem implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(ShowAmbientsCCAFile.class);
 	
+	private static final String TOOL_TIP = "Show All Ambients into the CCA File";
+	
 	private AppMainFrame parentFrame;
 
 	public ShowAmbientsCCAFile(AppMainFrame parentFrame) {
@@ -28,7 +30,7 @@ public class ShowAmbientsCCAFile extends JMenuItem implements ActionListener {
 		this.setText(Constants.VIEW_ITEM_AMBIENTS_CCA);
 		this.setIcon(new ImageIcon(Constants.SHOW_CCA_ICON_PATH));
 		
-		this.setToolTipText("Show All Ambients into the CCA File");
+		this.setToolTipText(TOOL_TIP);
 		this.setCursor(MouseCursorUtil.getMouseHand());
 		this.setIconTextGap(Constants.ICON_GAP_SIZE);
 		

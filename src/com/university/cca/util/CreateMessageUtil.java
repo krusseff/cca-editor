@@ -15,7 +15,11 @@ import com.university.cca.dialogs.CreateAmbientMsgDialog;
  */
 public class CreateMessageUtil {
 	
-	private static final String BUTTON_NAME = "Create Message";
+	private static final String BUTTON_NAME 	= "Create Message";
+	private static final String BUTTON_TOOL_TIP = "Click to create a message";
+	
+	private static final String ERROR_DIALOG_TITLE 	 = "Validation Error";
+	private static final String SUCCESS_DIALOG_TITLE = "Successful Operation";
 
 	private CreateMessageUtil() {
 		// Prevent creating an object of type CreateMessageUtil
@@ -29,6 +33,7 @@ public class CreateMessageUtil {
 		JButton createMessageButton = new JButton();
 		
 		createMessageButton.setText(BUTTON_NAME);
+		createMessageButton.setToolTipText(BUTTON_TOOL_TIP);
     	createMessageButton.setIcon(new ImageIcon(Constants.SUCCESS_ICON_PATH));
     	createMessageButton.setCursor(MouseCursorUtil.getMouseHand());
     	createMessageButton.setIconTextGap(Constants.ICON_GAP_SIZE);
@@ -43,6 +48,7 @@ public class CreateMessageUtil {
 	public static void createSuccessDialog(CreateAmbientMsgDialog parentDialog,
 										   Object ambientSender,
 										   Object ambientRecipient,
+										   Object passMessageTo,
 										   Object respondToMessage,
 										   String ambientMessage) {
 		String respondToMsg = respondToMessage != null ? respondToMessage.toString() : "-";
@@ -52,9 +58,10 @@ public class CreateMessageUtil {
 			"The message is created and sent successfully! \n"
 			+ "Ambient Sender: " + ambientSender + " \n"
 			+ "Ambient Recipient: " + ambientRecipient + " \n"
+			+ "Pass Message To: " + passMessageTo + " \n"
 			+ "Respond To: " + respondToMsg + " \n" 
 			+ "Message: " + ambientMessage + " \n", 
-			"Successful Operation",
+			SUCCESS_DIALOG_TITLE,
             JOptionPane.INFORMATION_MESSAGE
 		);
 	}
@@ -68,7 +75,7 @@ public class CreateMessageUtil {
 		JOptionPane.showMessageDialog(
 			parentDialog,
 			errorMessage, 
-			"Validation Error",
+			ERROR_DIALOG_TITLE,
             JOptionPane.ERROR_MESSAGE
 		);
 	}

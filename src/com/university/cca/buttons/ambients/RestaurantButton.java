@@ -21,12 +21,16 @@ public class RestaurantButton extends JButton implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(RestaurantButton.class);
 	
+	private static final String BUTTON_NAME 	= "Restaurant";
+	private static final String BUTTON_TOOL_TIP = "Create restaurant";
+	
 	private AppMainFrame parentFrame;
 	
     public RestaurantButton(AppMainFrame parentFrame) {
     	this.parentFrame = parentFrame;
     	
-        this.setText("Restaurant");
+        this.setText(BUTTON_NAME);
+        this.setToolTipText(BUTTON_TOOL_TIP);
         this.setIcon(new ImageIcon(Constants.RESTAURANT_ICON_PATH));
         this.setPreferredSize(new Dimension(80, 40));
         this.setCursor(MouseCursorUtil.getMouseHand());
@@ -40,7 +44,7 @@ public class RestaurantButton extends JButton implements ActionListener {
 		logger.info("Restaurant Button is clicked");
 		
 		new CreateAmbientDialog(
-			this.parentFrame, 
+			getParentFrame(), 
 			"Create Restaurant", 
 			"Please, enter a valid restaurant information",
 			AmbientType.RESTAURANT

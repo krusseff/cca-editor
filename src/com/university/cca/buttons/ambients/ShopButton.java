@@ -21,12 +21,16 @@ public class ShopButton extends JButton implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(ShopButton.class);
 	
+	private static final String BUTTON_NAME 	= "Food Shop";
+	private static final String BUTTON_TOOL_TIP = "Create food shop";
+	
 	private AppMainFrame parentFrame;
 	
     public ShopButton(AppMainFrame parentFrame) {
     	this.parentFrame = parentFrame;
     	
-        this.setText("Food Shop");
+        this.setText(BUTTON_NAME);
+        this.setToolTipText(BUTTON_TOOL_TIP);
         this.setIcon(new ImageIcon(Constants.SHOP_ICON_PATH));
         this.setPreferredSize(new Dimension(80, 40));
         this.setCursor(MouseCursorUtil.getMouseHand());
@@ -40,8 +44,8 @@ public class ShopButton extends JButton implements ActionListener {
 		logger.info("Shop Button is clicked");
 		
 		new CreateAmbientDialog(
-			this.parentFrame, 
-			"Create Shop", 
+			getParentFrame(), 
+			"Create Smart Shop", 
 			"Please, enter a valid shop information",
 			AmbientType.SHOP
 		);

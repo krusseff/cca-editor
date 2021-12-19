@@ -13,8 +13,11 @@ import com.university.cca.frames.AppMainFrame;
  */
 public class GenerateCCAUtil {
 
+	private static final String SUCCESS_DIALOG_TITLE = "Successful CCA Generation";
+	private static final String ERROR_DIALOG_TITLE   = "CCA Generation Error";
+
 	private GenerateCCAUtil() {
-		// Prevent creating an object of type GenerateCCAUtil
+		// Prevent creating an object of type GenerateCCAUtil class
 	}
 	
 	/**
@@ -25,7 +28,7 @@ public class GenerateCCAUtil {
 			parentFrame,
 			"The CCA file is generated successfully! \n" +
 			"The file could be found at: " + Constants.AMBIENTS_CCA_FILE_PATH + " \n",
-			"Successful CCA Generation",
+			SUCCESS_DIALOG_TITLE,
             JOptionPane.INFORMATION_MESSAGE
 		);
 	}
@@ -39,7 +42,7 @@ public class GenerateCCAUtil {
 			"The CCA file is NOT generated! \n" +
 			"An error occurred during the generation of the CCA file! \n" +
 			"Please, contact the CCA Editor Team for more information! \n",
-			"CCA Generation Error",
+			ERROR_DIALOG_TITLE,
             JOptionPane.ERROR_MESSAGE
 		);
 	}

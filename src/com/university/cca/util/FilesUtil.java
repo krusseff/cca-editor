@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 public class FilesUtil {
 
 	private FilesUtil() {
-		// Prevent creating an object of type FilesUtil
+		// Prevent creating an object of type FilesUtil class
 	}
 	
 	public static void createFileSavedDialog(JDialog parentDialog, String filePath) {

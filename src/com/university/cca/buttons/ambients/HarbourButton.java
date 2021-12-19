@@ -21,12 +21,16 @@ public class HarbourButton extends JButton implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(HarbourButton.class);
 	
+	private static final String BUTTON_NAME 	= "Harbour";
+	private static final String BUTTON_TOOL_TIP = "Create harbour";
+	
 	private AppMainFrame parentFrame;
 	
     public HarbourButton(AppMainFrame parentFrame) {
     	this.parentFrame = parentFrame;
     	
-        this.setText("Harbour");
+        this.setText(BUTTON_NAME);
+        this.setToolTipText(BUTTON_TOOL_TIP);
         this.setIcon(new ImageIcon(Constants.HARBOUR_ICON_PATH));
         this.setPreferredSize(new Dimension(80, 40));
         this.setCursor(MouseCursorUtil.getMouseHand());
@@ -40,8 +44,8 @@ public class HarbourButton extends JButton implements ActionListener {
 		logger.info("Harbour Button is clicked");
 		
 		new CreateAmbientDialog(
-			this.parentFrame, 
-			"Create Harbour", 
+			getParentFrame(), 
+			"Create Smart Harbour", 
 			"Please, enter a valid harbour information",
 			AmbientType.HARBOUR
 		);

@@ -21,12 +21,16 @@ public class MuseumButton extends JButton implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(MuseumButton.class);
 
+	private static final String BUTTON_NAME 	= "Museum";
+	private static final String BUTTON_TOOL_TIP = "Create museum";
+	
 	private AppMainFrame parentFrame;
 	
     public MuseumButton(AppMainFrame parentFrame) {
     	this.parentFrame = parentFrame;
     	
-        this.setText("Museum");
+        this.setText(BUTTON_NAME);
+        this.setToolTipText(BUTTON_TOOL_TIP);
         this.setIcon(new ImageIcon(Constants.MUSEUM_ICON_PATH));
         this.setPreferredSize(new Dimension(80, 40));
         this.setCursor(MouseCursorUtil.getMouseHand());
@@ -40,8 +44,8 @@ public class MuseumButton extends JButton implements ActionListener {
 		logger.info("Museum Button is clicked");
 		
 		new CreateAmbientDialog(
-			this.parentFrame, 
-			"Create Museum", 
+			getParentFrame(), 
+			"Create Smart Museum", 
 			"Please, enter a valid museum information",
 			AmbientType.MUSEUM
 		);
