@@ -13,8 +13,10 @@ import javax.swing.JPanel;
  */
 public class PanelsUtil {
 	
+	private static final int DEFAULT_GRID_GAP = 5;
+
 	private PanelsUtil() {
-		// Prevent to create an object from this class
+		// Prevent to create an object from PanelsUtil class
 	}
 	
 	/**
@@ -22,8 +24,8 @@ public class PanelsUtil {
 	 */
 	public static GridLayout getGridLayout(int rows, int cols) {
 		GridLayout layout = new GridLayout(rows, cols);
-        layout.setHgap(5);
-        layout.setVgap(5);
+        layout.setHgap(DEFAULT_GRID_GAP);
+        layout.setVgap(DEFAULT_GRID_GAP);
 
         return layout;
 	}

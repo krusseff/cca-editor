@@ -15,6 +15,12 @@ import com.university.cca.dialogs.CreateAmbientDialog;
  */
 public class CreateAmbientUtil {
 	
+	private static final String BUTTON_NAME 	= "Create Ambient";
+	private static final String BUTTON_TOOL_TIP = "Click to create an ambient";
+
+	private static final String ERROR_DIALOG_TITLE 	 = "Validation Error";
+	private static final String SUCCESS_DIALOG_TITLE = "Successful Operation";
+	
 	private CreateAmbientUtil() {
 		// Prevent creating an object of type CreateAmbientUtil
 	}
@@ -28,7 +34,8 @@ public class CreateAmbientUtil {
 		
     	ImageIcon successIcon = new ImageIcon(Constants.SUCCESS_ICON_PATH);
     	createAmbientButton.setIcon(successIcon);
-    	createAmbientButton.setText("Create Ambient");
+    	createAmbientButton.setText(BUTTON_NAME);
+    	createAmbientButton.setToolTipText(BUTTON_TOOL_TIP);
     	createAmbientButton.setCursor(MouseCursorUtil.getMouseHand());
     	createAmbientButton.setIconTextGap(Constants.ICON_GAP_SIZE);
     	
@@ -43,7 +50,7 @@ public class CreateAmbientUtil {
 		JOptionPane.showMessageDialog(
 			parentDialog,
 			"The ambient is created successfully!", 
-			"Successful Operation",
+			SUCCESS_DIALOG_TITLE,
             JOptionPane.INFORMATION_MESSAGE
 		);
 	}
@@ -57,7 +64,7 @@ public class CreateAmbientUtil {
 		JOptionPane.showMessageDialog(
 			parentDialog,
 			errorMessage, 
-			"Validation Error",
+			ERROR_DIALOG_TITLE,
             JOptionPane.ERROR_MESSAGE
 		);
 	}

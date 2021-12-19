@@ -14,6 +14,9 @@ public class ContactDialogUtil {
 	private static final int EMAIL_SUCCESS_STATUS = 0;
 	private static final int EMAIL_VALIDATION_FAILED_STATUS = 1;
 	private static final int EMAIL_FAILED_STATUS = 2;
+	
+	private static final String ERROR_DIALOG_TITLE 	 = "Validation Error";
+	private static final String SUCCESS_DIALOG_TITLE = "Successful Operation";
 
 	private ContactDialogUtil() {
 		// Prevent creating an object of type ContactDialogUtil
@@ -46,7 +49,7 @@ public class ContactDialogUtil {
 			parentDialog,
 			"Thank you for reaching us out! \n"
 			+ "We will contact you via email soon! \n",
-			"Successful Operation",
+			SUCCESS_DIALOG_TITLE,
             JOptionPane.INFORMATION_MESSAGE
 		);
 	}
@@ -56,7 +59,7 @@ public class ContactDialogUtil {
 			parentDialog,
 			"You enterred invalid values! \n"
 			+ "Please, check the data into the input fields and try again! \n", 
-			"Validation Error",
+			ERROR_DIALOG_TITLE,
 			JOptionPane.ERROR_MESSAGE
 		);
 	}

@@ -11,7 +11,7 @@ import java.awt.Cursor;
 public class MouseCursorUtil {
 
 	private MouseCursorUtil() {
-		// Constructor that prevents creating an object of type CCAUtils
+		// Constructor that prevents creating an object of type MouseCursorUtil class
 	}
 	
 	public static Cursor getMouseHand() {
