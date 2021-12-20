@@ -38,7 +38,7 @@ public class PasteMenuItem extends JMenuItem implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		new UnderConstructionDialog(this.parentFrame);
+		new UnderConstructionDialog(getParentFrame());
 		
 		logger.info("Edit Paste Button is clicked");
 	}
