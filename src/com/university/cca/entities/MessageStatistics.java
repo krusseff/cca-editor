@@ -17,6 +17,7 @@ public class MessageStatistics {
 	}
 	
 	public MessageStatistics(String ambientName, int sentCount, int receivedCount) {
+		
 		this.ambientName = ambientName;
 		this.sentCount = sentCount;
 		this.receivedCount = receivedCount;
@@ -63,10 +64,10 @@ public class MessageStatistics {
 	@Override
 	public String toString() {
 		return "MessageStatistics ["
-				+ "ambientName=" + ambientName 
-				+ ", sentCount=" + sentCount 
-				+ ", receivedCount=" + receivedCount 
-				+ "]";
+			+ "ambientName=" + ambientName 
+			+ ", sentCount=" + sentCount 
+			+ ", receivedCount=" + receivedCount 
+			+ "]";
 	}
 
 	// Getters and Setters

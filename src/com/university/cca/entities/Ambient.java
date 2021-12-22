@@ -114,10 +114,10 @@ public class Ambient {
 	@Override
 	public String toString() {
 		return "Ambient ["
-				+ "name=" + name + ", location=" + location + ", latitude=" + latitude + ", longitude="
-				+ longitude + ", isStaticAmbient=" + isStaticAmbient + ", parentAmbient=" + parentAmbient
-				+ ", ambientType=" + ambientType + ", isActiveAmbient=" + isActiveAmbient 
-				+ "]";
+			+ "name=" + name + ", location=" + location + ", latitude=" + latitude + ", longitude="
+			+ longitude + ", isStaticAmbient=" + isStaticAmbient + ", parentAmbient=" + parentAmbient
+			+ ", ambientType=" + ambientType + ", isActiveAmbient=" + isActiveAmbient 
+			+ "]";
 	}
 
 	// Getters and Setters
