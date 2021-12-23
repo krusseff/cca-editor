@@ -21,6 +21,7 @@ public class AmbientStatistics {
 	public AmbientStatistics(int totalCount, int staticCount, 
 							 int nonStaticCount, int activeCount, 
 							 int inactiveCount) {
+		
 		this.totalCount = totalCount;
 		this.staticCount = staticCount;
 		this.nonStaticCount = nonStaticCount;
@@ -73,10 +74,12 @@ public class AmbientStatistics {
 	@Override
 	public String toString() {
 		return "AmbientStatistics ["
-				+ "totalCount=" + totalCount + ", staticCount=" + staticCount
-				+ ", nonStaticCount=" + nonStaticCount + ", activeCount=" + activeCount
-				+ ", inactiveCount=" + inactiveCount
-				+ "]";
+			+ "totalCount=" + totalCount 
+			+ ", staticCount=" + staticCount
+			+ ", nonStaticCount=" + nonStaticCount 
+			+ ", activeCount=" + activeCount
+			+ ", inactiveCount=" + inactiveCount
+			+ "]";
 	}
 
 	// Getters and Setters

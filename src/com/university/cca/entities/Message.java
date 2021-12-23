@@ -10,6 +10,7 @@ public class Message {
 
 	private String senderAmbient;
 	private String recipientAmbient;
+	private String passMessageTo;
 	private String respondToMessage;
 	private String ambientMessage;
 	
@@ -18,10 +19,11 @@ public class Message {
 	}
 	
 	public Message(String senderAmbient, String recipientAmbient, 
-				   String respondToMessage, String ambientMessage) {
+				   String passMessageTo, String respondToMessage, String ambientMessage) {
 		
 		this.senderAmbient = senderAmbient;
 		this.recipientAmbient = recipientAmbient;
+		this.passMessageTo = passMessageTo;
 		this.respondToMessage = respondToMessage;
 		this.ambientMessage = ambientMessage;
 	}
@@ -31,6 +33,7 @@ public class Message {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((ambientMessage == null) ? 0 : ambientMessage.hashCode());
+		result = prime * result + ((passMessageTo == null) ? 0 : passMessageTo.hashCode());
 		result = prime * result + ((recipientAmbient == null) ? 0 : recipientAmbient.hashCode());
 		result = prime * result + ((respondToMessage == null) ? 0 : respondToMessage.hashCode());
 		result = prime * result + ((senderAmbient == null) ? 0 : senderAmbient.hashCode());
@@ -54,6 +57,13 @@ public class Message {
 				return false;
 			}
 		} else if (!ambientMessage.equals(other.ambientMessage)) {
+			return false;
+		}
+		if (passMessageTo == null) {
+			if (other.passMessageTo != null) {
+				return false;
+			}
+		} else if (!passMessageTo.equals(other.passMessageTo)) {
 			return false;
 		}
 		if (recipientAmbient == null) {
@@ -82,10 +92,12 @@ public class Message {
 
 	@Override
 	public String toString() {
-		return "Message ["
-				+ "senderAmbient=" + senderAmbient + ", recipientAmbient=" + recipientAmbient
-				+ ", respondToMessage=" + respondToMessage + ", ambientMessage=" + ambientMessage
-				+ "]";
+		
+		return "Message [senderAmbient=" + senderAmbient
+			+ ", recipientAmbient=" + recipientAmbient
+			+ ", passMessageTo=" + passMessageTo 
+			+ ", respondToMessage=" + respondToMessage 
+			+ ", ambientMessage=" + ambientMessage + "]";
 	}
 
 	// Getters and Setters
@@ -103,6 +115,14 @@ public class Message {
 
 	public void setRecipientAmbient(String recipientAmbient) {
 		this.recipientAmbient = recipientAmbient;
+	}
+	
+	public String getPassMessageTo() {
+		return passMessageTo;
+	}
+
+	public void setPassMessageTo(String passMessageTo) {
+		this.passMessageTo = passMessageTo;
 	}
 	
 	public String getRespondToMessage() {

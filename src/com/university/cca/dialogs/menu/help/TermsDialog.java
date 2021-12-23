@@ -19,7 +19,7 @@ public class TermsDialog extends JDialog {
 	
 	private static final String TITLE_DIALOG = "Terms and Conditions";
 	private static final int HEIGHT_DIALOG = CCAUtils.getScreenSize().height / 2 + 150;
-	private static final int WIDHT_DIALOG = 800;
+	private static final int WIDHT_DIALOG  = 800;
 	private static final String CONTENT_DIALOG = 
 		"<html>" + 
 			"<head>" + 
