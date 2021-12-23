@@ -19,7 +19,7 @@ public class FAQDialog extends JDialog {
 	
 	private static final String TITLE_DIALOG = "Frequently Asked Questions";
 	private static final int HEIGHT_DIALOG = CCAUtils.getScreenSize().height / 2 + 150;
-	private static final int WIDHT_DIALOG = 800;
+	private static final int WIDHT_DIALOG  = 800;
 	
 	private static final String CONTENT_DIALOG = 
 		"<html>" + 
