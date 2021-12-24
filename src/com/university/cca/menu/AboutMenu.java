@@ -30,15 +30,15 @@ public class AboutMenu extends JMenu {
     }
     
     private void addAboutMenuItems() {
-    	this.add(new CCAMenuItem(this.parentFrame));
-    	this.add(new CCAEditorMenuItem(this.parentFrame));
-    	this.add(new CCATeamMenuItem(this.parentFrame));
+    	this.add(new CCAMenuItem(getParentFrame()));
+    	this.add(new CCAEditorMenuItem(getParentFrame()));
+    	this.add(new CCATeamMenuItem(getParentFrame()));
     	this.addSeparator();
-    	this.add(new LinksMenuItem(this.parentFrame));
+    	this.add(new LinksMenuItem(getParentFrame()));
     	this.addSeparator();
-    	this.add(new TechnologiesMenuItem(this.parentFrame));
+    	this.add(new TechnologiesMenuItem(getParentFrame()));
     	this.addSeparator();
-    	this.add(new ContactMenuItem(this.parentFrame));
+    	this.add(new ContactMenuItem(getParentFrame()));
     }
     
 	// Getters

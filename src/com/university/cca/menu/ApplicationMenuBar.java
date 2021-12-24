@@ -25,11 +25,11 @@ public class ApplicationMenuBar extends JMenuBar {
 	}
 	
 	private void addElementsToMenu() {
-		this.add(new FileMenu(this.parentFrame));
-		this.add(new EditMenu(this.parentFrame));
-		this.add(new ViewMenu(this.parentFrame));       
-		this.add(new HelpMenu(this.parentFrame));
-		this.add(new AboutMenu(this.parentFrame));
+		this.add(new FileMenu(getParentFrame()));
+		this.add(new EditMenu(getParentFrame()));
+		this.add(new ViewMenu(getParentFrame()));       
+		this.add(new HelpMenu(getParentFrame()));
+		this.add(new AboutMenu(getParentFrame()));
 	}
 
 	// Getters
