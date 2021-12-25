@@ -15,7 +15,7 @@ import com.university.cca.files.csv.AmbientCSVReader;
 public class MessageRepository {
 
 	private MessageRepository() {
-		// Prevent creating an object of type MessageRepository
+		// Prevent creating an object of type MessageRepository class
 	}
 	
 	/**
