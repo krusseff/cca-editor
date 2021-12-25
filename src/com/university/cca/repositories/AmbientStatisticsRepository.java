@@ -15,7 +15,7 @@ import com.university.cca.files.csv.AmbientCSVReader;
 public class AmbientStatisticsRepository {
 	
 	private AmbientStatisticsRepository() {
-		// Prevent creating an object of type AmbientStatisticsRepository
+		// Prevent creating an object of type AmbientStatisticsRepository class
 	}
 	
 	/**

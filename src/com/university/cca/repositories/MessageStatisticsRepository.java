@@ -18,10 +18,10 @@ public class MessageStatisticsRepository {
 	
 	// Constants
 	private static final int ZERO_VALUE = 0;
-	private static final int ONE_VALUE = 1;
+	private static final int ONE_VALUE  = 1;
 	
 	private MessageStatisticsRepository() {
-		// Prevent creating an object of type MessageStatisticsRepository
+		// Prevent creating an object of type MessageStatisticsRepository class
 	}
 	
 	/**
@@ -46,7 +46,7 @@ public class MessageStatisticsRepository {
 				statistics.put(recipientKey, calculateRecipient(statistics, recipientKey));
 			} else {
 				statistics.putIfAbsent(recipientKey, addRecipient(message.getRecipientAmbient()));
-			}	
+			}
 		}
 		
 		return statistics;

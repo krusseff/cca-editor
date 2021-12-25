@@ -18,7 +18,7 @@ public class AmbientRepository {
 	private static final String NULL_VALUE = null;
 	
 	private AmbientRepository() {
-		// Prevent creating an object of type AmbientRepository
+		// Prevent creating an object of type AmbientRepository class
 	}
 	
 	/**
