@@ -112,54 +112,54 @@ public class AmbientButtonsPanel extends JPanel {
 	 * Method that adds content to the panel with all of the smart city ambient buttons.
 	 */
 	private void addSmartCityButtonsToPanel() {
-		this.add(new PAButton(this.parentFrame));
-		this.add(new HospitalButton(this.parentFrame));
-		this.add(new HarbourButton(this.parentFrame));
-		this.add(new HotelButton(this.parentFrame));
-		this.add(new BusStationButton(this.parentFrame));
-		this.add(new PharmacyButton(this.parentFrame));
-		this.add(new ShopButton(this.parentFrame));
-		this.add(new SchoolButton(this.parentFrame));
-		this.add(new MuseumButton(this.parentFrame));
-		this.add(new UniversityButton(this.parentFrame));
-		this.add(new RestaurantButton(this.parentFrame));
-		this.add(new CoffeeButton(this.parentFrame));
-		this.add(new ParkingButton(this.parentFrame));
-		this.add(new CityButton(this.parentFrame));
-		this.add(new CountryButton(this.parentFrame));
-		this.add(new ContinentButton(this.parentFrame));
-		this.add(new MotorbikeButton(this.parentFrame));
-		this.add(new CarButton(this.parentFrame));
-		this.add(new TaxiButton(this.parentFrame));
-		this.add(new LorryButton(this.parentFrame));
-		this.add(new BusButton(this.parentFrame));
-		this.add(new TrainButton(this.parentFrame));
-		this.add(new OtherButton(this.parentFrame));
+		this.add(new PAButton(getParentFrame()));
+		this.add(new HospitalButton(getParentFrame()));
+		this.add(new HarbourButton(getParentFrame()));
+		this.add(new HotelButton(getParentFrame()));
+		this.add(new BusStationButton(getParentFrame()));
+		this.add(new PharmacyButton(getParentFrame()));
+		this.add(new ShopButton(getParentFrame()));
+		this.add(new SchoolButton(getParentFrame()));
+		this.add(new MuseumButton(getParentFrame()));
+		this.add(new UniversityButton(getParentFrame()));
+		this.add(new RestaurantButton(getParentFrame()));
+		this.add(new CoffeeButton(getParentFrame()));
+		this.add(new ParkingButton(getParentFrame()));
+		this.add(new CityButton(getParentFrame()));
+		this.add(new CountryButton(getParentFrame()));
+		this.add(new ContinentButton(getParentFrame()));
+		this.add(new MotorbikeButton(getParentFrame()));
+		this.add(new CarButton(getParentFrame()));
+		this.add(new TaxiButton(getParentFrame()));
+		this.add(new LorryButton(getParentFrame()));
+		this.add(new BusButton(getParentFrame()));
+		this.add(new TrainButton(getParentFrame()));
+		this.add(new OtherButton(getParentFrame()));
 	}
 	
 	/**
 	 * Method that adds content to the panel with all of the smart agriculture ambient buttons.
 	 */
 	private void addSmartAgricultureButtonsToPanel() {
-		this.add(new PAButton(this.parentFrame));
-		this.add(new OperationsCenterButton(this.parentFrame));
-		this.add(new WeatherStationButton(this.parentFrame));
-		this.add(new HumidityStationButton(this.parentFrame));
-		this.add(new PumpStationButton(this.parentFrame));
-		this.add(new WaterSprinklerButton(this.parentFrame));
-		this.add(new OrchardButton(this.parentFrame));
-		this.add(new GardenButton(this.parentFrame));
-		this.add(new GreenHouseButton(this.parentFrame));
-		this.add(new DroneButton(this.parentFrame));
-		this.add(new TractorButton(this.parentFrame));
-		this.add(new PlanterButton(this.parentFrame));
-		this.add(new HarvesterButton(this.parentFrame));
-		this.add(new MowerButton(this.parentFrame));
-		this.add(new BalerButton(this.parentFrame));
-		this.add(new CityButton(this.parentFrame));
-		this.add(new CountryButton(this.parentFrame));
-		this.add(new ContinentButton(this.parentFrame));
-		this.add(new OtherButton(this.parentFrame));
+		this.add(new PAButton(getParentFrame()));
+		this.add(new OperationsCenterButton(getParentFrame()));
+		this.add(new WeatherStationButton(getParentFrame()));
+		this.add(new HumidityStationButton(getParentFrame()));
+		this.add(new PumpStationButton(getParentFrame()));
+		this.add(new WaterSprinklerButton(getParentFrame()));
+		this.add(new OrchardButton(getParentFrame()));
+		this.add(new GardenButton(getParentFrame()));
+		this.add(new GreenHouseButton(getParentFrame()));
+		this.add(new DroneButton(getParentFrame()));
+		this.add(new TractorButton(getParentFrame()));
+		this.add(new PlanterButton(getParentFrame()));
+		this.add(new HarvesterButton(getParentFrame()));
+		this.add(new MowerButton(getParentFrame()));
+		this.add(new BalerButton(getParentFrame()));
+		this.add(new CityButton(getParentFrame()));
+		this.add(new CountryButton(getParentFrame()));
+		this.add(new ContinentButton(getParentFrame()));
+		this.add(new OtherButton(getParentFrame()));
 	}
 
 	// Getters
