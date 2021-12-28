@@ -27,13 +27,15 @@ public class MessageService {
 	 */
 	public static Message constructMessage(Object senderAmbient, 
 										   Object recipientAmbient,
+										   Object passMessageTo,
 										   Object respondToMessage,
 										   String ambientMessage) {
 		String sender = String.valueOf(senderAmbient);
 		String recipient = String.valueOf(recipientAmbient);
+		String passMsgTo = String.valueOf(passMessageTo);
 		String respondToMsg = String.valueOf(respondToMessage);
 		
-		Message message = new Message(sender, recipient, respondToMsg, ambientMessage);
+		Message message = new Message(sender, recipient, passMsgTo, respondToMsg, ambientMessage);
 		
 		logger.info("Ambient Message constructed: {}", message);
 		
@@ -45,16 +47,18 @@ public class MessageService {
 	 */
 	public static boolean isValidMessageInfo(Object senderAmbient,
 											 Object recipientAmbient,
+											 Object passMessageTo,
 											 Object respondToMessage,
 											 String ambientMessage) {
 		
 		boolean isValidSender = (senderAmbient != null);
 		boolean isValidRecipient = (recipientAmbient != null);
+		boolean isValidPassMessageTo = (passMessageTo != null);
 		boolean isValidRespondToMessage = isValidRespondToMsg(respondToMessage);
 		boolean isValidMessage = (ambientMessage != null && !ambientMessage.isEmpty());
 		
 		return isValidSender && isValidRecipient && 
-			   isValidRespondToMessage && isValidMessage;
+			   isValidPassMessageTo && isValidRespondToMessage && isValidMessage;
 	}
 	
 	/**

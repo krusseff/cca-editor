@@ -23,7 +23,7 @@ public class LoadingScreen {
 
 	private static final Logger logger = LoggerFactory.getLogger(LoadingScreen.class);
 	
-	private static final int WAIT_TIME_MILLIS = 2000;
+	private static final int WAIT_TIME_MILLIS  = 2000;
 	private static final int SLEEP_TIME_MILLIS = 3000;
 	
 	private JFrame imageFrame;

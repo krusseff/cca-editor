@@ -9,7 +9,7 @@ import com.university.cca.entities.MessageStatistics;
 import com.university.cca.repositories.MessageStatisticsRepository;
 
 /**
- * Holds methods for fetching message statistics.
+ * Holds methods for fetching ambient message statistics.
  * 
  * @author Konstantin Rusev
  * @version 1.0
@@ -23,7 +23,7 @@ public class MessageStatisticsService {
 	}
 	
 	/**
-	 * Fetches all message statistics, sort them by ambient name and return them as list
+	 * Fetches all message statistics, sort by ambient name and return them as list
 	 */
 	public static List<MessageStatistics> getMessageStatisticsSortedByAmbientName() {
 		
@@ -46,7 +46,7 @@ public class MessageStatisticsService {
 	 * Checks for available message statistics.
 	 * 
 	 * @return false - If the size of the statistics is zero, then there are no available statistics.
-	 * 		   true - If the size of the statistics is greater than zero, then there are available statistics.
+	 * 		   true  - If the size of the statistics is greater than zero, then there are available statistics.
 	 */
 	public static boolean hasStatistics(List<MessageStatistics> statistics) {
 		

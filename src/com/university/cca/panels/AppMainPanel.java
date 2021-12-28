@@ -33,15 +33,15 @@ public class AppMainPanel extends JPanel {
     private static final boolean IS_SMART_CITY_LOVECH = false;
 
     // This is the size of the background image with the Plovdiv map
-    private static final int PANEL_WIDTH_PLOVDIV = 1697;
+    private static final int PANEL_WIDTH_PLOVDIV  = 1697;
     private static final int PANEL_HEIGTH_PLOVDIV = 1169;
     
     // This is the size of the background image with the Lovech map mini
-    private static final int PANEL_WIDTH_LOVECH = 666;
+    private static final int PANEL_WIDTH_LOVECH  = 666;
     private static final int PANEL_HEIGTH_LOVECH = 524;
     
     // This is the size of the background image with the agriculture map
-    private static final int PANEL_WIDTH_AGRICULTURE = 590;
+    private static final int PANEL_WIDTH_AGRICULTURE  = 590;
     private static final int PANEL_HEIGTH_AGRICULTURE = 332;
     
     private static final int X_COORDINATE = 0;
@@ -66,8 +66,8 @@ public class AppMainPanel extends JPanel {
 	}
 	
 	private void addContentToPanel() {
-		this.add(new CreateMessageButton(this.parentFrame));
-		this.add(new CCAGeneratorButton(this.parentFrame));
+		this.add(new CreateMessageButton(getParentFrame()));
+		this.add(new CCAGeneratorButton(getParentFrame()));
 	}
 	
     @Override

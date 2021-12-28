@@ -42,7 +42,7 @@ public class AmbientStatisticsService {
 	 * Checks for available ambient statistics.
 	 * 
 	 * @return false - If the total count of the statistics is zero, then there are no available statistics.
-	 * 		   true - If the total count of the statistics is greater than zero, then there are available statistics.
+	 * 		   true  - If the total count of the statistics is greater than zero, then there are available statistics.
 	 */
 	public static boolean hasStatistics(AmbientStatistics ambientStats) {
 
