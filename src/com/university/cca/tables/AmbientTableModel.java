@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 import com.university.cca.entities.Ambient;
 
 /**
- * The table with all of the ambients that are created into the CCA Editor.
+ * The table with all of the ambients that are created into the CCA Editor application.
  * 
  * @author Konstantin Rusev
  * @version 1.0
@@ -23,6 +23,7 @@ public class AmbientTableModel extends AbstractTableModel {
 	public static final boolean IS_SORT_AVAILABLE = true;
 	private static final boolean IS_CELL_EDITABLE = true;
 	
+	// table column indexes
 	private static final int COLUMN_NAME_INDEX 		= 0;
     private static final int COLUMN_TYPE_INDEX 		= 1;
     private static final int COLUMN_LOCATION_INDEX 	= 2;

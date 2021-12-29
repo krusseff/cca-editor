@@ -18,7 +18,7 @@ import javax.swing.table.TableCellRenderer;
 public class TableHeaderRenderer implements TableCellRenderer {
 	
 	private static final boolean HAS_OPAQUE = true;
-	private static final String CONSOLAS = "Consolas";
+	private static final String CONSOLAS 	= "Consolas";
 	
     private TableCellRenderer tableCellRenderer;
     
