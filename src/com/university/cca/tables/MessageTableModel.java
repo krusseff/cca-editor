@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 import com.university.cca.entities.Message;
 
 /**
- * The table with all of the ambient messages that are created into the CCA Editor.
+ * The table with all of the ambient messages that are created into the CCA Editor application.
  * 
  * @author Konstantin Rusev
  * @version 1.0
@@ -23,16 +23,19 @@ public class MessageTableModel extends AbstractTableModel {
 	public static final boolean IS_SORT_AVAILABLE = true;
 	private static final boolean IS_CELL_EDITABLE = true;
 	
-	private static final int COLUMN_SENDER_INDEX 	 = 0;
-    private static final int COLUMN_RECIPIENT_INDEX  = 1;
-    private static final int COLUMN_RESPOND_TO_INDEX = 2;
-    private static final int COLUMN_MESSAGE_INDEX	 = 3;
+	// table column indexes
+	private static final int COLUMN_SENDER_INDEX 	  = 0;
+    private static final int COLUMN_RECIPIENT_INDEX   = 1;
+    private static final int COLUMN_PASS_MSG_TO_INDEX = 2;
+    private static final int COLUMN_RESPOND_TO_INDEX  = 3;
+    private static final int COLUMN_MESSAGE_INDEX	  = 4;
 	
 	private final List<Message> ambientMessages;
 	
 	private static final String[] columnNames = new String[] {
 		"Sender", 
 		"Recipient", 
+		"Pass message to", 
 		"Respond to", 
 		"Message"
     };
@@ -77,6 +80,9 @@ public class MessageTableModel extends AbstractTableModel {
 	        case COLUMN_RECIPIENT_INDEX:
 	            columnResult = messageRow.getRecipientAmbient();
 	            break;
+	        case COLUMN_PASS_MSG_TO_INDEX:
+	        	columnResult = messageRow.getPassMessageTo();
+	        	break;
 	        case COLUMN_RESPOND_TO_INDEX:
 	            columnResult = messageRow.getRespondToMessage();
 	            break;

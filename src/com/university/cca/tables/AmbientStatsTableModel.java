@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 import com.university.cca.entities.AmbientStatistics;
 
 /**
- * A table with different ambients statistics.
+ * A table with different ambients statistics available into the CCA Editor application.
  * 
  * @author Konstantin Rusev
  * @version 1.0
@@ -22,6 +22,7 @@ public class AmbientStatsTableModel extends AbstractTableModel {
 	
 	private static final boolean IS_CELL_EDITABLE = false;
 	
+	// table column indexes
 	private static final int COLUMN_TOTAL_INDEX 	 = 0;
     private static final int COLUMN_STATIC_INDEX	 = 1;
     private static final int COLUMN_NON_STATIC_INDEX = 2;

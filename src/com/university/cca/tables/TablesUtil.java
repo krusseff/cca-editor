@@ -22,7 +22,6 @@ public class TablesUtil {
 	
 	/**
 	 * Method that sets the preffered row height of each row of a specific table.
-	 * 
 	 */
 	public static void setTableRowsHeight(JTable table, int tablePreferredHeight) {
 		table.setRowHeight(tablePreferredHeight);
@@ -30,7 +29,6 @@ public class TablesUtil {
 
 	/**
 	 * Method that sets the preffered column width of each column of a specific table.
-	 * 
 	 */
 	public static void setTableColumnsWidth(JTable table, 
 											int tablePreferredWidth,

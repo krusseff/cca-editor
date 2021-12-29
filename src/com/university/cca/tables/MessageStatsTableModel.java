@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 import com.university.cca.entities.MessageStatistics;
 
 /**
- * A table with different messages statistics.
+ * A table with different messages statistics available into the CCA Editor application.
  * 
  * @author Konstantin Rusev
  * @version 1.0
@@ -23,6 +23,7 @@ public class MessageStatsTableModel extends AbstractTableModel {
 	public static final boolean IS_SORT_AVAILABLE = true;
 	private static final boolean IS_CELL_EDITABLE = false;
 	
+	// table column indexes
 	private static final int COLUMN_AMBIENT_NAME_INDEX 	 = 0;
     private static final int COLUMN_SENT_COUNT_INDEX	 = 1;
     private static final int COLUMN_RECEIVED_COUNT_INDEX = 2;
