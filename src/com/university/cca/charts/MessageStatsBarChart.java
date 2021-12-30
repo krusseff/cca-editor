@@ -22,15 +22,15 @@ import com.university.cca.entities.MessageStatistics;
  */
 public class MessageStatsBarChart {
 
-	private static final String TITLE = "Message Statistics";
-	private static final String LEGEND_TITLE = "Ambient Names";
+	private static final String TITLE 				= "Message Statistics";
+	private static final String LEGEND_TITLE	    = "Ambient Names";
 	private static final String MESSAGE_COUNT_TITLE = "Count";
-	private static final boolean IS_LEGEND_ENABLED = true;
+	private static final boolean IS_LEGEND_ENABLED  = true;
 	private static final boolean IS_TOOLTIP_ENABLED = true;
-	private static final boolean IS_URLS_ENABLED = false;
-	private static final boolean IS_BORDER_VISIBLE = true;
+	private static final boolean IS_URLS_ENABLED 	= false;
+	private static final boolean IS_BORDER_VISIBLE  = true;
 	
-	private static final String SENT_MESSAGES_LABEL = "Sent Messages";
+	private static final String SENT_MESSAGES_LABEL 	= "Sent Messages";
 	private static final String RECEIVED_MESSAGES_LABEL = "Received Messages";
 
 	private MessageStatsBarChart() {
@@ -44,11 +44,11 @@ public class MessageStatsBarChart {
 		CategoryDataset dataset = createDataset(statistics);
 		
 		JFreeChart chart = ChartFactory.createBarChart(
-			TITLE,           
-			LEGEND_TITLE,            
-			MESSAGE_COUNT_TITLE,            
-	    	dataset,          
-	    	PlotOrientation.VERTICAL,           
+			TITLE, 
+			LEGEND_TITLE, 
+			MESSAGE_COUNT_TITLE, 
+	    	dataset, 
+	    	PlotOrientation.VERTICAL, 
 	    	IS_LEGEND_ENABLED, 
 	    	IS_TOOLTIP_ENABLED, 
 	    	IS_URLS_ENABLED

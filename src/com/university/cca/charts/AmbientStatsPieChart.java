@@ -24,11 +24,11 @@ import com.university.cca.entities.AmbientStatistics;
 public class AmbientStatsPieChart {
 	
 	private static final String TITLE = "Ambient Statistics";
-	private static final boolean IS_LEGEND_ENABLED = true;
+	private static final boolean IS_LEGEND_ENABLED  = true;
 	private static final boolean IS_TOOLTIP_ENABLED = true;
-	private static final boolean IS_URLS_ENABLED = false;
-	private static final boolean IS_BORDER_VISIBLE = true;
-	private static final boolean IS_LABELS_ENABLED = true;
+	private static final boolean IS_URLS_ENABLED 	= false;
+	private static final boolean IS_BORDER_VISIBLE  = true;
+	private static final boolean IS_LABELS_ENABLED  = true;
 
 	private AmbientStatsPieChart() {
 		// Prevent creating an object of class AmbientStatsPieChart
