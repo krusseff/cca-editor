@@ -42,7 +42,7 @@ public class OpenCCAFileDialog extends JDialog {
 	private static final String TEXT_PANE_CONTENT_TYPE = "text/html";
 	
 	private static final int HEIGHT_DIALOG = CCAUtils.getScreenSize().height / 2 + 150;
-	private static final int WIDHT_DIALOG = 800;
+	private static final int WIDHT_DIALOG  = 800;
 	
 	private AppMainFrame parentFrame;
 	private JTextArea textArea;

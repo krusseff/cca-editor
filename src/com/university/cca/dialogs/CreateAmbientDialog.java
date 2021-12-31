@@ -28,7 +28,7 @@ public class CreateAmbientDialog extends JDialog {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(CreateAmbientDialog.class);
 	
-	private static final int GRID_ROWS = 0;
+	private static final int GRID_ROWS = 9;
 	private static final int GRID_COLS = 2;
 	private static final int TEXT_FIELD_SIZE = 16;
 	private static final boolean IS_CHECKED = true;
@@ -175,8 +175,8 @@ public class CreateAmbientDialog extends JDialog {
 	 */
 	private GridLayout getGridLayout() {
 		GridLayout layout = new GridLayout(GRID_ROWS, GRID_COLS);
-        layout.setHgap(10);
-        layout.setVgap(10);
+        layout.setHgap(15);
+        layout.setVgap(15);
         
         return layout;
 	}
