@@ -19,6 +19,7 @@ public class CancelDialogButton extends JButton implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(CancelDialogButton.class);
 	
+	private static final String BUTTON_NAME 	= "Cancel";
 	private static final String BUTTON_TOOL_TIP = "Cancel Operation";
 	private static final int YES_OPTION = 0;
 	
@@ -27,7 +28,7 @@ public class CancelDialogButton extends JButton implements ActionListener {
     public CancelDialogButton(JDialog parentDialog) {
     	this.parentDialog = parentDialog;
     	
-        this.setText("Cancel");
+        this.setText(BUTTON_NAME);
         this.setIcon(new ImageIcon(Constants.CANCEL_ICON_PATH));
 
         this.setCursor(MouseCursorUtil.getMouseHand());
@@ -56,7 +57,7 @@ public class CancelDialogButton extends JButton implements ActionListener {
 	private int createConfirmationDialog() {
 		// 0=yes, 1=no, 2=cancel
 		return JOptionPane.showConfirmDialog(
-			this.parentDialog, 
+			getParentDialog(), 
 			"Are you sure you want to permanently close and lose the entered information?", 
 			"Confirm Cancel Operation",
             JOptionPane.YES_NO_OPTION, 

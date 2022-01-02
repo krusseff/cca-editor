@@ -64,19 +64,21 @@ public class ExportDialog extends JDialog {
 		JPanel dialogPanel = new JPanel();
         dialogPanel.setLayout(new BoxLayout(dialogPanel, BoxLayout.Y_AXIS));
         
+        dialogPanel.add(createTitlePanel());
 		dialogPanel.add(createContentPanel());
 		dialogPanel.add(createFooterPanel());
 
         this.getContentPane().add(dialogPanel);
 	}
 	
-	private JScrollPane createContentPanel() {
-		JPanel panel = new JPanel();
-		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-		
+	private JPanel createTitlePanel() {
 		JPanel titlePanel = new JPanel(new FlowLayout());
 		titlePanel.add(createTextPane(EXPORT_TITLE));
 		
+		return titlePanel;
+	}
+	
+	private JScrollPane createContentPanel() {
 		JPanel contentPanel = new JPanel(new GridLayout(GRID_ROWS, GRID_COLS));
 		contentPanel.add(new ExportCCAFileButton(getParentFrame(), this));
 		contentPanel.add(new ExportAmbientsCSVButton(getParentFrame(), this));
@@ -85,10 +87,7 @@ public class ExportDialog extends JDialog {
 		contentPanel.add(new ExportMessageStatisticsCSVButton(getParentFrame(), this));
 		contentPanel.add(new CloseDialogButton(this));
 		
-		panel.add(titlePanel);
-		panel.add(contentPanel);
-		
-		return new JScrollPane(panel);
+		return new JScrollPane(contentPanel);
 	}
 	
 	private JPanel createFooterPanel() {
@@ -110,7 +109,7 @@ public class ExportDialog extends JDialog {
 		return textPane;
 	}
 	
-	// Getters and Setters	
+	// Getters
 	public AppMainFrame getParentFrame() {
 		return this.parentFrame;
 	}

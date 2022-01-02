@@ -5,7 +5,9 @@ import javax.swing.JOptionPane;
 import com.university.cca.frames.AppMainFrame;
 
 public class UnderConstructionDialog {
-
+	
+	private static final String TITLE_DIALOG = "Under Construction Dialog";
+	
 	private AppMainFrame parentFrame;
 	
 	public UnderConstructionDialog(AppMainFrame parentFrame) {
@@ -18,9 +20,9 @@ public class UnderConstructionDialog {
 			"</html>";
 		
 		JOptionPane.showMessageDialog(
-			this.parentFrame,
+			getParentFrame(),
 			dialogContent, 
-			"Under Construction Dialog",
+			TITLE_DIALOG,
             JOptionPane.WARNING_MESSAGE
 		);
 	}
