@@ -25,7 +25,7 @@ public class StartConsoleScenarioButton extends JButton implements ActionListene
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(StartConsoleScenarioButton.class);
 	
-	private static final String BUTTON_NAME = "Start Console Scenario";
+	private static final String BUTTON_NAME 	= "Start Console Scenario";
 	private static final String BUTTON_TOOL_TIP = "Start the CCA Scenario via console";
 	
 	private AppMainFrame parentFrame;
@@ -49,7 +49,7 @@ public class StartConsoleScenarioButton extends JButton implements ActionListene
 	public void actionPerformed(ActionEvent e) {
 		logger.info("Start the CCA Console Scenario Button is clicked");
 
-		new UnderConstructionDialog(this.parentFrame);
+		new UnderConstructionDialog(getParentFrame());
 	}
 	
 	// Getters and Setters

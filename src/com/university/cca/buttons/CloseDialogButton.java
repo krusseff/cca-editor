@@ -21,7 +21,8 @@ public class CloseDialogButton extends JButton implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(CloseDialogButton.class);
 	
-	private static final String BUTTON_TOOL_TIP = "Close this window";
+	private static final String BUTTON_NAME 	= "Close";
+	private static final String BUTTON_TOOL_TIP = "Click to close the window";
 	private static final int YES_OPTION = 0;
 	
 	private JDialog parentDialog;
@@ -29,18 +30,16 @@ public class CloseDialogButton extends JButton implements ActionListener {
     public CloseDialogButton(JDialog parentDialog) {
     	this.parentDialog = parentDialog;
     	
-    	this.setText("Close");
-        this.setIcon(new ImageIcon(Constants.CLOSE_ICON_PATH));
+    	this.setText(BUTTON_NAME);
+    	this.setIconTextGap(Constants.ICON_GAP_SIZE);
+    	this.setIcon(new ImageIcon(Constants.CLOSE_ICON_PATH));
         
-        this.setToolTipText("Click to close the window");
+        this.setToolTipText(BUTTON_TOOL_TIP);
         this.setCursor(MouseCursorUtil.getMouseHand());
         
         this.setPreferredSize(new Dimension(200, 35));
         this.setAlignmentX(Component.CENTER_ALIGNMENT);
         this.setAlignmentY(Component.CENTER_ALIGNMENT);
-        
-        this.setToolTipText(BUTTON_TOOL_TIP);
-        this.setIconTextGap(Constants.ICON_GAP_SIZE);
         
         this.addActionListener(this);
     }
@@ -65,7 +64,7 @@ public class CloseDialogButton extends JButton implements ActionListener {
 	 */
 	private int createConfirmationDialog() {
 		return JOptionPane.showConfirmDialog(
-			this.parentDialog, 
+			getParentDialog(), 
 			"Are you sure you want to permanently close this window?", 
 			"Confirm Close Dialog Operation",
             JOptionPane.YES_NO_OPTION, 

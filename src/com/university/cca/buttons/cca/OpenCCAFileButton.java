@@ -25,7 +25,7 @@ public class OpenCCAFileButton extends JButton implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(OpenCCAFileButton.class);
 	
-	private static final String BUTTON_NAME = "Open CCA File";
+	private static final String BUTTON_NAME 	= "Open CCA File";
 	private static final String BUTTON_TOOL_TIP = "Notice that you will edit the CCA file";
 	
 	private AppMainFrame parentFrame;

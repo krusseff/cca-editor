@@ -25,7 +25,7 @@ public class StartAnimatedScenarioButton extends JButton implements ActionListen
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(StartAnimatedScenarioButton.class);
 
-	private static final String BUTTON_NAME = "Start Animated Scenario";
+	private static final String BUTTON_NAME 	= "Start Animated Scenario";
 	private static final String BUTTON_TOOL_TIP = "Start the CCA Scenario via the animator";
 	
 	private AppMainFrame parentFrame;
@@ -49,7 +49,7 @@ public class StartAnimatedScenarioButton extends JButton implements ActionListen
 	public void actionPerformed(ActionEvent e) {
 		logger.info("Start the CCA Animated Scenario Button is clicked");
 
-		new UnderConstructionDialog(this.parentFrame);
+		new UnderConstructionDialog(getParentFrame());
 	}
 	
 	// Getters and Setters
