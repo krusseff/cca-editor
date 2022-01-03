@@ -58,6 +58,8 @@ public class ShowAmbientsStatisticsDialog extends JDialog {
 	private static final int TABLE_ROWS_HEIGHT = 75;
 	private static final double[] TABLE_COLUMNS_WIDTH = {20, 20, 20, 20, 20};
 	
+	private static final int BORDER = 3;
+	
 	private AppMainFrame parentFrame;
 	
 	public ShowAmbientsStatisticsDialog(AppMainFrame parentFrame) {
@@ -169,7 +171,7 @@ public class ShowAmbientsStatisticsDialog extends JDialog {
 		JPanel panel = new JPanel();
 
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-        panel.setBorder(BorderFactory.createEmptyBorder(3, 3, 3, 3));
+        panel.setBorder(BorderFactory.createEmptyBorder(BORDER, BORDER, BORDER, BORDER));
         panel.add(Box.createHorizontalGlue());
         
         return panel;
@@ -189,7 +191,7 @@ public class ShowAmbientsStatisticsDialog extends JDialog {
 		return fileChooser;
 	}
 	
-	// Getters and Setters
+	// Getters
 	public AppMainFrame getParentFrame() {
 		return this.parentFrame;
 	}
