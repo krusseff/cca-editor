@@ -37,14 +37,14 @@ public class ShowMessagesDialog extends JDialog {
 	private static final String DASH_VALUE = "-";
 	
 	private static final boolean IS_VISIBLE = true;
-	private static final boolean IS_MODAL = true;
+	private static final boolean IS_MODAL   = true;
 	
 	private static final int HEIGHT_DIALOG = CCAUtils.getScreenSize().height - 100;
-	private static final int WIDTH_DIALOG = CCAUtils.getScreenSize().width;
+	private static final int WIDTH_DIALOG  = CCAUtils.getScreenSize().width;
 	
 	private static final String TABLE_NAME = "Ambient Messages Table";
 	private static final int TABLE_ROWS_HEIGHT = 30;
-	private static final double[] TABLE_COLUMNS_WIDTH = {15, 15, 35, 35};
+	private static final double[] TABLE_COLUMNS_WIDTH = {15, 15, 16, 27, 27};
 	
 	private AppMainFrame parentFrame;
 
@@ -93,17 +93,22 @@ public class ShowMessagesDialog extends JDialog {
 	}
 	
 	private List<Message> getAmbientMessages() {
-		return AmbientCSVReader.getAllMessages().stream()
-			.map(message ->
-			
-				new Message(
-					message.getSenderAmbient(),
-					message.getRecipientAmbient(), 
-					getValidRespondTo(message.getRespondToMessage()),
-					message.getMessage()
-				)
-			)
+		
+		return AmbientCSVReader.getAllMessages()
+			.stream()
+			.map(this::constructMessage)
 			.collect(Collectors.toList());
+	}
+	
+	private Message constructMessage(Message message) {
+		
+		return new Message(
+			message.getSenderAmbient(),
+			message.getRecipientAmbient(),
+			message.getPassMessageTo(), 
+			getValidRespondTo(message.getRespondToMessage()),
+			message.getMessage()
+		);
 	}
 	
 	private String getValidRespondTo(String respondTo) {

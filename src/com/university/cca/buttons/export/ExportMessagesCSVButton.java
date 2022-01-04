@@ -84,7 +84,7 @@ public class ExportMessagesCSVButton extends JButton implements ActionListener {
 		if (userSelection == JFileChooser.APPROVE_OPTION) {
 			File file = fileChooser.getSelectedFile();
 
-			if (file.exists()) {				
+			if (file.exists()) {
 				FilesUtil.createFileExistsDialog(getParentDialog());
 				logger.error("Export Messages CSV file with that name already exists. File: {}", file.getPath());
 			} else {

@@ -31,10 +31,10 @@ public class ShowAmbientsDialog extends JDialog {
 
 	private static final String TITLE = "Show All Ambients Table Dialog";
 	private static final boolean IS_VISIBLE = true;
-	private static final boolean IS_MODAL = true;
+	private static final boolean IS_MODAL 	= true;
 	
 	private static final int HEIGHT_DIALOG = CCAUtils.getScreenSize().height - 100;
-	private static final int WIDTH_DIALOG = CCAUtils.getScreenSize().width;
+	private static final int WIDTH_DIALOG  = CCAUtils.getScreenSize().width;
 	
 	private static final String TABLE_NAME = "Ambients Table";
 	private static final int TABLE_ROWS_HEIGHT = 30;

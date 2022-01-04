@@ -38,16 +38,19 @@ public class ShowAmbientsCCADialog extends JDialog {
 	private static final Logger logger = LoggerFactory.getLogger(ShowAmbientsCCADialog.class);
 
 	private static final String TITLE = "Ambients CCA File";
-	private static final String SHOW_CCA_FILE_TITLE = "<h1 style=\"text-align: center;\"><i> Ambients CCA File </i></h1>";
+	private static final String SHOW_CCA_FILE_TITLE    = "<h1 style=\"text-align: center;\"><i> Ambients CCA File </i></h1>";
 	private static final String TEXT_PANE_CONTENT_TYPE = "text/html";
 	
 	private static final int HEIGHT_DIALOG = CCAUtils.getScreenSize().height / 2 + 150;
-	private static final int WIDHT_DIALOG = 800;
+	private static final int WIDHT_DIALOG  = 800;
+	
+	private static final boolean IS_MODAL   = true;
+	private static final boolean IS_VISIBLE = true;
 	
 	private JTextArea textArea;
 	
 	public ShowAmbientsCCADialog(AppMainFrame parentFrame) {
-        super(parentFrame, TITLE, true);
+        super(parentFrame, TITLE, IS_MODAL);
         
         addDialogContent();
         
@@ -55,7 +58,7 @@ public class ShowAmbientsCCADialog extends JDialog {
         this.setLocationRelativeTo(parentFrame);
 
         this.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-        this.setVisible(true);
+        this.setVisible(IS_VISIBLE);
 	}
 	
 	private void addDialogContent() {
@@ -144,7 +147,7 @@ public class ShowAmbientsCCADialog extends JDialog {
 		return textPane;
 	}
 
-	// Getters and Setters
+	// Getters
 	public JTextArea getTextArea() {
 		return this.textArea;
 	}

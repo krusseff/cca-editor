@@ -67,6 +67,7 @@ public class ExportCCAFileButton extends JButton implements ActionListener {
     
 	@Override
 	public void actionPerformed(ActionEvent event) {
+		
 		try {
 			exportCCAScenario(AmbientCCAReader.read());
 		} catch (FileNotFoundException fileNotFoundEx) {
@@ -85,7 +86,7 @@ public class ExportCCAFileButton extends JButton implements ActionListener {
 		if (userSelection == JFileChooser.APPROVE_OPTION) {
 			File file = fileChooser.getSelectedFile();
 
-			if (file.exists()) {				
+			if (file.exists()) {
 				FilesUtil.createFileExistsDialog(getParentDialog());
 				logger.error("Export CCA file with that name already exists. File: {}", file.getPath());
 			} else {

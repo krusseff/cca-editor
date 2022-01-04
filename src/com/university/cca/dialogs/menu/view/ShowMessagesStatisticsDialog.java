@@ -193,7 +193,7 @@ public class ShowMessagesStatisticsDialog extends JDialog {
 		return fileChooser;
 	}
 	
-	// Getters and Setters
+	// Getters
 	public AppMainFrame getParentFrame() {
 		return this.parentFrame;
 	}
