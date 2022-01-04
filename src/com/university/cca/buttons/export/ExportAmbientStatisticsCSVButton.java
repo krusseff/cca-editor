@@ -83,7 +83,7 @@ public class ExportAmbientStatisticsCSVButton extends JButton implements ActionL
 		if (userSelection == JFileChooser.APPROVE_OPTION) {
 			File file = fileChooser.getSelectedFile();
 
-			if (file.exists()) {				
+			if (file.exists()) {
 				FilesUtil.createFileExistsDialog(getParentDialog());
 				logger.error("Export Ambient Statistics CSV file with that name already exists. File: {}", file.getPath());
 			} else {
