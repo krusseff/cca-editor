@@ -20,16 +20,18 @@ public class SaveFileButton extends JButton {
 	
 	private static final long serialVersionUID = 1L;
 	
-	public static final boolean BUTTON_DISABLED = false;
-	public static final String BUTTON_TOOL_TIP = "Click to save the content";
+	public static final boolean BUTTON_DISABLED 		= false;
 	public static final String BUTTON_TOOL_TIP_DISABLED = "Not able to save to not existing file";
+	
+	private static final String BUTTON_NAME		 = "Save";
+	private static final String BUTTON_TOOL_TIP  = "Click to save the content";
 	
 	private JDialog parentDialog;
 
     public SaveFileButton(JDialog parentDialog) {
     	this.parentDialog = parentDialog;
     	
-    	this.setText("Save");
+    	this.setText(BUTTON_NAME);
         this.setIcon(new ImageIcon(Constants.SAVE_BUTTON_ICON_PATH));
 
         this.setCursor(MouseCursorUtil.getMouseHand());
