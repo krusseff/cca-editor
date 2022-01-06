@@ -21,8 +21,10 @@ public class CsvUtil {
 	
 	private static final Logger logger = LoggerFactory.getLogger(CsvUtil.class);
 	
+	private static final int EXIT_CODE_2 = 2;
+	
 	private CsvUtil() {
-		// Prevent creating an object of type AmbientCsvUtil
+		// Prevent creating an object of type CsvUtil class
 	}
 	
 	/**
@@ -38,7 +40,7 @@ public class CsvUtil {
 			} catch (IOException ex) {
 				logger.error("Unable to create the CSV file: {}", ex.getMessage());
 				logger.error("Exiting the program... :(");
-				System.exit(2);
+				System.exit(EXIT_CODE_2);
 			}
 		} else {
 			logger.info("The file: {} already exists.", filePath);
@@ -98,6 +100,7 @@ public class CsvUtil {
 		Message ambientMessage = new Message();
 		ambientMessage.setSenderAmbient(messageBean.getSenderAmbient());
 		ambientMessage.setRecipientAmbient(messageBean.getRecipientAmbient());
+		ambientMessage.setPassMessageTo(messageBean.getPassMessageTo());
 		ambientMessage.setRespondToMessage(messageBean.getRespondToMessage());
 		ambientMessage.setMessage(messageBean.getAmbientMessage());
 		
@@ -111,6 +114,7 @@ public class CsvUtil {
 		CsvMessageBean messageBean = new CsvMessageBean();
 		messageBean.setSenderAmbient(ambientMessage.getSenderAmbient());
 		messageBean.setRecipientAmbient(ambientMessage.getRecipientAmbient());
+		messageBean.setPassMessageTo(ambientMessage.getPassMessageTo());
 		messageBean.setRespondToMessage(ambientMessage.getRespondToMessage());
 		messageBean.setAmbientMessage(ambientMessage.getMessage());
 		

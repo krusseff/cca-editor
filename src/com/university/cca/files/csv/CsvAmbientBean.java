@@ -4,7 +4,7 @@ import com.opencsv.bean.CsvBindByPosition;
 import com.university.cca.enums.AmbientType;
 
 /**
- * CSV Positioned bean class that holds an information for a specific ambient object into the ambient CSV file.
+ * CSV Positioned bean class that holds an information for an ambient object into the ambient CSV file.
  * 
  * @author Konstantin Rusev
  * @version 1.0

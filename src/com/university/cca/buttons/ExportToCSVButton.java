@@ -20,18 +20,19 @@ public class ExportToCSVButton extends JButton {
 
 	private static final long serialVersionUID = 1L;
 	
-	private static final String BUTTON_TOOL_TIP = "Export to CSV File";
+	public static final boolean BUTTON_DISABLED 		= false;
 	public static final String BUTTON_TOOL_TIP_DISABLED = "Not available statistics to export";
 	
+	private static final String BUTTON_NAME		= "Export to CSV";
+	private static final String BUTTON_TOOL_TIP = "Export to CSV File";
 	private static final boolean IS_FOCUSABLE 	= false;
-	public static final boolean BUTTON_DISABLED = false;
 	
 	private AppMainFrame parentFrame;
 	
     public ExportToCSVButton(AppMainFrame parentFrame) {
     	this.parentFrame = parentFrame;
     	
-        this.setText("Export to CSV");
+        this.setText(BUTTON_NAME);
         this.setIcon(new ImageIcon(Constants.EXPORT_CSV_BUTTON_ICON_PATH));
 
         this.setPreferredSize(new Dimension(155, 35));

@@ -32,7 +32,7 @@ public class AmbientCSVWriter {
 	
 	private static final Logger logger = LoggerFactory.getLogger(AmbientCSVWriter.class);
 	
-	private static final String NEW_LINE = "\n";
+	private static final String NEW_LINE   = "\n";
 	private static final int EXIT_STATUS_2 = 2;
 	
 	private AmbientCSVWriter() {
@@ -122,7 +122,7 @@ public class AmbientCSVWriter {
 		try {
 			writeCsvFromBean(path, CsvUtil.convertToCsvMessageBean(ambientMessage));
 		} catch (CsvDataTypeMismatchException | CsvRequiredFieldEmptyException | IOException ex) {
-			logger.error("Unable to write the data to the CSV file: {}", ex.getMessage());
+			logger.error("Unable to write the message: {} to the CSV file: {}", ambientMessage, ex.getMessage());
 			logger.error("Exiting the program... :(");
 			System.exit(EXIT_STATUS_2);
 		}
@@ -139,7 +139,7 @@ public class AmbientCSVWriter {
 		try {
 			writeCsvFromBean(path, CsvUtil.convertToCsvAmbientStatisticsBean(ambientStats));
 		} catch (CsvDataTypeMismatchException | CsvRequiredFieldEmptyException | IOException ex) {
-			logger.error("Unable to write the data to the CSV file: {}", ex.getMessage());
+			logger.error("Unable to write the data: {} to the CSV file: {}", ambientStats, ex.getMessage());
 			logger.error("Exiting the program... :(");
 			System.exit(EXIT_STATUS_2);
 		}

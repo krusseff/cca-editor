@@ -24,6 +24,7 @@ public class CsvMessageStatisticsBean {
 	}
 
 	public CsvMessageStatisticsBean(String ambientName, int sentMessages, int receivedMessages) {
+		
 		this.ambientName = ambientName;
 		this.sentMessages = sentMessages;
 		this.receivedMessages = receivedMessages;
