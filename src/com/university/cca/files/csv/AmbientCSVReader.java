@@ -29,7 +29,7 @@ public class AmbientCSVReader {
 	private static final Logger logger = LoggerFactory.getLogger(AmbientCSVReader.class);
 
 	private AmbientCSVReader() {
-		// Prevent creating an object of type AmbientCSVReader
+		// Prevent creating an object of type AmbientCSVReader class
 	}
 	
 	/**

@@ -31,6 +31,7 @@ public class CsvAmbientStatisticsBean {
 
 	public CsvAmbientStatisticsBean(int totalCount, int staticCount, int nonStaticCount, 
 									int activeCount, int inactiveCount) {
+		
 		this.totalCount = totalCount;
 		this.staticCount = staticCount;
 		this.nonStaticCount = nonStaticCount;

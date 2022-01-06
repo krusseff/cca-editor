@@ -17,9 +17,12 @@ public class CsvMessageBean {
 	private String recipientAmbient;
 	
 	@CsvBindByPosition(position = 2)
-	private String respondToMessage;
+	private String passMessageTo;
 	
 	@CsvBindByPosition(position = 3)
+	private String respondToMessage;
+	
+	@CsvBindByPosition(position = 4)
 	private String ambientMessage;
 	
 	public CsvMessageBean() {
@@ -27,10 +30,12 @@ public class CsvMessageBean {
 	}
 	
 	public CsvMessageBean(String senderAmbient, String recipientAmbient, 
-						  String respondToMessage, String ambientMessage) {
+						  String passMessageTo, String respondToMessage, 
+						  String ambientMessage) {
 		
 		this.senderAmbient = senderAmbient;
 		this.recipientAmbient = recipientAmbient;
+		this.passMessageTo = passMessageTo;
 		this.respondToMessage = respondToMessage;
 		this.ambientMessage = ambientMessage;
 	}
@@ -50,6 +55,14 @@ public class CsvMessageBean {
 
 	public void setRecipientAmbient(String recipientAmbient) {
 		this.recipientAmbient = recipientAmbient;
+	}
+	
+	public String getPassMessageTo() {
+		return passMessageTo;
+	}
+
+	public void setPassMessageTo(String passMessageTo) {
+		this.passMessageTo = passMessageTo;
 	}
 
 	public String getRespondToMessage() {
