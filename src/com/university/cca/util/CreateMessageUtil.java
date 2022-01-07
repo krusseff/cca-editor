@@ -15,6 +15,8 @@ import com.university.cca.dialogs.CreateAmbientMsgDialog;
  */
 public class CreateMessageUtil {
 	
+	private static final String DASH = "-";
+	
 	private static final String BUTTON_NAME 	= "Create Message";
 	private static final String BUTTON_TOOL_TIP = "Click to create a message";
 	
@@ -51,14 +53,15 @@ public class CreateMessageUtil {
 										   Object passMessageTo,
 										   Object respondToMessage,
 										   String ambientMessage) {
-		String respondToMsg = respondToMessage != null ? respondToMessage.toString() : "-";
+		String passMsgTo = passMessageTo != null ? passMessageTo.toString() : DASH;
+		String respondToMsg = respondToMessage != null ? respondToMessage.toString() : DASH;
 		
 		JOptionPane.showMessageDialog(
 			parentDialog,
 			"The message is created and sent successfully! \n"
 			+ "Ambient Sender: " + ambientSender + " \n"
 			+ "Ambient Recipient: " + ambientRecipient + " \n"
-			+ "Pass Message To: " + passMessageTo + " \n"
+			+ "Pass Message To: " + passMsgTo + " \n"
 			+ "Respond To: " + respondToMsg + " \n" 
 			+ "Message: " + ambientMessage + " \n", 
 			SUCCESS_DIALOG_TITLE,

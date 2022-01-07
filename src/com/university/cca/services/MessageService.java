@@ -53,7 +53,7 @@ public class MessageService {
 		
 		boolean isValidSender = (senderAmbient != null);
 		boolean isValidRecipient = (recipientAmbient != null);
-		boolean isValidPassMessageTo = (passMessageTo != null);
+		boolean isValidPassMessageTo = isValidPassMessageTo(passMessageTo);
 		boolean isValidRespondToMessage = isValidRespondToMsg(respondToMessage);
 		boolean isValidMessage = (ambientMessage != null && !ambientMessage.isEmpty());
 		
@@ -71,13 +71,26 @@ public class MessageService {
 	}
 	
 	/**
+	 * Validates the pass message to field of the newly created ambient message
+	 */
+	private static boolean isValidPassMessageTo(Object passMessageTo) {
+		
+		if (passMessageTo == null) {
+			return true;
+		}
+		
+		return !passMessageTo.toString().isEmpty();
+	}
+	
+	/**
 	 * Validates the respond to message of the newly created ambient message
 	 */
 	private static boolean isValidRespondToMsg(Object respondToMessage) {
+		
 		if (respondToMessage == null) {
 			return true;
-		} else {
-			return respondToMessage.toString().length() > MESSAGE_MIN_LENGTH;
 		}
+		
+		return respondToMessage.toString().length() > MESSAGE_MIN_LENGTH;
 	}
 }

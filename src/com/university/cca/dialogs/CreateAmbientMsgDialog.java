@@ -125,6 +125,7 @@ public class CreateAmbientMsgDialog extends JDialog {
 			
 			logger.info("Ambient Message created successfully: {}", message);
 			CreateMessageUtil.createSuccessDialog(getCurrentDialog(), senderAmbient, recipientAmbient, passMessageTo, respondToMessage, ambientMessage);
+			
 			getCurrentDialog().dispose();
 		}
 	}
