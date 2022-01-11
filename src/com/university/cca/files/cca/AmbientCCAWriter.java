@@ -21,9 +21,10 @@ public class AmbientCCAWriter {
 	
 	private static final boolean SHOULD_APPEND_TO_FILE = false;
 	private static final String NEW_LINE = "\n";
-
+	private static final int EXIT_CODE_2 = 2;
+	
 	private AmbientCCAWriter() {
-		// Prevent creating an object of type AmbientCCAWriter
+		// Prevent creating an object of type AmbientCCAWriter class
 	}
 	
 	public static void write(String data) {
@@ -46,9 +47,9 @@ public class AmbientCCAWriter {
 			writer.write(NEW_LINE);
 			logger.info("The data: {} is written successfully to the CCA file: {}", data, filePath);
 		} catch (IOException ex) {
-			logger.error("Unable to write the data to the CCA file: {}, Exception: {}", filePath, ex.getMessage());
+			logger.error("Unable to write the data: {} to the CCA file: {}, Exception: {}", data, filePath, ex.getMessage());
 			logger.error("Exiting the program... :(");
-			System.exit(2);
+			System.exit(EXIT_CODE_2);
 		}
 	}
 }
