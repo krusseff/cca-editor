@@ -23,7 +23,7 @@ public class CCAGeneratorV1 {
 	private static final Logger logger = LoggerFactory.getLogger(CCAGeneratorV1.class);
 	
 	private CCAGeneratorV1() {
-		// Prevent creating an object of type CCAGenerator
+		// Prevent creating an object of type CCAGeneratorV1 class
 	}
 	
 	public static int generate() {
