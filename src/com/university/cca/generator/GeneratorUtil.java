@@ -20,11 +20,11 @@ import com.university.cca.repositories.AmbientRepository;
 public class GeneratorUtil {
 	
 	private static final String CSV_DELIMITER = ",";
-	private static final String AMBIENT_WORD_DELIMITER = "_";
+	private static final String AMBIENT_WORD_DELIMITER 	  = "_";
 	private static final String ALPHA_NUMERIC_CHARS_REGEX = "[^A-Za-z0-9]";
 
 	private GeneratorUtil() {
-		// Prevent creating an object of type GeneratorUtil
+		// Prevent creating an object of type GeneratorUtil class
 	}
 
 	/**
@@ -105,6 +105,7 @@ public class GeneratorUtil {
 		return new Message(
 			replaceUnsupportedChars(message.getSenderAmbient()), 
 			replaceUnsupportedChars(message.getRecipientAmbient()), 
+			replaceUnsupportedChars(message.getPassMessageTo()),
 			replaceUnsupportedChars(message.getRespondToMessage()), 
 			replaceUnsupportedChars(message.getMessage())
 		);
@@ -146,19 +147,36 @@ public class GeneratorUtil {
 	}
 	
 	/**
-	 * Checks whether a specific ambient (senderKey) is sender of the given message
+	 * Checks whether a specific ambient (senderKey) is sender of the given message,
+	 * and pass message to field is with value of <code>null</code>
 	 */
-	protected static boolean isSender(String sender, String senderKey, String respondTo) {
-		return sender.equals(senderKey) &&
-			   respondTo.equalsIgnoreCase(CCAConstants.MSG_RESPOND_TO_NULL);
+	protected static boolean isSender(String sender, String senderKey, 
+									  String respondTo, String passMsgTo) {
+		
+		return sender.equals(senderKey) && 
+			   respondTo.equalsIgnoreCase(CCAConstants.MSG_RESPOND_TO_NULL) &&
+			   passMsgTo.equalsIgnoreCase(CCAConstants.PASS_MESSAGE_TO_NULL);
 	}
 	
 	/**
-	 * Checks whether a specific ambient (recipientKey) is recipient of the given message
+	 * Checks whether a specific ambient (senderKey) needs to respond to a message directly,
+	 * and pass message to field is with value of <code>null</code>
 	 */
-	protected static boolean isRecipient(String recipient, String recipientKey, String respondTo) {
-		return recipient.equals(recipientKey) &&
-			   !respondTo.equalsIgnoreCase(CCAConstants.MSG_RESPOND_TO_NULL);
+	protected static boolean isRecipient(String sender, String senderKey, 
+										 String respondTo, String passMsgTo) {
+		
+		return sender.equals(senderKey) &&
+			   !respondTo.equalsIgnoreCase(CCAConstants.MSG_RESPOND_TO_NULL) &&
+			   passMsgTo.equalsIgnoreCase(CCAConstants.PASS_MESSAGE_TO_NULL);
+	}
+	
+	/**
+	 * Checks whether a specific ambient (senderKey) has a pass message to field for specific message
+	 */
+	protected static boolean hasPassMsgTo(String sender, String senderKey, String passMsgTo) {
+		
+		return sender.equals(senderKey) &&
+			   !passMsgTo.equalsIgnoreCase(CCAConstants.PASS_MESSAGE_TO_NULL);
 	}
 	
 	/**
