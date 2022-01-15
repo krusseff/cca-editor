@@ -26,7 +26,7 @@ public class AmbientCCAReader {
 	private static final String NEW_LINE = "\n";
 
 	private AmbientCCAReader() {
-		// Prevent creating an object of type AmbientCCAReader
+		// Prevent creating an object of type AmbientCCAReader class
 	}
 
 	/**
@@ -35,7 +35,7 @@ public class AmbientCCAReader {
 	public static String read() throws FileNotFoundException, FileReadFailedException {
 		String filePath = Constants.AMBIENTS_CCA_FILE_PATH;
 	
-		// If the file does not exist throw an exception
+		// if the file does not exist throw an exception
 		if (!AmbientCCAUtility.isFileCreated()) {
 			logger.error("The CCA file is not found on the specified path: {}", filePath);
 			throw new FileNotFoundException(filePath);

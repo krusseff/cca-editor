@@ -23,7 +23,7 @@ public class TemplateCCAReader {
 	private static final String NEW_LINE = "\n";
 	
 	private TemplateCCAReader() {
-		// Prevent creating an object of type TemplateCCAReader
+		// Prevent creating an object of type TemplateCCAReader class
 	}
 
 	public static String readAmbientDelimiterTemplate() {
