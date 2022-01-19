@@ -1,0 +1,25 @@
+// трябва да си оправя съобщенията, на мястото на тези TODO_PASS_MESSAGE_TO трябва да има null или стойност
+"STUDENT_PA","PLOVDIV_UNIVERSITY","null","null","FMI rooms"
+
+// тук трябва да стане ясно, че съобщението идва от студента
+// тук може би respondTo = null трябва да се замени със съобщението от студента: "FMI rooms"
+"PLOVDIV_UNIVERSITY","FMI","STUDENT_PA","null","FMI rooms from uni to fmi"
+
+// тук ФМИ отговаря на университета, а той трябва да предаде това съобщение на студента,
+// тоест, може би нямам нужда от долното съобщениее
+"FMI","PLOVDIV_UNIVERSITY","null","FMI rooms from uni to fmi","fmi to uni 543"
+
+// какво правим с това съобщение тук???
+// може би е излишно това съобщение???
+// НО от друга страна ми трябва заради отговорът в STUDENT_PA: PLOVDIV_UNIVERSITY::recv(FMI_rooms,uni_to_student__543).0
+// Евентуално може да го запазя, но отговорът на FMI и това съобщение трябва да са еднакви
+// или да измисля друг подход?
+// ТУК TODO_PASS_MESSAGE_TO ТРЯБВА ДА Е null,
+// И "uni to student: 543" ТРЯБВА ДА Е "fmi to uni 543", Т.Е. ТРЯБВА ДА Е ЕДНАКВО С ГОРНОТО СЪОБЩЕНИЕ
+"PLOVDIV_UNIVERSITY","STUDENT_PA","TODO_PASS_MESSAGE_TO","FMI rooms","uni to student: 543"
+
+НАПРИМЕР:
+"STUDENT_PA","PLOVDIV_UNIVERSITY","null","null","FMI rooms"
+"PLOVDIV_UNIVERSITY","FMI","STUDENT_PA","null","FMI rooms from uni to fmi"
+"FMI","PLOVDIV_UNIVERSITY","null","FMI rooms from uni to fmi","fmi to uni 543"
+"PLOVDIV_UNIVERSITY","STUDENT_PA","null","FMI rooms","fmi to uni 543"
