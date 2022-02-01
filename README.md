@@ -50,6 +50,10 @@ You can set the program arguments on application start at least in three differe
 * [Eclipse IDE](https://www.cs.colostate.edu/helpdocs/cmd.pdf)
 * [IntelliJ IDEA](https://www.jetbrains.com/help/idea/running-applications.html)
 
+## High-Level Application Architecture
+
+![High-Level Appication Architecture](images\app_architecture\cca_editor_architecture.png)
+
 ## Used Technologies
 
 * [Java 8](https://www.oracle.com/java/technologies/java8.html)
