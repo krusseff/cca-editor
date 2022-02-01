@@ -52,7 +52,7 @@ You can set the program arguments on application start at least in three differe
 
 ## High-Level Application Architecture
 
-![High-Level Appication Architecture](images\app_architecture\cca_editor_architecture.png)
+![High-Level Appication Architecture](images/app_architecture/cca_editor_architecture.png)
 
 ## Used Technologies
 
