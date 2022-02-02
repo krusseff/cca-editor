@@ -51,6 +51,7 @@ You can set the program arguments on application start at least in three differe
 * [IntelliJ IDEA](https://www.jetbrains.com/help/idea/running-applications.html)
 
 ## High-Level Application Architecture
+High-level architectural diagram of the *CCA Editor* application is provided below. It contains four main elements: *CCA Editor (user-interface and server-side)*, *Database Server*, *Mail Server* and *AmbiNet Repository*.
 
 ![High-Level Appication Architecture](images/app_architecture/cca_editor_architecture.png)
 
