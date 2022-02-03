@@ -55,6 +55,12 @@ High-level architectural diagram of the *CCA Editor* application is provided bel
 
 ![High-Level Appication Architecture](images/app_architecture/cca_editor_architecture.png)
 
+## High-Level Application Database Diagram
+
+High-level database diagram of the *CCA Editor* application is provided below. It contains four main database tables with relations between them: *domains*, *domain_ambients*, *ambients* and *messages*. The relationship between the ambients and domains is *Many-To-Many*, and that's the reason why we have a separate helper table (*domain_ambients*). On the other hand, the relationship between the ambients and messages is *One-To-Many*.
+
+![High-Level Database Diagram](images/app_architecture/ambients-db-diagram.png)
+
 ## Used Technologies
 
 * [Java 8](https://www.oracle.com/java/technologies/java8.html)
@@ -69,6 +75,7 @@ High-level architectural diagram of the *CCA Editor* application is provided bel
 * [Maven](https://maven.apache.org/)
 * [Eclipse](https://www.eclipse.org/)
 * [SonarLint](https://www.sonarlint.org/)
+* [PostgreSQL Database](https://www.postgresql.org/)
 * CCA paradigm
 * ccaPL language
 * CCA Parser
