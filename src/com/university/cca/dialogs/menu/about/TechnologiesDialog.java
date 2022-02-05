@@ -107,6 +107,11 @@ public class TechnologiesDialog extends JDialog {
 				  "</li>" +
 					
 				  "<li>" +
+				    "PostgreSQL Database: " + 
+				    "<u>https://www.postgresql.org/</u>" +
+				  "</li>" +
+					
+				  "<li>" +
 					"Calculus of Context-Aware paradigm" + 
 				  "</li>" +
 					
