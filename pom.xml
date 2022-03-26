@@ -12,7 +12,7 @@
 	<opencsv.version>5.3</opencsv.version>
   	<junit.version>4.13.1</junit.version>
   	<mail.version>1.6.2</mail.version>
-  	<jackson.version>2.12.2</jackson.version>
+  	<jackson.version>2.13.2</jackson.version>
   	<jfreechart.version>1.0.13</jfreechart.version>
   </properties>
   
