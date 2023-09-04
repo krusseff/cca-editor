@@ -10,15 +10,19 @@ import javax.swing.JScrollPane;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.university.cca.buttons.ambients.AudioSensorButton;
 import com.university.cca.buttons.ambients.BalerButton;
 import com.university.cca.buttons.ambients.BusButton;
 import com.university.cca.buttons.ambients.BusStationButton;
+import com.university.cca.buttons.ambients.CameraSensorButton;
 import com.university.cca.buttons.ambients.CarButton;
 import com.university.cca.buttons.ambients.CityButton;
 import com.university.cca.buttons.ambients.CoffeeButton;
 import com.university.cca.buttons.ambients.ContinentButton;
 import com.university.cca.buttons.ambients.CountryButton;
 import com.university.cca.buttons.ambients.DroneButton;
+import com.university.cca.buttons.ambients.ElectronicDiaryButton;
+import com.university.cca.buttons.ambients.FireSprinklersButton;
 import com.university.cca.buttons.ambients.GardenButton;
 import com.university.cca.buttons.ambients.GreenHouseButton;
 import com.university.cca.buttons.ambients.HarbourButton;
@@ -33,6 +37,8 @@ import com.university.cca.buttons.ambients.MuseumButton;
 import com.university.cca.buttons.ambients.OperationsCenterButton;
 import com.university.cca.buttons.ambients.OrchardButton;
 import com.university.cca.buttons.ambients.OtherButton;
+import com.university.cca.buttons.ambients.OtherSensorButton;
+import com.university.cca.buttons.ambients.OxygenSensorButton;
 import com.university.cca.buttons.ambients.PAButton;
 import com.university.cca.buttons.ambients.ParkingButton;
 import com.university.cca.buttons.ambients.PharmacyButton;
@@ -41,6 +47,7 @@ import com.university.cca.buttons.ambients.PumpStationButton;
 import com.university.cca.buttons.ambients.RestaurantButton;
 import com.university.cca.buttons.ambients.SchoolButton;
 import com.university.cca.buttons.ambients.ShopButton;
+import com.university.cca.buttons.ambients.SmokeSensorButton;
 import com.university.cca.buttons.ambients.TaxiButton;
 import com.university.cca.buttons.ambients.TractorButton;
 import com.university.cca.buttons.ambients.TrainButton;
@@ -172,11 +179,16 @@ public class AmbientButtonsPanel extends JPanel {
 	private void addSmartEducationButtonsToPanel() {
 		this.add(new PAButton(getParentFrame()));
 		this.add(new SchoolButton(getParentFrame()));
-		
-		// TODO: Add buttons here
-		
+		this.add(new ElectronicDiaryButton(getParentFrame()));
+		this.add(new FireSprinklersButton(getParentFrame()));
+		this.add(new CameraSensorButton(getParentFrame()));
+		this.add(new SmokeSensorButton(getParentFrame()));
+		this.add(new OxygenSensorButton(getParentFrame()));
+		this.add(new AudioSensorButton(getParentFrame()));
+		this.add(new OtherSensorButton(getParentFrame()));
 		this.add(new BusButton(getParentFrame()));
 		this.add(new BusStationButton(getParentFrame()));
+		this.add(new ParkingButton(getParentFrame()));
 		this.add(new CityButton(getParentFrame()));
 		this.add(new CountryButton(getParentFrame()));
 		this.add(new ContinentButton(getParentFrame()));
