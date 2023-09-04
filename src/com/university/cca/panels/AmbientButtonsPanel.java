@@ -101,6 +101,10 @@ public class AmbientButtonsPanel extends JPanel {
 			case ApplicationModes.SMART_AGRICULTURE:
 				addSmartAgricultureButtonsToPanel();
 				break;
+				
+			case ApplicationModes.SMART_EDUCATION:
+				addSmartEducationButtonsToPanel();
+				break;
 	
 			default:
 				addSmartCityButtonsToPanel();
@@ -156,6 +160,23 @@ public class AmbientButtonsPanel extends JPanel {
 		this.add(new HarvesterButton(getParentFrame()));
 		this.add(new MowerButton(getParentFrame()));
 		this.add(new BalerButton(getParentFrame()));
+		this.add(new CityButton(getParentFrame()));
+		this.add(new CountryButton(getParentFrame()));
+		this.add(new ContinentButton(getParentFrame()));
+		this.add(new OtherButton(getParentFrame()));
+	}
+	
+	/**
+	 * Method that adds content to the panel with all of the smart education ambient buttons.
+	 */
+	private void addSmartEducationButtonsToPanel() {
+		this.add(new PAButton(getParentFrame()));
+		this.add(new SchoolButton(getParentFrame()));
+		
+		// TODO: Add buttons here
+		
+		this.add(new BusButton(getParentFrame()));
+		this.add(new BusStationButton(getParentFrame()));
 		this.add(new CityButton(getParentFrame()));
 		this.add(new CountryButton(getParentFrame()));
 		this.add(new ContinentButton(getParentFrame()));
