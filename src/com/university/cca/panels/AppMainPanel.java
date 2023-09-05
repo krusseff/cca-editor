@@ -43,6 +43,10 @@ public class AppMainPanel extends JPanel {
     // This is the size of the background image with the agriculture map
     private static final int PANEL_WIDTH_AGRICULTURE  = 590;
     private static final int PANEL_HEIGTH_AGRICULTURE = 332;
+
+    // This is the size of the background image with the education map    
+    private static final int PANEL_WIDTH_EDUCATION  = 768;
+    private static final int PANEL_HEIGTH_EDUCATION = 507;
     
     private static final int X_COORDINATE = 0;
     private static final int Y_COORDINATE = 0;
@@ -65,11 +69,6 @@ public class AppMainPanel extends JPanel {
 		this.setVisible(true);
 	}
 	
-	private void addContentToPanel() {
-		this.add(new CreateMessageButton(getParentFrame()));
-		this.add(new CCAGeneratorButton(getParentFrame()));
-	}
-	
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -81,6 +80,10 @@ public class AppMainPanel extends JPanel {
 				
 			case ApplicationModes.SMART_AGRICULTURE:
 				g.drawImage(getSmartAgricultureMap(), X_COORDINATE, Y_COORDINATE, this);
+				break;
+				
+			case ApplicationModes.SMART_EDUCATION:
+				g.drawImage(getSmartEducationMap(), X_COORDINATE, Y_COORDINATE, this);
 				break;
 	
 			default:
@@ -102,6 +105,10 @@ public class AppMainPanel extends JPanel {
 			case ApplicationModes.SMART_AGRICULTURE:
 				setSmartAgriculturePreferredSize();
 				break;
+				
+			case ApplicationModes.SMART_EDUCATION:
+				setSmartEducationPreferredSize();
+				break;
 	
 			default:
 				setSmartCityPreferredSize();
@@ -121,6 +128,16 @@ public class AppMainPanel extends JPanel {
     	Dimension dimension = new Dimension(PANEL_WIDTH_AGRICULTURE, PANEL_HEIGTH_AGRICULTURE);
 		this.setPreferredSize(dimension);
     }
+    
+    private void setSmartEducationPreferredSize() {
+    	Dimension dimension = new Dimension(PANEL_WIDTH_EDUCATION, PANEL_HEIGTH_EDUCATION);
+		this.setPreferredSize(dimension);
+    }
+    
+	private void addContentToPanel() {
+		this.add(new CreateMessageButton(getParentFrame()));
+		this.add(new CCAGeneratorButton(getParentFrame()));
+	}
     
     private Image getSmartCityMap() {
     	Image smartCityMap = null;
@@ -144,6 +161,10 @@ public class AppMainPanel extends JPanel {
     
     private Image getSmartAgricultureMap() {
     	return new ImageIcon(Constants.BACKGROUND_AGRICULTURE_ICON_PATH).getImage();
+    }
+    
+    private Image getSmartEducationMap() {
+    	return new ImageIcon(Constants.BACKGROUND_EDUCATION_ICON_PATH).getImage();
     }
 	
 	// Getters
