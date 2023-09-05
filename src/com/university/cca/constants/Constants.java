@@ -109,6 +109,7 @@ public final class Constants {
 	public static final String AUDIO_SENSOR_ICON_PATH = "./images/ambient_buttons/audio_sensor.png";
 	public static final String OXYGEN_SENSOR_ICON_PATH = "./images/ambient_buttons/oxygen_sensor.png";
 	public static final String SMOKE_SENSOR_ICON_PATH = "./images/ambient_buttons/smoke_sensor.png";
+	public static final String TEMPERATURE_SENSOR_ICON_PATH = "./images/ambient_buttons/temperature_sensor.png";
 	public static final String CAMERA_SENSOR_ICON_PATH = "./images/ambient_buttons/camera_sensor.png";
 	public static final String OTHER_SENSOR_ICON_PATH = "./images/ambient_buttons/other_sensor.png";
 	public static final String FIRE_SPRINKLERS_ICON_PATH = "./images/ambient_buttons/fire_sprinklers.png";
