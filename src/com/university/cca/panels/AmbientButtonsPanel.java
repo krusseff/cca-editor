@@ -49,6 +49,7 @@ import com.university.cca.buttons.ambients.SchoolButton;
 import com.university.cca.buttons.ambients.ShopButton;
 import com.university.cca.buttons.ambients.SmokeSensorButton;
 import com.university.cca.buttons.ambients.TaxiButton;
+import com.university.cca.buttons.ambients.TemperatureSensorButton;
 import com.university.cca.buttons.ambients.TractorButton;
 import com.university.cca.buttons.ambients.TrainButton;
 import com.university.cca.buttons.ambients.UniversityButton;
@@ -183,6 +184,7 @@ public class AmbientButtonsPanel extends JPanel {
 		this.add(new FireSprinklersButton(getParentFrame()));
 		this.add(new CameraSensorButton(getParentFrame()));
 		this.add(new SmokeSensorButton(getParentFrame()));
+		this.add(new TemperatureSensorButton(getParentFrame()));
 		this.add(new OxygenSensorButton(getParentFrame()));
 		this.add(new AudioSensorButton(getParentFrame()));
 		this.add(new OtherSensorButton(getParentFrame()));
