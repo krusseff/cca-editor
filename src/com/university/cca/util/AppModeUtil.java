@@ -32,7 +32,7 @@ public class AppModeUtil {
 			applicationMode = getApplicationMode(appModeFromArgs);
 		} else {
 			applicationMode = ApplicationModes.SMART_CITY;
-			logger.warn("Application argumetns not found: {}", argsToString);
+			logger.warn("Application arguments not found: {}", argsToString);
 			logger.warn("Starting in default application mode: {}", applicationMode);
 		}
 		
@@ -60,9 +60,10 @@ public class AppModeUtil {
 		try {
 			appModeAsInt = Integer.parseInt(appModeAsString);
 		} catch (NumberFormatException ex) {
-			appModeAsInt = 0;
+			// The default application mode is 0 (SMART_CITY domain)
+			appModeAsInt = ApplicationModes.SMART_CITY;
 			logger.error("Cannot convert string: {} to integer value", appModeAsString);
-			logger.warn("Replacing the invalid value with the defaul application mode: {}", appModeAsInt);
+			logger.warn("Replacing the invalid value with the default application mode: {}", appModeAsInt);
 		}
 		
 		return appModeAsInt;
@@ -70,6 +71,7 @@ public class AppModeUtil {
 
 	private static boolean isValidApplicationMode(int applicationMode) {
 		return applicationMode == ApplicationModes.SMART_CITY ||
-			   applicationMode == ApplicationModes.SMART_AGRICULTURE;
+			   applicationMode == ApplicationModes.SMART_AGRICULTURE ||
+			   applicationMode == ApplicationModes.SMART_EDUCATION;
 	}
 }

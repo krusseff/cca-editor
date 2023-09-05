@@ -34,6 +34,7 @@ public final class Constants {
 	public static final String BACKGROUND_ICON_PATH = "./images/app/background_map.gif";
 	public static final String BACKGROUND_LOVECH_ICON_PATH = "./images/app/lovech_map_mini.png";
 	public static final String BACKGROUND_AGRICULTURE_ICON_PATH = "./images/app/agriculture.jpg";
+	public static final String BACKGROUND_EDUCATION_ICON_PATH = "./images/app/education.jpg";
 	public static final String SUCCESS_ICON_PATH = "./images/buttons/check.png";
 	public static final String CANCEL_ICON_PATH = "./images/buttons/cancel.png";
 	public static final String CLOSE_ICON_PATH = "./images/buttons/close.png";
@@ -104,6 +105,13 @@ public final class Constants {
 	public static final String PHARMACY_ICON_PATH = "./images/ambient_buttons/pharmacy.png";
 	public static final String SHOP_ICON_PATH = "./images/ambient_buttons/shop.png";
 	public static final String SCHOOL_ICON_PATH = "./images/ambient_buttons/school.png";
+	public static final String DIARY_ICON_PATH = "./images/ambient_buttons/electronic_diary.png";
+	public static final String AUDIO_SENSOR_ICON_PATH = "./images/ambient_buttons/audio_sensor.png";
+	public static final String OXYGEN_SENSOR_ICON_PATH = "./images/ambient_buttons/oxygen_sensor.png";
+	public static final String SMOKE_SENSOR_ICON_PATH = "./images/ambient_buttons/smoke_sensor.png";
+	public static final String CAMERA_SENSOR_ICON_PATH = "./images/ambient_buttons/camera_sensor.png";
+	public static final String OTHER_SENSOR_ICON_PATH = "./images/ambient_buttons/other_sensor.png";
+	public static final String FIRE_SPRINKLERS_ICON_PATH = "./images/ambient_buttons/fire_sprinklers.png";
 	public static final String MUSEUM_ICON_PATH = "./images/ambient_buttons/museum.png";
 	public static final String UNIVERSITY_ICON_PATH = "./images/ambient_buttons/university.png";
 	public static final String RESTAURANT_ICON_PATH = "./images/ambient_buttons/restaurant.png";
