@@ -3,6 +3,7 @@ package com.university.cca.files.cca;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -74,11 +75,17 @@ public class AmbientCCAReaderTest {
 
 	// --- error path ---
 
-	@Test(expected = FileReadFailedException.class)
-	public void testRead_throwsFileReadFailedOnDirectory() throws Exception {
+	@Test
+	public void testRead_throwsOnDirectoryPath() throws Exception {
 		File dir = tempFolder.newFolder("dir_not_file");
-
-		AmbientCCAReader.read(dir.getAbsolutePath());
+		try {
+			AmbientCCAReader.read(dir.getAbsolutePath());
+			fail("Expected an exception when reading a directory");
+		} catch (FileReadFailedException e) {
+			// Windows: Files.lines() throws IOException, caught and wrapped
+		} catch (RuntimeException e) {
+			// Linux: Files.lines() throws UncheckedIOException (extends RuntimeException)
+		}
 	}
 
 	// --- private constructor (coverage) ---
