@@ -45,8 +45,7 @@ public class EmailConfigReader {
 				logger.info("The email configuration file: {} is created with status: {}", file.getAbsolutePath(), result);
 			} catch (IOException ex) {
 				logger.error("Unable to create email configuration file: {}", ex.getMessage());
-				logger.error("Exiting the program... :(");
-				System.exit(2);
+				throw new RuntimeException("Unable to create email configuration file: " + file.getAbsolutePath(), ex);
 			}
 		} else {
 			logger.info("The file: {} already exists.", file.getAbsolutePath());

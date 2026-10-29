@@ -33,7 +33,6 @@ public class AmbientCSVWriter {
 	private static final Logger logger = LoggerFactory.getLogger(AmbientCSVWriter.class);
 	
 	private static final String NEW_LINE   = "\n";
-	private static final int EXIT_STATUS_2 = 2;
 	
 	private AmbientCSVWriter() {
 		// Prevent creating an object of type AmbientCSVWriter
@@ -55,8 +54,7 @@ public class AmbientCSVWriter {
 			logger.info("The data: \n{} \nis written successfully to the CSV file: {}", data, filePath);
 		} catch (IOException ex) {
 			logger.error("Unable to write the data to the CSV file: {}", ex.getMessage());
-			logger.error("Exiting the program with exit status: {}.", EXIT_STATUS_2);
-			System.exit(EXIT_STATUS_2);
+			throw new RuntimeException("Unable to write data to CSV file: " + filePath, ex);
 		}
 	}
 	
@@ -81,7 +79,13 @@ public class AmbientCSVWriter {
 	 * Method, which main responsibility is to write ambient to the csv file.
 	 */
 	public static void writeAmbientToCsv(Ambient ambient) {
-		String filePath = Constants.AMBIENTS_CSV_FILE_PATH;
+		writeAmbientToCsv(ambient, Constants.AMBIENTS_CSV_FILE_PATH);
+	}
+
+	/**
+	 * Method, which main responsibility is to write ambient to the specified csv file.
+	 */
+	public static void writeAmbientToCsv(Ambient ambient, String filePath) {
 		CsvUtil.createFileIfDoesNotExist(filePath);
 		Path path = Paths.get(filePath);
 
@@ -89,8 +93,7 @@ public class AmbientCSVWriter {
 			writeCsvFromBean(path, CsvUtil.convertToCsvAmbientBean(ambient));
 		} catch (CsvDataTypeMismatchException | CsvRequiredFieldEmptyException | IOException ex) {
 			logger.error("Unable to write the data to the CSV file: {}", ex.getMessage());
-			logger.error("Exiting the program... :(");
-			System.exit(EXIT_STATUS_2);
+			throw new RuntimeException("Unable to write ambient to CSV file: " + filePath, ex);
 		}
 	}
 	
@@ -115,7 +118,13 @@ public class AmbientCSVWriter {
 	 * Method, which main responsibility is to write ambient message to the csv file.
 	 */
 	public static void writeMessageToCsv(Message ambientMessage) {
-		String filePath = Constants.MESSAGES_CSV_FILE_PATH;
+		writeMessageToCsv(ambientMessage, Constants.MESSAGES_CSV_FILE_PATH);
+	}
+
+	/**
+	 * Method, which main responsibility is to write ambient message to the specified csv file.
+	 */
+	public static void writeMessageToCsv(Message ambientMessage, String filePath) {
 		CsvUtil.createFileIfDoesNotExist(filePath);
 		Path path = Paths.get(filePath);
 
@@ -123,8 +132,7 @@ public class AmbientCSVWriter {
 			writeCsvFromBean(path, CsvUtil.convertToCsvMessageBean(ambientMessage));
 		} catch (CsvDataTypeMismatchException | CsvRequiredFieldEmptyException | IOException ex) {
 			logger.error("Unable to write the message: {} to the CSV file: {}", ambientMessage, ex.getMessage());
-			logger.error("Exiting the program... :(");
-			System.exit(EXIT_STATUS_2);
+			throw new RuntimeException("Unable to write message to CSV file: " + filePath, ex);
 		}
 	}
 	
@@ -140,8 +148,7 @@ public class AmbientCSVWriter {
 			writeCsvFromBean(path, CsvUtil.convertToCsvAmbientStatisticsBean(ambientStats));
 		} catch (CsvDataTypeMismatchException | CsvRequiredFieldEmptyException | IOException ex) {
 			logger.error("Unable to write the data: {} to the CSV file: {}", ambientStats, ex.getMessage());
-			logger.error("Exiting the program... :(");
-			System.exit(EXIT_STATUS_2);
+			throw new RuntimeException("Unable to write ambient statistics to CSV file: " + filePath, ex);
 		}
 	}
 	
@@ -160,8 +167,7 @@ public class AmbientCSVWriter {
 			}
 		} catch (CsvDataTypeMismatchException | CsvRequiredFieldEmptyException | IOException ex) {
 			logger.error("Unable to write the data to the CSV file: {}", ex.getMessage());
-			logger.error("Exiting the program... :(");
-			System.exit(EXIT_STATUS_2);
+			throw new RuntimeException("Unable to write message statistics to CSV file: " + filePath, ex);
 		}
 	}
 
@@ -170,13 +176,13 @@ public class AmbientCSVWriter {
 	 */
 	private static <T> void writeCsvFromBean(Path path, T item) throws IOException, CsvDataTypeMismatchException, CsvRequiredFieldEmptyException {
 	    boolean isAppendingAllowed = true;
-		Writer writer = new FileWriter(path.toString(), isAppendingAllowed);
 
-	    StatefulBeanToCsv<T> sbc = new StatefulBeanToCsvBuilder<T>(writer)
-	       .withSeparator(CSVWriter.DEFAULT_SEPARATOR)
-	       .build();
+	    try (Writer writer = new FileWriter(path.toString(), isAppendingAllowed)) {
+		    StatefulBeanToCsv<T> sbc = new StatefulBeanToCsvBuilder<T>(writer)
+		       .withSeparator(CSVWriter.DEFAULT_SEPARATOR)
+		       .build();
 
-	    sbc.write(item);
-	    writer.close();
+		    sbc.write(item);
+	    }
 	}
 }

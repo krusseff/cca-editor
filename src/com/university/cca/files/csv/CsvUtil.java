@@ -21,8 +21,6 @@ public class CsvUtil {
 	
 	private static final Logger logger = LoggerFactory.getLogger(CsvUtil.class);
 	
-	private static final int EXIT_CODE_2 = 2;
-	
 	private CsvUtil() {
 		// Prevent creating an object of type CsvUtil class
 	}
@@ -39,8 +37,7 @@ public class CsvUtil {
 				logger.info("The CSV file: {} is created with status: {}", filePath, result);
 			} catch (IOException ex) {
 				logger.error("Unable to create the CSV file: {}", ex.getMessage());
-				logger.error("Exiting the program... :(");
-				System.exit(EXIT_CODE_2);
+				throw new RuntimeException("Unable to create the CSV file: " + filePath, ex);
 			}
 		} else {
 			logger.info("The file: {} already exists.", filePath);

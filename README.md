@@ -66,20 +66,17 @@ High-level database diagram of the *CCA Editor* application is provided below. I
 * [Java 8](https://www.oracle.com/java/technologies/java8.html)
 * [Java Swing/AWT](https://docs.oracle.com/javase/tutorial/uiswing/)
 * [Java Mail API 1.6.2](https://javadoc.io/doc/javax.mail/javax.mail-api/latest/index.html)
-* [Logback 1.2.3](http://logback.qos.ch/)
-* [SLF4J 1.7.30](http://www.slf4j.org/)
-* [OpenCSV 5.3](http://opencsv.sourceforge.net)
-* [Jackson 2.12.2](https://en.wikipedia.org/wiki/Jackson_(API))
-* [JFree Chart 1.0.13](https://www.jfree.org/jfreechart/)
-* [JUnit 4.13.1](https://junit.org/junit4)
+* [Logback 1.2.13](https://logback.qos.ch/)
+* [SLF4J 1.7.32](https://www.slf4j.org/)
+* [OpenCSV 5.12.0](https://opencsv.sourceforge.net)
+* [Jackson 2.22.4](https://github.com/FasterXML/jackson-databind)
+* [JFree Chart 1.5.6](https://www.jfree.org/jfreechart/)
+* [JUnit 4.13.2](https://junit.org/junit4)
 * [Maven](https://maven.apache.org/)
 * [Eclipse](https://www.eclipse.org/)
 * [SonarLint](https://www.sonarlint.org/)
-* [PostgreSQL Database](https://www.postgresql.org/)
 * CCA paradigm
 * ccaPL language
-* CCA Parser
-* CCA Animator
 
 ## Resources
 

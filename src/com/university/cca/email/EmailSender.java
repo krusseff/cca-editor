@@ -99,7 +99,21 @@ public class EmailSender {
     	return multipart;
     }
     
+    private static String escapeHtml(String input) {
+    	if (input == null) return "";
+    	return input
+    		.replace("&", "&amp;")
+    		.replace("<", "&lt;")
+    		.replace(">", "&gt;")
+    		.replace("\"", "&quot;")
+    		.replace("'", "&#39;");
+    }
+
     private static String constructHtmlContent(String name, String email, String message) {
+    	String safeName = escapeHtml(name);
+    	String safeEmail = escapeHtml(email);
+    	String safeMessage = escapeHtml(message);
+
     	String headerEmail = 
 			"<div>" + 
 				"<p> Dear, <b>CCA Editor Administrator</b>, </p>" +
@@ -112,15 +126,15 @@ public class EmailSender {
 		String contentEmail = 
 			"<div style=\"border-style: ridge; padding-left: 5px; padding-right: 5px;\">" +
 				"<div>" + 
-					"<p> Name: <b>" + name + "</b> </p>" +
+					"<p> Name: <b>" + safeName + "</b> </p>" +
 				"</div>" +
 					
 				"<div>" + 
-					"<p> Email: <u><i>" + email + "</i></u> </p>" +
+					"<p> Email: <u><i>" + safeEmail + "</i></u> </p>" +
 				"</div>" +
 					
 				"<div style=\"word-wrap: break-word;\">" + 
-					"<p> Message: <i>" + message + "</i> </p>" +
+					"<p> Message: <i>" + safeMessage + "</i> </p>" +
 				"</div>" +
 			"</div>";
 		

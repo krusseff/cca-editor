@@ -27,7 +27,7 @@ public class EmailConfigUtil {
 	}
 	
 	private static Properties getProperties(EmailConfiguration emailConfig) {
-        Properties properties = System.getProperties();
+        Properties properties = new Properties();
         properties.put("mail.smtp.starttls.enable", emailConfig.getSmtpServerTls());
         properties.put("mail.smtp.host", emailConfig.getSmtpServerHost());
         properties.put("mail.smtp.user", emailConfig.getSenderEmail());
