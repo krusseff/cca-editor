@@ -71,8 +71,8 @@ public class CCAGeneratorV1 {
 	/**
 	 * Generate send-receive one ambient based on the send_receive_one_ambient.cca template
 	 */
-	private static String generateSendReceiveOneAmbient(List<Message> messages, 
-														Message ambientMessage) throws AmbientMessageNotFoundException {
+	static String generateSendReceiveOneAmbient(List<Message> messages, 
+												Message ambientMessage) throws AmbientMessageNotFoundException {
 		String sendReceiveOneAmbientTemplate = TemplateCCAReader.readSendReceiveOneAmbientTemplate();
 		
 		Message recipientMsg = GeneratorUtil.findMessageRecipient(messages, ambientMessage);
@@ -94,7 +94,7 @@ public class CCAGeneratorV1 {
 	/**
 	 * Generate receive-send one ambient based on the receive_send_one_ambient.cca template
 	 */
-	private static String generateReceiveSendOneAmbient(Message ambientMessage) {
+	static String generateReceiveSendOneAmbient(Message ambientMessage) {
 		String receiveSendOneAmbientTemplate = TemplateCCAReader.readReceiveSendOneAmbientTemplate();
 		
 		Message message = GeneratorUtil.replaceUnsupportedChars(ambientMessage);

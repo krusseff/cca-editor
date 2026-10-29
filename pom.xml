@@ -8,15 +8,16 @@
   
   <properties>
   	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  	<logback.version>1.2.13</logback.version>
+  	<logback.version>1.5.18</logback.version>
+  	<slf4j.version>2.0.17</slf4j.version>
 	<opencsv.version>5.12.0</opencsv.version>
   	<junit.version>4.13.2</junit.version>
-  	<mail.version>1.6.2</mail.version>
+  	<jakarta-mail.version>2.0.1</jakarta-mail.version>
   	<jackson.version>2.22.4</jackson.version>
   	<jfreechart.version>1.5.6</jfreechart.version>
-  	<checkstyle-plugin.version>3.3.1</checkstyle-plugin.version>
-  	<checkstyle.version>9.3</checkstyle.version>
-  	<jacoco.version>0.8.11</jacoco.version>
+  	<checkstyle-plugin.version>3.6.0</checkstyle-plugin.version>
+  	<checkstyle.version>10.21.4</checkstyle.version>
+  	<jacoco.version>0.8.12</jacoco.version>
   </properties>
   
   <dependencies>
@@ -39,11 +40,17 @@
 	    <artifactId>logback-classic</artifactId>
 	    <version>${logback.version}</version>
 	</dependency>
+
+	<dependency>
+	    <groupId>org.slf4j</groupId>
+	    <artifactId>slf4j-api</artifactId>
+	    <version>${slf4j.version}</version>
+	</dependency>
 	
 	<dependency>
 	    <groupId>com.sun.mail</groupId>
-	    <artifactId>javax.mail</artifactId>
-	    <version>${mail.version}</version>
+	    <artifactId>jakarta.mail</artifactId>
+	    <version>${jakarta-mail.version}</version>
 	</dependency>
 	
 	<dependency>
@@ -66,10 +73,11 @@
     <plugins>
 	    <plugin>
     	  <artifactId>maven-compiler-plugin</artifactId>
-	      <version>3.5.1</version>
+	      <version>3.13.0</version>
 	      <configuration>
-	      	<source>1.8</source>
-            <target>1.8</target>
+	      	<source>17</source>
+            <target>17</target>
+            <release>17</release>
 	      </configuration>
 	    </plugin>
 	    <plugin>
