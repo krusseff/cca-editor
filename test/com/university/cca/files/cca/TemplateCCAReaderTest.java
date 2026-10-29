@@ -7,6 +7,7 @@ import static org.junit.Assert.assertTrue;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.lang.reflect.Constructor;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -92,6 +93,16 @@ public class TemplateCCAReaderTest {
 		assertTrue(content.contains("line1"));
 		assertTrue(content.contains("line2"));
 		assertTrue(content.contains("line3"));
+	}
+
+	// --- private constructor (coverage) ---
+
+	@Test
+	public void testPrivateConstructor() throws Exception {
+		Constructor<TemplateCCAReader> constructor =
+				TemplateCCAReader.class.getDeclaredConstructor();
+		constructor.setAccessible(true);
+		assertNotNull(constructor.newInstance());
 	}
 
 	// --- helpers ---

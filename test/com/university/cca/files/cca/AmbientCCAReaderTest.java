@@ -5,14 +5,16 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.lang.reflect.Constructor;
 
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 
-import java.io.FileNotFoundException;
+import com.university.cca.exceptions.FileReadFailedException;
 
 public class AmbientCCAReaderTest {
 
@@ -68,6 +70,25 @@ public class AmbientCCAReaderTest {
 		String fakePath = new File(tempFolder.getRoot(), "nonexistent.cca").getAbsolutePath();
 
 		AmbientCCAReader.read(fakePath);
+	}
+
+	// --- error path ---
+
+	@Test(expected = FileReadFailedException.class)
+	public void testRead_throwsFileReadFailedOnDirectory() throws Exception {
+		File dir = tempFolder.newFolder("dir_not_file");
+
+		AmbientCCAReader.read(dir.getAbsolutePath());
+	}
+
+	// --- private constructor (coverage) ---
+
+	@Test
+	public void testPrivateConstructor() throws Exception {
+		Constructor<AmbientCCAReader> constructor =
+				AmbientCCAReader.class.getDeclaredConstructor();
+		constructor.setAccessible(true);
+		assertNotNull(constructor.newInstance());
 	}
 
 	// --- helpers ---

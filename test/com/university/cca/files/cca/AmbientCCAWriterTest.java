@@ -1,10 +1,12 @@
 package com.university.cca.files.cca;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Constructor;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -83,5 +85,24 @@ public class AmbientCCAWriterTest {
 		String readBack = AmbientCCAReader.read(ccaFile.getAbsolutePath());
 
 		assertEquals(ccaCode, readBack);
+	}
+
+	// --- error path ---
+
+	@Test(expected = RuntimeException.class)
+	public void testWrite_throwsOnDirectoryPath() throws IOException {
+		File dir = tempFolder.newFolder("dir_as_file.cca");
+
+		AmbientCCAWriter.write(dir.getAbsolutePath(), "data");
+	}
+
+	// --- private constructor (coverage) ---
+
+	@Test
+	public void testPrivateConstructor() throws Exception {
+		Constructor<AmbientCCAWriter> constructor =
+				AmbientCCAWriter.class.getDeclaredConstructor();
+		constructor.setAccessible(true);
+		assertNotNull(constructor.newInstance());
 	}
 }

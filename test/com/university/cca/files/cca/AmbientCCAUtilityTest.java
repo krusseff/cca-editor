@@ -1,10 +1,12 @@
 package com.university.cca.files.cca;
 
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Constructor;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -51,5 +53,25 @@ public class AmbientCCAUtilityTest {
 		String fakePath = new File(tempFolder.getRoot(), "nonexistent.cca").getAbsolutePath();
 
 		assertFalse(AmbientCCAUtility.isFileCreated(fakePath));
+	}
+
+	// --- createFileIfDoesNotExist error path ---
+
+	@Test(expected = RuntimeException.class)
+	public void testCreateFileIfDoesNotExist_throwsOnInvalidPath() {
+		String invalidPath = new File(tempFolder.getRoot(),
+				"nonexistent_dir/nested/deep/file.cca").getAbsolutePath();
+
+		AmbientCCAUtility.createFileIfDoesNotExist(invalidPath);
+	}
+
+	// --- private constructor (coverage) ---
+
+	@Test
+	public void testPrivateConstructor() throws Exception {
+		Constructor<AmbientCCAUtility> constructor =
+				AmbientCCAUtility.class.getDeclaredConstructor();
+		constructor.setAccessible(true);
+		assertNotNull(constructor.newInstance());
 	}
 }
