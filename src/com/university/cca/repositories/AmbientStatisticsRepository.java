@@ -38,10 +38,18 @@ public class AmbientStatisticsRepository {
 		for (Ambient ambient : ambients) {
 			totalCount++;
 			
-			if (ambient.isStaticAmbient()) staticCount++;
-			if (!ambient.isStaticAmbient()) nonStaticCount++;
-			if (ambient.isActiveAmbient()) activeCount++;
-			if (!ambient.isActiveAmbient()) inactiveCount++;
+			if (ambient.isStaticAmbient()) {
+				staticCount++;
+			}
+			if (!ambient.isStaticAmbient()) {
+				nonStaticCount++;
+			}
+			if (ambient.isActiveAmbient()) {
+				activeCount++;
+			}
+			if (!ambient.isActiveAmbient()) {
+				inactiveCount++;
+			}
 		}
 		
 		return new AmbientStatistics(

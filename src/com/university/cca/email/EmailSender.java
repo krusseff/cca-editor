@@ -100,7 +100,9 @@ public class EmailSender {
     }
     
     private static String escapeHtml(String input) {
-    	if (input == null) return "";
+    	if (input == null) {
+    		return "";
+    	}
     	return input
     		.replace("&", "&amp;")
     		.replace("<", "&lt;")

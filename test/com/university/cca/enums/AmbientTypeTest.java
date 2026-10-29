@@ -1,9 +1,10 @@
 package com.university.cca.enums;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class AmbientTypeTest {
 
@@ -26,9 +27,11 @@ public class AmbientTypeTest {
 		assertEquals(AmbientType.OTHER, AmbientType.valueOf("OTHER"));
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void testValueOfInvalidThrows() {
-		AmbientType.valueOf("NONEXISTENT");
+		assertThrows(IllegalArgumentException.class, () ->
+			AmbientType.valueOf("NONEXISTENT")
+		);
 	}
 
 	@Test

@@ -1,16 +1,17 @@
 package com.university.cca.files.csv;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.File;
 import java.io.IOException;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.TemporaryFolder;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 import com.university.cca.entities.Ambient;
 import com.university.cca.entities.AmbientStatistics;
@@ -20,8 +21,8 @@ import com.university.cca.enums.AmbientType;
 
 public class CsvUtilTest {
 
-	@Rule
-	public TemporaryFolder tempFolder = new TemporaryFolder();
+	@TempDir
+	Path tempFolder;
 
 	// --- convertToAmbient ---
 
@@ -204,7 +205,7 @@ public class CsvUtilTest {
 
 	@Test
 	public void testCreateFileIfDoesNotExist_createsNewFile() {
-		String filePath = new File(tempFolder.getRoot(), "new_test.csv").getAbsolutePath();
+		String filePath = new File(tempFolder.toFile(), "new_test.csv").getAbsolutePath();
 		assertFalse(new File(filePath).exists());
 
 		CsvUtil.createFileIfDoesNotExist(filePath);
@@ -214,7 +215,7 @@ public class CsvUtilTest {
 
 	@Test
 	public void testCreateFileIfDoesNotExist_existingFileNotOverwritten() throws IOException {
-		File existingFile = tempFolder.newFile("existing.csv");
+		File existingFile = Files.createFile(tempFolder.resolve("existing.csv")).toFile();
 		assertTrue(existingFile.exists());
 
 		CsvUtil.createFileIfDoesNotExist(existingFile.getAbsolutePath());
@@ -226,14 +227,14 @@ public class CsvUtilTest {
 
 	@Test
 	public void testIsFileCreated_existingFile() throws IOException {
-		File file = tempFolder.newFile("check.csv");
+		File file = Files.createFile(tempFolder.resolve("check.csv")).toFile();
 
 		assertTrue(CsvUtil.isFileCreated(file.getAbsolutePath()));
 	}
 
 	@Test
 	public void testIsFileCreated_nonExistingFile() {
-		String fakePath = new File(tempFolder.getRoot(), "nonexistent.csv").getAbsolutePath();
+		String fakePath = new File(tempFolder.toFile(), "nonexistent.csv").getAbsolutePath();
 
 		assertFalse(CsvUtil.isFileCreated(fakePath));
 	}

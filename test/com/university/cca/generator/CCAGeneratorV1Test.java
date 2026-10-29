@@ -1,14 +1,15 @@
 package com.university.cca.generator;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import com.university.cca.entities.Message;
 import com.university.cca.exceptions.AmbientMessageNotFoundException;
@@ -26,9 +27,9 @@ public class CCAGeneratorV1Test {
 		String result = CCAGeneratorV1.generateSendReceiveOneAmbient(messages, sent);
 
 		assertNotNull(result);
-		assertTrue("Should contain sender ambient", result.contains("Hospital1"));
-		assertTrue("Should contain send with message", result.contains("Pharmacy1::send(request_medicine)"));
-		assertTrue("Should contain recv with response", result.contains("Pharmacy1::recv(request_medicine,medicine_ready)"));
+		assertTrue(result.contains("Hospital1"), "Should contain sender ambient");
+		assertTrue(result.contains("Pharmacy1::send(request_medicine)"), "Should contain send with message");
+		assertTrue(result.contains("Pharmacy1::recv(request_medicine,medicine_ready)"), "Should contain recv with response");
 	}
 
 	@Test
@@ -40,10 +41,10 @@ public class CCAGeneratorV1Test {
 		String result = CCAGeneratorV1.generateSendReceiveOneAmbient(messages, sent);
 
 		assertNotNull(result);
-		assertTrue("Sender spaces should become underscores", result.contains("Bus_Station"));
-		assertTrue("Recipient spaces should become underscores", result.contains("Coffee_Shop"));
-		assertTrue("Send params should have underscores", result.contains("send(do_you_have_coffee)"));
-		assertTrue("Recv params should have underscores", result.contains("recv(do_you_have_coffee,yes_we_do)"));
+		assertTrue(result.contains("Bus_Station"), "Sender spaces should become underscores");
+		assertTrue(result.contains("Coffee_Shop"), "Recipient spaces should become underscores");
+		assertTrue(result.contains("send(do_you_have_coffee)"), "Send params should have underscores");
+		assertTrue(result.contains("recv(do_you_have_coffee,yes_we_do)"), "Recv params should have underscores");
 	}
 
 	@Test
@@ -54,26 +55,30 @@ public class CCAGeneratorV1Test {
 
 		String result = CCAGeneratorV1.generateSendReceiveOneAmbient(messages, sent);
 
-		assertTrue("Should have ambient block opening bracket", result.contains("["));
-		assertTrue("Should have ambient block closing bracket", result.contains("]"));
-		assertTrue("Should contain sibling send syntax", result.contains("::send("));
-		assertTrue("Should contain sibling recv syntax", result.contains("::recv("));
-		assertTrue("Should end processes with .0", result.contains(".0"));
+		assertTrue(result.contains("["), "Should have ambient block opening bracket");
+		assertTrue(result.contains("]"), "Should have ambient block closing bracket");
+		assertTrue(result.contains("::send("), "Should contain sibling send syntax");
+		assertTrue(result.contains("::recv("), "Should contain sibling recv syntax");
+		assertTrue(result.contains(".0"), "Should end processes with .0");
 	}
 
-	@Test(expected = AmbientMessageNotFoundException.class)
-	public void testGenerateSendReceiveOneAmbient_recipientNotFound() throws AmbientMessageNotFoundException {
+	@Test
+	public void testGenerateSendReceiveOneAmbient_recipientNotFound() {
 		Message sent = new Message("Hospital1", "Pharmacy1", "null", "null", "request_medicine");
 		List<Message> messages = Collections.singletonList(sent);
 
-		CCAGeneratorV1.generateSendReceiveOneAmbient(messages, sent);
+		assertThrows(AmbientMessageNotFoundException.class, () ->
+			CCAGeneratorV1.generateSendReceiveOneAmbient(messages, sent)
+		);
 	}
 
-	@Test(expected = AmbientMessageNotFoundException.class)
-	public void testGenerateSendReceiveOneAmbient_emptyMessageList() throws AmbientMessageNotFoundException {
+	@Test
+	public void testGenerateSendReceiveOneAmbient_emptyMessageList() {
 		Message sent = new Message("Hospital1", "Pharmacy1", "null", "null", "request_medicine");
 
-		CCAGeneratorV1.generateSendReceiveOneAmbient(Collections.emptyList(), sent);
+		assertThrows(AmbientMessageNotFoundException.class, () ->
+			CCAGeneratorV1.generateSendReceiveOneAmbient(Collections.emptyList(), sent)
+		);
 	}
 
 	@Test
@@ -85,7 +90,7 @@ public class CCAGeneratorV1Test {
 
 		String result = CCAGeneratorV1.generateSendReceiveOneAmbient(messages, sent);
 
-		assertTrue("Should use the correct response", result.contains("medicine_ready"));
+		assertTrue(result.contains("medicine_ready"), "Should use the correct response");
 	}
 
 	// --- generateReceiveSendOneAmbient ---
@@ -97,9 +102,9 @@ public class CCAGeneratorV1Test {
 		String result = CCAGeneratorV1.generateReceiveSendOneAmbient(response);
 
 		assertNotNull(result);
-		assertTrue("Should contain sender ambient", result.contains("Pharmacy1"));
-		assertTrue("Should contain recv with respondTo", result.contains("Hospital1::recv(request_medicine)"));
-		assertTrue("Should contain send with respondTo", result.contains("Hospital1::send(request_medicine,medicine_ready)"));
+		assertTrue(result.contains("Pharmacy1"), "Should contain sender ambient");
+		assertTrue(result.contains("Hospital1::recv(request_medicine)"), "Should contain recv with respondTo");
+		assertTrue(result.contains("Hospital1::send(request_medicine,medicine_ready)"), "Should contain send with respondTo");
 	}
 
 	@Test
@@ -108,10 +113,10 @@ public class CCAGeneratorV1Test {
 
 		String result = CCAGeneratorV1.generateReceiveSendOneAmbient(response);
 
-		assertTrue("Sender spaces should become underscores", result.contains("Coffee_Shop"));
-		assertTrue("Recipient spaces should become underscores", result.contains("Bus_Station"));
-		assertTrue("Recv params should have underscores", result.contains("recv(want_coffee)"));
-		assertTrue("Send params should have underscores", result.contains("send(want_coffee,here_it_is)"));
+		assertTrue(result.contains("Coffee_Shop"), "Sender spaces should become underscores");
+		assertTrue(result.contains("Bus_Station"), "Recipient spaces should become underscores");
+		assertTrue(result.contains("recv(want_coffee)"), "Recv params should have underscores");
+		assertTrue(result.contains("send(want_coffee,here_it_is)"), "Send params should have underscores");
 	}
 
 	@Test
@@ -120,11 +125,11 @@ public class CCAGeneratorV1Test {
 
 		String result = CCAGeneratorV1.generateReceiveSendOneAmbient(response);
 
-		assertTrue("Should have ambient block opening bracket", result.contains("["));
-		assertTrue("Should have ambient block closing bracket", result.contains("]"));
-		assertTrue("Should contain sibling recv syntax", result.contains("::recv("));
-		assertTrue("Should contain sibling send syntax", result.contains("::send("));
-		assertTrue("Should end process with .0", result.contains(".0"));
+		assertTrue(result.contains("["), "Should have ambient block opening bracket");
+		assertTrue(result.contains("]"), "Should have ambient block closing bracket");
+		assertTrue(result.contains("::recv("), "Should contain sibling recv syntax");
+		assertTrue(result.contains("::send("), "Should contain sibling send syntax");
+		assertTrue(result.contains(".0"), "Should end process with .0");
 	}
 
 	@Test
@@ -136,8 +141,8 @@ public class CCAGeneratorV1Test {
 
 		String result = CCAGeneratorV1.generateReceiveSendOneAmbient(response);
 
-		assertTrue("Should contain full sender name", result.contains("UniversityOfPlovdivLibrary"));
-		assertTrue("Should contain full recipient name", result.contains("CityPharmacyCenter"));
+		assertTrue(result.contains("UniversityOfPlovdivLibrary"), "Should contain full sender name");
+		assertTrue(result.contains("CityPharmacyCenter"), "Should contain full recipient name");
 	}
 
 	// --- V1 output format validation ---
@@ -150,8 +155,8 @@ public class CCAGeneratorV1Test {
 
 		String result = CCAGeneratorV1.generateSendReceiveOneAmbient(messages, sent);
 
-		assertTrue("Send should target sibling", result.contains("Gateway1::send(temperature_25).0"));
-		assertTrue("Recv should target sibling", result.contains("Gateway1::recv(temperature_25,ack).0"));
+		assertTrue(result.contains("Gateway1::send(temperature_25).0"), "Send should target sibling");
+		assertTrue(result.contains("Gateway1::recv(temperature_25,ack).0"), "Recv should target sibling");
 	}
 
 	@Test
@@ -160,7 +165,7 @@ public class CCAGeneratorV1Test {
 
 		String result = CCAGeneratorV1.generateReceiveSendOneAmbient(response);
 
-		assertTrue("Recv should use respondTo as param", result.contains("Sensor1::recv(temperature_25)."));
-		assertTrue("Send should use CSV format params", result.contains("Sensor1::send(temperature_25,ack).0"));
+		assertTrue(result.contains("Sensor1::recv(temperature_25)."), "Recv should use respondTo as param");
+		assertTrue(result.contains("Sensor1::send(temperature_25,ack).0"), "Send should use CSV format params");
 	}
 }

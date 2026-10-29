@@ -1,22 +1,23 @@
 package com.university.cca.files.cca;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Constructor;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.TemporaryFolder;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 public class TemplateCCAReaderTest {
 
-	@Rule
-	public TemporaryFolder tempFolder = new TemporaryFolder();
+	@TempDir
+	Path tempFolder;
 
 	// --- readTemplate(filePath) ---
 
@@ -55,7 +56,7 @@ public class TemplateCCAReaderTest {
 
 	@Test
 	public void testReadTemplate_emptyFile() throws IOException {
-		File templateFile = tempFolder.newFile("empty_template.cca");
+		File templateFile = Files.createFile(tempFolder.resolve("empty_template.cca")).toFile();
 
 		String content = TemplateCCAReader.readTemplate(templateFile.getAbsolutePath());
 
@@ -65,7 +66,7 @@ public class TemplateCCAReaderTest {
 
 	@Test
 	public void testReadTemplate_createsFileIfNotExists() {
-		String filePath = new File(tempFolder.getRoot(), "auto_created.cca").getAbsolutePath();
+		String filePath = new File(tempFolder.toFile(), "auto_created.cca").getAbsolutePath();
 
 		String content = TemplateCCAReader.readTemplate(filePath);
 
@@ -108,7 +109,7 @@ public class TemplateCCAReaderTest {
 	// --- helpers ---
 
 	private File createTemplateFile(String content) throws IOException {
-		File file = tempFolder.newFile("template.cca");
+		File file = Files.createFile(tempFolder.resolve("template.cca")).toFile();
 		try (FileWriter writer = new FileWriter(file)) {
 			writer.write(content);
 		}

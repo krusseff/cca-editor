@@ -8,7 +8,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### You Need
 
-1. To install on your local machine Java JDK 17 or greater.
+1. To install on your local machine Java JDK 25 or greater.
 2. To install Java Development Environment (IDE) - Eclipse IDE or IntelliJ IDEA (no required versions).
 3. To install Maven (no required version) on your local machine, but it's not required to run the application.
 
@@ -63,15 +63,15 @@ High-level database diagram of the *CCA Editor* application is provided below. I
 
 ## Used Technologies
 
-* [Java 17](https://www.oracle.com/java/technologies/downloads/#java17)
+* [Java 25](https://www.oracle.com/java/technologies/downloads/#java25)
 * [Java Swing/AWT](https://docs.oracle.com/javase/tutorial/uiswing/)
-* [Jakarta Mail 2.0.1](https://jakartaee.github.io/mail-api/)
-* [Logback 1.5.18](https://logback.qos.ch/)
-* [SLF4J 2.0.17](https://www.slf4j.org/)
+* [Jakarta Mail 2.0.2](https://jakartaee.github.io/mail-api/)
+* [Logback 1.6.6](https://logback.qos.ch/)
+* [SLF4J 2.0.20](https://www.slf4j.org/)
 * [OpenCSV 5.12.0](https://opencsv.sourceforge.net)
 * [Jackson 2.22.4](https://github.com/FasterXML/jackson-databind)
 * [JFree Chart 1.5.6](https://www.jfree.org/jfreechart/)
-* [JUnit 4.13.2](https://junit.org/junit4)
+* [JUnit 6.1.3](https://junit.org/junit5/)
 * [Maven](https://maven.apache.org/)
 * [Eclipse](https://www.eclipse.org/)
 * [SonarLint](https://www.sonarlint.org/)

@@ -1,8 +1,9 @@
 package com.university.cca.files.cca;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.File;
 import java.io.IOException;
@@ -10,20 +11,21 @@ import java.lang.reflect.Constructor;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.TemporaryFolder;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 public class AmbientCCAWriterTest {
 
-	@Rule
-	public TemporaryFolder tempFolder = new TemporaryFolder();
+	@TempDir
+	Path tempFolder;
 
 	// --- write(filePath, data) ---
 
 	@Test
 	public void testWrite_createsFileAndWritesData() {
-		File ccaFile = new File(tempFolder.getRoot(), "output.cca");
+		File ccaFile = new File(tempFolder.toFile(), "output.cca");
 
 		AmbientCCAWriter.write(ccaFile.getAbsolutePath(), "n[m::send(hello).0]");
 
@@ -33,7 +35,7 @@ public class AmbientCCAWriterTest {
 
 	@Test
 	public void testWrite_contentMatchesInput() throws IOException {
-		File ccaFile = new File(tempFolder.getRoot(), "scenario.cca");
+		File ccaFile = new File(tempFolder.toFile(), "scenario.cca");
 		String ccaCode = "n[m::send(hello).0] | m[n::recv(x).0]";
 
 		AmbientCCAWriter.write(ccaFile.getAbsolutePath(), ccaCode);
@@ -44,7 +46,7 @@ public class AmbientCCAWriterTest {
 
 	@Test
 	public void testWrite_overwritesPreviousContent() throws IOException {
-		File ccaFile = new File(tempFolder.getRoot(), "overwrite.cca");
+		File ccaFile = new File(tempFolder.toFile(), "overwrite.cca");
 
 		AmbientCCAWriter.write(ccaFile.getAbsolutePath(), "first_content");
 		AmbientCCAWriter.write(ccaFile.getAbsolutePath(), "second_content");
@@ -55,7 +57,7 @@ public class AmbientCCAWriterTest {
 
 	@Test
 	public void testWrite_emptyData() {
-		File ccaFile = new File(tempFolder.getRoot(), "empty.cca");
+		File ccaFile = new File(tempFolder.toFile(), "empty.cca");
 
 		AmbientCCAWriter.write(ccaFile.getAbsolutePath(), "");
 
@@ -64,7 +66,7 @@ public class AmbientCCAWriterTest {
 
 	@Test
 	public void testWrite_multilineData() throws IOException {
-		File ccaFile = new File(tempFolder.getRoot(), "multiline.cca");
+		File ccaFile = new File(tempFolder.toFile(), "multiline.cca");
 		String ccaCode = "BEGIN_DECLS\n  mode random\nEND_DECLS\nn[0]";
 
 		AmbientCCAWriter.write(ccaFile.getAbsolutePath(), ccaCode);
@@ -78,7 +80,7 @@ public class AmbientCCAWriterTest {
 
 	@Test
 	public void testWriteAndRead_roundTrip() throws Exception {
-		File ccaFile = new File(tempFolder.getRoot(), "roundtrip.cca");
+		File ccaFile = new File(tempFolder.toFile(), "roundtrip.cca");
 		String ccaCode = "n[m::send(hello).0] | m[n::recv(x).0]";
 
 		AmbientCCAWriter.write(ccaFile.getAbsolutePath(), ccaCode);
@@ -89,11 +91,13 @@ public class AmbientCCAWriterTest {
 
 	// --- error path ---
 
-	@Test(expected = RuntimeException.class)
+	@Test
 	public void testWrite_throwsOnDirectoryPath() throws IOException {
-		File dir = tempFolder.newFolder("dir_as_file.cca");
+		File dir = Files.createDirectories(tempFolder.resolve("dir_as_file.cca")).toFile();
 
-		AmbientCCAWriter.write(dir.getAbsolutePath(), "data");
+		assertThrows(RuntimeException.class, () ->
+			AmbientCCAWriter.write(dir.getAbsolutePath(), "data")
+		);
 	}
 
 	// --- private constructor (coverage) ---

@@ -1,10 +1,10 @@
 package com.university.cca.repositories;
 
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -13,17 +13,18 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.TemporaryFolder;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 import com.university.cca.entities.Ambient;
 import com.university.cca.enums.AmbientType;
 
 public class AmbientRepositoryTest {
 
-	@Rule
-	public TemporaryFolder tempFolder = new TemporaryFolder();
+	@TempDir
+	Path tempFolder;
 
 	// --- getAllAmbients(filePath) ---
 
@@ -43,7 +44,7 @@ public class AmbientRepositoryTest {
 
 	@Test
 	public void testGetAllAmbients_emptyFile() throws IOException {
-		File csv = tempFolder.newFile("empty.csv");
+		File csv = Files.createFile(tempFolder.resolve("empty.csv")).toFile();
 
 		List<Ambient> ambients = AmbientRepository.getAllAmbients(csv.getAbsolutePath());
 
@@ -71,7 +72,7 @@ public class AmbientRepositoryTest {
 
 	@Test
 	public void testGetAllAmbientsSortedByName_emptyFile() throws IOException {
-		File csv = tempFolder.newFile("empty.csv");
+		File csv = Files.createFile(tempFolder.resolve("empty.csv")).toFile();
 
 		List<Ambient> sorted = AmbientRepository.getAllAmbientsSortedByName(csv.getAbsolutePath());
 
@@ -269,7 +270,7 @@ public class AmbientRepositoryTest {
 	// --- helpers ---
 
 	private File createAmbientsCsv(String content) throws IOException {
-		File csv = tempFolder.newFile("ambients.csv");
+		File csv = Files.createFile(tempFolder.resolve("ambients.csv")).toFile();
 		try (FileWriter writer = new FileWriter(csv)) {
 			writer.write(content);
 		}
