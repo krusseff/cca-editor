@@ -22,13 +22,20 @@ public class AmbientStatisticsRepository {
 	 * Fetches and calculates all ambient statistics
 	 */
 	public static AmbientStatistics getAmbientStatistics() {
+		return calculateStatistics(AmbientCSVReader.getAllAmbients());
+	}
+
+	/**
+	 * Calculates ambient statistics from the given list of ambients
+	 */
+	public static AmbientStatistics calculateStatistics(List<Ambient> ambients) {
 		int totalCount = 0;
 		int staticCount = 0;
 		int nonStaticCount = 0;
 		int activeCount = 0;
 		int inactiveCount = 0;
 
-		for (Ambient ambient : getAllAmbients()) {
+		for (Ambient ambient : ambients) {
 			totalCount++;
 			
 			if (ambient.isStaticAmbient()) staticCount++;
@@ -40,13 +47,5 @@ public class AmbientStatisticsRepository {
 		return new AmbientStatistics(
 			totalCount, staticCount, nonStaticCount, activeCount, inactiveCount
 		);
-	}
-	
-	/**
-	 * Fetches all ambients from given data source
-	 */
-	private static List<Ambient> getAllAmbients() {
-		
-		return AmbientCSVReader.getAllAmbients();
 	}
 }
