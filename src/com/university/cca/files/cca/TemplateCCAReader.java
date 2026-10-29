@@ -63,6 +63,13 @@ public class TemplateCCAReader {
 	}
 	
 	/**
+	 * Method that reads a CCA template from the specified file path.
+	 */
+	public static String readTemplate(String filePath) {
+		return readFromFile(filePath);
+	}
+
+	/**
 	 * Method, which main responsibility is to read from the CCA Template files.
 	 */
 	private static String readFromFile(String filePath) {

@@ -106,6 +106,13 @@ public class MessageServiceTest {
 		));
 	}
 
+	@Test
+	public void testIsValidMessageInfoEmptyRespondTo() {
+		assertFalse(MessageService.isValidMessageInfo(
+			"Hospital1", "Pharmacy1", "null", "", "request_medicine"
+		));
+	}
+
 	// --- isValidMessageLength tests ---
 
 	@Test

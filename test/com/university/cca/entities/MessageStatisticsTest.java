@@ -128,4 +128,20 @@ public class MessageStatisticsTest {
 		
 		assertEquals(stats.hashCode(), stats.hashCode());
 	}
+
+	@Test
+	public void testHashCodeWithNullName() {
+		MessageStatistics s1 = new MessageStatistics(null, 5, 3);
+		MessageStatistics s2 = new MessageStatistics(null, 5, 3);
+
+		assertEquals(s1.hashCode(), s2.hashCode());
+	}
+
+	@Test
+	public void testNotEqualsNonNullNameVsNullName() {
+		MessageStatistics s1 = new MessageStatistics("Hospital1", 5, 3);
+		MessageStatistics s2 = new MessageStatistics(null, 5, 3);
+
+		assertNotEquals(s1, s2);
+	}
 }

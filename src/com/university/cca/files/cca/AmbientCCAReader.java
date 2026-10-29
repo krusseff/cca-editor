@@ -33,10 +33,14 @@ public class AmbientCCAReader {
 	 * Method that reads the CCA scenario from the CCA file (if the file already exists).
 	 */
 	public static String read() throws FileNotFoundException, FileReadFailedException {
-		String filePath = Constants.AMBIENTS_CCA_FILE_PATH;
-	
-		// if the file does not exist throw an exception
-		if (!AmbientCCAUtility.isFileCreated()) {
+		return read(Constants.AMBIENTS_CCA_FILE_PATH);
+	}
+
+	/**
+	 * Method that reads the CCA scenario from the specified CCA file.
+	 */
+	public static String read(String filePath) throws FileNotFoundException, FileReadFailedException {
+		if (!AmbientCCAUtility.isFileCreated(filePath)) {
 			logger.error("The CCA file is not found on the specified path: {}", filePath);
 			throw new FileNotFoundException(filePath);
 		}
