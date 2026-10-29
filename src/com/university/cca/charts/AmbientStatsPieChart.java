@@ -11,7 +11,7 @@ import org.jfree.chart.labels.StandardPieSectionLabelGenerator;
 import org.jfree.chart.plot.PiePlot;
 import org.jfree.data.general.DefaultPieDataset;
 import org.jfree.data.general.PieDataset;
-import org.jfree.ui.RectangleInsets;
+import org.jfree.chart.ui.RectangleInsets;
 
 import com.university.cca.entities.AmbientStatistics;
 

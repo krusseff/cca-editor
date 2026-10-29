@@ -18,8 +18,6 @@ public class AmbientCCAUtility {
 	
 	private static final Logger logger = LoggerFactory.getLogger(AmbientCCAUtility.class);
 
-	private static final int EXIT_CODE_2 = 2;
-	
 	private AmbientCCAUtility() {
 		// Prevent creating an object of type AmbientCCAUtility class
 	}
@@ -36,8 +34,7 @@ public class AmbientCCAUtility {
 				logger.info("The file: {} is created with status: {}", filePath, result);
 			} catch (IOException ex) {
 				logger.error("Unable to create a file on the following path: {}. Exception: {}", filePath, ex.getMessage());
-				logger.error("Exiting the program... :(");
-				System.exit(EXIT_CODE_2);
+				throw new RuntimeException("Unable to create file: " + filePath, ex);
 			}
 		} else {
 			logger.info("The file with name: {} already exists.", filePath);

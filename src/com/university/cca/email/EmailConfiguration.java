@@ -23,7 +23,7 @@ public class EmailConfiguration {
 	
 	@Override
 	public String toString() {
-		return "EmailConfiguration [senderEmail=" + senderEmail + ", senderEmailPass=" + senderEmailPass
+		return "EmailConfiguration [senderEmail=" + senderEmail + ", senderEmailPass=[PROTECTED]"
 			+ ", recipientEmail=" + recipientEmail + ", recipientBccEmail=" + recipientBccEmail
 			+ ", smtpServerHost=" + smtpServerHost + ", smtpServerTls=" + smtpServerTls + ", smtpServerAuth="
 			+ smtpServerAuth + ", smtpServerPort=" + smtpServerPort + "]";

@@ -10,7 +10,7 @@ import org.jfree.chart.block.BlockBorder;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.CategoryDataset;
 import org.jfree.data.category.DefaultCategoryDataset;
-import org.jfree.ui.RectangleInsets;
+import org.jfree.chart.ui.RectangleInsets;
 
 import com.university.cca.entities.MessageStatistics;
 

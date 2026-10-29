@@ -46,78 +46,73 @@ public class TechnologiesDialog extends JDialog {
 				"<h3 style=\"text-align: center;\"> A list with used technologies into the CCA Editor Application </h3>" +
 					
 				"<ul>" +
-				  "<li>" +
-				  	"Java 8: " + 
-				  	"<u>https://www.oracle.com/java/technologies/java8.html</u>" +
-			  	  "</li>" +
-				  
-				  "<li>" +
-					"Java Swing and Java AWT: " + 
-					"<u>https://docs.oracle.com/javase/tutorial/uiswing/</u>" +
-				  "</li>" +
-					
-				  "<li>" +
-				    "Java Mail API 1.6.2: " + 
-				    "<u>https://javadoc.io/doc/javax.mail/javax.mail-api/latest/index.html</u>" +
-				  "</li>" +
-					
-				  "<li>" +
-					"Logback 1.2.3: " + 
-					"<u>http://logback.qos.ch/</u>" +
-				  "</li>" +
-				  
-				  "<li>" +
-					"SLF4J 1.7.30: " + 
-					"<u>http://www.slf4j.org/</u>" +
-				  "</li>" +
-				  
-				  "<li>" +
-					"OpenCSV 5.3: " + 
-					"<u>http://opencsv.sourceforge.net</u>" +
-				  "</li>" +
-					
-				  "<li>" +
-					"Jackson 2.12.2: " + 
-					"<u>https://en.wikipedia.org/wiki/Jackson_(API)</u>" +
-				  "</li>" +
-					
-				  "<li>" +
-				    "JFree Chart 1.0.13: " + 
-				    "<u>https://www.jfree.org/jfreechart/</u>" +
-				  "</li>" +
-					
-				  "<li>" +
-					"JUnit 4.13.1: " + 
-					"<u>https://junit.org/junit4</u>" +
-				  "</li>" +
-					
-				  "<li>" +
-					"Maven: " + 
-					"<u>https://maven.apache.org/</u>" +
-				  "</li>" +
-					
-				  "<li>" +
+			  "<li>" +
+			  	"Java 8: " + 
+			  	"<u>https://www.oracle.com/java/technologies/java8.html</u>" +
+		  	  "</li>" +
+			  
+			  "<li>" +
+				"Java Swing and Java AWT: " + 
+				"<u>https://docs.oracle.com/javase/tutorial/uiswing/</u>" +
+			  "</li>" +
+				
+			  "<li>" +
+			    "Java Mail API 1.6.2: " + 
+			    "<u>https://javadoc.io/doc/javax.mail/javax.mail-api/latest/index.html</u>" +
+			  "</li>" +
+				
+			  "<li>" +
+				"Logback 1.2.13: " + 
+				"<u>https://logback.qos.ch/</u>" +
+			  "</li>" +
+			  
+			  "<li>" +
+					"SLF4J 1.7.32: " + 
+				"<u>https://www.slf4j.org/</u>" +
+			  "</li>" +
+			  
+			  "<li>" +
+				"OpenCSV 5.12.0: " + 
+				"<u>https://opencsv.sourceforge.net</u>" +
+			  "</li>" +
+				
+			  "<li>" +
+					"Jackson 2.22.4: " + 
+				"<u>https://github.com/FasterXML/jackson-databind</u>" +
+			  "</li>" +
+				
+			  "<li>" +
+			    "JFree Chart 1.5.6: " + 
+			    "<u>https://www.jfree.org/jfreechart/</u>" +
+			  "</li>" +
+				
+			  "<li>" +
+					"JUnit 4.13.2: " + 
+				"<u>https://junit.org/junit4</u>" +
+			  "</li>" +
+				
+			  "<li>" +
+				"Maven: " + 
+				"<u>https://maven.apache.org/</u>" +
+			  "</li>" +
+				
+			  "<li>" +
 					"Eclipse: " + 
-					"<u>https://www.eclipse.org/</u>" +
-				  "</li>" +
-					
-				  "<li>" +
-					"SonarLint: " + 
-					"<u>https://www.sonarlint.org/</u>" +
-				  "</li>" +
-					
-				  "<li>" +
-				    "PostgreSQL Database: " + 
-				    "<u>https://www.postgresql.org/</u>" +
-				  "</li>" +
-					
-				  "<li>" +
-					"Calculus of Context-Aware paradigm" + 
-				  "</li>" +
-					
-				  "<li>" +
-					"Calculus of Context-Aware Modelling Language: <b><i>ccaPL</i></b>" + 
-				  "</li>" +
+				"<u>https://www.eclipse.org/</u>" +
+			  "</li>" +
+				
+			  "<li>" +
+				"SonarLint: " + 
+				"<u>https://www.sonarlint.org/</u>" +
+			  "</li>" +
+				
+			  "<li>" +
+				"Calculus of Context-Aware paradigm" + 
+			  "</li>" +
+				
+			  "<li>" +
+				"Calculus of Context-Aware Modelling Language: <b><i>ccaPL</i></b>" + 
+			  "</li>" +
 			  	"</ul>" + 
 			"</body>" +
 		"</html>";

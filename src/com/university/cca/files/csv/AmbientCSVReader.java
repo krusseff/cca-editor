@@ -36,7 +36,14 @@ public class AmbientCSVReader {
 	 * Method, which main responsibility is to fetch all ambients from the csv file.
 	 */
 	public static List<Ambient> getAllAmbients() {
-		List<CsvAmbientBean> ambientBeans = readAmbientsFromCsv();
+		return getAllAmbients(Constants.AMBIENTS_CSV_FILE_PATH);
+	}
+
+	/**
+	 * Method, which main responsibility is to fetch all ambients from the specified csv file.
+	 */
+	public static List<Ambient> getAllAmbients(String filePath) {
+		List<CsvAmbientBean> ambientBeans = readAmbientsFromCsv(filePath);
 		List<Ambient> ambients = new ArrayList<>();
 		
 		for (CsvAmbientBean ambientBean : ambientBeans) {
@@ -51,7 +58,14 @@ public class AmbientCSVReader {
 	 * Method, which main responsibility is to fetch all ambient messages from the csv file.
 	 */
 	public static List<Message> getAllMessages() {
-		List<CsvMessageBean> messageBeans = readAmbientMessagesFromCsv();
+		return getAllMessages(Constants.MESSAGES_CSV_FILE_PATH);
+	}
+
+	/**
+	 * Method, which main responsibility is to fetch all ambient messages from the specified csv file.
+	 */
+	public static List<Message> getAllMessages(String filePath) {
+		List<CsvMessageBean> messageBeans = readAmbientMessagesFromCsv(filePath);
 		List<Message> messages = new ArrayList<>();
 		
 		for (CsvMessageBean messageBean : messageBeans) {
@@ -63,12 +77,11 @@ public class AmbientCSVReader {
 	}
 	
 	/**
-	 * Method, which main responsibility is to read ambients from the csv file
+	 * Method, which main responsibility is to read ambients from the specified csv file
 	 */
-	private static List<CsvAmbientBean> readAmbientsFromCsv() {
+	private static List<CsvAmbientBean> readAmbientsFromCsv(String filePath) {
 		List<CsvAmbientBean> ambientBeans;
 		
-		String filePath = Constants.AMBIENTS_CSV_FILE_PATH;
 		Path path = Paths.get(filePath);
 
 		try {
@@ -82,12 +95,11 @@ public class AmbientCSVReader {
 	}
 	
 	/**
-	 * Method, which main responsibility is to read ambient messages from the csv file
+	 * Method, which main responsibility is to read ambient messages from the specified csv file
 	 */
-	private static List<CsvMessageBean> readAmbientMessagesFromCsv() {
+	private static List<CsvMessageBean> readAmbientMessagesFromCsv(String filePath) {
 		List<CsvMessageBean> messageBeans;
 		
-		String filePath = Constants.MESSAGES_CSV_FILE_PATH;
 		Path path = Paths.get(filePath);
 
 		try {
@@ -107,14 +119,13 @@ public class AmbientCSVReader {
 		ColumnPositionMappingStrategy<T> ms = new ColumnPositionMappingStrategy<>();
 		ms.setType(clazz);
 
-		Reader reader = Files.newBufferedReader(path);
-		CsvToBean<T> cb = new CsvToBeanBuilder<T>(reader)
-			.withType(clazz)
-			.withMappingStrategy(ms)
-			.build();
+		try (Reader reader = Files.newBufferedReader(path)) {
+			CsvToBean<T> cb = new CsvToBeanBuilder<T>(reader)
+				.withType(clazz)
+				.withMappingStrategy(ms)
+				.build();
 
-		List<T> items = cb.parse();
-		reader.close();
-		return items;
+			return cb.parse();
+		}
 	}
 }
