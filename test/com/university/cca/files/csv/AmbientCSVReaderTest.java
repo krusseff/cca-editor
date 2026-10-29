@@ -1,17 +1,18 @@
 package com.university.cca.files.csv;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.TemporaryFolder;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 import com.university.cca.entities.Ambient;
 import com.university.cca.entities.Message;
@@ -19,14 +20,14 @@ import com.university.cca.enums.AmbientType;
 
 public class AmbientCSVReaderTest {
 
-	@Rule
-	public TemporaryFolder tempFolder = new TemporaryFolder();
+	@TempDir
+	Path tempFolder;
 
 	// --- getAllAmbients(filePath) ---
 
 	@Test
 	public void testGetAllAmbients_singleAmbient() throws IOException {
-		File csvFile = tempFolder.newFile("ambients.csv");
+		File csvFile = Files.createFile(tempFolder.resolve("ambients.csv")).toFile();
 		writeToFile(csvFile, "\"HOSPITAL\",\"CityHospital\",\"Lovech\",\"43.1369\",\"24.7174\",\"true\",\"City\",\"true\"\n");
 
 		List<Ambient> ambients = AmbientCSVReader.getAllAmbients(csvFile.getAbsolutePath());
@@ -45,7 +46,7 @@ public class AmbientCSVReaderTest {
 
 	@Test
 	public void testGetAllAmbients_multipleAmbients() throws IOException {
-		File csvFile = tempFolder.newFile("ambients.csv");
+		File csvFile = Files.createFile(tempFolder.resolve("ambients.csv")).toFile();
 		StringBuilder sb = new StringBuilder();
 		sb.append("\"HOSPITAL\",\"Hospital1\",\"Loc1\",\"43.0\",\"24.0\",\"true\",\"City\",\"true\"\n");
 		sb.append("\"CITY\",\"City1\",\"Loc2\",\"42.0\",\"23.0\",\"true\",\"\",\"true\"\n");
@@ -62,7 +63,7 @@ public class AmbientCSVReaderTest {
 
 	@Test
 	public void testGetAllAmbients_emptyFile() throws IOException {
-		File csvFile = tempFolder.newFile("empty_ambients.csv");
+		File csvFile = Files.createFile(tempFolder.resolve("empty_ambients.csv")).toFile();
 
 		List<Ambient> ambients = AmbientCSVReader.getAllAmbients(csvFile.getAbsolutePath());
 
@@ -72,7 +73,7 @@ public class AmbientCSVReaderTest {
 
 	@Test
 	public void testGetAllAmbients_nonExistentFile() {
-		String fakePath = new File(tempFolder.getRoot(), "nonexistent.csv").getAbsolutePath();
+		String fakePath = new File(tempFolder.toFile(), "nonexistent.csv").getAbsolutePath();
 
 		List<Ambient> ambients = AmbientCSVReader.getAllAmbients(fakePath);
 
@@ -82,7 +83,7 @@ public class AmbientCSVReaderTest {
 
 	@Test
 	public void testGetAllAmbients_inactiveAmbient() throws IOException {
-		File csvFile = tempFolder.newFile("ambients.csv");
+		File csvFile = Files.createFile(tempFolder.resolve("ambients.csv")).toFile();
 		writeToFile(csvFile, "\"CAMERA_SENSOR\",\"Cam1\",\"Entrance\",\"43.0\",\"24.0\",\"true\",\"Building\",\"false\"\n");
 
 		List<Ambient> ambients = AmbientCSVReader.getAllAmbients(csvFile.getAbsolutePath());
@@ -96,7 +97,7 @@ public class AmbientCSVReaderTest {
 
 	@Test
 	public void testGetAllAmbients_nonStaticAmbient() throws IOException {
-		File csvFile = tempFolder.newFile("ambients.csv");
+		File csvFile = Files.createFile(tempFolder.resolve("ambients.csv")).toFile();
 		writeToFile(csvFile, "\"CAR\",\"Car1\",\"Highway\",\"42.5\",\"23.5\",\"false\",\"City\",\"true\"\n");
 
 		List<Ambient> ambients = AmbientCSVReader.getAllAmbients(csvFile.getAbsolutePath());
@@ -112,7 +113,7 @@ public class AmbientCSVReaderTest {
 
 	@Test
 	public void testGetAllMessages_singleMessage() throws IOException {
-		File csvFile = tempFolder.newFile("messages.csv");
+		File csvFile = Files.createFile(tempFolder.resolve("messages.csv")).toFile();
 		writeToFile(csvFile, "\"SensorA\",\"Gateway\",\"Hub\",\"OK\",\"Temperature is 25C\"\n");
 
 		List<Message> messages = AmbientCSVReader.getAllMessages(csvFile.getAbsolutePath());
@@ -128,7 +129,7 @@ public class AmbientCSVReaderTest {
 
 	@Test
 	public void testGetAllMessages_multipleMessages() throws IOException {
-		File csvFile = tempFolder.newFile("messages.csv");
+		File csvFile = Files.createFile(tempFolder.resolve("messages.csv")).toFile();
 		StringBuilder sb = new StringBuilder();
 		sb.append("\"A\",\"B\",\"C\",\"yes\",\"msg1\"\n");
 		sb.append("\"D\",\"E\",\"F\",\"no\",\"msg2\"\n");
@@ -145,7 +146,7 @@ public class AmbientCSVReaderTest {
 
 	@Test
 	public void testGetAllMessages_emptyFile() throws IOException {
-		File csvFile = tempFolder.newFile("empty_messages.csv");
+		File csvFile = Files.createFile(tempFolder.resolve("empty_messages.csv")).toFile();
 
 		List<Message> messages = AmbientCSVReader.getAllMessages(csvFile.getAbsolutePath());
 
@@ -155,7 +156,7 @@ public class AmbientCSVReaderTest {
 
 	@Test
 	public void testGetAllMessages_nonExistentFile() {
-		String fakePath = new File(tempFolder.getRoot(), "nonexistent.csv").getAbsolutePath();
+		String fakePath = new File(tempFolder.toFile(), "nonexistent.csv").getAbsolutePath();
 
 		List<Message> messages = AmbientCSVReader.getAllMessages(fakePath);
 

@@ -1,9 +1,9 @@
 package com.university.cca.repositories;
 
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -12,16 +12,17 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.TemporaryFolder;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 import com.university.cca.entities.Message;
 
 public class MessageRepositoryTest {
 
-	@Rule
-	public TemporaryFolder tempFolder = new TemporaryFolder();
+	@TempDir
+	Path tempFolder;
 
 	// --- getAllMessages(filePath) ---
 
@@ -41,7 +42,7 @@ public class MessageRepositoryTest {
 
 	@Test
 	public void testGetAllMessages_emptyFile() throws IOException {
-		File csv = tempFolder.newFile("empty.csv");
+		File csv = Files.createFile(tempFolder.resolve("empty.csv")).toFile();
 
 		List<Message> messages = MessageRepository.getAllMessages(csv.getAbsolutePath());
 
@@ -66,7 +67,7 @@ public class MessageRepositoryTest {
 
 	@Test
 	public void testGetAmbientMessagesSorted_emptyFile() throws IOException {
-		File csv = tempFolder.newFile("empty.csv");
+		File csv = Files.createFile(tempFolder.resolve("empty.csv")).toFile();
 
 		String[] sorted = MessageRepository.getAmbientMessagesSorted(csv.getAbsolutePath());
 
@@ -102,7 +103,7 @@ public class MessageRepositoryTest {
 	// --- helpers ---
 
 	private File createMessagesCsv(String content) throws IOException {
-		File csv = tempFolder.newFile("messages.csv");
+		File csv = Files.createFile(tempFolder.resolve("messages.csv")).toFile();
 		try (FileWriter writer = new FileWriter(csv)) {
 			writer.write(content);
 		}

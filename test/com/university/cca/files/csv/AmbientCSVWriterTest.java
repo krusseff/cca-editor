@@ -1,8 +1,8 @@
 package com.university.cca.files.csv;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.File;
 import java.io.IOException;
@@ -11,9 +11,10 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.TemporaryFolder;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 import com.university.cca.entities.Ambient;
 import com.university.cca.entities.AmbientStatistics;
@@ -23,14 +24,14 @@ import com.university.cca.enums.AmbientType;
 
 public class AmbientCSVWriterTest {
 
-	@Rule
-	public TemporaryFolder tempFolder = new TemporaryFolder();
+	@TempDir
+	Path tempFolder;
 
 	// --- writeToCsv (raw string) ---
 
 	@Test
 	public void testWriteToCsv_writesStringData() throws IOException {
-		File csvFile = new File(tempFolder.getRoot(), "output.csv");
+		File csvFile = new File(tempFolder.toFile(), "output.csv");
 		String data = "\"test\",\"data\",\"here\"";
 
 		AmbientCSVWriter.writeToCsv(data, csvFile.getAbsolutePath());
@@ -41,7 +42,7 @@ public class AmbientCSVWriterTest {
 
 	@Test
 	public void testWriteToCsv_createsFileIfNotExists() {
-		File csvFile = new File(tempFolder.getRoot(), "new_file.csv");
+		File csvFile = new File(tempFolder.toFile(), "new_file.csv");
 
 		AmbientCSVWriter.writeToCsv("data", csvFile.getAbsolutePath());
 
@@ -52,7 +53,7 @@ public class AmbientCSVWriterTest {
 
 	@Test
 	public void testWriteAmbientToCsv_singleAmbient() {
-		File csvFile = new File(tempFolder.getRoot(), "ambient.csv");
+		File csvFile = new File(tempFolder.toFile(), "ambient.csv");
 		Ambient ambient = createTestAmbient("Hospital1", AmbientType.HOSPITAL);
 
 		AmbientCSVWriter.writeAmbientToCsv(ambient, csvFile.getAbsolutePath());
@@ -63,7 +64,7 @@ public class AmbientCSVWriterTest {
 
 	@Test
 	public void testWriteAmbientToCsv_roundTrip() {
-		File csvFile = new File(tempFolder.getRoot(), "ambient_rt.csv");
+		File csvFile = new File(tempFolder.toFile(), "ambient_rt.csv");
 		Ambient original = createTestAmbient("RoundTrip", AmbientType.CITY);
 
 		AmbientCSVWriter.writeAmbientToCsv(original, csvFile.getAbsolutePath());
@@ -85,7 +86,7 @@ public class AmbientCSVWriterTest {
 
 	@Test
 	public void testWriteAmbientsToCsv_multipleAmbients() {
-		File csvFile = new File(tempFolder.getRoot(), "ambients_multi.csv");
+		File csvFile = new File(tempFolder.toFile(), "ambients_multi.csv");
 		List<Ambient> ambients = Arrays.asList(
 			createTestAmbient("A1", AmbientType.HOSPITAL),
 			createTestAmbient("A2", AmbientType.CITY),
@@ -103,7 +104,7 @@ public class AmbientCSVWriterTest {
 
 	@Test
 	public void testWriteAmbientsToCsv_emptyList() {
-		File csvFile = new File(tempFolder.getRoot(), "ambients_empty.csv");
+		File csvFile = new File(tempFolder.toFile(), "ambients_empty.csv");
 		List<Ambient> empty = Collections.emptyList();
 
 		AmbientCSVWriter.writeAmbientsToCsv(csvFile.getAbsolutePath(), empty);
@@ -115,7 +116,7 @@ public class AmbientCSVWriterTest {
 
 	@Test
 	public void testWriteAmbientsToCsv_preservesAllFields() {
-		File csvFile = new File(tempFolder.getRoot(), "ambients_full.csv");
+		File csvFile = new File(tempFolder.toFile(), "ambients_full.csv");
 		Ambient ambient = new Ambient();
 		ambient.setName("FullTest");
 		ambient.setLocation("TestCity");
@@ -145,7 +146,7 @@ public class AmbientCSVWriterTest {
 
 	@Test
 	public void testWriteMessageToCsv_singleMessage() {
-		File csvFile = new File(tempFolder.getRoot(), "message.csv");
+		File csvFile = new File(tempFolder.toFile(), "message.csv");
 		Message message = createTestMessage("Sender1", "Recipient1", "msg1");
 
 		AmbientCSVWriter.writeMessageToCsv(message, csvFile.getAbsolutePath());
@@ -156,7 +157,7 @@ public class AmbientCSVWriterTest {
 
 	@Test
 	public void testWriteMessageToCsv_roundTrip() {
-		File csvFile = new File(tempFolder.getRoot(), "message_rt.csv");
+		File csvFile = new File(tempFolder.toFile(), "message_rt.csv");
 		Message original = createTestMessage("Drone", "HQ", "Scan complete");
 
 		AmbientCSVWriter.writeMessageToCsv(original, csvFile.getAbsolutePath());
@@ -175,7 +176,7 @@ public class AmbientCSVWriterTest {
 
 	@Test
 	public void testWriteMessagesToCsv_multipleMessages() {
-		File csvFile = new File(tempFolder.getRoot(), "messages_multi.csv");
+		File csvFile = new File(tempFolder.toFile(), "messages_multi.csv");
 		List<Message> messages = Arrays.asList(
 			createTestMessage("A", "B", "hello"),
 			createTestMessage("C", "D", "world"),
@@ -193,7 +194,7 @@ public class AmbientCSVWriterTest {
 
 	@Test
 	public void testWriteMessagesToCsv_emptyList() {
-		File csvFile = new File(tempFolder.getRoot(), "messages_empty.csv");
+		File csvFile = new File(tempFolder.toFile(), "messages_empty.csv");
 		List<Message> empty = Collections.emptyList();
 
 		AmbientCSVWriter.writeMessagesToCsv(csvFile.getAbsolutePath(), empty);
@@ -207,7 +208,7 @@ public class AmbientCSVWriterTest {
 
 	@Test
 	public void testWriteAmbientStatisticsToCsv_writesFile() {
-		File csvFile = new File(tempFolder.getRoot(), "ambient_stats.csv");
+		File csvFile = new File(tempFolder.toFile(), "ambient_stats.csv");
 		AmbientStatistics stats = new AmbientStatistics(10, 6, 4, 8, 2);
 
 		AmbientCSVWriter.writeAmbientStatisticsToCsv(stats, csvFile.getAbsolutePath());
@@ -220,7 +221,7 @@ public class AmbientCSVWriterTest {
 
 	@Test
 	public void testWriteMessageStatisticsToCsv_writesFile() {
-		File csvFile = new File(tempFolder.getRoot(), "message_stats.csv");
+		File csvFile = new File(tempFolder.toFile(), "message_stats.csv");
 		List<MessageStatistics> stats = Arrays.asList(
 			new MessageStatistics("Hospital", 5, 3),
 			new MessageStatistics("Drone", 10, 7)
@@ -234,7 +235,7 @@ public class AmbientCSVWriterTest {
 
 	@Test
 	public void testWriteMessageStatisticsToCsv_emptyList() {
-		File csvFile = new File(tempFolder.getRoot(), "message_stats_empty.csv");
+		File csvFile = new File(tempFolder.toFile(), "message_stats_empty.csv");
 		List<MessageStatistics> empty = new ArrayList<>();
 
 		AmbientCSVWriter.writeMessageStatisticsToCsv(empty, csvFile.getAbsolutePath());
@@ -246,7 +247,7 @@ public class AmbientCSVWriterTest {
 
 	@Test
 	public void testWriteAmbientToCsv_appendsMultipleCalls() {
-		File csvFile = new File(tempFolder.getRoot(), "append_test.csv");
+		File csvFile = new File(tempFolder.toFile(), "append_test.csv");
 		Ambient a1 = createTestAmbient("First", AmbientType.HOSPITAL);
 		Ambient a2 = createTestAmbient("Second", AmbientType.CITY);
 

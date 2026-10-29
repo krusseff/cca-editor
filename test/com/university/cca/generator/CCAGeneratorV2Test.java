@@ -1,15 +1,16 @@
 package com.university.cca.generator;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import com.university.cca.entities.Message;
 import com.university.cca.exceptions.AmbientMessageNotFoundException;
@@ -29,8 +30,8 @@ public class CCAGeneratorV2Test {
 		String result = CCAGeneratorV2.processAmbientMessages("Hospital1", messages, messages, delimiter);
 
 		assertNotNull(result);
-		assertTrue("Should contain send to sibling", result.contains("Pharmacy1::send(request_medicine)"));
-		assertTrue("Should contain recv from sibling", result.contains("Pharmacy1::recv(request_medicine,medicine_ready)"));
+		assertTrue(result.contains("Pharmacy1::send(request_medicine)"), "Should contain send to sibling");
+		assertTrue(result.contains("Pharmacy1::recv(request_medicine,medicine_ready)"), "Should contain recv from sibling");
 	}
 
 	@Test
@@ -42,8 +43,8 @@ public class CCAGeneratorV2Test {
 
 		String result = CCAGeneratorV2.processAmbientMessages("Bus Station", messages, messages, delimiter);
 
-		assertTrue("Should have underscored recipient", result.contains("Coffee_Shop::send(want_coffee)"));
-		assertTrue("Should have underscored recv params", result.contains("Coffee_Shop::recv(want_coffee,here_it_is)"));
+		assertTrue(result.contains("Coffee_Shop::send(want_coffee)"), "Should have underscored recipient");
+		assertTrue(result.contains("Coffee_Shop::recv(want_coffee,here_it_is)"), "Should have underscored recv params");
 	}
 
 	// --- processAmbientMessages: recipient path ---
@@ -57,8 +58,8 @@ public class CCAGeneratorV2Test {
 		String result = CCAGeneratorV2.processAmbientMessages("Pharmacy1", messages, messages, delimiter);
 
 		assertNotNull(result);
-		assertTrue("Should contain recv from sibling", result.contains("Hospital1::recv(request_medicine)."));
-		assertTrue("Should contain send to sibling", result.contains("Hospital1::send(request_medicine,medicine_ready).0"));
+		assertTrue(result.contains("Hospital1::recv(request_medicine)."), "Should contain recv from sibling");
+		assertTrue(result.contains("Hospital1::send(request_medicine,medicine_ready).0"), "Should contain send to sibling");
 	}
 
 	@Test
@@ -69,8 +70,8 @@ public class CCAGeneratorV2Test {
 
 		String result = CCAGeneratorV2.processAmbientMessages("Coffee Shop", messages, messages, delimiter);
 
-		assertTrue("Should have underscored recv", result.contains("Bus_Station::recv(want_coffee)."));
-		assertTrue("Should have underscored send", result.contains("Bus_Station::send(want_coffee,here_it_is).0"));
+		assertTrue(result.contains("Bus_Station::recv(want_coffee)."), "Should have underscored recv");
+		assertTrue(result.contains("Bus_Station::send(want_coffee,here_it_is).0"), "Should have underscored send");
 	}
 
 	// --- processAmbientMessages: mixed sender + recipient ---
@@ -89,10 +90,10 @@ public class CCAGeneratorV2Test {
 		String result = CCAGeneratorV2.processAmbientMessages("Hospital1", hospitalMessages, allMessages, delimiter);
 
 		assertNotNull(result);
-		assertTrue("Should have send for sender path", result.contains("Pharmacy1::send(need_medicine)"));
-		assertTrue("Should have recv for sender path", result.contains("Pharmacy1::recv(need_medicine,medicine_sent)"));
-		assertTrue("Should have recv for recipient path", result.contains("School1::recv(checkup_request)."));
-		assertTrue("Should have send for recipient path", result.contains("School1::send(checkup_request,checkup_done).0"));
+		assertTrue(result.contains("Pharmacy1::send(need_medicine)"), "Should have send for sender path");
+		assertTrue(result.contains("Pharmacy1::recv(need_medicine,medicine_sent)"), "Should have recv for sender path");
+		assertTrue(result.contains("School1::recv(checkup_request)."), "Should have recv for recipient path");
+		assertTrue(result.contains("School1::send(checkup_request,checkup_done).0"), "Should have send for recipient path");
 	}
 
 	// --- processAmbientMessages: empty and edge cases ---
@@ -104,16 +105,18 @@ public class CCAGeneratorV2Test {
 		String result = CCAGeneratorV2.processAmbientMessages("Hospital1", Collections.emptyList(), Collections.emptyList(), delimiter);
 
 		assertNotNull(result);
-		assertEquals("Empty messages should produce empty result", "", result.trim());
+		assertEquals("", result.trim(), "Empty messages should produce empty result");
 	}
 
-	@Test(expected = AmbientMessageNotFoundException.class)
-	public void testProcessAmbientMessages_missingRecipientThrowsException() throws AmbientMessageNotFoundException {
+	@Test
+	public void testProcessAmbientMessages_missingRecipientThrowsException() {
 		Message sent = new Message("Hospital1", "Pharmacy1", "null", "null", "request_medicine");
 		List<Message> messages = Collections.singletonList(sent);
 		String delimiter = TemplateCCAReader.readAmbientDelimiterTemplate();
 
-		CCAGeneratorV2.processAmbientMessages("Hospital1", messages, messages, delimiter);
+		assertThrows(AmbientMessageNotFoundException.class, () ->
+			CCAGeneratorV2.processAmbientMessages("Hospital1", messages, messages, delimiter)
+		);
 	}
 
 	@Test
@@ -142,10 +145,10 @@ public class CCAGeneratorV2Test {
 
 		String result = CCAGeneratorV2.processAmbientMessages("Hospital1", hospitalMessages, allMessages, delimiter);
 
-		assertTrue("Should have send to Pharmacy1", result.contains("Pharmacy1::send(need_medicine)"));
-		assertTrue("Should have recv from Pharmacy1", result.contains("Pharmacy1::recv(need_medicine,medicine_ready)"));
-		assertTrue("Should have send to School1", result.contains("School1::send(send_report)"));
-		assertTrue("Should have recv from School1", result.contains("School1::recv(send_report,report_received)"));
+		assertTrue(result.contains("Pharmacy1::send(need_medicine)"), "Should have send to Pharmacy1");
+		assertTrue(result.contains("Pharmacy1::recv(need_medicine,medicine_ready)"), "Should have recv from Pharmacy1");
+		assertTrue(result.contains("School1::send(send_report)"), "Should have send to School1");
+		assertTrue(result.contains("School1::recv(send_report,report_received)"), "Should have recv from School1");
 	}
 
 	// --- processAmbientMessages: output structure ---
@@ -159,11 +162,11 @@ public class CCAGeneratorV2Test {
 
 		String result = CCAGeneratorV2.processAmbientMessages("A", messages, messages, delimiter);
 
-		assertTrue("Should use sibling communication (::)", result.contains("::send("));
-		assertTrue("Should use sibling communication (::)", result.contains("::recv("));
-		assertTrue("Should end processes with .0", result.contains(".0"));
-		assertFalse("Should not contain parent comm (@)", result.contains("@send("));
-		assertFalse("Should not contain child comm (#)", result.contains("#send("));
+		assertTrue(result.contains("::send("), "Should use sibling communication (::send)");
+		assertTrue(result.contains("::recv("), "Should use sibling communication (::recv)");
+		assertTrue(result.contains(".0"), "Should end processes with .0");
+		assertFalse(result.contains("@send("), "Should not contain parent comm (@)");
+		assertFalse(result.contains("#send("), "Should not contain child comm (#)");
 	}
 
 	@Test
@@ -176,7 +179,7 @@ public class CCAGeneratorV2Test {
 		String result = CCAGeneratorV2.processAmbientMessages("Hospital1", messages, messages, delimiter);
 
 		String trimmed = result.trim();
-		assertFalse("Result should not end with delimiter after removeLastChar",
-			trimmed.endsWith(delimiter.trim()));
+		assertFalse(trimmed.endsWith(delimiter.trim()),
+			"Result should not end with delimiter after removeLastChar");
 	}
 }

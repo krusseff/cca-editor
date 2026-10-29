@@ -1,9 +1,10 @@
 package com.university.cca.files.cca;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -11,16 +12,17 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Constructor;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.TemporaryFolder;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 import com.university.cca.exceptions.FileReadFailedException;
 
 public class AmbientCCAReaderTest {
 
-	@Rule
-	public TemporaryFolder tempFolder = new TemporaryFolder();
+	@TempDir
+	Path tempFolder;
 
 	// --- read(filePath) ---
 
@@ -46,7 +48,7 @@ public class AmbientCCAReaderTest {
 
 	@Test
 	public void testRead_emptyFile() throws Exception {
-		File ccaFile = tempFolder.newFile("empty.cca");
+		File ccaFile = Files.createFile(tempFolder.resolve("empty.cca")).toFile();
 
 		String content = AmbientCCAReader.read(ccaFile.getAbsolutePath());
 
@@ -66,18 +68,20 @@ public class AmbientCCAReaderTest {
 		assertTrue(content.contains("END_DECLS"));
 	}
 
-	@Test(expected = FileNotFoundException.class)
-	public void testRead_nonExistentFile() throws Exception {
-		String fakePath = new File(tempFolder.getRoot(), "nonexistent.cca").getAbsolutePath();
+	@Test
+	public void testRead_nonExistentFile() {
+		String fakePath = new File(tempFolder.toFile(), "nonexistent.cca").getAbsolutePath();
 
-		AmbientCCAReader.read(fakePath);
+		assertThrows(FileNotFoundException.class, () ->
+			AmbientCCAReader.read(fakePath)
+		);
 	}
 
 	// --- error path ---
 
 	@Test
 	public void testRead_throwsOnDirectoryPath() throws Exception {
-		File dir = tempFolder.newFolder("dir_not_file");
+		File dir = Files.createDirectories(tempFolder.resolve("dir_not_file")).toFile();
 		try {
 			AmbientCCAReader.read(dir.getAbsolutePath());
 			fail("Expected an exception when reading a directory");
@@ -101,7 +105,7 @@ public class AmbientCCAReaderTest {
 	// --- helpers ---
 
 	private File createCcaFile(String content) throws IOException {
-		File file = tempFolder.newFile("test.cca");
+		File file = Files.createFile(tempFolder.resolve("test.cca")).toFile();
 		try (FileWriter writer = new FileWriter(file)) {
 			writer.write(content);
 		}

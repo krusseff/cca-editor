@@ -1,15 +1,16 @@
 package com.university.cca.generator;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import com.university.cca.entities.Ambient;
 import com.university.cca.entities.Message;
@@ -277,20 +278,24 @@ public class GeneratorUtilTest {
 		assertEquals("request_medicine", found.getRespondToMessage());
 	}
 
-	@Test(expected = AmbientMessageNotFoundException.class)
-	public void testFindMessageRecipientNotFound() throws AmbientMessageNotFoundException {
+	@Test
+	public void testFindMessageRecipientNotFound() {
 		Message sent = new Message("Hospital1", "Pharmacy1", "null", "null", "request_medicine");
 
 		List<Message> messages = Arrays.asList(sent);
 
-		GeneratorUtil.findMessageRecipient(messages, sent);
+		assertThrows(AmbientMessageNotFoundException.class, () ->
+			GeneratorUtil.findMessageRecipient(messages, sent)
+		);
 	}
 
-	@Test(expected = AmbientMessageNotFoundException.class)
-	public void testFindMessageRecipientEmptyList() throws AmbientMessageNotFoundException {
+	@Test
+	public void testFindMessageRecipientEmptyList() {
 		Message sent = new Message("Hospital1", "Pharmacy1", "null", "null", "request_medicine");
 
-		GeneratorUtil.findMessageRecipient(Collections.emptyList(), sent);
+		assertThrows(AmbientMessageNotFoundException.class, () ->
+			GeneratorUtil.findMessageRecipient(Collections.emptyList(), sent)
+		);
 	}
 
 	// --- isLastAmbientMessage ---
