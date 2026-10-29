@@ -1,7 +1,7 @@
 package com.university.cca.constants;
 
 import java.awt.Color;
-import java.awt.event.ActionEvent;
+import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 
 /**
@@ -183,9 +183,9 @@ public final class Constants {
 	public static final String ABOUT_ITEM_CONTACT = "Contact Us";
 	
 	// Shortcuts
-	public static final int CTRL_SHORTCUT = ActionEvent.CTRL_MASK;
-	public static final int ALT_SHORTCUT = ActionEvent.ALT_MASK;
-	public static final int SHIFT_SHORTCUT = ActionEvent.SHIFT_MASK;
+	public static final int CTRL_SHORTCUT = InputEvent.CTRL_DOWN_MASK;
+	public static final int ALT_SHORTCUT = InputEvent.ALT_DOWN_MASK;
+	public static final int SHIFT_SHORTCUT = InputEvent.SHIFT_DOWN_MASK;
 	public static final int CTRL_ALT_SHORTCUT = CTRL_SHORTCUT + ALT_SHORTCUT;
 	public static final int CTRL_SHIFT_SHORTCUT = CTRL_SHORTCUT + SHIFT_SHORTCUT;
 	

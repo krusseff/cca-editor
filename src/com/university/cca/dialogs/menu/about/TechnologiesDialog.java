@@ -47,8 +47,8 @@ public class TechnologiesDialog extends JDialog {
 					
 				"<ul>" +
 			  "<li>" +
-			  	"Java 8: " + 
-			  	"<u>https://www.oracle.com/java/technologies/java8.html</u>" +
+			  	"Java 17: " + 
+			  	"<u>https://www.oracle.com/java/technologies/downloads/#java17</u>" +
 		  	  "</li>" +
 			  
 			  "<li>" +
@@ -57,17 +57,17 @@ public class TechnologiesDialog extends JDialog {
 			  "</li>" +
 				
 			  "<li>" +
-			    "Java Mail API 1.6.2: " + 
-			    "<u>https://javadoc.io/doc/javax.mail/javax.mail-api/latest/index.html</u>" +
+			    "Jakarta Mail 2.0.1: " + 
+			    "<u>https://jakartaee.github.io/mail-api/</u>" +
 			  "</li>" +
 				
 			  "<li>" +
-				"Logback 1.2.13: " + 
+				"Logback 1.5.18: " + 
 				"<u>https://logback.qos.ch/</u>" +
 			  "</li>" +
 			  
 			  "<li>" +
-					"SLF4J 1.7.32: " + 
+					"SLF4J 2.0.17: " + 
 				"<u>https://www.slf4j.org/</u>" +
 			  "</li>" +
 			  

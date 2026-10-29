@@ -46,101 +46,23 @@ public class CCAGeneratorV2 {
 		for(Map.Entry<String, List<Message>> entry : messagesByAmbient.entrySet()) {
 			String ambientKey = entry.getKey();
 			List<Message> messages =  entry.getValue();
-		    
-			StringBuilder builderSend = new StringBuilder();
-			StringBuilder builderReceive = new StringBuilder();
-			
-			StringBuilder builderReceiveSend = new StringBuilder();
-			
-			// на всяка итерация ще апендвам към двата билдъра
-			for (Message message : messages) {
-				
-				if (GeneratorUtil.isSender(message.getSenderAmbient(), ambientKey, message.getRespondToMessage(), message.getPassMessageTo())) {
-			
-					try {
-						// TODO: Може би active messages да се замени само с messages
-						Message recipientMsg = GeneratorUtil.findMessageRecipient(activeMessages, message);
-					
-						Message convertedMsg = GeneratorUtil.replaceUnsupportedChars(message);
-						
-						String receiveParameters = GeneratorUtil.toCSVFormat(
-							GeneratorUtil.replaceUnsupportedChars(recipientMsg.getRespondToMessage()),
-							GeneratorUtil.replaceUnsupportedChars(recipientMsg.getMessage())
-						);
 
-						String sendSiblingTemplate = TemplateCCAReader.readSendSiblingAmbientTemplate();
-						String receiveSiblingTemplate = TemplateCCAReader.readReceiveSiblingAmbientTemplate();
-						
-						String sendSibling = sendSiblingTemplate
-							.replace(CCAConstants.AMBIENT_RECEIPIENT_PLACEHOLDER, convertedMsg.getRecipientAmbient())
-							.replace(CCAConstants.SEND_PARAMETERS_PLACEHOLDER, convertedMsg.getMessage());
-						
-						// TODO: тук може да трябва да апендвам само към сендър билдъра
-						// а ресийв апендъра да остане за else if() частта
-						// т.е. всичко да се апендва към сендър билдъра
-						builderSend.append(sendSibling).append(ambientDelimiter);
-						
-						String receiveSibling = receiveSiblingTemplate
-							.replace(CCAConstants.AMBIENT_RECEIPIENT_PLACEHOLDER, convertedMsg.getRecipientAmbient())
-							.replace(CCAConstants.RECEIVE_PARAMETERS_PLACEHOLDER, receiveParameters);
-						 
-						builderReceive.append(receiveSibling).append(ambientDelimiter);
+			try {
+				String messagesExchange = processAmbientMessages(
+					ambientKey, messages, activeMessages, ambientDelimiter
+				);
 
-					} catch (AmbientMessageNotFoundException ex) {
-						logger.error("CCA Generator V2: An error occurred during the CCA generation. Ambient: {}, Message: {}, Exception: {}", ambientKey, message, ex.getMessage());
-						return CCAConstants.CCA_STATUS_FAILURE;
-					}
+				String exchangeMessagesTemplate = TemplateCCAReader.readExchangeMessagesTemplate();
+				String ambientSender = GeneratorUtil.replaceUnsupportedChars(ambientKey);
+				String ambientStructure = exchangeMessagesTemplate
+					.replace(CCAConstants.AMBIENT_SENDER_PLACEHOLDER, ambientSender)
+					.replace(CCAConstants.MESSAGES_PLACEHOLDER, messagesExchange);
 
-				} else if (GeneratorUtil.isRecipient(message.getSenderAmbient(), ambientKey, message.getRespondToMessage(), message.getPassMessageTo())) {
-					
-					// TODO: помисли да изкараш четенията най-горе
-					// за да не се чете всеки път
-					String receiveSiblingTemplate = TemplateCCAReader.readReceiveSiblingTemplate();
-					String sendSiblingTemplate = TemplateCCAReader.readSendSiblingTemplate();
-					
-					Message convertedMsg = GeneratorUtil.replaceUnsupportedChars(message);
-
-					String receiveParameters = GeneratorUtil.toCSVFormat(
-						convertedMsg.getRespondToMessage(), 
-						convertedMsg.getMessage()
-					);
-					
-					String receiveSibling = receiveSiblingTemplate
-						.replace(CCAConstants.AMBIENT_RECEIPIENT_PLACEHOLDER, convertedMsg.getRecipientAmbient())
-						.replace(CCAConstants.SEND_PARAMETERS_PLACEHOLDER, convertedMsg.getRespondToMessage());
-					
-					String sendSibling = sendSiblingTemplate
-						.replace(CCAConstants.AMBIENT_RECEIPIENT_PLACEHOLDER, convertedMsg.getRecipientAmbient())
-						.replace(CCAConstants.RECEIVE_PARAMETERS_PLACEHOLDER, receiveParameters);
-					
-					builderReceiveSend.append(receiveSibling).append(sendSibling);
-				
-				} else if (GeneratorUtil.hasPassMsgTo(message.getSenderAmbient(), ambientKey, message.getPassMessageTo())) {
-					
-					// TODO
-					logger.info("PASS MESSAGE TO IS NOT NULL FOR MESSAGE: {}", message);
-				
-				} else {
-					logger.error("CCA Generator V2: Unsupported ambient operation! Ambient: {}, Message: {}", ambientKey, message);
-				}
-			} // end for loop
-			
-			StringBuilder builderCombine = new StringBuilder();
-			builderCombine.append(builderSend).append(builderReceive)
-				.append(builderReceiveSend);
-			
-			// TODO: помисли къде да преместиш: remove last char functionality
-			// защото в началото премахваше от последния "builderReceive"
-			// но след това добавих ".append(builderReceiveSend)"
-			String messagesExchange = GeneratorUtil.removeLastChar(builderCombine.toString(), ambientDelimiter);
-			
-			String exchangeMessagesTemplate = TemplateCCAReader.readExchangeMessagesTemplate();
-			String ambientSender = GeneratorUtil.replaceUnsupportedChars(ambientKey);
-			String ambientStructure = exchangeMessagesTemplate
-				.replace(CCAConstants.AMBIENT_SENDER_PLACEHOLDER, ambientSender)
-				.replace(CCAConstants.MESSAGES_PLACEHOLDER, messagesExchange);
-
-			ccaBuilder.append(ambientStructure).append(ambientDelimiter);
+				ccaBuilder.append(ambientStructure).append(ambientDelimiter);
+			} catch (AmbientMessageNotFoundException ex) {
+				logger.error("CCA Generator V2: An error occurred during the CCA generation. Ambient: {}, Exception: {}", ambientKey, ex.getMessage());
+				return CCAConstants.CCA_STATUS_FAILURE;
+			}
 		} // end map for loop
 		
 		// remove last character if it's ambient delimeter, i.e. "|"
@@ -155,12 +77,94 @@ public class CCAGeneratorV2 {
 	}
 	
 	/**
+	 * Processes all messages for a single ambient and generates the CCA message exchange content.
+	 * Classifies each message as sender, recipient, or pass-message-to, and builds the
+	 * corresponding send/receive sibling CCA fragments from templates.
+	 *
+	 * @param ambientKey     the ambient being processed
+	 * @param messages       messages where this ambient is sender or recipient
+	 * @param allMessages    all active messages (used to find recipient responses)
+	 * @param ambientDelimiter the delimiter string between ambient fragments
+	 * @return combined CCA message exchange content for this ambient
+	 */
+	static String processAmbientMessages(String ambientKey, List<Message> messages,
+										  List<Message> allMessages, String ambientDelimiter)
+			throws AmbientMessageNotFoundException {
+
+		StringBuilder builderSend = new StringBuilder();
+		StringBuilder builderReceive = new StringBuilder();
+		StringBuilder builderReceiveSend = new StringBuilder();
+
+		for (Message message : messages) {
+
+			if (GeneratorUtil.isSender(message.getSenderAmbient(), ambientKey, message.getRespondToMessage(), message.getPassMessageTo())) {
+
+				Message recipientMsg = GeneratorUtil.findMessageRecipient(allMessages, message);
+				Message convertedMsg = GeneratorUtil.replaceUnsupportedChars(message);
+
+				String receiveParameters = GeneratorUtil.toCSVFormat(
+					GeneratorUtil.replaceUnsupportedChars(recipientMsg.getRespondToMessage()),
+					GeneratorUtil.replaceUnsupportedChars(recipientMsg.getMessage())
+				);
+
+				String sendSiblingTemplate = TemplateCCAReader.readSendSiblingAmbientTemplate();
+				String receiveSiblingTemplate = TemplateCCAReader.readReceiveSiblingAmbientTemplate();
+
+				String sendSibling = sendSiblingTemplate
+					.replace(CCAConstants.AMBIENT_RECEIPIENT_PLACEHOLDER, convertedMsg.getRecipientAmbient())
+					.replace(CCAConstants.SEND_PARAMETERS_PLACEHOLDER, convertedMsg.getMessage());
+
+				builderSend.append(sendSibling).append(ambientDelimiter);
+
+				String receiveSibling = receiveSiblingTemplate
+					.replace(CCAConstants.AMBIENT_RECEIPIENT_PLACEHOLDER, convertedMsg.getRecipientAmbient())
+					.replace(CCAConstants.RECEIVE_PARAMETERS_PLACEHOLDER, receiveParameters);
+
+				builderReceive.append(receiveSibling).append(ambientDelimiter);
+
+			} else if (GeneratorUtil.isRecipient(message.getSenderAmbient(), ambientKey, message.getRespondToMessage(), message.getPassMessageTo())) {
+
+				String receiveSiblingTemplate = TemplateCCAReader.readReceiveSiblingTemplate();
+				String sendSiblingTemplate = TemplateCCAReader.readSendSiblingTemplate();
+
+				Message convertedMsg = GeneratorUtil.replaceUnsupportedChars(message);
+
+				String receiveParameters = GeneratorUtil.toCSVFormat(
+					convertedMsg.getRespondToMessage(),
+					convertedMsg.getMessage()
+				);
+
+				String receiveSibling = receiveSiblingTemplate
+					.replace(CCAConstants.AMBIENT_RECEIPIENT_PLACEHOLDER, convertedMsg.getRecipientAmbient())
+					.replace(CCAConstants.SEND_PARAMETERS_PLACEHOLDER, convertedMsg.getRespondToMessage());
+
+				String sendSibling = sendSiblingTemplate
+					.replace(CCAConstants.AMBIENT_RECEIPIENT_PLACEHOLDER, convertedMsg.getRecipientAmbient())
+					.replace(CCAConstants.RECEIVE_PARAMETERS_PLACEHOLDER, receiveParameters);
+
+				builderReceiveSend.append(receiveSibling).append(sendSibling);
+
+			} else if (GeneratorUtil.hasPassMsgTo(message.getSenderAmbient(), ambientKey, message.getPassMessageTo())) {
+				logger.info("PASS MESSAGE TO IS NOT NULL FOR MESSAGE: {}", message);
+			} else {
+				logger.error("CCA Generator V2: Unsupported ambient operation! Ambient: {}, Message: {}", ambientKey, message);
+			}
+		}
+
+		StringBuilder builderCombine = new StringBuilder();
+		builderCombine.append(builderSend).append(builderReceive)
+			.append(builderReceiveSend);
+
+		return GeneratorUtil.removeLastChar(builderCombine.toString(), ambientDelimiter);
+	}
+
+	/**
 	 * Returns a map with all active ambients that have messages.
 	 * Ambients that are not active or do not have messages will not be included.
 	 * Key 	 - active ambient name that has messages.
 	 * Value - list of messages for this key (ambient name).
 	 */
-	private static Map<String, List<Message>> getMessagesByAmbient(List<Message> messages) {
+	static Map<String, List<Message>> getMessagesByAmbient(List<Message> messages) {
 		Map<String, List<Message>> messagesByAmbient = new HashMap<>();
 		List<String> activeAmbients = AmbientRepository.getActiveAmbientNames();
 		List<String> activeAmbientsWithMessages = activeAmbients.stream()

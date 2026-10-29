@@ -1,12 +1,13 @@
 package com.university.cca.loading;
 
 import java.awt.FlowLayout;
-import java.awt.IllegalComponentStateException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
+import javax.swing.Timer;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,8 +24,7 @@ public class LoadingScreen {
 
 	private static final Logger logger = LoggerFactory.getLogger(LoadingScreen.class);
 	
-	private static final int WAIT_TIME_MILLIS  = 2000;
-	private static final int SLEEP_TIME_MILLIS = 3000;
+	private static final int DISPLAY_TIME_MILLIS = 3000;
 	
 	private JFrame imageFrame;
 	
@@ -33,8 +33,8 @@ public class LoadingScreen {
 	}
 	
 	public void createImage() {
-		try {
-			Thread loadingScreenThread = new Thread(() -> {
+		SwingUtilities.invokeLater(() -> {
+			try {
 				imageFrame = new JFrame();
 				imageFrame.setUndecorated(true);
 				imageFrame.setVisible(true);
@@ -48,12 +48,12 @@ public class LoadingScreen {
 				
 				imageFrame.add(imagePanel);
 				
-			    // set icon and title
-			    ImageIcon icon = new ImageIcon(Constants.IMAGES_ICON_JPG);
-			    imageFrame.setIconImage(icon.getImage());
-			    imageFrame.setTitle(Constants.APPLICATION_TITLE);
+				// set icon and title
+				ImageIcon icon = new ImageIcon(Constants.IMAGES_ICON_JPG);
+				imageFrame.setIconImage(icon.getImage());
+				imageFrame.setTitle(Constants.APPLICATION_TITLE);
 				
-			    JLabel imageLabel = new JLabel();
+				JLabel imageLabel = new JLabel();
 				imageLabel.setVisible(true);
 				imageLabel.setLayout(new FlowLayout());
 				imageLabel.setBounds(0, 0, 600, 300);
@@ -63,18 +63,15 @@ public class LoadingScreen {
 				// set loading screen
 				ImageIcon loadingPicture = new ImageIcon(Constants.IMAGES_LOADING_SCREEN_JPG);
 				imageLabel.setIcon(loadingPicture);
-			});
-			
-			synchronized (loadingScreenThread) {
-				loadingScreenThread.wait(WAIT_TIME_MILLIS);
-				loadingScreenThread.start();
-				Thread.sleep(SLEEP_TIME_MILLIS);
-				imageFrame.setVisible(false);
+				
+				// Hide the loading screen after the display period
+				Timer hideTimer = new Timer(DISPLAY_TIME_MILLIS, e -> imageFrame.setVisible(false));
+				hideTimer.setRepeats(false);
+				hideTimer.start();
+				
+			} catch (Exception ex) {
+				logger.error("Application loading screen error occurred: {}", ex.getMessage());
 			}
-			
-		} catch (IllegalComponentStateException | InterruptedException ex) {
-			logger.error("Application loading screen error occurred: {}", ex.getMessage());
-			Thread.currentThread().interrupt();
-		}
+		});
 	}
 }

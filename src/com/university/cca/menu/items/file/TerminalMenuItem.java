@@ -49,10 +49,10 @@ public class TerminalMenuItem extends JMenuItem implements ActionListener {
 		logger.info("User OS Type: {}", SystemUtils.OS_NAME);
 		
 		try {
-			String openTerminalCommand = determineCommand();
+			String[] openTerminalCommand = determineCommand();
 			
 			if (openTerminalCommand != null) {
-				Runtime.getRuntime().exec(openTerminalCommand);
+				new ProcessBuilder(openTerminalCommand).start();
 			} else {
 				new UnderConstructionDialog(getParentFrame());
 			}
@@ -63,15 +63,15 @@ public class TerminalMenuItem extends JMenuItem implements ActionListener {
 		}
 	}
 	
-	private String determineCommand() {
-		String command;
+	private String[] determineCommand() {
+		String[] command;
 		
 		if (SystemUtils.IS_OS_WINDOWS) {
-			command = "cmd /c start cmd.exe";
+			command = new String[]{"cmd", "/c", "start", "cmd.exe"};
 		} else if (SystemUtils.IS_OS_LINUX) {
-			command = "/usr/bin/xterm";
+			command = new String[]{"/usr/bin/xterm"};
 		} else if (SystemUtils.IS_OS_MAC) {
-			command = "/bin/bash -c";
+			command = new String[]{"/bin/bash", "-c"};
 		} else {
 			logger.error("Not able to determin the OS: {}", SystemUtils.OS_NAME);
 			command = null;
