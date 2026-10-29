@@ -107,9 +107,3 @@ jobs:
 
       - name: Run Checkstyle
         run: mvn checkstyle:check --batch-mode --no-transfer-progress
-
-      - name: Annotate Checkstyle violations
-        uses: lcollins/checkstyle-github-action@v3.2.0
-        if: success() || failure()
-        with:
-          path: target/checkstyle-result.xml
