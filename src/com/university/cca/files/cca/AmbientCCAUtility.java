@@ -48,7 +48,17 @@ public class AmbientCCAUtility {
 	 * 		   <code>false</code> if the CCA file does not exist
 	 */
 	public static boolean isFileCreated() {
-		File file = new File(Constants.AMBIENTS_CCA_FILE_PATH);
+		return isFileCreated(Constants.AMBIENTS_CCA_FILE_PATH);
+	}
+
+	/**
+	 * Method that checks for file existence at the specified path.
+	 * 
+	 * @return <code>true</code>  if the file already exists
+	 * 		   <code>false</code> if the file does not exist
+	 */
+	public static boolean isFileCreated(String filePath) {
+		File file = new File(filePath);
 		
 		return file.exists();
 	}

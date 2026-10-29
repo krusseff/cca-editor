@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<!DOCTYPE module PUBLIC
+    "-//Checkstyle//DTD Checkstyle Configuration 1.3//EN"
+    "https://checkstyle.org/dtds/configuration_1_3.dtd">
+
+<!--
+    CCA Editor Checkstyle Configuration
+
+    A practical ruleset that catches real bugs and enforces standard Java
+    conventions without drowning the codebase in stylistic noise.
+    Severity is set to "warning" so violations are reported but do not
+    fail the build (failOnViolation=false in pom.xml).
+-->
+<module name="Checker">
+    <property name="charset" value="UTF-8"/>
+    <property name="severity" value="warning"/>
+
+    <!-- Limit file length to encourage splitting large classes -->
+    <module name="FileLength">
+        <property name="max" value="500"/>
+    </module>
+
+    <module name="TreeWalker">
+
+        <!-- ==================== Imports ==================== -->
+
+        <!-- Discourage wildcard imports — they hide actual dependencies -->
+        <module name="AvoidStarImport"/>
+
+        <!-- Remove imports that are never used -->
+        <module name="UnusedImports"/>
+
+        <!-- Remove duplicate imports -->
+        <module name="RedundantImport"/>
+
+        <!-- ==================== Coding ==================== -->
+
+        <!-- Empty blocks are almost always mistakes (a comment inside is OK) -->
+        <module name="EmptyBlock">
+            <property name="option" value="TEXT"/>
+        </module>
+
+        <!-- Require braces around if/else/for/while/do bodies -->
+        <module name="NeedBraces"/>
+
+        <!-- If you override equals(), you must override hashCode() -->
+        <module name="EqualsHashCode"/>
+
+        <!-- Detect empty catch blocks (allow named exceptions: expected, ignore, ignored) -->
+        <module name="EmptyCatchBlock">
+            <property name="exceptionVariableName" value="expected|ignore|ignored"/>
+        </module>
+
+        <!-- Use .equals() instead of == for String comparisons -->
+        <module name="StringLiteralEquality"/>
+
+        <!-- Simplify boolean returns: return cond ? true : false → return cond -->
+        <module name="SimplifyBooleanReturn"/>
+
+        <!-- Fall-through in switch must be commented -->
+        <module name="FallThrough"/>
+
+        <!-- Every switch must have a default case -->
+        <module name="MissingSwitchDefault"/>
+
+        <!-- The default case must be the last branch -->
+        <module name="DefaultComesLast"/>
+
+        <!-- ==================== Naming ==================== -->
+
+        <!--
+            Constants: UPPER_CASE for primitives/Strings,
+            also allow camelCase for mutable object-typed fields (e.g. logger, columnNames)
+        -->
+        <module name="ConstantName">
+            <property name="format" value="^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$|^[a-z][a-zA-Z0-9]*$"/>
+        </module>
+
+        <!-- Local variables: camelCase -->
+        <module name="LocalVariableName"/>
+
+        <!-- Methods: camelCase -->
+        <module name="MethodName"/>
+
+        <!-- Packages: all lowercase -->
+        <module name="PackageName"/>
+
+        <!-- Types (classes/interfaces): PascalCase -->
+        <module name="TypeName"/>
+
+        <!-- ==================== Size limits ==================== -->
+
+        <!-- Methods longer than 150 lines should be refactored -->
+        <module name="MethodLength">
+            <property name="max" value="150"/>
+        </module>
+
+        <!-- More than 8 parameters signals a design issue -->
+        <module name="ParameterNumber">
+            <property name="max" value="8"/>
+        </module>
+
+        <!-- ==================== Miscellaneous ==================== -->
+
+        <!-- Prefer String[] args over String args[] -->
+        <module name="ArrayTypeStyle"/>
+
+        <!-- Use 10L not 10l (lowercase L is easily confused with 1) -->
+        <module name="UpperEll"/>
+
+        <!-- Outer type name must match the file name -->
+        <module name="OuterTypeFilename"/>
+
+        <!-- Detect TODO/FIXME comments so they show up in reports -->
+        <module name="TodoComment">
+            <property name="severity" value="info"/>
+            <property name="format" value="(TODO|FIXME)"/>
+        </module>
+
+    </module>
+</module>

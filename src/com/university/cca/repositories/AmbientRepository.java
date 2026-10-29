@@ -25,17 +25,35 @@ public class AmbientRepository {
 	 * Fetch all ambients from given data source
 	 */
 	public static List<Ambient> getAllAmbients() {
-		
 		return AmbientCSVReader.getAllAmbients();
+	}
+
+	/**
+	 * Fetch all ambients from the specified csv file
+	 */
+	public static List<Ambient> getAllAmbients(String filePath) {
+		return AmbientCSVReader.getAllAmbients(filePath);
 	}
 	
 	/**
 	 * Fetch all ambients from the csv file sorted by ambient name
 	 */
 	public static List<Ambient> getAllAmbientsSortedByName() {
-	
-		return getAllAmbients()
-			.stream()
+		return sortByName(getAllAmbients());
+	}
+
+	/**
+	 * Fetch all ambients from the specified csv file sorted by ambient name
+	 */
+	public static List<Ambient> getAllAmbientsSortedByName(String filePath) {
+		return sortByName(getAllAmbients(filePath));
+	}
+
+	/**
+	 * Sort ambients by name
+	 */
+	static List<Ambient> sortByName(List<Ambient> ambients) {
+		return ambients.stream()
 			.sorted(Comparator.comparing(Ambient::getName))
 			.collect(Collectors.toList());
 	}
@@ -44,9 +62,21 @@ public class AmbientRepository {
 	 * Returns all ambient names
 	 */
 	public static List<String> getAllAmbientNames() {
-		
-		return getAllAmbients()
-			.stream()
+		return extractNames(getAllAmbients());
+	}
+
+	/**
+	 * Returns all ambient names from the specified csv file
+	 */
+	public static List<String> getAllAmbientNames(String filePath) {
+		return extractNames(getAllAmbients(filePath));
+	}
+
+	/**
+	 * Extract ambient names from a list
+	 */
+	static List<String> extractNames(List<Ambient> ambients) {
+		return ambients.stream()
 			.map(Ambient::getName)
 			.collect(Collectors.toList());
 	}
@@ -55,8 +85,21 @@ public class AmbientRepository {
 	 *  Returns only active ambient names
 	 */
 	public static List<String> getActiveAmbientNames() {
-		return getAllAmbients()
-			.stream()
+		return extractActiveNames(getAllAmbients());
+	}
+
+	/**
+	 *  Returns only active ambient names from the specified csv file
+	 */
+	public static List<String> getActiveAmbientNames(String filePath) {
+		return extractActiveNames(getAllAmbients(filePath));
+	}
+
+	/**
+	 * Extract active ambient names from a list
+	 */
+	public static List<String> extractActiveNames(List<Ambient> ambients) {
+		return ambients.stream()
 			.filter(Ambient::isActiveAmbient)
 			.map(Ambient::getName)
 			.collect(Collectors.toList());
@@ -66,23 +109,45 @@ public class AmbientRepository {
 	 *  Returns only active ambient names sorted alphabetically
 	 */
 	public static String[] getActiveAmbientNamesSorted() {
-		List<String> sortedActiveAmbientNames = getActiveAmbientNames()
-			.stream()
+		return toSortedArray(getActiveAmbientNames());
+	}
+
+	/**
+	 *  Returns only active ambient names sorted alphabetically from the specified csv file
+	 */
+	public static String[] getActiveAmbientNamesSorted(String filePath) {
+		return toSortedArray(getActiveAmbientNames(filePath));
+	}
+
+	/**
+	 * Convert a list of names to a sorted array
+	 */
+	static String[] toSortedArray(List<String> names) {
+		List<String> sorted = names.stream()
 			.sorted()
 			.collect(Collectors.toList());
-		
-		String[] ambientNames = new String[sortedActiveAmbientNames.size()];
-		
-		return sortedActiveAmbientNames.toArray(ambientNames);
+		return sorted.toArray(new String[sorted.size()]);
 	}
 	
 	/**
 	 * Returns parent ambient of the given ambient name
 	 */
 	public static String getParentAmbientName(String ambientName) {
-		
-		return getAllAmbients()
-			.stream()
+		return findParentName(getAllAmbients(), ambientName);
+	}
+
+	/**
+	 * Returns parent ambient of the given ambient name from the specified csv file
+	 */
+	public static String getParentAmbientName(String ambientName, String filePath) {
+		return findParentName(getAllAmbients(filePath), ambientName);
+	}
+
+	/**
+	 * Find parent ambient name from a list
+	 */
+	public static String findParentName(List<Ambient> ambients, String ambientName) {
+		return ambients.stream()
 			.filter(ambient -> ambientName.equals(ambient.getName()))
 			.map(Ambient::getParentAmbient)
 			.findFirst()

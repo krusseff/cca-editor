@@ -28,9 +28,16 @@ public class MessageStatisticsRepository {
 	 * Fetches and calculates all message statistics and return them as a map
 	 */
 	public static Map<String, MessageStatistics> getMessageStatistics() {
+		return calculateStatistics(AmbientCSVReader.getAllMessages());
+	}
+
+	/**
+	 * Calculates message statistics from the given list of messages
+	 */
+	public static Map<String, MessageStatistics> calculateStatistics(List<Message> messages) {
 		Map<String, MessageStatistics> statistics = new HashMap<>();
 
-		for (Message message : getAllMessages()) {
+		for (Message message : messages) {
 			String senderKey = message.getSenderAmbient().toLowerCase();
 			String recipientKey = message.getRecipientAmbient().toLowerCase();
 			
@@ -50,14 +57,6 @@ public class MessageStatisticsRepository {
 		}
 		
 		return statistics;
-	}
-
-	/**
-	 * Fetches all messages from given data source
-	 */
-	private static List<Message> getAllMessages() {
-		
-		return AmbientCSVReader.getAllMessages();
 	}
 	
 	/**

@@ -7,6 +7,7 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 import com.university.cca.constants.CCAConstants;
+import com.university.cca.entities.Ambient;
 import com.university.cca.entities.Message;
 import com.university.cca.exceptions.AmbientMessageNotFoundException;
 import com.university.cca.repositories.AmbientRepository;
@@ -37,6 +38,21 @@ public class GeneratorUtil {
 		
 		return messages.stream()
 			.filter(msg -> areActiveAmbients(activeAmbients, msg))
+			.collect(Collectors.toList());
+	}
+
+	/**
+	 * Returns a list with messages that are sent or received from/to active ambient.
+	 * Uses the provided list of all ambients instead of reading from file.
+	 */
+	protected static List<Message> getMessagesActiveAmbients(List<Message> messages, List<Ambient> allAmbients) {
+		List<String> activeAmbientNames = AmbientRepository.extractActiveNames(allAmbients)
+			.stream()
+			.sorted()
+			.collect(Collectors.toList());
+		
+		return messages.stream()
+			.filter(msg -> areActiveAmbients(activeAmbientNames, msg, allAmbients))
 			.collect(Collectors.toList());
 	}
 	
@@ -190,6 +206,23 @@ public class GeneratorUtil {
 		
 		String senderParent = AmbientRepository.getParentAmbientName(msg.getSenderAmbient());
 		String recipientParent = AmbientRepository.getParentAmbientName(msg.getRecipientAmbient());
+		
+		boolean isActiveSenderParent = senderParent != null && activeAmbients.contains(senderParent);
+		boolean isActiveRecipientParent = recipientParent != null && activeAmbients.contains(recipientParent);
+		
+		return isActiveSender && isActiveRecipient && 
+			   isActiveSenderParent && isActiveRecipientParent;
+	}
+
+	/**
+	 * Checks for active sender and recipient using the provided list of all ambients for parent lookup.
+	 */
+	private static boolean areActiveAmbients(List<String> activeAmbients, Message msg, List<Ambient> allAmbients) {
+		boolean isActiveSender = activeAmbients.contains(msg.getSenderAmbient());
+		boolean isActiveRecipient = activeAmbients.contains(msg.getRecipientAmbient());
+		
+		String senderParent = AmbientRepository.findParentName(allAmbients, msg.getSenderAmbient());
+		String recipientParent = AmbientRepository.findParentName(allAmbients, msg.getRecipientAmbient());
 		
 		boolean isActiveSenderParent = senderParent != null && activeAmbients.contains(senderParent);
 		boolean isActiveRecipientParent = recipientParent != null && activeAmbients.contains(recipientParent);
