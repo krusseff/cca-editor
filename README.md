@@ -95,7 +95,7 @@ Reference: [here](https://stackoverflow.com/questions/4468669/how-to-generate-ja
 
 ## Sample output of the CCA Parser from a scenario into the console
 
-```java
+```shell
 --->  {Sibling to sibling: Plovdiv_University ===(Are_you_working)===> Pharmacy}
 --->  {Sibling to sibling: Pharmacy ===(Are_you_working,Yes)===> Plovdiv_University}
 --->  {Sibling to sibling: Plovdiv_University ===(Do_you_have_a_coffee)===> Coffee_Shop}

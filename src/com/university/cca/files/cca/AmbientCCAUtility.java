@@ -30,6 +30,11 @@ public class AmbientCCAUtility {
 		
 		if (!file.exists()) {
 			try {
+				File parentDir = file.getParentFile();
+				if (parentDir != null && !parentDir.exists()) {
+					boolean dirCreated = parentDir.mkdirs();
+					logger.info("Parent directories for: {} created with status: {}", filePath, dirCreated);
+				}
 				boolean result = file.createNewFile();
 				logger.info("The file: {} is created with status: {}", filePath, result);
 			} catch (IOException ex) {

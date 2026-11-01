@@ -57,16 +57,17 @@ public class AmbientCCAUtilityTest {
 		assertFalse(AmbientCCAUtility.isFileCreated(fakePath));
 	}
 
-	// --- createFileIfDoesNotExist error path ---
+	// --- createFileIfDoesNotExist with nested directories ---
 
 	@Test
-	public void testCreateFileIfDoesNotExist_throwsOnInvalidPath() {
-		String invalidPath = new File(tempFolder.toFile(),
+	public void testCreateFileIfDoesNotExist_createsParentDirectories() {
+		String nestedPath = new File(tempFolder.toFile(),
 				"nonexistent_dir/nested/deep/file.cca").getAbsolutePath();
+		assertFalse(new File(nestedPath).exists());
 
-		assertThrows(RuntimeException.class, () ->
-			AmbientCCAUtility.createFileIfDoesNotExist(invalidPath)
-		);
+		AmbientCCAUtility.createFileIfDoesNotExist(nestedPath);
+
+		assertTrue(new File(nestedPath).exists(), "File should be created along with parent directories");
 	}
 
 	// --- private constructor (coverage) ---

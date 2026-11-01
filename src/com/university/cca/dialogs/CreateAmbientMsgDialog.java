@@ -16,8 +16,10 @@ import org.slf4j.LoggerFactory;
 
 import com.university.cca.buttons.CancelDialogButton;
 import com.university.cca.entities.Message;
+import com.university.cca.enums.CommunicationType;
 import com.university.cca.files.csv.AmbientCSVWriter;
 import com.university.cca.frames.AppMainFrame;
+import com.university.cca.generator.GeneratorUtil;
 import com.university.cca.repositories.AmbientRepository;
 import com.university.cca.repositories.MessageRepository;
 import com.university.cca.services.MessageService;
@@ -32,7 +34,7 @@ public class CreateAmbientMsgDialog extends JDialog {
 	private static final String TITLE_DIALOG = "Create and Send Message";
 	private static final int TEXT_AREA_COLS = 25;
 	private static final int TEXT_AREA_ROWS = 2;
-	private static final int GRID_ROWS = 6;
+	private static final int GRID_ROWS = 7;
 	private static final int GRID_COLS = 2;
 	private static final int GRID_GAP  = 15;
 
@@ -45,6 +47,7 @@ public class CreateAmbientMsgDialog extends JDialog {
 	private JComboBox<String> passMessageToComboBox;
 	private JComboBox<String> respondToComboBox;
 	private JTextArea messageTextArea;
+	private JLabel communicationTypeLabel;
 	
 	public CreateAmbientMsgDialog(AppMainFrame parent) {
 		super(parent, TITLE_DIALOG, HAS_MODAL);
@@ -72,22 +75,32 @@ public class CreateAmbientMsgDialog extends JDialog {
         contentPanel.add(createLabel("Recipient Ambient Name: "));
         contentPanel.add(this.recipientComboBox);
         
-        // third row of the dialog
+        // third row of the dialog — auto-detected communication type (read-only)
+        this.communicationTypeLabel = new JLabel("  —", JLabel.LEFT);
+        this.communicationTypeLabel.setToolTipText("Auto-detected from ambient hierarchy (read-only)");
+        contentPanel.add(createLabel("Communication Type: "));
+        contentPanel.add(this.communicationTypeLabel);
+
+        // update communication type when sender or recipient changes
+        this.senderComboBox.addActionListener(e -> updateCommunicationTypeLabel());
+        this.recipientComboBox.addActionListener(e -> updateCommunicationTypeLabel());
+        
+        // fourth row of the dialog
         this.passMessageToComboBox = createAmbientComboBox();
         contentPanel.add(createLabel("Pass The Message To: "));
         contentPanel.add(this.passMessageToComboBox);
         
-        // fourth row of the dialog
+        // fifth row of the dialog
         this.respondToComboBox = createRespondToComboBox();
         contentPanel.add(createLabel("Respond To: "));
         contentPanel.add(this.respondToComboBox);
 
-        // fifth row of the dialog
+        // sixth row of the dialog
         this.messageTextArea = createTextArea();
         contentPanel.add(createLabel("Ambient Message: "));
         contentPanel.add(new JScrollPane(this.messageTextArea));
         
-        // sixth row of the dialog
+        // seventh row of the dialog
         JButton createMessageButton = CreateMessageUtil.createMessageButton();
         contentPanel.add(createMessageButton);
         contentPanel.add(new CancelDialogButton(this));
@@ -100,6 +113,27 @@ public class CreateAmbientMsgDialog extends JDialog {
         this.getContentPane().add(contentPanel);
 	}
 	
+	/**
+	 * Updates the read-only communication type label based on the currently selected
+	 * sender and recipient ambients. Auto-detects the relationship from the ambient hierarchy.
+	 */
+	private void updateCommunicationTypeLabel() {
+		Object sender = this.senderComboBox.getSelectedItem();
+		Object recipient = this.recipientComboBox.getSelectedItem();
+
+		if (sender == null || recipient == null) {
+			this.communicationTypeLabel.setText("  —");
+			this.communicationTypeLabel.setToolTipText("Select both sender and recipient to detect communication type");
+			return;
+		}
+
+		CommunicationType type = GeneratorUtil.detectCommunicationType(
+			sender.toString(), recipient.toString()
+		);
+		this.communicationTypeLabel.setText("  " + type.getDisplayName());
+		this.communicationTypeLabel.setToolTipText(type.getDescription());
+	}
+
 	/**
 	 * Method that validates and creates a message if the enterred data is valid.
 	 */

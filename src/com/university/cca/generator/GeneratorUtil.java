@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 import com.university.cca.constants.CCAConstants;
 import com.university.cca.entities.Ambient;
 import com.university.cca.entities.Message;
+import com.university.cca.enums.CommunicationType;
 import com.university.cca.exceptions.AmbientMessageNotFoundException;
 import com.university.cca.repositories.AmbientRepository;
 
@@ -195,6 +196,99 @@ public class GeneratorUtil {
 			   !passMsgTo.equalsIgnoreCase(CCAConstants.PASS_MESSAGE_TO_NULL);
 	}
 	
+	/**
+	 * Detects the communication relationship between two ambients based on the ambient hierarchy.
+	 *
+	 * @param senderName    the name of the sender ambient
+	 * @param recipientName the name of the recipient ambient
+	 * @return the communication type from the sender's perspective
+	 */
+	public static CommunicationType detectCommunicationType(String senderName, String recipientName) {
+		if (senderName == null || recipientName == null) {
+			return CommunicationType.UNSUPPORTED;
+		}
+		if (senderName.equals(recipientName)) {
+			return CommunicationType.LOCAL;
+		}
+
+		String senderParent = AmbientRepository.getParentAmbientName(senderName);
+		String recipientParent = AmbientRepository.getParentAmbientName(recipientName);
+
+		// Sender is the parent of recipient: recipientParent == senderName
+		if (senderName.equals(recipientParent)) {
+			return CommunicationType.PARENT_TO_CHILD;
+		}
+		// Sender is a child of recipient: senderParent == recipientName
+		if (recipientName.equals(senderParent)) {
+			return CommunicationType.CHILD_TO_PARENT;
+		}
+		// Both have the same parent: siblings
+		if (senderParent != null && senderParent.equals(recipientParent)) {
+			return CommunicationType.SIBLING;
+		}
+
+		return CommunicationType.UNSUPPORTED;
+	}
+
+	/**
+	 * Detects the communication relationship using a pre-loaded list of ambients
+	 * instead of reading from the file each time.
+	 */
+	public static CommunicationType detectCommunicationType(String senderName, String recipientName,
+															List<Ambient> allAmbients) {
+		if (senderName == null || recipientName == null) {
+			return CommunicationType.UNSUPPORTED;
+		}
+		if (senderName.equals(recipientName)) {
+			return CommunicationType.LOCAL;
+		}
+
+		String senderParent = AmbientRepository.findParentName(allAmbients, senderName);
+		String recipientParent = AmbientRepository.findParentName(allAmbients, recipientName);
+
+		if (senderName.equals(recipientParent)) {
+			return CommunicationType.PARENT_TO_CHILD;
+		}
+		if (recipientName.equals(senderParent)) {
+			return CommunicationType.CHILD_TO_PARENT;
+		}
+		if (senderParent != null && senderParent.equals(recipientParent)) {
+			return CommunicationType.SIBLING;
+		}
+
+		return CommunicationType.UNSUPPORTED;
+	}
+
+	/**
+	 * Checks whether the sender ambient is an initiator of the message (V3 classification).
+	 * An initiator is the first sender in a conversation (respondToMessage is null).
+	 * Unlike V2's isSender, this does not require passMsgTo to be null.
+	 */
+	public static boolean isInitiator(String ambientKey, Message msg) {
+		return msg.getSenderAmbient().equals(ambientKey) &&
+			   msg.getRespondToMessage().equalsIgnoreCase(CCAConstants.MSG_RESPOND_TO_NULL);
+	}
+
+	/**
+	 * Checks whether the sender ambient is a responder to a previous message (V3 classification).
+	 * A responder has a non-null respondToMessage.
+	 */
+	public static boolean isResponder(String ambientKey, Message msg) {
+		return msg.getSenderAmbient().equals(ambientKey) &&
+			   !msg.getRespondToMessage().equalsIgnoreCase(CCAConstants.MSG_RESPOND_TO_NULL);
+	}
+
+	/**
+	 * Checks whether a message is a forwarding message (passMessageTo is not null).
+	 * A forwarding message means the sender is acting as a relay:
+	 * it received a message from the original sender (passMessageTo) and is forwarding it.
+	 */
+	public static boolean isForwarder(String ambientKey, Message msg) {
+		return msg.getSenderAmbient().equals(ambientKey) &&
+			   msg.getRespondToMessage().equalsIgnoreCase(CCAConstants.MSG_RESPOND_TO_NULL) &&
+			   !msg.getPassMessageTo().equalsIgnoreCase(CCAConstants.PASS_MESSAGE_TO_NULL);
+	}
+
 	/**
 	 * Checks for active sender and recipient of given ambient message from the active ambients collection.
 	 * The parent of the sender and recipient should be active as well.
