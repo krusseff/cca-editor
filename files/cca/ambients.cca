@@ -1,0 +1,25 @@
+BUS_STATION[
+	TAXI::send(are_you_free).0|
+	TAXI::recv(are_you_free,yes_I_am).0
+]
+|
+PLOVDIV_UNIVERSITY[
+	STUDENT_PA::recv(FMI_rooms).
+	FMI#send(FMI_rooms_from_uni_to_fmi).
+	FMI#recv(FMI_rooms_from_uni_to_fmi,fmi_to_uni_543).
+	STUDENT_PA::send(FMI_rooms,fmi_to_uni_543).0|
+	FMI[
+		@recv(FMI_rooms_from_uni_to_fmi).
+		@send(FMI_rooms_from_uni_to_fmi,fmi_to_uni_543).0
+	]
+]
+|
+STUDENT_PA[
+	PLOVDIV_UNIVERSITY::send(FMI_rooms).0|
+	PLOVDIV_UNIVERSITY::recv(FMI_rooms,fmi_to_uni_543).0
+]
+|
+TAXI[
+	BUS_STATION::recv(are_you_free).
+	BUS_STATION::send(are_you_free,yes_I_am).0
+]

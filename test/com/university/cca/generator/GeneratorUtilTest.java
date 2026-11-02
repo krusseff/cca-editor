@@ -15,6 +15,7 @@ import org.junit.jupiter.api.Test;
 import com.university.cca.entities.Ambient;
 import com.university.cca.entities.Message;
 import com.university.cca.enums.AmbientType;
+import com.university.cca.enums.CommunicationType;
 import com.university.cca.exceptions.AmbientMessageNotFoundException;
 
 public class GeneratorUtilTest {
@@ -465,6 +466,217 @@ public class GeneratorUtilTest {
 		List<Message> result = GeneratorUtil.getMessagesActiveAmbients(messages, allAmbients);
 
 		assertEquals(1, result.size());
+	}
+
+	// --- detectCommunicationType (with allAmbients) ---
+
+	@Test
+	public void testDetectCommunicationType_sibling() {
+		List<Ambient> ambients = Arrays.asList(
+			createAmbient("Hospital", true, true, "City"),
+			createAmbient("Pharmacy", true, true, "City"),
+			createAmbient("City", true, true, "")
+		);
+
+		assertEquals(CommunicationType.SIBLING,
+			GeneratorUtil.detectCommunicationType("Hospital", "Pharmacy", ambients));
+	}
+
+	@Test
+	public void testDetectCommunicationType_parentToChild() {
+		List<Ambient> ambients = Arrays.asList(
+			createAmbient("University", true, true, "City"),
+			createAmbient("FMI", true, true, "University"),
+			createAmbient("City", true, true, "")
+		);
+
+		assertEquals(CommunicationType.PARENT_TO_CHILD,
+			GeneratorUtil.detectCommunicationType("University", "FMI", ambients));
+	}
+
+	@Test
+	public void testDetectCommunicationType_childToParent() {
+		List<Ambient> ambients = Arrays.asList(
+			createAmbient("University", true, true, "City"),
+			createAmbient("FMI", true, true, "University"),
+			createAmbient("City", true, true, "")
+		);
+
+		assertEquals(CommunicationType.CHILD_TO_PARENT,
+			GeneratorUtil.detectCommunicationType("FMI", "University", ambients));
+	}
+
+	@Test
+	public void testDetectCommunicationType_local() {
+		List<Ambient> ambients = Arrays.asList(
+			createAmbient("Hospital", true, true, "City")
+		);
+
+		assertEquals(CommunicationType.LOCAL,
+			GeneratorUtil.detectCommunicationType("Hospital", "Hospital", ambients));
+	}
+
+	@Test
+	public void testDetectCommunicationType_unsupported_differentParents() {
+		List<Ambient> ambients = Arrays.asList(
+			createAmbient("A", true, true, "CityA"),
+			createAmbient("B", true, true, "CityB"),
+			createAmbient("CityA", true, true, "Country"),
+			createAmbient("CityB", true, true, "Country"),
+			createAmbient("Country", true, true, "")
+		);
+
+		assertEquals(CommunicationType.UNSUPPORTED,
+			GeneratorUtil.detectCommunicationType("A", "B", ambients));
+	}
+
+	@Test
+	public void testDetectCommunicationType_nullSender() {
+		List<Ambient> ambients = Arrays.asList(
+			createAmbient("Hospital", true, true, "City")
+		);
+
+		assertEquals(CommunicationType.UNSUPPORTED,
+			GeneratorUtil.detectCommunicationType(null, "Hospital", ambients));
+	}
+
+	@Test
+	public void testDetectCommunicationType_nullRecipient() {
+		List<Ambient> ambients = Arrays.asList(
+			createAmbient("Hospital", true, true, "City")
+		);
+
+		assertEquals(CommunicationType.UNSUPPORTED,
+			GeneratorUtil.detectCommunicationType("Hospital", null, ambients));
+	}
+
+	@Test
+	public void testDetectCommunicationType_bothNull() {
+		assertEquals(CommunicationType.UNSUPPORTED,
+			GeneratorUtil.detectCommunicationType(null, null, Collections.emptyList()));
+	}
+
+	@Test
+	public void testDetectCommunicationType_inverseConsistency() {
+		List<Ambient> ambients = Arrays.asList(
+			createAmbient("University", true, true, "City"),
+			createAmbient("FMI", true, true, "University"),
+			createAmbient("City", true, true, "")
+		);
+
+		CommunicationType uniToFmi = GeneratorUtil.detectCommunicationType("University", "FMI", ambients);
+		CommunicationType fmiToUni = GeneratorUtil.detectCommunicationType("FMI", "University", ambients);
+
+		assertEquals(uniToFmi.inverse(), fmiToUni,
+			"Swapping sender and recipient should give the inverse communication type");
+	}
+
+	// --- isInitiator ---
+
+	@Test
+	public void testIsInitiator_senderMatchesRespondToNull() {
+		Message msg = new Message("Hospital", "Pharmacy", "null", "null", "request");
+
+		assertTrue(GeneratorUtil.isInitiator("Hospital", msg));
+	}
+
+	@Test
+	public void testIsInitiator_senderMatchesRespondToNotNull() {
+		Message msg = new Message("Hospital", "Pharmacy", "null", "request", "response");
+
+		assertFalse(GeneratorUtil.isInitiator("Hospital", msg));
+	}
+
+	@Test
+	public void testIsInitiator_senderDoesNotMatch() {
+		Message msg = new Message("Hospital", "Pharmacy", "null", "null", "request");
+
+		assertFalse(GeneratorUtil.isInitiator("Pharmacy", msg));
+	}
+
+	@Test
+	public void testIsInitiator_ignoresPassMsgTo() {
+		Message msg = new Message("Hospital", "Pharmacy", "School", "null", "request");
+
+		assertTrue(GeneratorUtil.isInitiator("Hospital", msg),
+			"isInitiator should not check passMessageTo");
+	}
+
+	@Test
+	public void testIsInitiator_caseInsensitiveNull() {
+		Message msg = new Message("Hospital", "Pharmacy", "null", "NULL", "request");
+
+		assertTrue(GeneratorUtil.isInitiator("Hospital", msg));
+	}
+
+	// --- isResponder ---
+
+	@Test
+	public void testIsResponder_senderMatchesRespondToNotNull() {
+		Message msg = new Message("Pharmacy", "Hospital", "null", "request", "response");
+
+		assertTrue(GeneratorUtil.isResponder("Pharmacy", msg));
+	}
+
+	@Test
+	public void testIsResponder_senderMatchesRespondToNull() {
+		Message msg = new Message("Pharmacy", "Hospital", "null", "null", "request");
+
+		assertFalse(GeneratorUtil.isResponder("Pharmacy", msg));
+	}
+
+	@Test
+	public void testIsResponder_senderDoesNotMatch() {
+		Message msg = new Message("Pharmacy", "Hospital", "null", "request", "response");
+
+		assertFalse(GeneratorUtil.isResponder("Hospital", msg));
+	}
+
+	@Test
+	public void testIsResponder_caseInsensitiveNull() {
+		Message msg = new Message("Pharmacy", "Hospital", "null", "NULL", "response");
+
+		assertFalse(GeneratorUtil.isResponder("Pharmacy", msg),
+			"NULL (uppercase) should be treated as null/no respondTo");
+	}
+
+	// --- isForwarder ---
+
+	@Test
+	public void testIsForwarder_senderMatchesPassMsgToNotNull() {
+		Message msg = new Message("B", "C", "A", "null", "forwarded");
+
+		assertTrue(GeneratorUtil.isForwarder("B", msg));
+	}
+
+	@Test
+	public void testIsForwarder_senderMatchesPassMsgToNull() {
+		Message msg = new Message("B", "C", "null", "null", "request");
+
+		assertFalse(GeneratorUtil.isForwarder("B", msg));
+	}
+
+	@Test
+	public void testIsForwarder_senderDoesNotMatch() {
+		Message msg = new Message("B", "C", "A", "null", "forwarded");
+
+		assertFalse(GeneratorUtil.isForwarder("A", msg));
+	}
+
+	@Test
+	public void testIsForwarder_hasRespondToIsNotForwarder() {
+		Message msg = new Message("B", "A", "null", "request", "response");
+
+		assertFalse(GeneratorUtil.isForwarder("B", msg),
+			"A responder (respondTo != null) should not be a forwarder");
+	}
+
+	@Test
+	public void testIsForwarder_caseInsensitiveNull() {
+		Message msg = new Message("B", "C", "NULL", "NULL", "forwarded");
+
+		assertFalse(GeneratorUtil.isForwarder("B", msg),
+			"NULL (uppercase) in passMsgTo should be treated as null");
 	}
 
 	// --- helpers ---

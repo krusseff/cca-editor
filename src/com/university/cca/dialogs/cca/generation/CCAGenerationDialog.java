@@ -13,9 +13,11 @@ import javax.swing.JTextPane;
 import com.university.cca.buttons.CloseDialogButton;
 import com.university.cca.buttons.cca.GenerateCCAButtonV1;
 import com.university.cca.buttons.cca.GenerateCCAButtonV2;
+import com.university.cca.buttons.cca.GenerateCCAButtonV3;
 import com.university.cca.buttons.cca.OpenCCAFileButton;
 import com.university.cca.buttons.cca.StartAnimatedScenarioButton;
 import com.university.cca.buttons.cca.StartConsoleScenarioButton;
+import com.university.cca.buttons.cca.StartIntegratedConsoleButton;
 import com.university.cca.frames.AppMainFrame;
 import com.university.cca.util.MouseCursorUtil;
 
@@ -37,10 +39,10 @@ public class CCAGenerationDialog extends JDialog {
 	private static final boolean IS_MODAL 	= true;
 	private static final boolean IS_VISIBLE = true;
 	
-	private static final int HEIGHT_DIALOG = 400;
+	private static final int HEIGHT_DIALOG = 450;
 	private static final int WIDHT_DIALOG  = 600;
 	
-	private static final int GRID_ROWS = 6;
+	private static final int GRID_ROWS = 8;
 	private static final int GRID_COLS = 1;
 	
 	private AppMainFrame parentFrame;
@@ -78,7 +80,9 @@ public class CCAGenerationDialog extends JDialog {
 		JPanel contentPanel = new JPanel(new GridLayout(GRID_ROWS, GRID_COLS));
 		contentPanel.add(new GenerateCCAButtonV1(getParentFrame()));
 		contentPanel.add(new GenerateCCAButtonV2(getParentFrame()));
+		contentPanel.add(new GenerateCCAButtonV3(getParentFrame()));
 		contentPanel.add(new StartConsoleScenarioButton(getParentFrame()));
+		contentPanel.add(new StartIntegratedConsoleButton(getParentFrame()));
 		contentPanel.add(new StartAnimatedScenarioButton(getParentFrame()));
 		contentPanel.add(new OpenCCAFileButton(getParentFrame()));
 		contentPanel.add(new CloseDialogButton(this));
